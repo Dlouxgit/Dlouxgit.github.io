@@ -357,31 +357,28 @@ td {
   margin-top: 3px;
 }
 .toggle.toggle-arrow .toggle-line-first {
-  left: 50%;
   top: 2px;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   width: 50%;
 }
 .toggle.toggle-arrow .toggle-line-middle {
-  left: 2px;
   width: 90%;
 }
 .toggle.toggle-arrow .toggle-line-last {
-  left: 50%;
   top: -2px;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
   width: 50%;
 }
 .toggle.toggle-close .toggle-line-first {
-  transform: rotate(-45deg);
   top: 5px;
+  transform: rotate(-45deg);
 }
 .toggle.toggle-close .toggle-line-middle {
   opacity: 0;
 }
 .toggle.toggle-close .toggle-line-last {
-  transform: rotate(45deg);
   top: -5px;
+  transform: rotate(45deg);
 }
 .highlight,
 pre {
@@ -940,7 +937,9 @@ pre .javascript .function {
   }
 }
 .header {
-  background: transparent;
+  background: url("../images/header.jpg");
+  background-size: 100% auto;
+  height: 320px;
 }
 .header-inner {
   margin: 0 auto;
@@ -1176,7 +1175,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #507f54;
+  background: #54ff4b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1422,6 +1421,7 @@ pre .javascript .function {
   color: #ff0000;
   display: inline-block;
   margin: 0 5px;
+  animation: iconAnimate 1.33s ease-in-out infinite;
 }
 .powered-by,
 .theme-info {
@@ -1968,6 +1968,13 @@ pre .javascript .function {
 #qr p {
   text-align: center;
 }
+.post-copyright {
+  background: var(--card-bg-color);
+  border-left: 3px solid #ff2a2a;
+  list-style: none;
+  margin: 2em 0 0;
+  padding: 0.5em 1em;
+}
 .category-all-page .category-all-title {
   text-align: center;
 }
@@ -2261,10 +2268,24 @@ embed {
   display: inline-block;
 }
 .sidebar {
-  left: -320px;
+  right: -320px;
 }
 .sidebar.sidebar-active {
-  left: 0;
+  right: 0;
+}
+.sidebar-toggle,
+.back-to-top {
+  left: auto;
+  right: 30px;
+}
+@media (max-width: 991px) {
+  .sidebar-toggle,
+  .back-to-top {
+    right: 20px;
+  }
+}
+.book-mark-link {
+  left: 30px;
 }
 .sidebar {
   width: 320px;
@@ -2294,4 +2315,122 @@ embed {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+body {
+  background-image: url("../images/background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  padding-right: 0 !important;
+}
+main.main {
+  margin-top: 30px;
+}
+main.main div.main-inner {
+  width: 1140px;
+  margin: 0 auto;
+}
+main.main div.main-inner div.content-wrap {
+  width: 60%;
+  display: inline-block;
+  padding: 0 15px;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand {
+  padding-top: 0;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand article {
+  overflow: hidden;
+  background-size: cover;
+  border-radius: 20px;
+  width: 100%;
+  height: 334px;
+  margin-bottom: 30px;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand article div.post-top {
+  color: #fff;
+  background-image: url("../images/03.png");
+  background-size: cover;
+  height: 300px;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand article div.post-top div.post-top-hover {
+  height: 100%;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand article div.post-top div.post-top-hover:hover {
+  background-color: rgba(0,0,0,0.6);
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand article div.post-top div.post-top-hover header.post-header {
+  padding-top: 120px;
+  transition: padding-top linear 0.2s;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand article div.post-top div.post-top-hover header.post-header:hover {
+  padding-top: 0px;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand article div.post-top div.post-top-hover header.post-header .post-title-link {
+  color: #fff !important;
+  text-shadow: 0 0 8px #fff;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand article div.post-top div.post-top-hover .post-body {
+  margin: 10px 40px;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand article footer.post-footer {
+  position: relative;
+  height: 34px;
+  line-height: 34px;
+  background-color: #fff;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand article footer.post-footer div.post-meta {
+  margin: 0;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand article footer.post-footer div.post-button-more {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 20px;
+  font-size: 0.875em;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand nav.pagination span {
+  border-color: #51aded;
+  background-color: #51aded;
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand nav.pagination a.page-number {
+  background-color: rgba(255,255,255,0.9);
+  color: #626262;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+aside.sidebar {
+  padding: 0 15px;
+  display: inline-block;
+  position: inherit;
+  vertical-align: top;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #fff;
+  border-radius: 10px;
+}
+div.menu-header {
+  background: rgba(40,42,44,0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 16px;
+  line-height: 41px;
+}
+div.menu-header .site-nav {
+  padding: 0 130px;
+}
+div.menu-header .site-nav ul#menu {
+  margin: 0;
+  text-align: left;
+}
+div.menu-header .site-nav ul#menu li.menu-item a {
+  color: #fff;
+}
+div.menu-header .site-nav ul#menu li.menu-item a i {
+  display: inline;
+  width: 15px;
+  padding-right: 4px;
 }
