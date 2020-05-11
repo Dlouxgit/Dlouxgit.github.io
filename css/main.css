@@ -1143,12 +1143,6 @@ pre .javascript .function {
   padding: 2px;
   border-radius: 50%;
 }
-.site-author-image {
-  transition: transform 1s ease-out;
-}
-.site-author-image:hover {
-  transform: rotateZ(360deg);
-}
 .site-author-name {
   color: #f5f5f5;
   font-weight: normal;
@@ -1175,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #54ff4b;
+  background: #ff73ad;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2323,6 +2317,21 @@ body {
   position: relative;
   padding-right: 0 !important;
 }
+header.header {
+  background-size: cover;
+}
+header.header .site-meta a.brand {
+  background-color: transparent;
+}
+header.header .site-meta a.brand h1.site-title {
+  font-size: 40px;
+  text-shadow: 2px 2px 2px #666;
+  margin-bottom: 10px;
+}
+header.header .site-meta a.brand span.logo-line-after {
+  font-size: 25px;
+  text-shadow: 2px 2px 2px #666;
+}
 main.main {
   margin-top: 30px;
 }
@@ -2388,18 +2397,23 @@ main.main div.main-inner div.content-wrap div.content.index.posts-expand article
   padding-right: 20px;
   font-size: 0.875em;
 }
-main.main div.main-inner div.content-wrap div.content.index.posts-expand nav.pagination span {
+main.main div.main-inner div.content-wrap div.content.index.posts-expand nav.pagination span:first-child {
   border-color: #51aded;
   background-color: #51aded;
   color: #fff;
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
   border-radius: 4px;
 }
-main.main div.main-inner div.content-wrap div.content.index.posts-expand nav.pagination a.page-number {
+main.main div.main-inner div.content-wrap div.content.index.posts-expand nav.pagination a {
   background-color: rgba(255,255,255,0.9);
   color: #626262;
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
   border-radius: 4px;
+  transition: all 0.4s ease;
+}
+main.main div.main-inner div.content-wrap div.content.index.posts-expand nav.pagination a:hover {
+  background-color: #51aded;
+  color: #fff;
 }
 aside.sidebar {
   padding: 0 15px;
@@ -2412,7 +2426,7 @@ aside.sidebar {
 }
 div.menu-header {
   background: rgba(40,42,44,0.5);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
