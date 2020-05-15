@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff39c8;
+  background: #7c5ced;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2340,9 +2340,10 @@ main.main div.main-inner {
   margin: 0 auto;
 }
 main.main div.main-inner div.content-wrap {
-  width: 60%;
+  width: 65%;
   display: inline-block;
-  padding: 0 15px;
+  padding: 0 0 0 15px;
+  margin-right: 15px;
 }
 main.main div.main-inner div.content-wrap div.content.index.posts-expand {
   padding-top: 0;
@@ -2367,12 +2368,12 @@ main.main div.main-inner div.content-wrap div.content.index.posts-expand article
 main.main div.main-inner div.content-wrap div.content.index.posts-expand article div.post-top div.post-top-hover:hover {
   background-color: rgba(0,0,0,0.6);
 }
+main.main div.main-inner div.content-wrap div.content.index.posts-expand article div.post-top div.post-top-hover:hover header.post-header {
+  padding-top: 0px;
+}
 main.main div.main-inner div.content-wrap div.content.index.posts-expand article div.post-top div.post-top-hover header.post-header {
   padding-top: 120px;
   transition: padding-top linear 0.2s;
-}
-main.main div.main-inner div.content-wrap div.content.index.posts-expand article div.post-top div.post-top-hover header.post-header:hover {
-  padding-top: 0px;
 }
 main.main div.main-inner div.content-wrap div.content.index.posts-expand article div.post-top div.post-top-hover header.post-header .post-title-link {
   color: #fff !important;
@@ -2421,7 +2422,7 @@ aside.sidebar {
   position: inherit;
   vertical-align: top;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.8);
   border-radius: 10px;
 }
 div.menu-header {
@@ -2447,4 +2448,35 @@ div.menu-header .site-nav ul#menu li.menu-item a i {
   display: inline;
   width: 15px;
   padding-right: 4px;
+}
+.main {
+  width: 100%;
+}
+.content-wrap {
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 15px;
+}
+.transparentcont {
+  background-color: rgba(255,255,255,0);
+}
+@media (max-width: 767px) {
+  .main-inner {
+    width: 96% !important;
+  }
+  .main-inner .content-wrap {
+    width: auto !important;
+    padding: 0 15px !important;
+  }
+  .main-inner .sidebar {
+    display: none;
+  }
+  .transparentcont .post-block {
+    height: 234px !important;
+  }
+  .transparentcont .post-block .post-top {
+    height: 200px !important;
+  }
+  .transparentcont .post-block .post-top .post-header {
+    padding-top: 80px !important;
+  }
 }
