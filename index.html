@@ -204,48 +204,10 @@
       
           <h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p>display 为 block, list-item, table 都是块元素。</p>
 <p>只有块元素才可能触发 BFC。</p>
-<ul>
-<li>根元素</li>
-<li>float 不为 none （每个浮动元素都是一个独立的 BFC, 他们的 margin 不会重叠）</li>
-<li>display 为 inline-block, table-cell, table-caption, flex, inline-flex</li>
-<li>overflow 不是 visible</li>
-<li>position 不为 static 或者 relative</li>
-</ul>
-<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ol>
-<li><p>BFC 中，盒子从顶部开始垂直一个一个排列。</p>
-</li>
-<li><p>垂直方向的距离由 margin 决定。<strong>属于同一个BFC的两个相邻盒子的 margin 会发生重叠</strong></p>
-</li>
-<li><p>BFC 中子元素的 margin-left 会碰到父元素的 margin-left</p>
-</li>
-<li><p>计算 BFC 高度时，浮动元素和定位元素也参与计算。</p>
-</li>
-<li><p>BFC 的区域不会与浮动盒子产生重叠，而是紧贴浮动边缘。</p>
-</li>
-<li><p>BFC 是一个独立容器，里面的元素不会影响到外面的元素，外面的也无法影响里面的</p>
-</li>
-</ol>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol>
-<li><p>清浮动</p>
-<p>只要把父元素设为 BFC 就可以清浮动了，因为<code>计算BFC高度时，浮动元素也会参与到高度计算中</code></p>
-</li>
-<li><p>解决边距重合问题</p>
-<p>两个块元素垂直方向 margin 重叠，只要两个块元素不属于同一个 BFC 即可。 <code>同一个 BFC，相邻的两个盒子 BFC 会发生重叠，因为一般两个盒子都在 &lt;body&gt; 这个 BFC 中，它默认就是一个 BFC 元素，所以里面的元素需要自己改成不同的 BFC</code></p>
-</li>
-<li><p>制作右侧自适应盒子</p>
-<p><code>普通流元素 BFC 后，为了不予浮动元素产生交集，会顺着浮动边缘形成自己的封闭上下文</code></p>
-<p><img src="img%5Cimage-20200515111115694.png" alt="image-20200515111115694"></p>
-<p>如图，p 元素变成 BFC 后，绕着绿色的浮动元素边缘。右侧宽度自适应，与浮动元素同行展示，</p>
-<p><img src="img%5Cimage-20200515111746878.png" alt="image-20200515111746878"></p>
-<p>这是不加 BFC 时，p 与浮动元素重叠了。</p>
-</li>
-<li><p>父元素与第一个子元素的上外边距发生合并</p>
-<p>给子元素或者父元素创建 BFC，子元素不能使用 overflow 生成 BFC，其他无限制，或给子元素外面套一个 BFC。<code>能用这个方法解决的原因大概是 BFC 的内容不能影响到 BFC 之外的元素，网上搜了一圈没有找到解释，自己猜的</code></p>
-</li>
-</ol>
-<p>   （或者给父元素添加 padding-top 或者 border-top，也可以解决。 因为第一个子元素的 border-top 会先去看看有没有能限制它位置的东西，先找父元素的 padding-top，再去找 border-top，如果都没有，那就肆无忌惮自己顶出去了。。所以只要给父元素加一个边界就能卡住子元素的外边距）</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>BFC 就是页面上的独立容器，里面的元素不会影响外面的元素，了解了之后，就可以轻松解决浮动和外边距合并带来的布局问题，只要给他们都加上一个 BFC 的父元素，或者把它们变成 BFC 即可。</p>
+          <!--noindex-->
 
+          <!--/noindex-->
+        
       
     </div>
 
@@ -268,7 +230,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-05-15 10:28:58 / Modified: 11:44:50" itemprop="dateCreated datePublished" datetime="2020-05-15T10:28:58+08:00">2020-05-15</time>
+              <time title="Created: 2020-05-15 10:28:58 / Modified: 21:27:38" itemprop="dateCreated datePublished" datetime="2020-05-15T10:28:58+08:00">2020-05-15</time>
             </span>
           </div>
           <div class="post-button-more">
@@ -320,22 +282,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="3d"><a href="#3d" class="headerlink" title="3d"></a>3d</h2><p>transform:  translateZ( )   （没有 transform-style: preserve-3d 就不会有效果，看起来没有什么变化）</p>
-<p>transform-style: preserve-3d;    （想要有立体效果，就必须给父元素添加这个属性，默认值是 <code>flat</code>，表示2d展示。 preserve-3d 这样相当于开启3d展示。这个<strong>属性不继承</strong>，想要子元素有空间效果，就必须给父元素添加）</p>
-<p>perspective:  100px     (景深，透视，通俗点讲就是设置屏幕的距离与物体的距离，值越大距离越远。，绕Y旋转时，最大值应该不超过图片宽度，（实际上超出的值也是有效的），否则可能看不见，因为图片宽度没有那么大，如果是绕中线旋转，那应该是 1/2 的图片宽度，作为属性给<strong>父元素</strong>设置时，作用于所有子元素）</p>
-<p>transform: perspective(100px)    （给自己设置景深，必须写在变换的最前面，否则不起效果，如 transform: rotateY(45deg）perspective(100px); 是不起效果的。必须写在前面transform: perspective(100px) rotateY(45deg);  因为 transform 这个属性，前面的值会影响后面的值）</p>
-<p><img src="img%5Cimage-20200515093022617.png" alt="image-20200515093022617"></p>
-<div align="center">给父元素添加 perspective: 300px 时，如上 </div>
+          <h2 id="3d"><a href="#3d" class="headerlink" title="3d"></a>3d</h2><p>CSS3的一些3d样式笔记（perserve方面）</p>
+          <!--noindex-->
 
-<p><img src="img%5Cimage-20200515093302076.png" alt="image-20200515093302076"></p>
-<div align="center">给子元素添加 transform: perspective(300px) 时，如上</div>
-
-<p>相当于给父元素添加 perspective: 时，是一个人看所有东西，给子元素添加 transform: perspective( ) 时，是每个东西都分配一个人去看（而且他们相对于自己对应的物体的位置是一样的）</p>
-<p>perspective-origin:  100% 0% （视角方向）</p>
-<p>transform-origin: 100% 0%     (设置以什么点开启变换)</p>
-<p>backface-visibility: hidden;      （翻转到背后时背景是否可见，默认为 visible ，背景可见）</p>
-<p>一旦用 3d 属性，可以触发设备的硬件加速，让浏览器性能提升。</p>
-
+          <!--/noindex-->
+        
       
     </div>
 
@@ -358,7 +309,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-05-15 09:04:29 / Modified: 11:21:47" itemprop="dateCreated datePublished" datetime="2020-05-15T09:04:29+08:00">2020-05-15</time>
+              <time title="Created: 2020-05-15 09:04:29 / Modified: 21:33:58" itemprop="dateCreated datePublished" datetime="2020-05-15T09:04:29+08:00">2020-05-15</time>
             </span>
           </div>
           <div class="post-button-more">
@@ -410,7 +361,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1>
+          <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><p>简单的 git 指令</p>
           <!--noindex-->
 
           <!--/noindex-->
@@ -634,7 +585,7 @@
   var pathName = window.document.location.pathname;
   var cont = document.getElementsByClassName("content-wrap")[0];
   console.log(cont);
-  if (pathName =='/') {
+  if (pathName =='/' || pathName =='/note/') {
     console.log(pathName);
     console.log(cont.style.backgroundColor)
     cont.className="content-wrap transparentcont";

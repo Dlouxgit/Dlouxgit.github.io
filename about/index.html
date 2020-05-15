@@ -382,7 +382,7 @@
   var pathName = window.document.location.pathname;
   var cont = document.getElementsByClassName("content-wrap")[0];
   console.log(cont);
-  if (pathName =='/') {
+  if (pathName =='/' || pathName =='/note/') {
     console.log(pathName);
     console.log(cont.style.backgroundColor)
     cont.className="content-wrap transparentcont";
