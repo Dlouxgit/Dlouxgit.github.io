@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #660f55;
+  background: #f530ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2464,6 +2464,9 @@ div.menu-header .site-nav ul#menu li.menu-item a i {
 }
 .transparentcont {
   background-color: rgba(255,255,255,0);
+}
+.post-top-hover {
+  padding-right: 15px;
 }
 @media (max-width: 767px) {
   .main-inner {
