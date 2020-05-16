@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/note/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/note/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/note/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/note/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/note/css/main.css">
+
+
+<link rel="stylesheet" href="/note/lib/font-awesome/css/all.min.css">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dloux.gitee.io","root":"/note/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="数据类型分为基本数据类型和复杂数据类型。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jsBasic">
+<meta property="og:url" content="https://dloux.gitee.io/2020/05/16/jsBasic/index.html">
+<meta property="og:site_name" content="Dloux">
+<meta property="og:description" content="数据类型分为基本数据类型和复杂数据类型。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-16T01:11:41.000Z">
+<meta property="article:modified_time" content="2020-05-16T09:00:20.355Z">
+<meta property="article:author" content="Dloux">
+<meta property="article:tag" content="js">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://dloux.gitee.io/2020/05/16/jsBasic/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>jsBasic | Dloux</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/note/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Dloux</h1>
+      
+      <span class="logo-line-after">你好</span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+ 
+
+
+
+</div>
+      
+      <div class="menu-header">
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/note/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/note/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/note/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/note/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+</div>
+      
+      
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/05/16/jsBasic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/note/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          jsBasic
+        </h1>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>分为基本数据类型和复杂数据类型。</p>
+<a id="more"></a>
+
+<p>基本数据类型分为五种，</p>
+<ul>
+<li>字符串类型</li>
+<li>数字类型</li>
+<li>布尔类型 Boolean 类型</li>
+<li>undefined 类型</li>
+<li>null 类型</li>
+</ul>
+<p>ES6 中会新增一种基本数据类型，Symbol，表示独一无二的值，最大的用法是用来定义对象唯一的属性名。</p>
+<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><p>用引号来包裹的内容</p>
+<p>双引号会搜索引号内的内容是不是有变量，有则输出其值，没有则输出原有内容。所以输出纯字符串的时候用单引号比双引号效率高，因为省去检索的过程。</p>
+<p>一般情况下，建议优先使用单引号包含字符串，这样做有几个好处：</p>
+<ol>
+<li>html中标签的属性是用双引号包裹，在js中如果要动态输出html内容，则用单引号将整体html代码包裹起来，而标签中的属性刚好用双引号，避免了转义</li>
+<li>编写代码时，双引号需要按shift才可以输入，无形之中降低了敲代码的速度</li>
+</ol>
+<p>虽然在语法上，单引号和双引号没有区别，建议优先选用单引号，如何字符串内还有引号，再用双引号，必要的时候还需要用\进行转义</p>
+<p>转义字符</p>
+<h3 id="Number-数值"><a href="#Number-数值" class="headerlink" title="Number 数值"></a>Number 数值</h3><p>在 JS 中所有数据都是 Number 类型，包括整数和浮点数（小数）。</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><p>Infinity 正无穷</p>
+<p>-Infinity 负无穷</p>
+<p><code>typeof Infinity 返回 number</code></p>
+<p>NaN 是一个特殊的数字，表示 Not a Number，非数值。</p>
+<p>比如 <code>a = &#39;b&#39; * &#39;c&#39;</code> 打印 a 的值就会出现 NaN 。</p>
+<p>isNaN() 可以用来检测是不是 NaN，返回 true 或 false</p>
+<h3 id="Null-类型"><a href="#Null-类型" class="headerlink" title="Null 类型"></a>Null 类型</h3><p>typeof 检测 null 是 object ，由于 typeof 检测不准确，所以一般用下面这个方法检测<code>Object.prototype.toString.call()</code></p>
+<h3 id="Boolean-类型"><a href="#Boolean-类型" class="headerlink" title="Boolean 类型"></a>Boolean 类型</h3><p>只有两个值 true 或是 false 。</p>
+<h3 id="Undefined-类型"><a href="#Undefined-类型" class="headerlink" title="Undefined 类型"></a>Undefined 类型</h3><p>表示未定义，比如 <code>var a</code> ，之后打印 a，就会返回 undefined。</p>
+<h2 id="复杂数据类型"><a href="#复杂数据类型" class="headerlink" title="复杂数据类型"></a>复杂数据类型</h2><p>数组、函数、对象。</p>
+<h3 id="对象类型"><a href="#对象类型" class="headerlink" title="对象类型"></a>对象类型</h3><p>用 key: value 来表示对象的属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    username: <span class="string">'张三'</span>,</span><br><span class="line">    sex: <span class="string">'男'</span>,</span><br><span class="line">    age: <span class="number">24</span>,</span><br><span class="line">    child: &#123;</span><br><span class="line">        name: <span class="string">'小明'</span>,</span><br><span class="line">        age: <span class="number">2</span></span><br><span class="line">    &#125;,</span><br><span class="line">    say: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">'hello'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h3><p>存放数据 <code>var a= []</code></p>
+<h3 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h3><p><code>function a(){}</code></p>
+<h2 id="类型转换方式"><a href="#类型转换方式" class="headerlink" title="类型转换方式"></a>类型转换方式</h2><ol>
+<li><p><code>+</code> 如果两侧存在字符串，就拼接字符串，否则转换为数值（隐式转换，如 true 变成 1，false、null、都为0。</p>
+<p>NaN 参与的运算，结果都是NaN</p>
+</li>
+<li><p><code>-</code> 转换成数值，<code>&#39;100&#39;-1 // 99</code>，所以可以用 -0、*1、/1 来转换成数值</p>
+<p>NaN 参与的运算，结果都是NaN</p>
+</li>
+<li><p><code>toString()</code> , undefined 和 null 类型没有 <code>toString()</code> 这个方法，作用是把 number 类型转换成字符串</p>
+</li>
+<li><p><code>String()</code> 转换成 字符串。<strong>隐式转换时调用</strong> 如<code>c + &#39;&#39; = &#39;c&#39;</code></p>
+</li>
+<li><p><code>Boolean()</code> 转换成 布尔值。数字 0 和 NaN 、’’（空字符串）、null、undefined，只有这几个值转换后是 false，其他都是 true。<strong>隐式转换时调用</strong></p>
+</li>
+<li><p><code>Number()</code> 转换成 数值。<strong>隐式转换时调用</strong></p>
+<ol>
+<li><p>字符串转数字</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="string">'2002'</span>) <span class="comment">// 2002</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'2002年'</span>) <span class="comment">// NaN 带非数字就 NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">''</span>) <span class="comment">// 0 空字符串</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'    '</span>) <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>null </p>
+<p><strong>返回 0</strong></p>
+</li>
+<li><p>undefined</p>
+<p><strong>返回 NaN</strong></p>
+</li>
+<li><p>boolean</p>
+<ul>
+<li>true 返回 1</li>
+<li>false 返回 0</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><code>parseInt()</code> 和<code>parseFloat()</code></p>
+<p>把字符串转换成数字类型</p>
+<ul>
+<li><pre><code class="javascript"><span class="built_in">parseInt</span>(<span class="string">'2002年'</span>) <span class="comment">// 2002</span>
+<span class="built_in">parseInt</span>(<span class="string">'2002.01月'</span>) <span class="comment">// 2002</span>
+<span class="built_in">parseFloat</span>(<span class="string">'2002.01.12px'</span>) <span class="comment">// 2002.01  只会返回第一个 . 前后的数字，后面处理 元素的大小（多少px），需要用到，因为获取的值里带 px，Number()不好处理</span>
+<span class="built_in">parseInt</span>(<span class="string">'年2002'</span>) <span class="comment">// NaN</span>
+&lt;!--￼<span class="number">2</span>--&gt;
+
+会先隐式转换成字符串，所以返回<span class="literal">NaN</span>
+
+<span class="string">`parseInt('1A',16) // 26 `</span>以十六进制去解析这个字符串，返回十进制结果
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>算数运算符 +、-、\、*、=、++、–</p>
+<p>比较运算符 &lt;、&gt;、==、===、!=、!==</p>
+<p>&lt;= 、 &gt;= 这两个是有效的！如 <code>console.log(1 &gt;= true) // true</code> </p>
+<p>注意当两侧都是字符串时候，&gt;、&lt; 比较的是 Unicode 码。 如<code>&#39;56&#39; &gt; &#39;123&#39; // true</code> 因为第一位 5 的 Unicode 码 大于 1，如果第一位相同，则继续比较第二位。</p>
+<h3 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> == <span class="literal">NaN</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span> <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 规范中提到， 要比较相等性之前，不能将 null 和 undefined 转换成其他任何值，并且规定null 和 undefined 是相等的。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><ul>
+<li><p>与（且） &amp;&amp;</p>
+</li>
+<li><p>或  ||</p>
+</li>
+<li><p>非  !</p>
+</li>
+</ul>
+<h3 id="短路运算"><a href="#短路运算" class="headerlink" title="短路运算"></a>短路运算</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 短路 与运算(&amp;&amp;)</span></span><br><span class="line"><span class="literal">true</span> &amp;&amp; alert(<span class="string">'1'</span>) <span class="comment">// 会 alert</span></span><br><span class="line"><span class="literal">false</span> &amp;&amp; alert(<span class="string">'1'</span>) <span class="comment">// 不会 alert</span></span><br></pre></td></tr></table></figure>
+
+<p>由于第一个条件就是 false，所以第二个条件将不会执行，直接输出 false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 短路 或运算(||)</span></span><br><span class="line"><span class="literal">true</span> || alert(<span class="string">'1'</span>) <span class="comment">// 不会alert</span></span><br><span class="line"><span class="literal">false</span> || alert(<span class="string">'1'</span>) <span class="comment">// 会alert</span></span><br></pre></td></tr></table></figure>
+
+<p>由于第一个条件是 true，所以第二个条件将不会执行，直接输出true</p>
+<h3 id="非布尔值的运算"><a href="#非布尔值的运算" class="headerlink" title="非布尔值的运算"></a>非布尔值的运算</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = <span class="number">5</span> &amp;&amp; <span class="number">6</span> <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<p>由于第一个条件 5 是 true，在且运算中，无法判断最终结果，所以接着进行下一个条件 6，也是 true，最终结果为 true，所以返回最后决定结果的条件 6.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = <span class="number">5</span> || <span class="number">6</span> <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<p>由于第一个条件 5 是 true，在或运算中，已经可以决定最终结果为 true，所以返回最后决定结果的条件 5.</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>如果通过前一个条件无法判断出最终结果的真假，就会继续执行下一个条件。</p>
+<p>非布尔值的运算，谁决定最后的结果就返回谁。</p>
+
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Dloux
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://dloux.gitee.io/2020/05/16/jsBasic/" title="jsBasic">https://dloux.gitee.io/2020/05/16/jsBasic/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/note/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/note/2020/05/15/bfc/" rel="prev" title="bfc">
+      <i class="fa fa-chevron-left"></i> bfc
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-数值"><span class="nav-number">1.1.2.</span> <span class="nav-text">Number 数值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">1.1.2.1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Null-类型"><span class="nav-number">1.1.3.</span> <span class="nav-text">Null 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean-类型"><span class="nav-number">1.1.4.</span> <span class="nav-text">Boolean 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Undefined-类型"><span class="nav-number">1.1.5.</span> <span class="nav-text">Undefined 类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂数据类型"><span class="nav-number">1.2.</span> <span class="nav-text">复杂数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">对象类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组类型"><span class="nav-number">1.2.2.</span> <span class="nav-text">数组类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数类型"><span class="nav-number">1.2.3.</span> <span class="nav-text">函数类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换方式"><span class="nav-number">1.3.</span> <span class="nav-text">类型转换方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">1.4.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊情况"><span class="nav-number">1.4.1.</span> <span class="nav-text">特殊情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">1.5.</span> <span class="nav-text">逻辑运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#短路运算"><span class="nav-number">1.5.1.</span> <span class="nav-text">短路运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非布尔值的运算"><span class="nav-number">1.5.2.</span> <span class="nav-text">非布尔值的运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dloux"
+      src="/note/images/dloux.jpg">
+  <p class="site-author-name" itemprop="name">Dloux</p>
+  <div class="site-description" itemprop="description">ddd</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/note/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dlouxgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dlouxgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dloux</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/note/lib/anime.min.js"></script>
+  <script src="/note/lib/velocity/velocity.min.js"></script>
+  <script src="/note/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/note/js/utils.js"></script>
+
+<script src="/note/js/motion.js"></script>
+
+
+<script src="/note/js/schemes/muse.js"></script>
+
+
+<script src="/note/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+  <script async src="./js/cursor/fireworks.js"></script>
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+
+
+
+<script>
+  var pathName = window.document.location.pathname;
+  var cont = document.getElementsByClassName("content-wrap")[0];
+  console.log(cont);
+  if (pathName =='/' || pathName =='/note/') {
+    console.log(pathName);
+    console.log(cont.style.backgroundColor)
+    cont.className="content-wrap transparentcont";
+    // cont.style.backgroundColor = "rgba(255,255,255,0) !importent";
+  }
+</script>
+</body>
+</html>
