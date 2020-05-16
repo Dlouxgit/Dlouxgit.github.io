@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #49e7ff;
+  background: #95bf0f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2500,6 +2500,6 @@ div.menu-header .site-nav ul#menu li.menu-item a i {
 .main-inner * {
   letter-spacing: 0px;
 }
-.post-top-hover {
-  padding-right: 15px;
+.toggle {
+  z-index: 1;
 }
