@@ -280,18 +280,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><p><code>filter</code> 接受一个回调函数，它将会遍历数组，该回调函数必须返回一个布尔值，表示被遍历到的值是否过滤(添加进 <code>filter</code> 内部的新数组作为返回值)。遍历完成后， <code>filter</code> 会返回这个新数组，需要接收。由于返回的是新数组，所以可以链式编程。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">67</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"><span class="keyword">const</span> newArr = arr.filter(<span class="function"><span class="params">n</span> =&gt;</span> n &gt; <span class="number">10</span>) <span class="comment">// [67]</span></span><br></pre></td></tr></table></figure>
+          <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数
+          <!--noindex-->
 
-<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><p><code>map</code> 接受一个回调函数，它将会遍历数组，该函数每次的返回值，会作为函数内部新数组的内容，遍历完成后，<code>map</code> 会返回这个新数组，需要接受。由于返回的是新数组，所以可以链式编程。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">const</span> newArr = arr.map(<span class="function"><span class="params">n</span> =&gt;</span> n * <span class="number">2</span>) <span class="comment">// [2, 4, 6]</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h4><p><code>reduce</code> 接受一个回调函数，它将会遍历数组。它的作用是对数组内容进行汇总，该回调函数的第一个参数是一个函数，接受两个参数，一个表示上一次执行该函数返回的值<code>(previousValue)</code>，一个表示数组当前值<code>(currentValue)</code>。回调函数的第二个参数是初始值，用于表示第一次执行第一个参数(它是函数)时，<code>(previousValue)</code> 的值。遍历完成后， <code>reduce</code> 会返回这个汇总的值<code>(previousValue)</code>，需要接收。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// arr.reduce((previousValue, currentValue) =&gt; &#123;&#125;, originValue)</span></span><br><span class="line"><span class="comment">// 源码中对 reduce 进行了两次声明，因为是 ts 写的，所以第一次声明不会被第二次声明覆盖，两者都会存在，这叫做重载。</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">const</span> totalVal = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current) <span class="comment">// 6</span></span><br><span class="line"><span class="keyword">const</span> totalVal = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current, <span class="number">0</span>) <span class="comment">// 6</span></span><br><span class="line"><span class="keyword">const</span> totalVal = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current, <span class="number">7</span>) <span class="comment">// 13</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意，当数组中被遍历的项为对象时，必须加上初始值，因为对象与数值相加,两者都会自动调用 toString() 方法后相加。</span></span><br><span class="line"><span class="keyword">const</span> arr = [&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;, &#123;<span class="attr">a</span>: <span class="number">2</span>&#125;, &#123;<span class="attr">a</span>: <span class="number">3</span>&#125;]</span><br><span class="line"><span class="keyword">const</span> totalval = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current.a) <span class="comment">// "[object Object]23"</span></span><br><span class="line"><span class="keyword">const</span> totalval = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current.a, <span class="number">0</span>) <span class="comment">// 123</span></span><br></pre></td></tr></table></figure>
-
-
-
-
+          <!--/noindex-->
+        
       
     </div>
 
@@ -312,9 +305,8 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-07-22 14:27:02 / Modified: 15:02:55" itemprop="dateCreated datePublished" datetime="2020-07-22T14:27:02+08:00">2020-07-22</time>
+              <time title="Created: 2020-07-22 14:27:02" itemprop="dateCreated datePublished" datetime="2020-07-22T14:27:02+08:00">2020-07-22</time>
             </span>
           </div>
           <div class="post-button-more">
@@ -444,7 +436,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h1><p>是一个渐进式框架，意味着你可以把 Vue 作为你应用的一部分嵌入到其中。通俗点举例，比如公司正在用 jQuery，但这时候需要项目重构，你可以从新项目开始使用 Vue，然后再一点一点地替换掉其他的项目，一点点地替换，就是渐进。
+          <h1 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js
           <!--noindex-->
 
           <!--/noindex-->

@@ -29,15 +29,15 @@
     var CONFIG = {"hostname":"dloux.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="高阶函数filterfilter 接受一个回调函数，它将会遍历数组，该回调函数必须返回一个布尔值，表示被遍历到的值是否过滤(添加进 filter 内部的新数组作为返回值)。遍历完成后， filter 会返回这个新数组，需要接收。由于返回的是新数组，所以可以链式编程。 12const arr &#x3D; [1, 2, 3, 4, 5, 67, 8, 9]const newArr &#x3D; arr.filter(n">
+  <meta name="description" content="高阶函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AdvancedFunction">
 <meta property="og:url" content="https://dloux.gitee.io/2020/07/22/AdvancedFunction/index.html">
 <meta property="og:site_name" content="Dloux">
-<meta property="og:description" content="高阶函数filterfilter 接受一个回调函数，它将会遍历数组，该回调函数必须返回一个布尔值，表示被遍历到的值是否过滤(添加进 filter 内部的新数组作为返回值)。遍历完成后， filter 会返回这个新数组，需要接收。由于返回的是新数组，所以可以链式编程。 12const arr &#x3D; [1, 2, 3, 4, 5, 67, 8, 9]const newArr &#x3D; arr.filter(n">
+<meta property="og:description" content="高阶函数">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-22T06:27:02.000Z">
-<meta property="article:modified_time" content="2020-07-22T07:02:55.258Z">
+<meta property="article:modified_time" content="2020-07-28T12:21:01.706Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="AdvancedFunction">
 <meta name="twitter:card" content="summary">
@@ -205,7 +205,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><p><code>filter</code> 接受一个回调函数，它将会遍历数组，该回调函数必须返回一个布尔值，表示被遍历到的值是否过滤(添加进 <code>filter</code> 内部的新数组作为返回值)。遍历完成后， <code>filter</code> 会返回这个新数组，需要接收。由于返回的是新数组，所以可以链式编程。</p>
+        <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数<a id="more"></a></h2><h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><p><code>filter</code> 接受一个回调函数，它将会遍历数组，该回调函数必须返回一个布尔值，表示被遍历到的值是否过滤(添加进 <code>filter</code> 内部的新数组作为返回值)。遍历完成后， <code>filter</code> 会返回这个新数组，需要接收。由于返回的是新数组，所以可以链式编程。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">67</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"><span class="keyword">const</span> newArr = arr.filter(<span class="function"><span class="params">n</span> =&gt;</span> n &gt; <span class="number">10</span>) <span class="comment">// [67]</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><p><code>map</code> 接受一个回调函数，它将会遍历数组，该函数每次的返回值，会作为函数内部新数组的内容，遍历完成后，<code>map</code> 会返回这个新数组，需要接受。由于返回的是新数组，所以可以链式编程。</p>
