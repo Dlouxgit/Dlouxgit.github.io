@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dloux.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas">
+<meta property="og:url" content="https://dloux.gitee.io/2020/06/12/canvas/index.html">
+<meta property="og:site_name" content="Dloux">
+<meta property="og:description" content="Canvas">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6784887-b899850b90416989.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2020-06-12T00:58:39.000Z">
+<meta property="article:modified_time" content="2020-06-12T07:12:54.813Z">
+<meta property="article:author" content="Dloux">
+<meta property="article:tag" content="canvas">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6784887-b899850b90416989.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+<link rel="canonical" href="https://dloux.gitee.io/2020/06/12/canvas/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>canvas | Dloux</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Dloux</h1>
+      
+      <span class="logo-line-after">你好</span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+ 
+
+
+
+</div>
+      
+      <div class="menu-header">
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+</div>
+      
+      
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/06/12/canvas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          canvas
+        </h1>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas<a id="more"></a></h1><p>简介：是 HTML5 提供的一个新标签</p>
+<ul>
+<li><p>Canvas 是一个矩形区域的画布，可以用 JS 在上面绘画。控制其每一个像素</p>
+</li>
+<li><p>Canvas 标签使用 JS 在网页上绘制图像，本身不具备绘图功能</p>
+</li>
+<li><p>Canvas 拥有多种绘制路径：矩形、圆形、字符以及添加图像的方法</p>
+</li>
+<li><p>Canvas 的标准：</p>
+<ul>
+<li>最新标准：<a href="http://www.w3.org/TR/2dcontext/" target="_blank" rel="noopener">http://www.w3.org/TR/2dcontext/</a></li>
+<li>稳定版本的标准：<a href="http://www.w3.org/TR/2013/CR-2dcontext-20130806/" target="_blank" rel="noopener">http://www.w3.org/TR/2013/CR-2dcontext-20130806/</a></li>
+</ul>
+</li>
+<li><p>sublime 配置 canvas 插件</p>
+<p>推荐：安装插件——AndyJS2；github地址：<a href="https://github.com/malun666/AndyJS2" target="_blank" rel="noopener">https://github.com/malun666/AndyJS2</a></p>
+</li>
+</ul>
+<h2 id="一、Canvas-基础"><a href="#一、Canvas-基础" class="headerlink" title="一、Canvas 基础"></a>一、Canvas 基础</h2><h3 id="1-语法"><a href="#1-语法" class="headerlink" title="1. 语法"></a>1. 语法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">"xxx"</span> <span class="attr">height</span>=<span class="string">"xxx"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><font color="red">注意：不要用 CSS 控制它的宽和高，会出现图片拉伸；重新设置 Canvas 标签的宽高属性会让画布擦除所有的内容</font></p>
+<h3 id="2-兼容处理"><a href="#2-兼容处理" class="headerlink" title="2. 兼容处理"></a>2. 兼容处理</h3><ul>
+<li><p>ie9以上才支持canvas</p>
+</li>
+<li><p>移动端的兼容情况非常理想，基本上随便使用</p>
+</li>
+<li><p>2d的支持的都非常好，3d（webgl）ie11才支持，其他都支持</p>
+</li>
+<li><p>如果浏览器不兼容，最好进行友好提示</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"c1"</span>&gt;</span></span><br><span class="line">  你的浏览器不支持canvas，请升级浏览器.浏览器不支持 </span><br><span class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、Context"><a href="#二、Context" class="headerlink" title="二、Context"></a>二、Context</h2><p>context 是 JavaScript 操作 Canvas 的接口的入口或者集合</p>
+<p>使用 <code>[CanvasElement].getContext(‘2d’)</code> 来获取2D绘图上下文；<code>getContext(‘3d’)</code> 可以获取 3D的绘图上下文，这个内容有兴趣自己研究，可以参考 three.js 框架</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas  = <span class="built_in">document</span>.getElementById( <span class="string">'cavsElem'</span> ); </span><br><span class="line"><span class="keyword">var</span> ctx = canvas.getContext( <span class="string">'2d'</span> );</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、绘制图形"><a href="#三、绘制图形" class="headerlink" title="三、绘制图形"></a>三、绘制图形</h2><h3 id="canvas坐标系"><a href="#canvas坐标系" class="headerlink" title="canvas坐标系"></a>canvas坐标系</h3><p>canvas坐标系，从最左上角开始。向右增大，向下增大</p>
+<h3 id="设置绘制起点-moveTo"><a href="#设置绘制起点-moveTo" class="headerlink" title="设置绘制起点(moveTo)"></a>设置绘制起点(moveTo)</h3><ul>
+<li><p>语法：ctx.moveTo(x, y)</p>
+</li>
+<li><p>解释：设置上下文绘制路径的起点。相当于移动画笔到某个位置</p>
+</li>
+<li><p>参数：x,y 都是相对于 canvas盒子的最左上角</p>
+</li>
+<li><p>注意：绘制线段前必须先设置起点，不然绘制无效</p>
+</li>
+</ul>
+<h3 id="绘制直线-lineTo"><a href="#绘制直线-lineTo" class="headerlink" title="绘制直线(lineTo)"></a>绘制直线(lineTo)</h3><ul>
+<li>语法：ctx.lineTo(x, y)</li>
+<li>解释：从x,y的位置绘制一条直线到起点或者上一个线头点</li>
+</ul>
+<ul>
+<li>lineCap 设置或返回线条的结束端点(线头、线冒)样式<ul>
+<li>butt ： 默认。向线条的每个末端添加平直的边缘。</li>
+<li>round ： 向线条的每个末端添加圆形线帽。</li>
+<li>square： 向线条的每个末端添加正方形线帽。</li>
+</ul>
+</li>
+<li>lineJoin 设置或返回两条线相交时，所创建的拐角类型<ul>
+<li>bevel: 创建斜角。</li>
+<li>round: 创建圆角。</li>
+<li>miter: 默认。创建尖角                </li>
+</ul>
+</li>
+<li>lineWidth 设置或返回当前的线条宽度</li>
+<li>miterLimit 设置或返回最大交接处长度，所谓交接处长度（斜接长度）是指线条交接处内角顶点到外角顶点的长度。<ul>
+<li>斜接长度指的是在两条线交汇处内角和外角之间的距离。</li>
+<li>一般用默认值：10就可以了。除非需要特别长的尖角时，使用此属性。</li>
+</ul>
+</li>
+<li>getLineDash()   返回一个包含当前虚线样式，长度为非负偶数的数组。</li>
+<li>setLineDash(segments)    设置当前虚线样式，segments 是一个数组表示段 <code>与lineCap冲突，设置了 lineCap为非默认值之后设置lineDash，lineDash会失效</code></li>
+<li>lineDashOffset = value     设置虚线样式的起始偏移量。</li>
+</ul>
+<h3 id="描边-stroke"><a href="#描边-stroke" class="headerlink" title="描边(stroke)"></a>描边(stroke)</h3><ul>
+<li>语法：ctx.stroke()</li>
+<li>解释：根据路径绘制线。路径只是草稿，真正绘制线必须执行stroke</li>
+<li>ctx.strokeStyle = “xxx”</li>
+<li>解释：设置描边的颜色，写在 ctx.stroke() 之前</li>
+</ul>
+<h3 id="路径开始和闭合"><a href="#路径开始和闭合" class="headerlink" title="路径开始和闭合"></a>路径开始和闭合</h3><ul>
+<li><p>开始路径：ctx.beginPath()</p>
+</li>
+<li><p>闭合路径：ctx.closePath()</p>
+</li>
+<li><p>解释：如果复杂路径绘制，必须使用路径开始和结束。闭合路径会自动把最后的线头和开始的线头连在一起</p>
+</li>
+<li><p>beginPath: 核心的作用是将不同绘制的形状进行隔离 </p>
+<p>比如 <code>ctx.lineCap</code> ，设定线段使用方头还是圆头，或者无头，如果每次绘制都切换<code>ctx.lineCap</code>，默认都会变成最后设置的样式，为了防止冲突，就可以在每个样式的开头写上 ctx.beginPath()</p>
+</li>
+<li><p>每次执行此方法，表示重新绘制一个路径，跟之前的绘制的墨迹可以进行分开样式设置和管理</p>
+</li>
+</ul>
+<h3 id="canvas绘制的基本步骤："><a href="#canvas绘制的基本步骤：" class="headerlink" title="canvas绘制的基本步骤："></a>canvas绘制的基本步骤：</h3><ul>
+<li>第一步：获得上下文        =&gt;canvasElem.getContext(‘2d’)</li>
+<li>第二步：开始路径规划        =&gt;ctx.beginPath()</li>
+<li>第三步：移动起始点        =&gt;ctx.moveTo(x, y)</li>
+<li>第四步：绘制线(矩形、圆形、图片…)        =&gt;ctx.lineTo(x, y)</li>
+<li>第五步：闭合路径        =&gt;ctx.closePath()</li>
+<li>第六步：绘制描边        =&gt;ctx.stroke()</li>
+</ul>
+<h3 id="填充-fill"><a href="#填充-fill" class="headerlink" title="填充(fill)"></a>填充(fill)</h3><ul>
+<li><p>语法：ctx.fill()</p>
+</li>
+<li><p>解释：填充，是将闭合的路径的内容填充具体的颜色。默认黑色</p>
+</li>
+<li><p>注意：交叉路径的填充问题，“非零环绕原则”，顺逆时针穿插次数决定是否填充</p>
+</li>
+</ul>
+<p>​    以下是非0环绕原则的原理：（了解即可，非常少会用到复杂的路径）</p>
+<p>​    “非零环绕规则”是这么来判断有自我交叉情况的路径的：对于路径中的任意给定区域，从该区域内部画一条足够长的线段， 使此线段的终点完全落在路径范围之外。</p>
+<p>  <img src="https://upload-images.jianshu.io/upload_images/6784887-b899850b90416989.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>我们先假定路径的正方向为1（其实为-1啥的也都可以，正负方向互为相反数，不是0就行），那么反方向就是其相反数-1。</p>
+<p>然后，我们在子路径切割的几块区域内的任意一点各取一条方向任意的射线，这里我只取了三个区域的射线为例，来判断这三块区域是“里面”还是“外面”。</p>
+<p>接下来，我们就来判断了。S1中引出的射线L1，与S1的子路径的正方向相交，那么我们就给计数器+1，结果为+1，在外面。</p>
+<p>S2中引出的射线L2，与两条子路径的正方向相交，计数器+2，结果为+2，在外面。</p>
+<p>S3中引出的射线L3，与两条子路径相交，但是其中有一条的反方向，计数器+1-1，结果为0，在里面。没错，只要结果不为0，该射线所在的区域就在外面。</p>
+<p>总结：随便找一根线的任意方向当作正方向，画箭头铺满全图，正反方向计算为 1 和 -1，最后结果只要记数不为 0 ，就填充颜色</p>
+<h3 id="快速创建矩形rect-方法"><a href="#快速创建矩形rect-方法" class="headerlink" title="快速创建矩形rect()方法"></a>快速创建矩形rect()方法</h3><ul>
+<li><p>语法：ctx.rect(x, y, width, height); </p>
+</li>
+<li><p>rect方法只是规划了矩形的路径，并没有填充和描边。</p>
+</li>
+</ul>
+<h3 id="快速创建描边矩形和填充矩形"><a href="#快速创建描边矩形和填充矩形" class="headerlink" title="快速创建描边矩形和填充矩形"></a>快速创建描边矩形和填充矩形</h3><ul>
+<li><p>语法： ctx.strokeRect(x, y, width, height);</p>
+</li>
+<li><p>语法：ctx.fillRect(x, y, width, height);</p>
+</li>
+</ul>
+<h3 id="画布清除-clearRect"><a href="#画布清除-clearRect" class="headerlink" title="画布清除(clearRect)"></a>画布清除(clearRect)</h3><ul>
+<li><p>语法：ctx.clearRect(x, y, width, hegiht);</p>
+</li>
+<li><p>解释：清除某个矩形内的绘制的内容，相当于橡皮擦。</p>
+</li>
+</ul>
+<h3 id="绘制弧形-arc"><a href="#绘制弧形-arc" class="headerlink" title="绘制弧形(arc)"></a>绘制弧形(arc)</h3><p>概述：arc() 方法创建弧/曲线（用于创建圆或部分圆）</p>
+<ul>
+<li>语法：ctx.arc(x,y,r,sAngle,eAngle,counterclockwise)</li>
+<li>解释：<ul>
+<li>x,y：圆心坐标。</li>
+<li>r：半径大小。</li>
+<li>sAngle：绘制开始的弧度。 圆心到最右边点是0度，顺时针方向弧度增大</li>
+<li>eAngel： 结束的弧度</li>
+<li>counterclockwise：是否是逆时针。true是逆时针，false：顺时针</li>
+<li>弧度和角度的转换公式： rad = deg*Math.PI/180</li>
+<li>在Math提供的方法中sin、cos等都使用的弧度        </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>案例：绘制饼状图</li>
+</ul>
+<h2 id="四、绘制文字"><a href="#四、绘制文字" class="headerlink" title="四、绘制文字"></a>四、绘制文字</h2><p>语法：<code>context.fillText(text,x,y,maxWidth);</code> <code>context.strokeText(text, x, y, maxWidth);</code></p>
+<ul>
+<li><p>font 设置或返回文本内容的当前字体属性</p>
+</li>
+<li><p>font 属性使用的语法与 CSS font 属性相同。例如：<code>ctx.font = &quot;18px &#39;微软雅黑&#39;&quot;;</code></p>
+</li>
+<li><p>textAlign 设置或返回文本内容的当前对齐方式</p>
+</li>
+<li><ul>
+<li>start : 默认。文本在指定的位置开始</li>
+<li>end : 文本在指定的位置结束</li>
+<li>center: 文本的中心被放置在指定的位置</li>
+<li>left : 文本左对齐</li>
+<li>right : 文本右对齐</li>
+</ul>
+</li>
+<li><p>textBaseline 设置或返回在绘制文本时使用的当前文本基线</p>
+</li>
+<li><p>alphabetic： 默认。文本基线是普通的字母基线</p>
+<ul>
+<li>top： 文本基线是 em 方框的顶端</li>
+<li>hanging： 文本基线是悬挂基线</li>
+<li>middle： 文本基线是 em 方框的正中</li>
+<li>ideographic： 文本基线是em基线</li>
+<li>bottom： 文本基线是 em 方框的底端</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>direction 文本方向</p>
+<p>文本方向。可能的值包括：<code>ltr</code>, <code>rtl</code>, <code>inherit</code>。默认值是 <code>inherit。</code></p>
+</li>
+<li><p>ctx.measureText(txt)   返回包含指定文本宽度的对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ctx = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>).getContext(<span class="string">'2d'</span>);</span><br><span class="line"><span class="keyword">var</span> text = ctx.measureText(<span class="string">"foo"</span>); <span class="comment">// TextMetrics object</span></span><br><span class="line">text.width; <span class="comment">// 16;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<p>​    </p>
+<h2 id="五、绘制图片（drawImage）"><a href="#五、绘制图片（drawImage）" class="headerlink" title="五、绘制图片（drawImage）"></a>五、绘制图片（drawImage）</h2><h3 id="基本绘制图片的方式"><a href="#基本绘制图片的方式" class="headerlink" title="基本绘制图片的方式"></a>基本绘制图片的方式</h3><ul>
+<li><p>context.drawImage(img,x,y);</p>
+</li>
+<li><p>参数说明： x,y 绘制图片左上角的坐标， img是绘制图片的dom对象。</p>
+</li>
+</ul>
+<h3 id="宽高"><a href="#宽高" class="headerlink" title="宽高"></a>宽高</h3><ul>
+<li><p>context.drawImage(img,x,y,width,height);   </p>
+</li>
+<li><p>参数说明：width 绘制图片的宽度；height：绘制图片的高度</p>
+</li>
+</ul>
+<p>如果指定宽高，最好成比例，不然图片会被拉伸</p>
+<h3 id="图片裁剪"><a href="#图片裁剪" class="headerlink" title="图片裁剪"></a>图片裁剪</h3><ul>
+<li>context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);</li>
+<li>参数说明：</li>
+<li>sx,sy 裁剪的左上角坐标，</li>
+<li>swidth：裁剪图片的宽度。 sheight:裁剪的高度 </li>
+</ul>
+<p>截取图片本身的大小，比如图片是 200 x 200，设置<code>context.drawImage(img,0 ,0 , 50, 50, 0, 0, 200, 200)</code> ，是从原图片上截取 ，从原图片左上角顶点（也就是 前两个参数 0, 0）开始截取50，50（也就是第三四个参数），之后把<strong>截取</strong>的这个图，放到画布(0, 0)的位置，并把<strong>截取的部分</strong>拉伸到 200 x 200，并渲染</p>
+<p><strong>若调用 drawImage 时，图片没装载完，那什么都不会发生（在一些旧的浏览器中可能会抛出异常）。因此你应该用load事件来保证不会在加载完毕之前使用这个图片</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imgEle = <span class="keyword">new</span> Image();</span><br><span class="line">imgEle.src = <span class="string">'../lib/image/HC/avatar.jpg'</span>;</span><br><span class="line">imgEle.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	ctx.drawImage(imgEle,<span class="number">100</span>,<span class="number">50</span>,<span class="number">200</span>,<span class="number">100</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>案例： 图片裁剪</p>
+<p>案例： 帧动画</p>
+
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Dloux
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://dloux.gitee.io/2020/06/12/canvas/" title="canvas">https://dloux.gitee.io/2020/06/12/canvas/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/canvas/" rel="tag"><i class="fa fa-tag"></i> canvas</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/11/flex/" rel="prev" title="flex">
+      <i class="fa fa-chevron-left"></i> flex
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/15/ajax/" rel="next" title="ajax">
+      ajax <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Canvas"><span class="nav-number">1.</span> <span class="nav-text">Canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Canvas-基础"><span class="nav-number">1.1.</span> <span class="nav-text">一、Canvas 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-语法"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-兼容处理"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 兼容处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Context"><span class="nav-number">1.2.</span> <span class="nav-text">二、Context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、绘制图形"><span class="nav-number">1.3.</span> <span class="nav-text">三、绘制图形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas坐标系"><span class="nav-number">1.3.1.</span> <span class="nav-text">canvas坐标系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置绘制起点-moveTo"><span class="nav-number">1.3.2.</span> <span class="nav-text">设置绘制起点(moveTo)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制直线-lineTo"><span class="nav-number">1.3.3.</span> <span class="nav-text">绘制直线(lineTo)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描边-stroke"><span class="nav-number">1.3.4.</span> <span class="nav-text">描边(stroke)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径开始和闭合"><span class="nav-number">1.3.5.</span> <span class="nav-text">路径开始和闭合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas绘制的基本步骤："><span class="nav-number">1.3.6.</span> <span class="nav-text">canvas绘制的基本步骤：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填充-fill"><span class="nav-number">1.3.7.</span> <span class="nav-text">填充(fill)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速创建矩形rect-方法"><span class="nav-number">1.3.8.</span> <span class="nav-text">快速创建矩形rect()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速创建描边矩形和填充矩形"><span class="nav-number">1.3.9.</span> <span class="nav-text">快速创建描边矩形和填充矩形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#画布清除-clearRect"><span class="nav-number">1.3.10.</span> <span class="nav-text">画布清除(clearRect)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制弧形-arc"><span class="nav-number">1.3.11.</span> <span class="nav-text">绘制弧形(arc)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、绘制文字"><span class="nav-number">1.4.</span> <span class="nav-text">四、绘制文字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、绘制图片（drawImage）"><span class="nav-number">1.5.</span> <span class="nav-text">五、绘制图片（drawImage）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本绘制图片的方式"><span class="nav-number">1.5.1.</span> <span class="nav-text">基本绘制图片的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宽高"><span class="nav-number">1.5.2.</span> <span class="nav-text">宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片裁剪"><span class="nav-number">1.5.3.</span> <span class="nav-text">图片裁剪</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dloux"
+      src="/images/dloux.jpg">
+  <p class="site-author-name" itemprop="name">Dloux</p>
+  <div class="site-description" itemprop="description">ddd</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dlouxgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dlouxgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dloux</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+
+
+
+<script>
+  var pathName = window.document.location.pathname;
+  var cont = document.getElementsByClassName("content-wrap")[0];
+  console.log(cont);
+  if (pathName =='/' || pathName =='/note/') {
+  // if (/\//.test(window.document.location.pathname)) {
+    console.log(pathName);
+    console.log(cont.style.backgroundColor)
+    cont.className="content-wrap transparentcont";
+    // cont.style.backgroundColor = "rgba(255,255,255,0) !importent";
+  }
+</script>
+</body>
+</html>

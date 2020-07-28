@@ -37,7 +37,7 @@
 <meta property="og:description" content="数据类型分为基本数据类型和复杂数据类型。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-16T01:11:41.000Z">
-<meta property="article:modified_time" content="2020-05-16T09:00:20.355Z">
+<meta property="article:modified_time" content="2020-07-24T12:14:08.833Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -233,6 +233,9 @@
 <p>NaN 是一个特殊的数字，表示 Not a Number，非数值。</p>
 <p>比如 <code>a = &#39;b&#39; * &#39;c&#39;</code> 打印 a 的值就会出现 NaN 。</p>
 <p>isNaN() 可以用来检测是不是 NaN，返回 true 或 false</p>
+<p>Number 对象有 toFixed 方法，用于保留小数点，同时转为字符串</p>
+<p>不能写成<code>12.toFixed(2) // error</code>，前面必须已经是 Number 包装对象包装过的内容</p>
+<p>可以写成 <code>Number(12).toFixed(2) // &#39;12.00&#39;</code> 或 <code>var a = 12; a.toFixed(2); // &#39;12.00&#39;</code></p>
 <h3 id="Null-类型"><a href="#Null-类型" class="headerlink" title="Null 类型"></a>Null 类型</h3><p>typeof 检测 null 是 object ，由于 typeof 检测不准确，所以一般用下面这个方法检测<code>Object.prototype.toString.call()</code></p>
 <h3 id="Boolean-类型"><a href="#Boolean-类型" class="headerlink" title="Boolean 类型"></a>Boolean 类型</h3><p>只有两个值 true 或是 false 。</p>
 <h3 id="Undefined-类型"><a href="#Undefined-类型" class="headerlink" title="Undefined 类型"></a>Undefined 类型</h3><p>表示未定义，比如 <code>var a</code> ，之后打印 a，就会返回 undefined。</p>
@@ -319,6 +322,8 @@
 <p>由于第一个条件 5 是 true，在或运算中，已经可以决定最终结果为 true，所以返回最后决定结果的条件 5.</p>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>如果通过前一个条件无法判断出最终结果的真假，就会继续执行下一个条件。</p>
 <p>非布尔值的运算，谁决定最后的结果就返回谁。</p>
+<p>题外：<code>&lt;script&gt;</code> 标签可以加上 <code>type=&quot;module&quot;</code> ，表示模块化开发，每个 js 文件的变量互不影响</p>
+<p><code>&lt;script type=&quot;module&quot;&gt;&lt;/script&gt;</code> 之后就能用 es6 的 import 和 export 来控制模块的导入导出了。</p>
 
     </div>
 
@@ -360,7 +365,10 @@
     <a href="/2020/05/15/bfc/" rel="prev" title="bfc">
       <i class="fa fa-chevron-left"></i> bfc
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/18/Date-Math/" rel="next" title="Date&Math">
+      Date&Math <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
 
       </footer>
@@ -436,12 +444,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

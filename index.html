@@ -170,7 +170,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/05/16/jsBasic/">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/07/24/webpack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/dloux.jpg">
@@ -188,7 +188,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/16/jsBasic/" class="post-title-link" itemprop="url">jsBasic</a>
+            <a href="/2020/07/24/webpack/" class="post-title-link" itemprop="url">webpack</a>
         </h2>
 
           
@@ -202,7 +202,327 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>分为基本数据类型和复杂数据类型。</p>
+          <h2 id="webpack4"><a href="#webpack4" class="headerlink" title="webpack4"></a>webpack4
+          <!--noindex-->
+
+          <!--/noindex-->
+        
+      
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+      <footer class="post-footer">
+     
+
+
+        
+          <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-24 22:05:17" itemprop="dateCreated datePublished" datetime="2020-07-24T22:05:17+08:00">2020-07-24</time>
+            </span>
+          </div>
+          <div class="post-button-more">
+            <a class="btn-more" href="/2020/07/24/webpack/">
+              Read more &raquo;
+            </a>
+          </div>
+
+         
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/07/22/AdvancedFunction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/22/AdvancedFunction/" class="post-title-link" itemprop="url">AdvancedFunction</a>
+        </h2>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><p><code>filter</code> 接受一个回调函数，它将会遍历数组，该回调函数必须返回一个布尔值，表示被遍历到的值是否过滤(添加进 <code>filter</code> 内部的新数组作为返回值)。遍历完成后， <code>filter</code> 会返回这个新数组，需要接收。由于返回的是新数组，所以可以链式编程。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">67</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"><span class="keyword">const</span> newArr = arr.filter(<span class="function"><span class="params">n</span> =&gt;</span> n &gt; <span class="number">10</span>) <span class="comment">// [67]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><p><code>map</code> 接受一个回调函数，它将会遍历数组，该函数每次的返回值，会作为函数内部新数组的内容，遍历完成后，<code>map</code> 会返回这个新数组，需要接受。由于返回的是新数组，所以可以链式编程。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">const</span> newArr = arr.map(<span class="function"><span class="params">n</span> =&gt;</span> n * <span class="number">2</span>) <span class="comment">// [2, 4, 6]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h4><p><code>reduce</code> 接受一个回调函数，它将会遍历数组。它的作用是对数组内容进行汇总，该回调函数的第一个参数是一个函数，接受两个参数，一个表示上一次执行该函数返回的值<code>(previousValue)</code>，一个表示数组当前值<code>(currentValue)</code>。回调函数的第二个参数是初始值，用于表示第一次执行第一个参数(它是函数)时，<code>(previousValue)</code> 的值。遍历完成后， <code>reduce</code> 会返回这个汇总的值<code>(previousValue)</code>，需要接收。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// arr.reduce((previousValue, currentValue) =&gt; &#123;&#125;, originValue)</span></span><br><span class="line"><span class="comment">// 源码中对 reduce 进行了两次声明，因为是 ts 写的，所以第一次声明不会被第二次声明覆盖，两者都会存在，这叫做重载。</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">const</span> totalVal = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current) <span class="comment">// 6</span></span><br><span class="line"><span class="keyword">const</span> totalVal = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current, <span class="number">0</span>) <span class="comment">// 6</span></span><br><span class="line"><span class="keyword">const</span> totalVal = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current, <span class="number">7</span>) <span class="comment">// 13</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意，当数组中被遍历的项为对象时，必须加上初始值，因为对象与数值相加,两者都会自动调用 toString() 方法后相加。</span></span><br><span class="line"><span class="keyword">const</span> arr = [&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;, &#123;<span class="attr">a</span>: <span class="number">2</span>&#125;, &#123;<span class="attr">a</span>: <span class="number">3</span>&#125;]</span><br><span class="line"><span class="keyword">const</span> totalval = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current.a) <span class="comment">// "[object Object]23"</span></span><br><span class="line"><span class="keyword">const</span> totalval = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current.a, <span class="number">0</span>) <span class="comment">// 123</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+      <footer class="post-footer">
+     
+
+
+        
+          <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-07-22 14:27:02 / Modified: 15:02:55" itemprop="dateCreated datePublished" datetime="2020-07-22T14:27:02+08:00">2020-07-22</time>
+            </span>
+          </div>
+          <div class="post-button-more">
+            <a class="btn-more" href="/2020/07/22/AdvancedFunction/">
+              Read more &raquo;
+            </a>
+          </div>
+
+         
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/07/15/vuex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/15/vuex/" class="post-title-link" itemprop="url">vuex</a>
+        </h2>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex
+          <!--noindex-->
+
+          <!--/noindex-->
+        
+      
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+      <footer class="post-footer">
+     
+
+
+        
+          <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-15 09:51:46" itemprop="dateCreated datePublished" datetime="2020-07-15T09:51:46+08:00">2020-07-15</time>
+            </span>
+          </div>
+          <div class="post-button-more">
+            <a class="btn-more" href="/2020/07/15/vuex/">
+              Read more &raquo;
+            </a>
+          </div>
+
+         
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/07/09/vue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/09/vue/" class="post-title-link" itemprop="url">Vue</a>
+        </h2>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h1><p>是一个渐进式框架，意味着你可以把 Vue 作为你应用的一部分嵌入到其中。通俗点举例，比如公司正在用 jQuery，但这时候需要项目重构，你可以从新项目开始使用 Vue，然后再一点一点地替换掉其他的项目，一点点地替换，就是渐进。
+          <!--noindex-->
+
+          <!--/noindex-->
+        
+      
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+      <footer class="post-footer">
+     
+
+
+        
+          <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-09 19:17:25" itemprop="dateCreated datePublished" datetime="2020-07-09T19:17:25+08:00">2020-07-09</time>
+            </span>
+          </div>
+          <div class="post-button-more">
+            <a class="btn-more" href="/2020/07/09/vue/">
+              Read more &raquo;
+            </a>
+          </div>
+
+         
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/06/18/CORS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/18/CORS/" class="post-title-link" itemprop="url">CORS</a>
+        </h2>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="AJAX跨域"><a href="#AJAX跨域" class="headerlink" title="AJAX跨域"></a>AJAX跨域
           <!--noindex-->
 
           <!--/noindex-->
@@ -229,11 +549,11 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-05-16 09:11:41 / Modified: 17:00:20" itemprop="dateCreated datePublished" datetime="2020-05-16T09:11:41+08:00">2020-05-16</time>
+              <time title="Created: 2020-06-18 15:43:17 / Modified: 21:25:44" itemprop="dateCreated datePublished" datetime="2020-06-18T15:43:17+08:00">2020-06-18</time>
             </span>
           </div>
           <div class="post-button-more">
-            <a class="btn-more" href="/2020/05/16/jsBasic/">
+            <a class="btn-more" href="/2020/06/18/CORS/">
               Read more &raquo;
             </a>
           </div>
@@ -249,7 +569,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/05/15/bfc/">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/06/16/RegExp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/dloux.jpg">
@@ -267,7 +587,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/15/bfc/" class="post-title-link" itemprop="url">bfc</a>
+            <a href="/2020/06/16/RegExp/" class="post-title-link" itemprop="url">RegExp</a>
         </h2>
 
           
@@ -281,8 +601,163 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p>display 为 block, list-item, table 都是块元素。</p>
-<p>只有块元素才可能触发 BFC。</p>
+          <h1 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则
+          <!--noindex-->
+
+          <!--/noindex-->
+        
+      
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+      <footer class="post-footer">
+     
+
+
+        
+          <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-16 10:48:52" itemprop="dateCreated datePublished" datetime="2020-06-16T10:48:52+08:00">2020-06-16</time>
+            </span>
+          </div>
+          <div class="post-button-more">
+            <a class="btn-more" href="/2020/06/16/RegExp/">
+              Read more &raquo;
+            </a>
+          </div>
+
+         
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/06/15/ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/15/ajax/" class="post-title-link" itemprop="url">ajax</a>
+        </h2>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX
+          <!--noindex-->
+
+          <!--/noindex-->
+        
+      
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+      <footer class="post-footer">
+     
+
+
+        
+          <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-15 09:03:04" itemprop="dateCreated datePublished" datetime="2020-06-15T09:03:04+08:00">2020-06-15</time>
+            </span>
+          </div>
+          <div class="post-button-more">
+            <a class="btn-more" href="/2020/06/15/ajax/">
+              Read more &raquo;
+            </a>
+          </div>
+
+         
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/06/12/canvas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/12/canvas/" class="post-title-link" itemprop="url">canvas</a>
+        </h2>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas
           <!--noindex-->
 
           <!--/noindex-->
@@ -309,11 +784,11 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-05-15 10:28:58 / Modified: 21:27:38" itemprop="dateCreated datePublished" datetime="2020-05-15T10:28:58+08:00">2020-05-15</time>
+              <time title="Created: 2020-06-12 08:58:39 / Modified: 15:12:54" itemprop="dateCreated datePublished" datetime="2020-06-12T08:58:39+08:00">2020-06-12</time>
             </span>
           </div>
           <div class="post-button-more">
-            <a class="btn-more" href="/2020/05/15/bfc/">
+            <a class="btn-more" href="/2020/06/12/canvas/">
               Read more &raquo;
             </a>
           </div>
@@ -329,7 +804,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/05/15/3d/">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/06/11/flex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/dloux.jpg">
@@ -347,7 +822,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/15/3d/" class="post-title-link" itemprop="url">3d</a>
+            <a href="/2020/06/11/flex/" class="post-title-link" itemprop="url">flex</a>
         </h2>
 
           
@@ -361,7 +836,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="3d"><a href="#3d" class="headerlink" title="3d"></a>3d</h2><p>CSS3的一些3d样式笔记（perserve方面）</p>
+          <h2 id="calc"><a href="#calc" class="headerlink" title="calc"></a>calc
           <!--noindex-->
 
           <!--/noindex-->
@@ -388,11 +863,11 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-05-15 09:04:29 / Modified: 21:33:58" itemprop="dateCreated datePublished" datetime="2020-05-15T09:04:29+08:00">2020-05-15</time>
+              <time title="Created: 2020-06-11 15:16:57 / Modified: 15:45:38" itemprop="dateCreated datePublished" datetime="2020-06-11T15:16:57+08:00">2020-06-11</time>
             </span>
           </div>
           <div class="post-button-more">
-            <a class="btn-more" href="/2020/05/15/3d/">
+            <a class="btn-more" href="/2020/06/11/flex/">
               Read more &raquo;
             </a>
           </div>
@@ -408,7 +883,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/05/14/git/">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/06/11/inheritance/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/dloux.jpg">
@@ -426,7 +901,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/14/git/" class="post-title-link" itemprop="url">git</a>
+            <a href="/2020/06/11/inheritance/" class="post-title-link" itemprop="url">inheritance</a>
         </h2>
 
           
@@ -440,11 +915,116 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><p>简单的 git 指令</p>
-          <!--noindex-->
+          <h2 id="对象继承"><a href="#对象继承" class="headerlink" title="对象继承"></a>对象继承</h2><h2 id="Call-和-apply-和-bind"><a href="#Call-和-apply-和-bind" class="headerlink" title="Call 和 apply 和 bind"></a>Call 和 apply 和 bind</h2><h3 id="1-call-方法"><a href="#1-call-方法" class="headerlink" title="1. call 方法"></a>1. call 方法</h3><p>语法：<code>func.call(thisObj,arg1,arg2,arg3...)</code></p>
+<p>定义：调用一个对象的一个方法，以另一个对象替换当前对象</p>
+<p>说明：它运行一个方法，提供的第一个参数作为 <code>this</code>，后面的作为参数。如果没有提供 thisObj 参数，那么 Global 对象被用作 thisObj</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"张三"</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"李白"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayName(); <span class="comment">// 张三</span></span><br><span class="line">sayName.call(obj); <span class="comment">// 李白</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sing</span>(<span class="params">lyric</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="string">'在唱：'</span>+ lyric;</span><br><span class="line">&#125;</span><br><span class="line">sing(<span class="string">"狼烟起江山北望"</span>);</span><br><span class="line">sing.call(obj,<span class="string">"我在遥望，月亮之上"</span>)</span><br></pre></td></tr></table></figure>
 
-          <!--/noindex-->
-        
+
+
+<p><strong>新的检验类型的方法：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line"></span><br><span class="line">s.call(<span class="number">123</span>);  	<span class="comment">// "[object Number]"</span></span><br><span class="line">s.call(<span class="string">'dsf'</span>) 	<span class="comment">// "[object String]"</span></span><br><span class="line">s.call(&#123;&#125;)		<span class="comment">// "[object Object]"</span></span><br><span class="line">s.call([])		<span class="comment">// "[object Array]"</span></span><br><span class="line">s.call(<span class="literal">true</span>)  	<span class="comment">// "[object Boolean]"</span></span><br><span class="line">s.call(<span class="literal">undefined</span>)<span class="comment">// "[object Undefined]"</span></span><br><span class="line">s.call(<span class="literal">null</span>)	<span class="comment">// "[object Null]"</span></span><br><span class="line">s.call(<span class="literal">NaN</span>)		<span class="comment">// "[object Number]"</span></span><br><span class="line">s.call(<span class="literal">Infinity</span>)<span class="comment">// "[object Number]"</span></span><br><span class="line">s.call(<span class="keyword">new</span> <span class="built_in">Date</span>())<span class="comment">// "[object Date]"</span></span><br><span class="line">s.call(<span class="built_in">Math</span>) 	<span class="comment">// "[object Math]"</span></span><br><span class="line">s.call(<span class="built_in">JSON</span>)	<span class="comment">// "[object JSON]"</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-apply-方法"><a href="#2-apply-方法" class="headerlink" title="2. apply 方法"></a>2. apply 方法</h3><p>语法：<code>func.apply(thisObj,[argArray])</code></p>
+<p>定义：应用某一对象的一个方法，以另一个对象替换当前对象，第二个参数是数组或类数组</p>
+<p>说明：如果第二个参数不是数组或类数组，那么将导致一个 typeError。如果没有提供 thisObj，那么 Global 对象将被用作 thisObj，并且无法被传递任何参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"张三"</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span> : <span class="string">"李白"</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayFriend</span>(<span class="params">f1,f2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="string">'的朋友有：'</span> + f1 + <span class="string">'、'</span> + f2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayFriend(<span class="string">"李四"</span>,<span class="string">"王五"</span>);</span><br><span class="line">sayFriend.call(obj,<span class="string">"杜甫"</span>,<span class="string">"白居易"</span>);</span><br><span class="line">sayFriend.apply(obj,[<span class="string">'杜甫'</span>,<span class="string">"白居易"</span>]);</span><br></pre></td></tr></table></figure>
+
+<p><font color="blue"><code>call</code> 和 <code>apply</code> 之间唯一的语法区别是 <code>call</code> 接受一个参数列表，而 <code>apply</code> 则接受带有一个类似数组的对象。</font></p>
+<p><font color="brown">但是当前可以使用 spread 运算符将数组作为参数列表传递，使用 call 模拟 apply</font></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sayFriend.call(obj,...[<span class="string">'杜甫'</span>,<span class="string">"白居易"</span>])</span><br><span class="line"><span class="comment">// 但是这种使用方式没有 apply 解析速度快</span></span><br></pre></td></tr></table></figure>
+
+<p><font color="brown"><code>apply</code> 最重要的用途之一是将调用传递给另一个函数，如下所示：</font></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> wrapper = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> anotherFunction.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><font color="brown">这叫做 <strong>呼叫转移</strong>。<code>wrapper</code> 传递它获得的所有内容：上下文 <code>this</code> 和 <code>anotherFunction</code> 的参数并返回其结果。</font></p>
+<h3 id="3-bind-方法"><a href="#3-bind-方法" class="headerlink" title="3. bind 方法"></a>3. bind 方法</h3><p>基础语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> boundFunc = func.bind(context);</span><br></pre></td></tr></table></figure>
+
+<p><code>func.bind(context)</code> 的结果是一个特殊的像函数一样的“外来对象”，它可以像函数一样被调用并且透明的将调用传递给 <code>func</code> 并设置 <code>this=context</code>。即，调用 <code>boundFunc</code> 就像是调用 <code>func</code> 并且固定住了 <code>this</code>。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">	name: <span class="string">"John"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> funcUser = func.bind(user);</span><br><span class="line">funcUser(); <span class="comment">// John</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h4><p><code>bind</code> 的完整语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bound = func.bind(context, arg1, arg2, ...);</span><br></pre></td></tr></table></figure>
+
+<p>绑定 <code>this</code> 以及函数的前几个参数。常用来制作偏函数应用（在原有函数的基础上创建出一个新函数，同时将部分参数换成固定值。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个乘法运算的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mul</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a * b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 在其基础上创建一个2倍函数</span></span><br><span class="line"><span class="keyword">var</span> double = mul.bind(<span class="literal">null</span>, <span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(double(<span class="number">3</span>)); <span class="comment">// = mul(2,3) = 6</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>情景：假如我们想要传递一些参数，但是不想绑定 this，该怎么做？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partial</span>(<span class="params">func, ...argsBound</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> func.call(<span class="keyword">this</span>, ...argsBound, ..args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用法:</span></span><br><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    firstName: <span class="string">"John"</span>,</span><br><span class="line">    say(time, phrase)&#123;</span><br><span class="line">        alert(<span class="string">`[<span class="subst">$&#123;time&#125;</span>] <span class="subst">$&#123;<span class="keyword">this</span>.firstName&#125;</span>: <span class="subst">$&#123;phrase&#125;</span>!`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加一个偏函数方法，现在 say 这个函数可以作为第一个函数</span></span><br><span class="line">user.sayNow = partial(user.say, <span class="keyword">new</span> <span class="built_in">Date</span>().getHours() + <span class="string">':'</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getMinutes());</span><br><span class="line"></span><br><span class="line">user.sayNow(<span class="string">"Hello"</span>);</span><br><span class="line"><span class="comment">// 结果就像这样：</span></span><br><span class="line"><span class="comment">// [10:00] John: Hello!</span></span><br></pre></td></tr></table></figure>
+
+<p><code>partial(func[, arg1, arg2...])</code> 调用的结果是一个基于 <code>func</code> 的封装函数，以及：</p>
+<ul>
+<li>和它传入的函数一致的 <code>this</code> (对于 <code>user.sayNow</code> 调用是 <code>user</code>)</li>
+<li>然后传入 <code>...argsBound</code> —— 来自偏函数调用传入的参数（<code>&quot;10:00&quot;</code>）</li>
+<li>然后传入 <code>...args</code> —— 传入封装函数的参数（<code>Hello</code>）</li>
+</ul>
+<h4 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h4><p>Currying 是一项将一个调用形式为 <code>f(a,b,c)</code> 的函数转化为调用形式为 <code>f(a)(b)(c)</code> 的技术。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">func</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">a</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">b</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> func(a,b);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> carriedSum = curry(sum);</span><br><span class="line"><span class="built_in">console</span>.log( carriedSum(<span class="number">1</span>)(<span class="number">2</span>) ); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<p>高级的柯里化同时允许函数正常调用和获取偏函数。从而实现两个目的：</p>
+<ol>
+<li>柯里化之后我们没有丢失任何东西。</li>
+<li>在很多情况下我们可以很方便生成偏函数。</li>
+</ol>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">func</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">curried</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (args.length &gt;= func.length) &#123;</span><br><span class="line">      <span class="keyword">return</span> func.apply(<span class="keyword">this</span>, args);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args2</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> curried.apply(<span class="keyword">this</span>, args.concat(args2));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一个打印函数 log(date, importance, message) 格式化和输出信息。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">date, importance, message</span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">`[<span class="subst">$&#123;date.getHours()&#125;</span>:<span class="subst">$&#123;date.getMinutes()&#125;</span>] [<span class="subst">$&#123;importance&#125;</span>] <span class="subst">$&#123;message&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将它柯里化</span></span><br><span class="line">log = curry(log);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 操作之后 log 依然正常运行：</span></span><br><span class="line">log(<span class="keyword">new</span> <span class="built_in">Date</span>(), <span class="string">"DEBUG"</span>, <span class="string">"some debug"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 但是也可以用柯里化格式调用：</span></span><br><span class="line">log(<span class="keyword">new</span> <span class="built_in">Date</span>())(<span class="string">"DEBUG"</span>)(<span class="string">"some debug"</span>); <span class="comment">// log(a)(b)(c)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个获取今天的日志的简易函数：</span></span><br><span class="line"><span class="comment">// todayLog 会是一个首个参数确定的偏函数</span></span><br><span class="line"><span class="keyword">var</span> todayLog = log(<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line"><span class="comment">// 使用它</span></span><br><span class="line">todayLog(<span class="string">"INFO"</span>, <span class="string">"message"</span>); <span class="comment">// [HH:mm] INFO message</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 提供今天的调试信息的简便函数：</span></span><br><span class="line"><span class="keyword">var</span> todayDebug = todayLog(<span class="string">"DEBUG"</span>);</span><br><span class="line">todayDebug(<span class="string">"message"</span>); <span class="comment">// [HH:mm] DEBUG message</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
+<li><p>当我们确定一个函数的一些参数时，返回的函数被称为<strong>偏函数</strong>。我们可以使用 <code>bind</code> 来获取偏函数，但是也有其他方式获取。</p>
+<p>当我们不想一遍又一遍重复相同的参数时，偏函数很方便。比如我们有函数 <code>send(from, to)</code>，并且在我们的任务中 <code>from</code> 始终是相同的，那么我们可以构造一个偏函数然后对它进行操作。</p>
+</li>
+<li><p><strong>柯里化</strong>是将 <code>f(a,b,c)</code> 可以被以 <code>f(a)(b)(c)</code> 的形式被调用的转化。JavaScript 实现版本通常保留函数被正常调用和在参数数量不够的情况下返回偏函数这两个特性。</p>
+<p>当我们想要简单偏函数的时候，柯里化很棒。正如我们在 logging 例子中所看到的那样：通用函数 <code>log(date, importance, message)</code> 在柯里化之后，当我们在调用它的时候传入一个参数如 <code>log(date)</code> 或者两个参数 <code>log(date, importance)</code> 的时候，返回了偏函数。</p>
+</li>
+</ul>
+<h2 id="对象继承-1"><a href="#对象继承-1" class="headerlink" title="对象继承"></a>对象继承</h2><p>继承定义：继承可以使子类具有父类的各种属性和方法，而不需要再次编写相同的代码</p>
+<p>面向对象的继承方式有很多种，原型链继承、借用构造函数继承、组合继承、原型式继承、寄生式继承、寄生式组合继承、深拷贝继承等等。</p>
+<h3 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h3><p>利用原型链的特性，当在自身找不到时，会沿着原型链往上找。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'李白'</span></span><br><span class="line">    <span class="keyword">this</span>.hobbies = [<span class="string">'吟诗'</span>,<span class="string">'旅游'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.age = <span class="string">"24"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> student = <span class="keyword">new</span> Student()</span><br><span class="line"><span class="built_in">console</span>.log(student.age) <span class="comment">// '24'</span></span><br><span class="line"><span class="built_in">console</span>.log(student.name) <span class="comment">// undefined</span></span><br><span class="line">student.sayName() <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+
+<p>如果想让 student 访问到 Person的原型的对象的属性和方法，可以将 Student.prototype 改写为 Person 的实例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 改写Student.prototype指针指向</span></span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure>
+
+<p>这就是原型链继承</p>
+<p><strong>原型链的问题：</strong></p>
+<p>原型对象类似一个共享库，所有实例共享原型对象同一个属性方法，如果原型对象上有引用类型，那么会被所有实例共享，也就是某个实例更改了，则会影响其他实例，例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> student2 = <span class="keyword">new</span> Student()</span><br><span class="line"><span class="comment">// 此时我们修改某一个实例，hobbies是原型对象上的引用类型 数组</span></span><br><span class="line">student.hobbies.push(<span class="string">'喝酒'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(student.hobbies) <span class="comment">// ['吟诗', '旅游', '喝酒']</span></span><br><span class="line"><span class="built_in">console</span>.log(student2.hobbies) <span class="comment">// ['吟诗', '旅游', '喝酒']</span></span><br></pre></td></tr></table></figure>
+
+<p>从上面可以看出，student 的 hobbies（实际就是原型对象上的 hobbies）被修改后，相关的实例student2也会受到影响。</p>
+<p>解决：把Person上的属性方法添加到Student上，以防都存在原型对象上，会被所有实例共享，特别是引用类型的修改，会影响所有相关实例。</p>
+<h3 id="借用构造函数继承"><a href="#借用构造函数继承" class="headerlink" title="借用构造函数继承"></a>借用构造函数继承</h3><p>有时候也叫做<font color="blue">伪造对象或经典继承</font>，可以利用call来实现。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'李白'</span></span><br><span class="line">    <span class="keyword">this</span>.hobbies = [<span class="string">'吟诗'</span>,<span class="string">'旅游'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Person.call(<span class="keyword">this</span>) <span class="comment">// 利用call调用Person上的属性方法拷贝一份到Student</span></span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">24</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person()</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> student = <span class="keyword">new</span> Student()</span><br><span class="line"><span class="keyword">let</span> student2 = <span class="keyword">new</span> Student()</span><br><span class="line"><span class="built_in">console</span>.log(student.age) <span class="comment">// 24</span></span><br><span class="line"><span class="built_in">console</span>.log(student.name) <span class="comment">// '李白'</span></span><br><span class="line"><span class="built_in">console</span>.log(student.hobbies) <span class="comment">// '['吟诗','旅游']'</span></span><br><span class="line">student.sayName() <span class="comment">// '李白'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 此时我们修改某一个实例，hobbies 是原型对象上的引用类型 数组</span></span><br><span class="line">student.hobbies.push(<span class="string">'喝酒'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(student.hobbies) <span class="comment">// ['吟诗', '旅游', '喝酒']</span></span><br><span class="line"><span class="built_in">console</span>.log(student2.hobbies) <span class="comment">// ['吟诗', '旅游']</span></span><br></pre></td></tr></table></figure>
+
+<p>上面在子构造函数（Student）中利用call调用父构造函数（Person）的方式，叫做借助构造函数继承</p>
+<p>结合上面所看，<font color="blue">使用了原型链继承和借助构造函数继承，两者结合起来使用叫组合继承</font>，关系图如下：</p>
+<img src="https://upload-images.jianshu.io/upload_images/6784887-fa0530042081dd48.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.jpg" style="zoom: 67%;" />
+
+
+
+<p>那么还有个问题，当父构造函数需要接收参数时，怎么处理？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,hobbies</span>)</span>&#123; <span class="comment">// 父构造函数接收name，hobbies参数</span></span><br><span class="line">    <span class="keyword">this</span>.name = name <span class="comment">// 赋值到this上</span></span><br><span class="line">    <span class="keyword">this</span>.hobbies = hobbies <span class="comment">// 赋值到this上</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">age,name,hobbies</span>)</span>&#123; <span class="comment">// 在子构造函数中也接收参数</span></span><br><span class="line">    Person.call(<span class="keyword">this</span>,name,hobbies) <span class="comment">// 在这里把name和hobbies传参数</span></span><br><span class="line">    <span class="keyword">this</span>.age = age <span class="comment">// 赋值到this上</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person()</span><br><span class="line">Student.prototype.constructor = Student</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> student = <span class="keyword">new</span> Student(<span class="number">24</span>,<span class="string">"李白"</span>,[<span class="string">"吟诗"</span>,<span class="string">"旅游"</span>])</span><br><span class="line"><span class="keyword">let</span> student2 = <span class="keyword">new</span> Student(<span class="number">22</span>,<span class="string">"杜甫"</span>,[<span class="string">"忧虑"</span>,<span class="string">"想李白"</span>])</span><br><span class="line"><span class="built_in">console</span>.log(student.age) <span class="comment">// 24</span></span><br><span class="line"><span class="built_in">console</span>.log(student.name) <span class="comment">// '李白'</span></span><br><span class="line"><span class="built_in">console</span>.log(student.pets) <span class="comment">// '["吟诗","旅游"]'</span></span><br><span class="line">student.sayName() <span class="comment">// '李白'</span></span><br><span class="line"></span><br><span class="line">student.hobbies.push(<span class="string">'喝酒'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(student.hobbies) <span class="comment">// '["吟诗","旅游","喝酒"]'</span></span><br><span class="line"><span class="built_in">console</span>.log(student2.hobbies) <span class="comment">// '["吟诗","旅游"]'</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>这样我们就可以在子构造函数中给父构造函数传参了，但是使用<code>Person.call(this,name,hobbies)</code>和<code>new Person()</code>实例中的属性重复了，能否在子构造函数设置原型对象的时候，只要父构造函数的原型对象属性方法呢？当然是可以的。</p>
+<h3 id="寄生式组合继承"><a href="#寄生式组合继承" class="headerlink" title="寄生式组合继承"></a>寄生式组合继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,hobbies</span>)</span>&#123; <span class="comment">// 父构造函数接收name，hobbies参数</span></span><br><span class="line">    <span class="keyword">this</span>.name = name <span class="comment">// 赋值到this上</span></span><br><span class="line">    <span class="keyword">this</span>.hobbies = hobbies <span class="comment">// 赋值到this上</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">age,name,hobbies</span>)</span>&#123; <span class="comment">// 在子构造函数中也接收参数</span></span><br><span class="line">    Person.call(<span class="keyword">this</span>,name,hobbies) <span class="comment">// 在这里把name和hobbies传参数</span></span><br><span class="line">    <span class="keyword">this</span>.age = age <span class="comment">// 赋值到this上</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 寄生式继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Temp</span>(<span class="params"></span>)</span>&#123;&#125; <span class="comment">// 声明一个空的构造函数，用于桥梁作用</span></span><br><span class="line">Temp.prototype = Person.prototype <span class="comment">// 把Temp构造函数的原型对象指向Person的原型对象</span></span><br><span class="line"><span class="keyword">let</span> temp = <span class="keyword">new</span> Temp() <span class="comment">// 用构造函数Temp实例化一个实例temp</span></span><br><span class="line">Student.prototype = temp <span class="comment">// 把子构造函数的原型对象指向temp</span></span><br><span class="line">temp.constructor = Student <span class="comment">// 把temp的constructor指向Student</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> student1 = <span class="keyword">new</span> Student(<span class="number">24</span>,<span class="string">'李白'</span>,[<span class="string">'吟诗'</span>,<span class="string">'旅游'</span>])</span><br><span class="line"><span class="built_in">console</span>.log(student1) <span class="comment">// Student &#123; name: '李白', hobbies: [ '吟诗', '旅游' ], age: '24' &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> student2 = <span class="keyword">new</span> Student(<span class="number">22</span>,<span class="string">'杜甫'</span>,[<span class="string">'忧虑'</span>])</span><br><span class="line"><span class="built_in">console</span>.log(student2) <span class="comment">// Student &#123; name: '杜甫',hobbies: [ '忧虑' ], age: 22 &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>至此为止，我们就完成了寄生式组合继承了，主要逻辑就是用一个空的构造函数，来当做桥梁，并且把其原型对象指向父构造函数的原型对象，并且实例化一个temp，temp会沿着这个原型链，去找到父构造函数的原型对象</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6784887-f23c3d5ab775cbef.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2.jpg"></p>
+<h3 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原型式继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createObjWithObj</span>(<span class="params">obj</span>)</span>&#123; <span class="comment">// 传入一个原型对象</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Temp</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">    Temp.prototype = obj</span><br><span class="line">    <span class="keyword">let</span> o = <span class="keyword">new</span> Temp()</span><br><span class="line">    <span class="keyword">return</span> o</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把Person的原型对象当做temp的原型对象</span></span><br><span class="line"><span class="keyword">let</span> temp = createObjWithObj(Person.prototype)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以使用Object.create实现</span></span><br><span class="line"><span class="comment">// 把Person的原型对象当做temp2的原型对象</span></span><br><span class="line"><span class="keyword">let</span> temp2 = <span class="built_in">Object</span>.create(Person.prototype)</span><br></pre></td></tr></table></figure>
+
+<h3 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 寄生式继承</span></span><br><span class="line"><span class="comment">// 我们在原型式的基础上，希望给这个对象新增一些属性方法</span></span><br><span class="line"><span class="comment">// 那么我们在原型式的基础上扩展</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createNewObjWithObj</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> o = createObjWithObj(obj)</span><br><span class="line">    o.name = <span class="string">"李白"</span></span><br><span class="line">    o.age = <span class="number">28</span></span><br><span class="line">    <span class="keyword">return</span> o</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -465,12 +1045,13 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-05-14 16:54:39" itemprop="dateCreated datePublished" datetime="2020-05-14T16:54:39+08:00">2020-05-14</time>
+              <time title="Created: 2020-06-11 09:04:36 / Modified: 15:16:30" itemprop="dateCreated datePublished" datetime="2020-06-11T09:04:36+08:00">2020-06-11</time>
             </span>
           </div>
           <div class="post-button-more">
-            <a class="btn-more" href="/2020/05/14/git/">
+            <a class="btn-more" href="/2020/06/11/inheritance/">
               Read more &raquo;
             </a>
           </div>
@@ -484,6 +1065,9 @@
 
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -550,12 +1134,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

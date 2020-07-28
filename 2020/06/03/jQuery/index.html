@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dloux.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="jQueryjquery.min.js 表示压缩过的代码 jquery.js 表示正常的代码写法 用 $ 或者 jQuery 对象调用方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery">
+<meta property="og:url" content="https://dloux.gitee.io/2020/06/03/jQuery/index.html">
+<meta property="og:site_name" content="Dloux">
+<meta property="og:description" content="jQueryjquery.min.js 表示压缩过的代码 jquery.js 表示正常的代码写法 用 $ 或者 jQuery 对象调用方法">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-03T01:04:18.000Z">
+<meta property="article:modified_time" content="2020-06-04T07:39:25.881Z">
+<meta property="article:author" content="Dloux">
+<meta property="article:tag" content="jQuery">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://dloux.gitee.io/2020/06/03/jQuery/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>jQuery | Dloux</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Dloux</h1>
+      
+      <span class="logo-line-after">你好</span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+ 
+
+
+
+</div>
+      
+      <div class="menu-header">
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+</div>
+      
+      
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/06/03/jQuery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          jQuery
+        </h1>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><p>jquery.min.js 表示压缩过的代码</p>
+<p>jquery.js 表示正常的代码写法</p>
+<p>用 $ 或者 jQuery 对象调用方法 <a id="more"></a></p>
+<h4 id="入口函数"><a href="#入口函数" class="headerlink" title="入口函数"></a>入口函数</h4><ul>
+<li><p><code>$(function () {})</code> 类似 window.onload 也就是 onload = function () {}  (默认挂载在 window 对象上) </p>
+<p>onload 只能执行一个，而 $ 可以执行多个</p>
+</li>
+<li><p><code>$(document).ready(function () {})</code> 类似addEventListener(“DOMContentLoaded”, function () {})</p>
+</li>
+</ul>
+<h3 id="JQ对象"><a href="#JQ对象" class="headerlink" title="JQ对象"></a>JQ对象</h3><p>$(“CSS选择器”) 返回一个 jq 对象，可以使用 jq 方法，不能使用 DOM 对象的原生方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $box = $(<span class="string">".box"</span>) <span class="comment">// jQ 对象变量名一般加上 $ 符号</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="JQ-对象转-dom-对象"><a href="#JQ-对象转-dom-对象" class="headerlink" title="JQ 对象转 dom 对象"></a>JQ 对象转 dom 对象</h5><ul>
+<li><code>$(&quot;CSS选择器&quot;)[index]</code> 把选中的 jq 对象转为 dom 对象，如 <code>$(&quot;.box&quot;)[0]</code> 获取第一个 .box  的 dom 对象</li>
+<li><code>$(&quot;CSS选择器&quot;).get(index)</code> 把选中的 jq 对象转为 dom 对象</li>
+</ul>
+<h5 id="dom-对象转-jq-对象"><a href="#dom-对象转-jq-对象" class="headerlink" title="dom 对象转 jq 对象"></a>dom 对象转 jq 对象</h5><ul>
+<li><code>$(dom)</code> 可以直接传入 DOM 对象！ 如 $(document,getElementsByClassName(“box”)[0]) 就得到 $(“.box”):eq(0)</li>
+</ul>
+<h4 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h4><p>基本选择器与 document.querySelectorAll() 写法一致，都写入 CSS 选择器</p>
+<p><code>$(&quot;CSS选择器&quot;)</code></p>
+<h5 id="筛选器"><a href="#筛选器" class="headerlink" title="筛选器"></a>筛选器</h5><p>与伪类选择类似，但它选择是所有 li 中的下标，而不是同一个父元素下的 li 的下标</p>
+<p><code>$(&quot;li:first&quot;) = $(&quot;li:eq(1)&quot;)</code>下标等于1  、<code>$(&quot;li:last&quot;)</code>最后一个 li、</p>
+<p><code>$(&quot;li:gt(3)&quot;)</code> 下标大于三</p>
+<p><code>$(&quot;li:ls(3)&quot;)</code>下标小于三</p>
+<p><code>$(&quot;li:odd&quot;)</code> 偶数行、<code>$(&quot;li:even&quot;)</code> 奇数行</p>
+<p><code>$(&quot;li:empty&quot;)</code> 选中一个空的 li 元素</p>
+<p><code>$(&quot;li:contains(text)&quot;)</code> 匹配包含 text 文本的 li</p>
+<p><code>$(&quot;*&quot;).eq(3)</code> eq() 也可以写在外面，但不是<code>:</code>而是<code>.</code>了，这样就能选择别的元素了，不一定都是 li (这里前面写了 *，为了说明这一点) 如果写 $(“li”):eq(3) 其实与写在里面效果一样。</p>
+<p>这个属性是为了选择元素！ 和 $(“*”)[3] 一样！只不过这个选择的元素能用 JQ方法，原生的不行！</p>
+<p><code>$(&quot;li&quot;).eq(3).prevAll()</code> 选择在li:eq(3) 之前的所有元素，元素倒序排列，也就是会写成 li2、li1、li0，而不是li0、li1、li2</p>
+<p><code>$(&quot;li&quot;).eq(3).siblings()</code> 选择除自己之外的所有兄弟节点</p>
+<p><code>$(&quot;.box&quot;).find(ul)</code> 找到符合条件的<strong>子元素</strong> (不知道和$(“.box ul”) 有什么区别)</p>
+<p><code>$(&quot;.box&quot;).children(&quot;p&quot;)</code> 选择特定的关系节点 (不知道和$(“.box p”) 有什么区别)</p>
+<h4 id="css-样式"><a href="#css-样式" class="headerlink" title="css 样式"></a>css 样式</h4><p><code>$(&quot;.box&quot;).css(&quot;width&quot;)</code> jQEle.css(“样式名”) ，类似 getComputedStyle(ele, null)[“样式名”]</p>
+<p><code>$(&quot;.box&quot;).css(&quot;height&quot;, &quot;100px&quot;)</code> 设置单个样式，名与值都加引号，之间用 , 隔开</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置多个样式时，传入一个对象</span></span><br><span class="line">$(<span class="string">".box"</span>).css(&#123;</span><br><span class="line">    <span class="string">"line-height"</span>: <span class="string">"100px"</span>, <span class="comment">// 有连接符加引号或者驼峰命名</span></span><br><span class="line">    text-align: <span class="string">"100px"</span>, <span class="comment">// 有连接符加引号或者驼峰命名</span></span><br><span class="line">    height: <span class="string">"100px"</span>, <span class="comment">// 普通样式可加引号也可不加</span></span><br><span class="line">    <span class="string">"color"</span>: <span class="string">"red"</span> <span class="comment">// 普通样式可加引号也可不加</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><p><code>$(&quot;.box&quot;).attr(&quot;title&quot;,&quot;这是鼠标放上去显示的提示内容&quot;)</code></p>
+<p><code>$(&quot;.box&quot;).removeAttr(&quot;title&quot;)</code> 删除</p>
+<p>jQ用 .attr() 与 get、set、removeAttribute() 类似</p>
+<p>如果要设置多个，同样是传入一个对象，与设置 css 类似，键名是属性名，键值是需要设置的值</p>
+<h4 id="获取与设置内容"><a href="#获取与设置内容" class="headerlink" title="获取与设置内容"></a>获取与设置内容</h4><p><code>$(&quot;.box&quot;).html()</code> 获取与设置 html 内容 ，与 innerHTML 类似</p>
+<p><code>$(&quot;.box&quot;).text()</code> 获取与设置 text 内容， 与innerText 类似</p>
+<p><code>$(&quot;.box&quot;).val()</code> 获取与设置 input 的 value 值</p>
+<p>在括号中写入要设置的值，如 <code>$(&quot;.box&quot;).text(&quot;123&quot;)</code></p>
+<h4 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h4><p>与 <code>dom.classList.add()/remove()/toggle()/contains()</code> 类似，不过 jQ 能操作多个类名</p>
+<p><code>$(&quot;.box&quot;).addClass(&quot;b1 b2 b3&quot;)</code> 可以添加一个或多个类，类名之间用空格隔开</p>
+<p><code>$(&quot;.box&quot;).removeClass(&quot;b1 b2&quot;)</code>可以删除一个或多个类，类名之间用空格隔开</p>
+<p><code>$(&quot;.box&quot;).toggleClass(&quot;b3&quot;)</code> 添加或删除 b3 类名，如果存在就删除，如果不存在就添加</p>
+<p><code>$.(&quot;.box&quot;).hasClass(&quot;b3&quot;)</code> 判断是否有 b3 类名，返回 true 或 false</p>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// jQuery 事件不带 on </span></span><br><span class="line"><span class="comment">// jQ 事件是用 addEventListener 绑定的</span></span><br><span class="line">$(<span class="string">".box"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>) <span class="comment">// 事件中的 this 指的是对应的 dom元素，不是 JQ 对象</span></span><br><span class="line">    <span class="built_in">console</span>.log(event) <span class="comment">// 事件对象与原生事件对象一致</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">$(selector).show(<span class="number">2000</span>) <span class="comment">// 动画时间 毫秒</span></span><br><span class="line">$(selector).show(slow/normal/fast) <span class="comment">// 也可以这样写 表示动画进行速度慢、中、快</span></span><br><span class="line">$(selector).hide(<span class="number">2000</span>) <span class="comment">// 动画消失时间</span></span><br><span class="line"><span class="comment">// show 和 hide 都可以接收一个函数参数作为完成动画之后的回调函数 如</span></span><br><span class="line">$(selector).show(<span class="number">2000</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"动画 show 结束"</span>) </span><br><span class="line">&#125;)</span><br><span class="line">$(selecotr).hide(speed, callback)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 滑入滑出</span></span><br><span class="line">$(selector).slideDown(speed, callback)</span><br><span class="line">$(selector).slideUp(speed, callback)</span><br><span class="line">$(selector).slideToggle(speed, callback)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 淡入淡出</span></span><br><span class="line">$(selector).fadeIn(speed, callback)</span><br><span class="line">$(selector).fadeOut(speed, callback)</span><br><span class="line">$(selector).fadeToggle(speed, callback)</span><br><span class="line">$(selector).fadeTo(speed, opacity) <span class="comment">// 调节透明度 忽略参数或传入不合法字符串，使用默认值 400ms</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义动画</span></span><br><span class="line">$(selector).animate(styles, speed, ease, callback)</span><br><span class="line"><span class="comment">/* 参数一 样式</span></span><br><span class="line"><span class="comment">   参数二 持续时间</span></span><br><span class="line"><span class="comment">   参数三 运动函数</span></span><br><span class="line"><span class="comment">   参数四 完成时的回调函数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 例如</span></span><br><span class="line">$(<span class="string">".box"</span>).animate(&#123;</span><br><span class="line">    <span class="comment">// 可以带单位也可以不带，带单位记得加引号</span></span><br><span class="line">    width: <span class="number">600</span>, </span><br><span class="line">    height: <span class="string">"200px"</span>,</span><br><span class="line">    top: <span class="number">300</span>,</span><br><span class="line">    left: <span class="string">"200px"</span></span><br><span class="line">&#125;, <span class="number">1000</span>, linear, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"animate done!"</span>)</span><br><span class="line">&#125;)</span><br><span class="line">stop(stopALL, goToEnd) <span class="comment">// 停止动画 两个参数都是布尔值。</span></span><br><span class="line"><span class="comment">// 第一个参数表示是否停止这个元素上所有动画，如果为false取消当前正在进行的动画，如果为true 取消所有已入栈的动画。</span></span><br><span class="line"><span class="comment">// 第二个参数表示是否跳转到动画的最后一帧</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 原来的 jq animate() 无法改变颜色，如果需要改变颜色</span></span><br><span class="line"><span class="comment">// 如果需要用 animate() 改变颜色 需引入  jquery.color.js ，</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="操作节点"><a href="#操作节点" class="headerlink" title="操作节点"></a>操作节点</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pEle = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>)</span><br><span class="line"><span class="comment">// 原生只能插入节点，不能插入 HTML 文本，下面这条代码会报错</span></span><br><span class="line">$(<span class="string">".box"</span>)[<span class="number">0</span>].appendChild(<span class="string">"&lt;p&gt;&lt;/p&gt;"</span>) </span><br><span class="line"><span class="comment">// jQ 可以插入 HTML 文本 / 元素 / 纯文本 / JQ对象</span></span><br><span class="line">$(<span class="string">".box"</span>).append(pEle)</span><br><span class="line">$(<span class="string">".box"</span>).append(<span class="string">"&lt;h1&gt;hahaha&lt;/h1&gt;"</span>)</span><br><span class="line">$(<span class="string">".box"</span>).append($(<span class="string">".title"</span>)) <span class="comment">// 如果页面中存在这个元素，相当于把这个元素移动到 .box 的子元素最后一位，如果 .box 元素不止一个，那么每个 .box 元素中都添加一次</span></span><br><span class="line">$(<span class="string">".title"</span>).appendTo($(<span class="string">".box"</span>)) <span class="comment">// 把.title追加到.box中去 与上一条代码效果一致，只不过是写法与上面不一样而已</span></span><br><span class="line">$(<span class="string">".box"</span>).prepend(<span class="string">"&lt;span&gt;添加第一个子元素&lt;/span&gt;"</span>) </span><br><span class="line">$(<span class="string">".box"</span>).before(<span class="string">"&lt;span&gt;在自己之前添加一个兄弟元素&lt;/span&gt;"</span>)</span><br><span class="line">$(<span class="string">".box"</span>).after(<span class="string">"&lt;span&gt;在自己之后添加一个兄弟元素&lt;/span&gt;"</span>)</span><br><span class="line">$(<span class="string">".box"</span>).remove() <span class="comment">// 删除元素自身</span></span><br><span class="line">$(<span class="string">".box"</span>).empty() <span class="comment">// 清空元素内容</span></span><br><span class="line">$(<span class="string">".box"</span>).html(<span class="string">""</span>)</span><br><span class="line">$(<span class="string">".box"</span>).clone()  <span class="comment">// 克隆自己</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="坐标值"><a href="#坐标值" class="headerlink" title="坐标值"></a>坐标值</h3><ul>
+<li><p><code>$(selector).offset()</code> 在 jq 中，这个是获取元素相对于文档的位置，同时可以设值<code>$(selector).offset({left:100,top:50})</code></p>
+</li>
+<li><p><code>$(selector).position()</code>获取元素外边距外侧开始到最近的有相对定位的父元素的距离，，不能设置</p>
+</li>
+<li><p><code>$(selector).scrollTop()</code>  获取或设置元素垂直方向滚动的位置 </p>
+<p>设值： <code>$(selector).scrollTop(100)</code> ， JQ通过修改 top、left 值来改变元素的上左边距，如果元素没有定位，会自动添加 <code>position: relative</code> ，相对定位</p>
+</li>
+<li><p>在 JQ 中，获取页面高度 <code>$(document).scrollTop()</code>即可，也可以在 括号中 加入设置值 ，设置值实际使用了 原生的<code>window.scrollTo()</code> 方法</p>
+</li>
+</ul>
+<h4 id="宽高"><a href="#宽高" class="headerlink" title="宽高"></a>宽高</h4><p><code>$(&quot;.box&quot;).width()</code> 获取宽度</p>
+<p><code>$(&quot;.box&quot;).width(100px)</code> 设置宽度</p>
+<p><code>$(&quot;.box&quot;).height()</code> 获取高度，设置高度同理</p>
+<h3 id="绑定事件"><a href="#绑定事件" class="headerlink" title="绑定事件"></a>绑定事件</h3><p>JQ 最开始 是用 bind、triggle 绑定事件，在 jQ 1.7 之后多了 on 方式，大家都用它了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".box"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;)</span><br><span class="line">$(<span class="string">".box"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">456</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 点击后将出现 123， 456 ，说明 jq 可以在同一个事件上绑定多个处理程序</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 传参，可以在 function 参数之前传入一个对象参数，这个对象参数将会被绑定在 event.data 属性上</span></span><br><span class="line"><span class="comment">// 无法取消事件，因为是匿名函数</span></span><br><span class="line">$(<span class="string">".box"</span>).click(&#123;<span class="attr">name</span>: <span class="string">"nihao"</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.data) <span class="comment">// 打印出 &#123;name: "nihao"&#125;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// on ，能取消，能传值，能监听事件委托，能同时绑定多个不同事件</span></span><br><span class="line">$(<span class="string">".box"</span>).on(<span class="string">"click mouseenter mouseleave"</span>, &#123;<span class="attr">name</span>: <span class="string">"nihao"</span>&#125;,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件委托，好处是能让新添加的子元素也有这个事件   这个实际上是只在 .box 绑定了一次事件</span></span><br><span class="line">$(<span class="string">".box"</span>).on(<span class="string">"click"</span>, <span class="string">".inner"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span> <span class="comment">// 指向触发事件的元素</span></span><br><span class="line">    event.target <span class="comment">// 指向触发事件的元素</span></span><br><span class="line">    event.currentTarget <span class="comment">// 指向 委托监听的元素，即 .box</span></span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="解绑"><a href="#解绑" class="headerlink" title="解绑"></a>解绑</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".box"</span>).dbclick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 直接调用，解绑所有通过 JQ 绑定的事件，原生绑定的事件依然存在</span></span><br><span class="line">    $(<span class="keyword">this</span>).off()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加参数，解绑通过 jq 绑定的一类事件</span></span><br><span class="line">$(<span class="string">".box"</span>).off(<span class="string">"click"</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">// 解绑某一个事件处理函数，函数必须是具名函数，类似 ele.removeEventListener("click", fn)，不过一个解绑 jq 对象，一个解绑 dom 对象</span></span><br><span class="line">$(<span class="string">".box"</span>).off(<span class="string">"click"</span>, fn)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="注"><a href="#注" class="headerlink" title="注"></a>注</h3><h4 id="隐式迭代与链式编程"><a href="#隐式迭代与链式编程" class="headerlink" title="隐式迭代与链式编程"></a>隐式迭代与链式编程</h4><p>JQ 的方法默认对指定的 JQ 对象中的所有元素都操作一遍(隐式迭代)，同时每个方法都会返回被操作的元素本身，所以可以链式编程，如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".box"</span>).css(<span class="string">"width"</span>, <span class="string">"100px"</span>)</span><br><span class="line">    .css(<span class="string">"height"</span>,<span class="string">"200px"</span>)</span><br><span class="line">	.css(<span class="string">"color"</span>, <span class="string">"red"</span>)</span><br><span class="line">	.next() <span class="comment">// 对象此时转移成了 $(".box").next()</span></span><br><span class="line">	.css(<span class="string">"color"</span>, <span class="string">"blue"</span>) <span class="comment">// box 的下个兄弟元素字色改变</span></span><br><span class="line">	.end() <span class="comment">// end() 让对象变回了 $(".box")</span></span><br><span class="line"><span class="comment">// end() 方法结束当前链最近的一次过滤操作，并且返回匹配元素之前的状态</span></span><br></pre></td></tr></table></figure>
+
+<p>大部分情况下 jQ 是不需要 each 方法的，因为 jQuery 隐式迭代的特性，但如果需要对每个元素做不同的处理，就需要 each</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">this</span>).index() <span class="comment">// 获取当前元素在父元素所有节点中的</span></span><br><span class="line">$(selector).each(<span class="function"><span class="keyword">function</span> (<span class="params">index,item</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// index 当前被选中的元素下标</span></span><br><span class="line">    <span class="comment">// item 当前被选中的元素</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 例   每个li的宽度是其 (下标+1)数值 的 100倍 px，如果 li 的下标大于 3， 它的高度是它的(下标+1)数值的 200倍 px</span></span><br><span class="line">$(<span class="string">"li"</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params">index, item</span>) </span>&#123;</span><br><span class="line">   item.css(<span class="string">"width"</span>, <span class="number">100</span> * (index + <span class="number">1</span>) + <span class="string">'px'</span>) </span><br><span class="line">    <span class="keyword">if</span>(index &gt; <span class="number">3</span>) &#123;</span><br><span class="line">        item.css(<span class="string">"height"</span>, <span class="number">200</span> * (index + <span class="number">1</span>) + <span class="string">'px'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="多库共存"><a href="#多库共存" class="headerlink" title="多库共存"></a>多库共存</h4><p><code>$.noConflict()</code> 让 jQuery 释放对 $ 的控制权，之后只能通过 jquery 对象使用 jQuery 的方法</p>
+
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Dloux
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://dloux.gitee.io/2020/06/03/jQuery/" title="jQuery">https://dloux.gitee.io/2020/06/03/jQuery/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jQuery/" rel="tag"><i class="fa fa-tag"></i> jQuery</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/27/BOM/" rel="prev" title="BOM">
+      <i class="fa fa-chevron-left"></i> BOM
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/05/h5new/" rel="next" title="h5new">
+      h5new <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery"><span class="nav-number">1.</span> <span class="nav-text">jQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#入口函数"><span class="nav-number">1.0.1.</span> <span class="nav-text">入口函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JQ对象"><span class="nav-number">1.1.</span> <span class="nav-text">JQ对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JQ-对象转-dom-对象"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">JQ 对象转 dom 对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dom-对象转-jq-对象"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">dom 对象转 jq 对象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择器"><span class="nav-number">1.1.1.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#筛选器"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">筛选器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css-样式"><span class="nav-number">1.1.2.</span> <span class="nav-text">css 样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性"><span class="nav-number">1.1.3.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取与设置内容"><span class="nav-number">1.1.4.</span> <span class="nav-text">获取与设置内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类名"><span class="nav-number">1.1.5.</span> <span class="nav-text">类名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件"><span class="nav-number">1.2.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画"><span class="nav-number">1.3.</span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作节点"><span class="nav-number">1.4.</span> <span class="nav-text">操作节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坐标值"><span class="nav-number">1.5.</span> <span class="nav-text">坐标值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#宽高"><span class="nav-number">1.5.1.</span> <span class="nav-text">宽高</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定事件"><span class="nav-number">1.6.</span> <span class="nav-text">绑定事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解绑"><span class="nav-number">1.7.</span> <span class="nav-text">解绑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注"><span class="nav-number">1.8.</span> <span class="nav-text">注</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#隐式迭代与链式编程"><span class="nav-number">1.8.1.</span> <span class="nav-text">隐式迭代与链式编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多库共存"><span class="nav-number">1.8.2.</span> <span class="nav-text">多库共存</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dloux"
+      src="/images/dloux.jpg">
+  <p class="site-author-name" itemprop="name">Dloux</p>
+  <div class="site-description" itemprop="description">ddd</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dlouxgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dlouxgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dloux</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+
+
+
+<script>
+  var pathName = window.document.location.pathname;
+  var cont = document.getElementsByClassName("content-wrap")[0];
+  console.log(cont);
+  if (pathName =='/' || pathName =='/note/') {
+  // if (/\//.test(window.document.location.pathname)) {
+    console.log(pathName);
+    console.log(cont.style.backgroundColor)
+    cont.className="content-wrap transparentcont";
+    // cont.style.backgroundColor = "rgba(255,255,255,0) !importent";
+  }
+</script>
+</body>
+</html>

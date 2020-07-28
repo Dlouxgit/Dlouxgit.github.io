@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dloux.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="基础判断数据类型 typeof 判断对象类型 instanceof 用 in 操作符来检查属性是否存在 key(属性名) in Object 删除对象的属性 delete  delete Object[&#39;属性名&#39;] 拷贝浅拷贝12345678910111213141516171819202122232425262728&#x2F;&#x2F; 这是浅拷贝，拷贝返回的对象与原对象使用同一引用类型值地址f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jsRe">
+<meta property="og:url" content="https://dloux.gitee.io/2020/06/09/jsRe/index.html">
+<meta property="og:site_name" content="Dloux">
+<meta property="og:description" content="基础判断数据类型 typeof 判断对象类型 instanceof 用 in 操作符来检查属性是否存在 key(属性名) in Object 删除对象的属性 delete  delete Object[&#39;属性名&#39;] 拷贝浅拷贝12345678910111213141516171819202122232425262728&#x2F;&#x2F; 这是浅拷贝，拷贝返回的对象与原对象使用同一引用类型值地址f">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-09T01:10:22.000Z">
+<meta property="article:modified_time" content="2020-06-09T09:52:25.733Z">
+<meta property="article:author" content="Dloux">
+<meta property="article:tag" content="jsRe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://dloux.gitee.io/2020/06/09/jsRe/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>jsRe | Dloux</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Dloux</h1>
+      
+      <span class="logo-line-after">你好</span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+ 
+
+
+
+</div>
+      
+      <div class="menu-header">
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+</div>
+      
+      
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/06/09/jsRe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          jsRe
+        </h1>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>判断数据类型 typeof</p>
+<p>判断对象类型 instanceof</p>
+<p>用 in 操作符来检查属性是否存在 <code>key(属性名) in Object</code></p>
+<p>删除对象的属性 delete  <code>delete Object[&#39;属性名&#39;]</code></p>
+<h3 id="拷贝"><a href="#拷贝" class="headerlink" title="拷贝"></a>拷贝</h3><h4 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是浅拷贝，拷贝返回的对象与原对象使用同一引用类型值地址</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newObj = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        newObj[i] = obj[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Object.assign 拷贝对象 Object.assign(target,&#123;&#125;(源对象1),obj2(源对象2))</span></span><br><span class="line"><span class="comment">// 只能复制一层对象，如果对象的属性值对应了其他引用类型，还是一样会出现问题，实际上就是个浅拷贝。如</span></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">2</span>,</span><br><span class="line">    c: [<span class="string">'a'</span>, <span class="string">'b'</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;, obj1)</span><br><span class="line">obj2.c[<span class="number">1</span>] = <span class="number">5</span></span><br><span class="line">obj2.c <span class="comment">// ['a', 5]</span></span><br><span class="line">obj1.c <span class="comment">// ['a', 5]</span></span><br><span class="line"><span class="comment">// 实际上这种方法常用来赋值对象的默认参数，如</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aa</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    obj = <span class="built_in">Object</span>.assign(&#123;</span><br><span class="line">        name: <span class="string">'dl'</span>,</span><br><span class="line">        age: <span class="number">11</span></span><br><span class="line">    &#125;, obj)</span><br><span class="line">    <span class="comment">// 默认对象 .name = 'dl', .age = 11</span></span><br><span class="line">    <span class="comment">// 如果 obj 有这个属性，就会覆盖掉，如果没有就会变成默认值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 乞丐版深拷贝 JSON 方法</span></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    a: [<span class="number">1</span>],</span><br><span class="line">    b: <span class="number">2</span>,</span><br><span class="line">    c: [<span class="string">'a'</span>, <span class="string">'b'</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> objString = <span class="built_in">JSON</span>.stringify(obj1)</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">JSON</span>.parse(objString)</span><br><span class="line">obj2.a = <span class="number">5</span></span><br><span class="line">obj1.a <span class="comment">// [1]</span></span><br><span class="line">obj2.a <span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 引用没有问题，修改 obj2 ，不会对 obj1 造成任何影响，但它无法拷贝 undefined，function，RegExp 等类型的，所以叫做乞丐版</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 递归版</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(obj === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">    <span class="keyword">if</span>(obj <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(obj)</span><br><span class="line">    <span class="keyword">if</span>(obj <span class="keyword">instanceof</span> <span class="built_in">Date</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(obj)</span><br><span class="line">    <span class="keyword">if</span>(type obj != <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> obj</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> newObj = <span class="keyword">new</span> obj.constructor()</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        newObj[key] = deepClone(obj[key])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="上下文对象创建和初始化"><a href="#上下文对象创建和初始化" class="headerlink" title="上下文对象创建和初始化"></a>上下文对象创建和初始化</h2><ul>
+<li>全局:<ul>
+<li>在全局代码执行前最先创建一个全局上下文对象(window)</li>
+<li>收集一些全局变量/函数, 并初始化</li>
+<li>将这些变量设置为上下文对象的属性</li>
+</ul>
+</li>
+<li>函数:<ul>
+<li>在调用函数时, 在执行函数体之前先创建一个函数上下文对象</li>
+<li>收集一些局部变量,/函数 并初始化</li>
+<li>将这些变量设置为上下文对象的属性</li>
+</ul>
+</li>
+<li>声明提升<ul>
+<li>变量提升: 在变量定义语句之前, 就可以访问到这个变量(undefined)</li>
+<li>函数提升: 在函数定义语句之前, 就可以执行该函数</li>
+<li><strong>如果一个变量和函数同名，函数声明优先于变量声明</strong></li>
+<li><strong>函数中形参的赋值在函数声明之前</strong></li>
+</ul>
+</li>
+</ul>
+<p>练习:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!foo) &#123;</span><br><span class="line">        <span class="keyword">var</span> foo = <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    alert(foo); <span class="comment">// ?</span></span><br><span class="line">&#125;</span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">b();</span><br><span class="line">alert(a);  <span class="comment">// ?</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params">t</span>) </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">	<span class="built_in">console</span>.log(t) <span class="comment">// function t() &#123;&#125;</span></span><br><span class="line">    <span class="comment">// 由于 函数中形参的赋值在函数声明之前, 10被覆盖掉</span></span><br><span class="line">&#125;</span><br><span class="line">b(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><font color="orangered">严格模式：</font></p>
+<p>‘use strict’</p>
+<p>为了规范 js 的语言类型，推出了严格模式，严格模式下未经声明的值不可使用。</p>
+<h1 id="描述对象属性的特性的属性"><a href="#描述对象属性的特性的属性" class="headerlink" title="描述对象属性的特性的属性"></a>描述对象属性的特性的属性</h1><p>到目前为止，属性对我们来说是一个简单的“键-值”对。但对象属性实际上是更复杂可变的东西。</p>
+<p>两种描述属性：<strong>数据属性和访问器属性</strong></p>
+<h2 id="1-数据属性"><a href="#1-数据属性" class="headerlink" title="1. 数据属性"></a>1. 数据属性</h2><p>数据属性包含一个数据值的位置。在这个位置可以读取和写入值。数据属性有 4 个描述其行为的特性</p>
+<ul>
+<li><p>[[Configurable]] ：是否可配置标志，表示能否通过 delete 删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。</p>
+<p>有时它会预设在内置对象和属性中。像前面例子中那样直接在对象上定义的属性，它们的这个特性默认值为 true </p>
+<p>当它的值为false的时候，一个不可配置的属性不能被 <code>defineProperty</code> 删除或修改。</p>
+</li>
+<li><p>[[Enumerable]] ：表示能否通过 for-in 循环返回属性。像前面例子中那样直接在对象上定义的属性，它们的这个特性默认值为 true   枚举/穷举/遍历</p>
+</li>
+<li><p>[[Writable]] ：表示能否修改属性的值。像前面例子中那样直接在对象上定义的属性，它们的这个特性默认值为 true </p>
+</li>
+<li><p>[[Value]] ：包含这个属性的数据值。读取属性值的时候，从这个位置读；写入属性值的时候，把新值保存在这个位置。这个特性的默认值为 undefined</p>
+</li>
+</ul>
+<p>像上面的两种方法那样直接在对象上定义属性和方法，它们的 [[Configurable]] 、 [[Enumerable]] 和 [[Writable]] 特性都被设置为 true ，而 [[Value]] 特性被设置为指定的值。可以通过 Object.defineProperty() 来定义</p>
+<p>属性描述符可以在各个属性的级别上工作。还有一些限制访问整个对象的方法：</p>
+<ul>
+<li><p><a href="https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions" target="_blank" rel="noopener">Object.preventExtensions(obj)</a></p>
+<p>禁止向对象添加属性。</p>
+</li>
+<li><p><a href="https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Object/seal" target="_blank" rel="noopener">Object.seal(obj)</a></p>
+<p>禁止添加/删除属性，为所有现有的属性设置 <code>configurable: false</code>。</p>
+</li>
+<li><p><a href="https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze" target="_blank" rel="noopener">Object.freeze(obj)</a></p>
+<p>禁止添加/删除/更改属性，为所有现有属性设置 <code>configurable: false, writable: false</code>。</p>
+</li>
+</ul>
+<p>还有对他们的测试：</p>
+<ul>
+<li><p><a href="https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible" target="_blank" rel="noopener">Object.isExtensible(obj)</a></p>
+<p>如果添加属性被禁止，则返回 <code>false</code>，否则返回 <code>true</code>。</p>
+</li>
+<li><p><a href="https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed" target="_blank" rel="noopener">Object.isSealed(obj)</a></p>
+<p>如果禁止添加/删除属性，则返回 <code>true</code>，并且所有现有属性都具有 <code>configurable: false</code>。</p>
+</li>
+<li><p><a href="https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen" target="_blank" rel="noopener">Object.isFrozen(obj)</a></p>
+<p>如果禁止添加/删除/更改属性，并且所有当前属性都是 <code>configurable: false, writable: false</code>，则返回 <code>true</code>。</p>
+</li>
+</ul>
+<p><font color="indigo">这些方法在实践中很少使用。</font></p>
+<h2 id="2-访问器属性"><a href="#2-访问器属性" class="headerlink" title="2. 访问器属性"></a>2. 访问器属性</h2><p>访问器属性不包含数据值；它包含一对儿 getter 和 setter 函数（不过，这两个函数都不是必需的）。在读取访问器属性时，会调用 getter 函数，这个函数负责返回有效的值；在写入访问器属性时，会调用 setter 函数并传入新值，这个函数负责决定如何处理数据。</p>
+<ul>
+<li>[[Get]] ：在读取属性时调用的函数。默认值为 undefined </li>
+<li>[[Set]] ：在写入属性时调用的函数。默认值为 undefined </li>
+</ul>
+<p>在对象字面量中，它们用 <code>get</code> 和 <code>set</code> 表示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从外表看，访问器属性看起来像一个普通的属性。这是访问器属性的设计思想。我们不以函数的方式调用 user.fullName，我们通常读取它：getter 在幕后运行。</span></span><br><span class="line"><span class="comment">// 这样就创建了一个“虚拟”属性。它是可读写的，但实际上并不存在。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="keyword">get</span> propName() &#123;</span><br><span class="line">    <span class="comment">// getter, the code executed on getting obj.propName</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="keyword">set</span> propName(value) &#123;</span><br><span class="line">    <span class="comment">// setter, the code executed on setting obj.propName = value</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="访问器属性的描述符"><a href="#访问器属性的描述符" class="headerlink" title="访问器属性的描述符"></a>访问器属性的描述符</h3><p>访问器属性的描述符与数据属性相比是不同的。</p>
+<p>对于访问器属性，没有 <code>value</code> 和 <code>writable</code>，但是有 <code>get</code> 和 <code>set</code> 函数。</p>
+<p>所以访问器描述符有：</p>
+<ul>
+<li><strong>get</strong> —— 一个没有参数的函数，在读取属性时工作，</li>
+<li><strong>set</strong> —— 带有一个参数的函数，当属性被设置时调用，</li>
+<li><strong>enumerable</strong> —— 与数据属性相同，</li>
+<li><strong>configurable</strong> —— 与数据属性相同。</li>
+</ul>
+<p>例如，要使用 <code>defineProperty</code> 创建 <code>fullName</code> 的访问器，我们可以使用 <code>get</code> 和 <code>set</code> 来传递描述符：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">"John"</span>,</span><br><span class="line">  surname: <span class="string">"Smith"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(user, <span class="string">'fullName'</span>, &#123;</span><br><span class="line">  <span class="keyword">get</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.surname&#125;</span>`</span>;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="keyword">set</span>(value) &#123;</span><br><span class="line">    [<span class="keyword">this</span>.name, <span class="keyword">this</span>.surname] = value.split(<span class="string">" "</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">alert(user.fullName); <span class="comment">// John Smith</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> user) alert(key); <span class="comment">// name, surname</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>受保护的属性通常以下划线 _ 作为前缀，这不是在语言层面强制实施的，但是有一个在程序员之间人尽皆知的惯例是不应该从外部访问这些属性和方法。</strong></p>
+<p><strong><font color="#f00">注意: 属性可以是“数据属性”或“访问器属性”，但不能同时属于两者。</font></strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 同时存在 get函数和 value,会报错</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(&#123;&#125;, <span class="string">'prop'</span>, &#123;</span><br><span class="line">  <span class="keyword">get</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  value: <span class="number">2</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-defineProperty"><a href="#3-defineProperty" class="headerlink" title="3. defineProperty"></a>3. defineProperty</h2><p>要修改属性默认的特性，必须使用 <code>Object.defineProperty()</code> 方法。</p>
+<p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj, propertyName, descriptor)</span><br><span class="line"><span class="comment">// obj，propertyName   要处理的对象和属性。</span></span><br><span class="line"><span class="comment">// descriptor   要应用的属性描述符。</span></span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">"name"</span>, &#123;</span><br><span class="line">    enumerable: <span class="literal">true</span>, <span class="comment">// 是否可枚举,默认值为 true; 如果为false,打印这个对象,是看不到name这个属性的</span></span><br><span class="line">    writable:<span class="literal">true</span>,  <span class="comment">// 是否可写，默认值 true; 如果为false的话，给name赋值，不会生效</span></span><br><span class="line">    configurable:<span class="literal">true</span>, <span class="comment">// 是否可配置（是否可删除），默认值 true</span></span><br><span class="line">                       <span class="comment">// 如果为true，delete obj.name，再打印person，则显示&#123;&#125;</span></span><br><span class="line">                       <span class="comment">// 如果为false，delete obj.name，再打印person,则显示&#123;name:Nicholas&#125;</span></span><br><span class="line">   value:<span class="string">'Nicholas'</span>, <span class="comment">// name对应的值</span></span><br><span class="line">&#125;);</span><br><span class="line">alert(person.name);</span><br><span class="line"><span class="keyword">delete</span> person.name;</span><br><span class="line">alert(person.name);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person,<span class="string">"name"</span>,&#123;</span><br><span class="line">    <span class="keyword">get</span>: function ()&#123;</span><br><span class="line">        <span class="comment">// 当读取person.name时回调用此函数,拿取返回值</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'xxx'</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>: function (newValue)&#123;</span><br><span class="line">        <span class="comment">// 更改person.name的值时,回调用此函数,默认形参为我们设置的新值</span></span><br><span class="line">        person.name = newValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong><font color="#f00">注意:</font></strong></p>
+<ol>
+<li><p>使属性不可配置是一条单行道。我们不能把它改回去，因为 <code>defineProperty</code> 不适用于不可配置的属性。</p>
+</li>
+<li><p>设置不可用的属性时，只在使用严格模式时才会出现错误。在非严格模式下，写入只读属性等时不会发生错误。但操作仍然不会成功。非严格模式下违反标志的行为只是默默地被忽略。</p>
+</li>
+</ol>
+<h3 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-module</span>=<span class="string">"name"</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> obj = &#123;&#125;;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> ipt = <span class="built_in">document</span>.querySelector(<span class="string">"input[v-module]"</span>);</span></span><br><span class="line">			</span><br><span class="line"><span class="actionscript">	ipt.oninput = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line">		obj.name = ipt.value;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">	<span class="built_in">Object</span>.defineProperty(obj,<span class="string">'name'</span>,&#123;</span></span><br><span class="line"><span class="javascript">		<span class="keyword">get</span>()&#123;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">return</span> ipt.value</span></span><br><span class="line">		&#125;,</span><br><span class="line"><span class="javascript">		<span class="keyword">set</span>(v)&#123;</span></span><br><span class="line">			ipt.value = v;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-defineProperties"><a href="#4-defineProperties" class="headerlink" title="4. defineProperties"></a>4. defineProperties</h2><p>Object.defineProperties() 方法用来一次定义多个属性，这个方法接受两个对象参数： 添加或修改其属性的对象，与第一个对象中要添加或修改的属性一一对应的对象</p>
+<p>语法:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperties(obj, &#123;</span><br><span class="line">  prop1: descriptor1,</span><br><span class="line">  prop2: descriptor2</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>例如:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperties(user, &#123;</span><br><span class="line">  name: &#123; <span class="attr">value</span>: <span class="string">"John"</span>, <span class="attr">writable</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  surname: &#123; <span class="attr">value</span>: <span class="string">"Smith"</span>, <span class="attr">writable</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-getOwnPropertyNames"><a href="#5-getOwnPropertyNames" class="headerlink" title="5.  getOwnPropertyNames"></a>5.  getOwnPropertyNames</h2><p>Object.getOwnPropertyNames(obj)  可以得到 obj 所有的属性，无论它是否可枚举。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"李白"</span>,</span><br><span class="line">    age: <span class="number">24</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">"tel"</span>, &#123;</span><br><span class="line">    value: <span class="string">"123456"</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(obj) <span class="comment">//  ["name", "age", "tel"]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-Object-keys"><a href="#6-Object-keys" class="headerlink" title="6. Object.keys"></a>6. Object.keys</h2><p>获取对象所有可枚举的属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"李白"</span>,</span><br><span class="line">    age: <span class="number">24</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">"tel"</span>, &#123;</span><br><span class="line">    value: <span class="string">"123456"</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj)); <span class="comment">// ["name", "age"]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><font color="red">作业：</font></p>
+<p>给任意 input 元素添加 v-module 属性，在 data 中添加相应属性，并实现双向数据绑定，生成的属性不可枚举。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- name改为"李白",data中添加name属性,值为"李白" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"请输入姓名"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">v-module</span>=<span class="string">"name"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"请输入年龄"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">v-module</span>=<span class="string">"age"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"请输入年龄"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> data = &#123; &#125;;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="题外"><a href="#题外" class="headerlink" title="题外"></a>题外</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'tt'</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    fn: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;,</span><br><span class="line">    name: <span class="string">'dl'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> wf = obj.fn  </span><br><span class="line"><span class="comment">// 实际上是把 function () &#123; console.log(this.name) &#125; 这个函数，给了 wf， wf 在 window 声明了这个函数。</span></span><br><span class="line"><span class="comment">// 是把函数这个引用数据类型的地址给了 wf ！</span></span><br><span class="line"><span class="comment">// 相当于 window 对象上多了一条 属性</span></span><br><span class="line"><span class="comment">// &#123;属性... , wf: function () &#123; console.log(this.name) &#125;&#125;</span></span><br><span class="line"><span class="comment">// 所以 wf() 的 this 指向 window ，返回的是 window.name</span></span><br><span class="line"></span><br><span class="line">wf() <span class="comment">// 'tt'</span></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    obj.fn() <span class="comment">// 'dl' 由于仍然调用的是 obj 中的 fn, 所以 this 指向 obj ，所以打印 obj.name</span></span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// setTimeout 的第一个参数是个回调函数，其实和上面的 wf 一样，只是拿到了 obj.fn 的地址，然后时间到了之后用一次。</span></span><br><span class="line"><span class="comment">// 相当于 var callback = obj.fn</span></span><br><span class="line"><span class="comment">// setTimeout(callback, 0)</span></span><br><span class="line">setTimeout(obj.fn, <span class="number">0</span>) <span class="comment">// 'tt'</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="函数的作用域在定义的时候就已经确定了"><a href="#函数的作用域在定义的时候就已经确定了" class="headerlink" title="函数的作用域在定义的时候就已经确定了"></a>函数的作用域在定义的时候就已经确定了</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">af</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> c = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">// 闭包</span></span><br><span class="line">        <span class="built_in">console</span>.log(c)</span><br><span class="line">        c++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = af()</span><br><span class="line"><span class="keyword">var</span> c = af()</span><br><span class="line">b() <span class="comment">// 0  实际上 c 此时是1，因为console.log 在 c++ 之前，下同</span></span><br><span class="line">b() <span class="comment">// 1 </span></span><br><span class="line">b() <span class="comment">// 2</span></span><br><span class="line">c() <span class="comment">// 0 由于 c = af()，相当于重新执行了一遍 af()，所以 c = 0</span></span><br><span class="line">b() <span class="comment">// 3   b 和 c 实际是两个不同的函数，只是看起来一样而已，它们的内存地址并不一样，每次执行 af(),都在内存中开辟了新的空间，返回了一个新的函数， 它们各自控制自己父级作用域内的 c</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Dloux
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://dloux.gitee.io/2020/06/09/jsRe/" title="jsRe">https://dloux.gitee.io/2020/06/09/jsRe/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jsRe/" rel="tag"><i class="fa fa-tag"></i> jsRe</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/08/animation/" rel="prev" title="animation">
+      <i class="fa fa-chevron-left"></i> animation
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/10/prototype/" rel="next" title="prototype">
+      prototype <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#拷贝"><span class="nav-number">1.1.</span> <span class="nav-text">拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浅拷贝"><span class="nav-number">1.1.1.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝"><span class="nav-number">1.1.2.</span> <span class="nav-text">深拷贝</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文对象创建和初始化"><span class="nav-number">2.</span> <span class="nav-text">上下文对象创建和初始化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#描述对象属性的特性的属性"><span class="nav-number"></span> <span class="nav-text">描述对象属性的特性的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数据属性"><span class="nav-number">1.</span> <span class="nav-text">1. 数据属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-访问器属性"><span class="nav-number">2.</span> <span class="nav-text">2. 访问器属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#访问器属性的描述符"><span class="nav-number">2.1.</span> <span class="nav-text">访问器属性的描述符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-defineProperty"><span class="nav-number">3.</span> <span class="nav-text">3. defineProperty</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#双向绑定"><span class="nav-number">3.1.</span> <span class="nav-text">双向绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-defineProperties"><span class="nav-number">4.</span> <span class="nav-text">4. defineProperties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-getOwnPropertyNames"><span class="nav-number">5.</span> <span class="nav-text">5.  getOwnPropertyNames</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Object-keys"><span class="nav-number">6.</span> <span class="nav-text">6. Object.keys</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题外"><span class="nav-number">6.1.</span> <span class="nav-text">题外</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数的作用域在定义的时候就已经确定了"><span class="nav-number">6.1.0.1.</span> <span class="nav-text">函数的作用域在定义的时候就已经确定了</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dloux"
+      src="/images/dloux.jpg">
+  <p class="site-author-name" itemprop="name">Dloux</p>
+  <div class="site-description" itemprop="description">ddd</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dlouxgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dlouxgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dloux</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+
+
+
+<script>
+  var pathName = window.document.location.pathname;
+  var cont = document.getElementsByClassName("content-wrap")[0];
+  console.log(cont);
+  if (pathName =='/' || pathName =='/note/') {
+  // if (/\//.test(window.document.location.pathname)) {
+    console.log(pathName);
+    console.log(cont.style.backgroundColor)
+    cont.className="content-wrap transparentcont";
+    // cont.style.backgroundColor = "rgba(255,255,255,0) !importent";
+  }
+</script>
+</body>
+</html>

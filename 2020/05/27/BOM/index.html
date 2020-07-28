@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dloux.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="BOMoffset（只读，不可写）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BOM">
+<meta property="og:url" content="https://dloux.gitee.io/2020/05/27/BOM/index.html">
+<meta property="og:site_name" content="Dloux">
+<meta property="og:description" content="BOMoffset（只读，不可写）">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-27T00:57:24.000Z">
+<meta property="article:modified_time" content="2020-06-19T12:51:14.215Z">
+<meta property="article:author" content="Dloux">
+<meta property="article:tag" content="jsBasic">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://dloux.gitee.io/2020/05/27/BOM/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>BOM | Dloux</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Dloux</h1>
+      
+      <span class="logo-line-after">你好</span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+ 
+
+
+
+</div>
+      
+      <div class="menu-header">
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+</div>
+      
+      
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/05/27/BOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          BOM
+        </h1>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><h3 id="offset（只读，不可写）"><a href="#offset（只读，不可写）" class="headerlink" title="offset（只读，不可写）"></a>offset（只读，不可写）<a id="more"></a></h3><p><code>ele.offsetParent</code>获取元素第一个有定位的父级元素（如果一直找不到就会返回 <body>元素）</p>
+<p><code>ele.offsetWidth</code> 获取元素宽度 <code>(padding + width + border)</code></p>
+<p><code>ele.offsetHeight</code> 获取元素高度 <code>(padding + height + border)</code></p>
+<p><code>ele.offsetTop</code> 获取元素顶部到有定位的父级元素的上内边距外侧（上外边距内侧）的距离（也就是到外边距就停）。当定位元素为 body 时，获取到页面顶端的距离（不管 body 是否有 border）</p>
+<p><code>ele.offsetLeft</code> 获取元素顶部到有定位的父级元素的左内边距外侧（左外边距内侧）的距离。当定位元素为 body 时，获取到页面最左侧的距离（不管 body 是否有 border）</p>
+<p> <strong>以上获取的数值都是整数（一般会自动向上取整，遇 1 向下取整，遇 2 以上都向上取整），不带 ‘px’ 的。（ ele.style.top/left 是带 px 的）</strong></p>
+<h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><h4 id="缓速动画（速度越来越慢）"><a href="#缓速动画（速度越来越慢）" class="headerlink" title="缓速动画（速度越来越慢）"></a>缓速动画（速度越来越慢）</h4><p>步长公式：(终点 - 起点) / 10 ，因为每经过一次步长的距离，起点的位置都会改变，导致差值变小，步长也变小， 10 是为了曲小数点后最多只有一位值。 到终点距离小于 10px 时，设定 步长为 1</p>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">event.type <span class="comment">// 事件类型</span></span><br><span class="line">event.target <span class="comment">// 触发事件的元素</span></span><br><span class="line">event.currentTarget <span class="comment">// 绑定事件的元素 ，因为上面那个可能会监听到冒泡事件的元素，所以可以用这个得到被委托的元素</span></span><br><span class="line">event.pageX/Y <span class="comment">// 触发事件时鼠标距离页面域左上角的距离（会计算滚动条） X Y</span></span><br><span class="line">event.clientX/Y <span class="comment">// 触发事件时鼠标距离页面可视区的距离（就是一页） X Y</span></span><br><span class="line">event.screenX/Y <span class="comment">// 触发事件时鼠标距离屏幕左上角的距离 X Y</span></span><br><span class="line">event.offsetX/Y <span class="comment">// 触发事件时鼠标距离触发事件的元素的上左边距 X Y</span></span><br><span class="line">event.key/keycode <span class="comment">// 返回触发事件时按下的键的 ASCII 码值 // keydown 事件不区分大小写，统一返回大写 ASCII 码值， keypress 不触发功能键（如Enter、CapsLock、Shift、Ctrl等），但能识别大小写的键</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">event.stopPropagation() <span class="comment">// 阻止事件冒泡 IE &lt;= 10下 event.cancelBubble = true</span></span><br><span class="line"><span class="comment">// 兼容写法 即将废弃</span></span><br><span class="line">event.stopPropagation ? event.stopPropagation : event.cancelBubble</span><br><span class="line"></span><br><span class="line">event.preventDefault() <span class="comment">// 阻止默认事件，有多种方法可以阻止默认事件，在 a 标签中默认事件是跳转， form 中是提交表单，如</span></span><br><span class="line">ele.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    event.preventDefault() <span class="comment">// 方法一</span></span><br><span class="line">    event.returnValue = <span class="literal">false</span> <span class="comment">// 方法二 一般在 IE 低版本使用 即将废弃</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span> <span class="comment">// 方法三</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;a herf=<span class="string">"#"</span> onclick=<span class="string">"return false"</span>&gt; <span class="comment">// 写在行内 方法四</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"ulEle"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>5<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> lis = ulEle.children</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 利用冒泡机制实现事件委托，这样就不需要设置多个监听，只需要在父级元素上设置监听就行了，判断一下触发事件的是哪个元素就执行相应事件</span></span></span><br><span class="line"><span class="actionscript">    ulEle.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// event.target.tagName 返回的标签名是 大写的 ! </span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">if</span>(event.target.tagName == <span class="string">"LI"</span>) &#123; </span></span><br><span class="line"><span class="javascript">  	<span class="built_in">console</span>.log(event.target)</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="actionscript">         <span class="comment">// 这样写第五个 li 中由于有 p 元素，占满了全部 li，点不到 li ，所以点击第五个 li，不会打印，写成这样，会返回自己或者一个最近的父级 li 元素或者 null</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">if</span>(event.target.closest(<span class="string">"li"</span>)) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(event.target.closeest(<span class="string">"li"</span>))</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="行为型事件委托"><a href="#行为型事件委托" class="headerlink" title="行为型事件委托"></a>行为型事件委托</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">data-count</span>&gt;</span>0<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-count</span>&gt;</span>0<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">data-count</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>0<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">	<span class="comment">// 为元素添加特殊类或者特殊属性（一般为自定义属性 data-xx ）后，在文档范围级的处理器（下面的例子中是 body）追踪事件，如果事件发生在具有特定属性的元素上，就触发事件</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.body.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line">        if(event.target.dataset.count)</span><br><span class="line"><span class="javascript">            event.target.innerText = <span class="built_in">Number</span>(event.target.innerText) + <span class="number">1</span> <span class="comment">// 每次点击有特殊属性的元素，它的内容数字加一 上面是除了 div 之外的元素内置本文都会加一</span></span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-id">#box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 要让元素保证在当前视口中，所以用 fixed 而不是 absolute */</span></span></span><br><span class="line">        position: fixed;</span><br><span class="line">        top: 0;</span><br><span class="line">        left: 0;</span><br><span class="line">        width: 100px;</span><br><span class="line">        height: 100px;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 效果是 鼠标移动到元素上之后元素就一直跟着鼠标走了</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onmousemove = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// + box.offsetHeight(Width)/ 2 是为了让鼠标出现在元素中间</span></span></span><br><span class="line"><span class="actionscript">        box.style.top = event.clientY + box.offsetHeight/ <span class="number">2</span>+ <span class="string">"px"</span></span></span><br><span class="line"><span class="actionscript">        box.style.left = event.clientX + box.offsetWidth/ <span class="number">2</span> + <span class="string">"px"</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="拖拽"><a href="#拖拽" class="headerlink" title="拖拽"></a>拖拽</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-id">#box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 要让元素保证在当前视口中，所以用 fixed 而不是 absolute */</span></span></span><br><span class="line">        position: fixed;</span><br><span class="line">        top: 0;</span><br><span class="line">        left: 0;</span><br><span class="line">        width: 100px;</span><br><span class="line">        height: 100px;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 拖拽逻辑一</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 元素起始距离页面的上左边距 + 元素移动的距离 = 元素移动后距离页面的上左边距</span></span></span><br><span class="line"><span class="actionscript">    box.onmousedown = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> mouseStartX = event.pageX,</span></span><br><span class="line">            mouseStartY = event.pageY,</span><br><span class="line"><span class="actionscript">            eleStartX = <span class="keyword">this</span>.offsetLeft,</span></span><br><span class="line"><span class="actionscript">            eleStartY = <span class="keyword">this</span>.offsetTop</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 让鼠标在 box 元素按下之后再触发页面的 move 事件</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//获取鼠标距页面的上左边距、获取元素距页面的上左边距</span></span></span><br><span class="line">        </span><br><span class="line"><span class="javascript">		<span class="built_in">window</span>.onmousemove = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">            <span class="comment">// 鼠标移动上左距离 = 鼠标抬起时距离页面的上左边距 - 按下时距页面的上左边距</span></span></span><br><span class="line"><span class="actionscript">            <span class="keyword">var</span> distanceX = event.pageX - mouseStartX,</span></span><br><span class="line">                distanceY = event.pageY - mouseStartY</span><br><span class="line"><span class="actionscript">            box.style.left = eleStartX + distanceX + <span class="string">'px'</span></span></span><br><span class="line"><span class="actionscript">            box.style.top = eleStartY + distanceY + <span class="string">'px'</span></span></span><br><span class="line"><span class="javascript">        	<span class="built_in">console</span>.log(<span class="number">1</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">        <span class="comment">// 鼠标抬起也在按下之后</span></span></span><br><span class="line"><span class="actionscript">    	box.onmouseup = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">	<span class="comment">// 拖拽逻辑二</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 不管元素拖拽前后，有一个等式， 元素与页面的距离 + 鼠标与元素的距离 = 鼠标与页面内的距离</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 1. 获取鼠标按下时鼠标在元素中的位置</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 2. 拖拽过程中鼠标与页面的距离 - 与元素的距离 = 元素与页面的距离</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 加边界，防止元素跑出范围</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 父元素无定位，相对于body</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> minY = content.offsetTop,</span></span><br><span class="line">        minX = content.offsetLeft,</span><br><span class="line">        maxY = minY + content.offsetHeight - box.offsetHeight,</span><br><span class="line">        maxX = minX + content.offsetWidth - box.offsetWidth</span><br><span class="line"><span class="actionscript">    <span class="comment">// 父元素有定位</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> minY = <span class="number">0</span>,</span></span><br><span class="line">        minX = 0,</span><br><span class="line">        maxY = minY + content.offsetHeight - box.offsetHeight,</span><br><span class="line">        maxX = minX + content.offsetWidth - box.offsetWidth</span><br><span class="line"><span class="actionscript">    box.onmousedown = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> mouseX = event.offsetX - <span class="keyword">this</span>.offsetLeft</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> mouseY = event.offsetY  - <span class="keyword">this</span>.offsetTop</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onmousemove = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">var</span> targetX = event.pageX - mouseX</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">var</span> targetY = event.pageY - mouseY</span></span><br><span class="line">            if(targetX &lt; minX) &#123;</span><br><span class="line">                targetX = minX</span><br><span class="line">            &#125;</span><br><span class="line">            if(targetX &gt; maxX) &#123;</span><br><span class="line">                targetX = maxX</span><br><span class="line">            &#125;</span><br><span class="line">            if(targetY &gt; maxY) &#123;</span><br><span class="line">                targetY = maxY</span><br><span class="line">            &#125;</span><br><span class="line">            if(targetY &lt; minY) &#123;</span><br><span class="line">                targetY = minY</span><br><span class="line">            &#125;</span><br><span class="line"><span class="actionscript">            box.style.top = targetY + <span class="string">'px'</span></span></span><br><span class="line"><span class="actionscript">            box.style.left = targetX + <span class="string">'px'</span></span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="actionscript">        box.onmouseup =  <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">            <span class="comment">// 在鼠标抬起后解绑移动事件，不然一直移</span></span></span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.onmousemove = <span class="literal">null</span></span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h5 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">data-title</span>=<span class="string">"123abc"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> pE = <span class="built_in">document</span>.querySelector(<span class="string">"p"</span>)</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> str = pE.dataset.title <span class="comment">// 用 dataset [自定义属性名]获取自定义的属性值！ 是 dataset 不是 data</span></span></span><br><span class="line"><span class="actionscript">    str <span class="comment">// "123abc"</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="获取最近的符合条件的元素"><a href="#获取最近的符合条件的元素" class="headerlink" title="获取最近的符合条件的元素"></a>获取最近的符合条件的元素</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--ele..closest(这里写 CSS 选择器) 选择最近的符合条件的自己或者父级元素 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"d1 d3"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"d1 d2 insert"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> insert = <span class="built_in">document</span>.querySelector(<span class="string">".insert"</span>)</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> ele = insert.closest(<span class="string">".d2"</span>) <span class="comment">// &lt;div class="d1 d2 insert"&gt;</span></span></span><br><span class="line"><span class="actionscript">    ele = insert.closest(<span class="string">".d1"</span>) <span class="comment">// &lt;div class="d1 d2 insert"&gt;</span></span></span><br><span class="line"><span class="actionscript">    ele = insert.closest(<span class="string">".d3"</span>) <span class="comment">// &lt;div class="d1 d3"&gt;</span></span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="scroll"><a href="#scroll" class="headerlink" title="scroll"></a>scroll</h3><p><code>scrollTop</code>、<code>scrollLeft</code> 可以被读写，获取元素滚动条当前的滚动高度（即卷入高度）、长度，没有滚动条时为 0 </p>
+<p><code>scrollHeight</code>、 <code>scrollWidth</code> 获取上下（左右）内边距与内容区之和的高度（宽度）。元素内容超出元素宽高时：</p>
+<ul>
+<li>元素设置有 overflow 时（不一定是hidden！），<code>scrollHeight</code> 计算上下边距与内容区，<code>scrollWidth</code> 计算左边距与内容区。</li>
+<li>元素不设置 overflow 时，<code>scrollHeight</code> 计算上边距与内容区，<code>scrollWidth</code> 计算左边距与内容区。</li>
+</ul>
+<h5 id="获取页面当前滚动条卷入的高度、长度"><a href="#获取页面当前滚动条卷入的高度、长度" class="headerlink" title="获取页面当前滚动条卷入的高度、长度"></a>获取页面当前滚动条卷入的高度、长度</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.scrollTop</span><br><span class="line"><span class="built_in">document</span>,body.scrollLeft</span><br><span class="line"><span class="built_in">document</span>.documentElement.scrollTop</span><br><span class="line"><span class="built_in">document</span>.documentElement.scrollLeft</span><br><span class="line"><span class="comment">// 一般用下面的 window</span></span><br><span class="line"><span class="built_in">window</span>.pageXOffset</span><br><span class="line"><span class="built_in">window</span>.pageYOffset</span><br><span class="line">ele.getScroll() <span class="comment">// 有很多位小数，记得取整</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="onscroll-事件"><a href="#onscroll-事件" class="headerlink" title="onscroll 事件"></a>onscroll 事件</h5><p>设置此事件的元素一定要有滚动条</p>
+<h5 id="window-滚动的方法"><a href="#window-滚动的方法" class="headerlink" title="window 滚动的方法"></a>window 滚动的方法</h5><p><code>window.scroll(x, y)</code> 让页面滚动到指定位置</p>
+<p><code>window.scrollBy(x, y)</code> 让页面滚动设定的值的长度，正值为向右/下滚动</p>
+<p><code>window.scrollTo(x, y)</code> 同<code>window.scroll()</code>，但这个低版本IE 不兼容。</p>
+<h6 id="实现页面顺滑滚动-smooth-scroll"><a href="#实现页面顺滑滚动-smooth-scroll" class="headerlink" title="实现页面顺滑滚动 (smooth scroll)"></a>实现页面顺滑滚动 (smooth scroll)</h6><ol>
+<li><p><code>html { scroll-behavior: smooth;}</code></p>
+</li>
+<li><p><code>window.scroll(options)</code> 传入一个对象作为参数，有 top( 默认 0 )、left( 默认 0 )、behavior( 默认 auto )，都是可选项</p>
+<p><code>window.scrollBy({top: 1000, left: 1000, behavior:&quot;smooth&quot;})</code></p>
+</li>
+<li><p><code>ele.scrollIntoView(options)</code> IE 不支持 options， 是个实验属性，浏览器支持不好</p>
+</li>
+</ol>
+<h4 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h4><p>触发事件在 n 秒内函数只执行一次，如果在 n 秒内又触发了事件，则重新计算函数执行时间，再持续 n 秒。</p>
+<p>实际上是每次触发时，如果已经存在定时器，就清除上一次的定时器之后，再添加一个新的定时器。</p>
+<p>可以用在搜索联想，当用户输入时，每隔一定时间间隔自动帮助拓展</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 执行后计时</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func, wait</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (timer) &#123;</span><br><span class="line">        	clearTimeout(timer)</span><br><span class="line">    	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        	func()</span><br><span class="line">    	&#125;</span><br><span class="line">    	timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        	timer = <span class="literal">null</span></span><br><span class="line">    	&#125;, wait)</span><br><span class="line">  	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 计时后执行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">denounce</span>(<span class="params">func, wait</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (timer) &#123;</span><br><span class="line">            clearTimeout(timer)</span><br><span class="line">        &#125;</span><br><span class="line">        timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            func()</span><br><span class="line">            timer = <span class="literal">null</span></span><br><span class="line">        &#125;, wait)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h4><p>在一定时间内只执行一次函数，可以用在滚动事件与 move 事件中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, wait</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!timer) &#123; </span><br><span class="line">            func() <span class="comment">// 执行后计时 （立即执行）</span></span><br><span class="line">            timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">              <span class="comment">//  func() // 计时后执行 （非立即执行）</span></span><br><span class="line">                timer = <span class="literal">null</span></span><br><span class="line">            &#125;, wait)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 时间戳版本</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, wait</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> startTime = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 用当前触发事件 - 起始时间 &gt; wait</span></span><br><span class="line">        <span class="comment">// 重置起始时间为当前触发函数的时间</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Date</span>.now() - startTime &gt; wait) &#123;</span><br><span class="line">            startTime = <span class="built_in">Date</span>.now()</span><br><span class="line">            func()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="client"><a href="#client" class="headerlink" title="client"></a>client</h3><p><code>clientWidth/Height</code> 自身宽高 + padding ，不计算溢出内容，不计算滚动条宽度</p>
+<p><code>clientTop</code> 它的内边距外侧到父元素的宽度，感觉就是它的边框宽度</p>
+<p><code>document.documentElement.clientWidth/Height</code></p>
+<p><code>window.innerWidth/Height</code> 获取表示 window 可视区域的大小，计入滚动条占的宽高。 不兼容 IE10 以下</p>
+<p><code>window.</code></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li><p><code>clientWidth</code> 计算自身宽、左右 padding，不计算滚动条宽度</p>
+</li>
+<li><p><code>offsetWidth</code> 计算自身宽、左右 padding、左右 border</p>
+</li>
+<li><p><code>scrollWidth</code> 计算自身宽与左右 padding，有 overflow 属性且内容超出时 计算自身宽与左 padding。 </p>
+<p><code>scrollHeight</code> 计算自身高与上下 padding，有overflow 属性且内容超出时 计算自身高与上下 padding，无 overflow 属性时，计算自身高与上 padding</p>
+</li>
+<li><p><code>window.innerWidth</code>  可视区域高度</p>
+</li>
+<li><p><code>scrollWidth</code>：对象的实际内容的宽度，不包边线宽度，会随对象中内容超过可视区后而变大。<br><code>clientWidth</code>：对象内容的可视区的宽度，不包滚动条等边线，会随对象显示大小的变化而改变。<br><code>offsetWidth</code>：对象整体的实际宽度，包滚动条等边线，会随对象显示大小的变化而改变。</p>
+<p>情况1：</p>
+<p>元素内无内容或者内容不超过可视区，滚动不出现或不可用的情况下。</p>
+<p><code>scrollWidth = clientWidth</code>，两者皆为内容可视区的宽度。</p>
+<p><code>offsetWidth</code>为元素的实际宽度。</p>
+<p>情况2：</p>
+<p>元素的内容超过可视区，滚动条出现和可用的情况下。</p>
+<p><code>scrollWidth &gt; clientWidth</code>。</p>
+<p><code>scrollWidth</code>为实际内容的宽度。</p>
+<p><code>clientWidth</code>是内容可视区的宽度。</p>
+<p><code>offsetWidth</code>是元素的实际宽度。</p>
+</li>
+</ul>
+<p>  网页可见区域高：document.body.clientHeight<br>  网页正文全文高：document.body.scrollHeight<br>  网页可见区域高（包括边线的高）：document.body.offsetHeight<br>  网页被卷去的高：document.body.scrollTop<br>  屏幕分辨率高：window.screen.height</p>
+<p>  通常情况下，你如果要获取一个元素的真正大小，是需要对它的clientHeight和scrollHeight进行判断的，哪一个大，哪一个就是它的真实高度</p>
+<p><code>offsetWidth/Height = content + padding + border</code></p>
+<p><code>scrollWidth/Height = content + padding</code> 内容超出时显示 <code>content + paddingLeft + paddingTop</code> ,如果同时还有 overflow 属性 <code>content + paddingLeft + paddingTop + paddingBottom</code></p>
+<p><code>clientWidth/Height = content + padding</code> 内容超出不计算、滚动条宽度不算</p>
+<p><code>offsetTop/left</code> = 盒子与它的 offsetParent 的border 之间的距离，如果 offsetParent 是 body 的话，border 也算在内</p>
+<p><code>scrollTop/Left</code> = 页面或元素被卷入高度 页面卷入高度： <code>document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop</code></p>
+<p><code>clientTop/Left</code> = 元素的上左 border 的宽度，配合 <code>offsetTop/Left</code> 计算任意元素距离页面的上左边距</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 所以子元素 一直取  到有定位的父元素 margin 的距离 加上 父元素 margin 的距离 ，最后取到 父元素为 body 时，就是元素在页面中的高度</span></span><br><span class="line">ele.offsetTop + ele.offsetParent.clientTop </span><br><span class="line">+ ele.offsetParent.offsetTop + ele.offsetParent.offsetParent.clientTop + ... +</span><br><span class="line">    body.offsetTop</span><br></pre></td></tr></table></figure>
+
+<h4 id="页面高度相关总结"><a href="#页面高度相关总结" class="headerlink" title="页面高度相关总结"></a>页面高度相关总结</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.scrollHeight <span class="comment">// 好像是整个页面高度，下面的话作废</span></span><br><span class="line"><span class="comment">// 废：当前滚动条所在的视口高度及其之上的高度，如果没有滚动条，则为 html 的高度</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.scrollTop  <span class="comment">// edge无 当前视口顶部距离页面顶部高度</span></span><br><span class="line"><span class="built_in">document</span>.body.scrollTop <span class="comment">// gg无 edge无</span></span><br><span class="line"><span class="built_in">window</span>.pageYOffset edge无 <span class="comment">// 当前视口顶部距离页面顶部高度</span></span><br><span class="line"><span class="built_in">window</span>.innerHeight <span class="comment">// 当前视口高度 我的电脑正常是968</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.clientHeight <span class="comment">// 当前视口高度 我的电脑正常是 968</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="window"><a href="#window" class="headerlink" title="window"></a>window</h2><p><code>window.onload</code> 页面完全加载完毕时调用 （<link> 中的 css、<script> 都加载完成后）</p>
+<p><code>DOMContentLoaded</code> 等页面把在它之前的所有内容加载完毕并且DOM解析完成时调用，就是它在html中的位置上面的所有元素加载完毕</p>
+<p><code>window.open()</code> 可以打开一个新窗口或导航到一个特定的 URL</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> windowObjectReference = <span class="built_in">window</span>.open(strUrl, strWindowName, [strWindowFeatures])</span><br><span class="line"><span class="comment">// 第一个参数 打开到特定的页面</span></span><br><span class="line"><span class="comment">// 第二个参数 如果传入未定义的值，同时这个值在页面中找不到元素有 name 为这个值，这个值会变成新页面的名字 ，如果 '_self' ,表示自己这个窗口打开。‘_blank’ 新窗口打开，比如设置了'newWindow'，如果页面中没有一个 &lt;iframe name="newWindow"&gt;，就会打开一个新窗口并把名称变成这个值，可以直接调用。如果不符合同源策略，只能只用 newWindow.close()这一个方法，它的作用是关闭这个新窗口。 如果符合同源策略，可以使用如 Window.moveTo(x, y) 移动窗口位置 window.resize(x, y) 发大窗口 等方法</span></span><br><span class="line"><span class="comment">// 第三个参数，如果第二个参数不是'_blank'，第三个参数自动被忽略设置新打开的窗口的一些属性，"width=200,height=200,left=200,top=200"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="同源"><a href="#同源" class="headerlink" title="同源"></a>同源</h4><p>指协议、域名、端口号完全一致。</p>
+<p>网站 http 默认端口是 80，https 默认端口 443</p>
+<h3 id="location-对象"><a href="#location-对象" class="headerlink" title="location 对象"></a>location 对象</h3><p>保存当前窗口正在打开的 URL 的对象，它既是 window 对象的属性，也是 document 对象的属性 <code>(window.location === document.location)</code></p>
+<p><code>location.replace(url)</code>。 跳转到指定 url ，同时这个跳转不会有后退键，不能返回上一个记录</p>
+<p><code>location.reload()</code> 默认false，非强制刷新，页面内容从缓存中读取，如果参数为 true ，强制刷新页面，重新从服务器读取内容</p>
+<h3 id="navigator-对象"><a href="#navigator-对象" class="headerlink" title="navigator 对象"></a>navigator 对象</h3><p><code>navigator.userAgent</code> 获取浏览器的请求头，可以用来判断当前浏览器是什么浏览器</p>
+
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Dloux
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://dloux.gitee.io/2020/05/27/BOM/" title="BOM">https://dloux.gitee.io/2020/05/27/BOM/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jsBasic/" rel="tag"><i class="fa fa-tag"></i> jsBasic</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/25/dom/" rel="prev" title="dom">
+      <i class="fa fa-chevron-left"></i> dom
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/03/jQuery/" rel="next" title="jQuery">
+      jQuery <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM"><span class="nav-number">1.</span> <span class="nav-text">BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#offset（只读，不可写）"><span class="nav-number">1.1.</span> <span class="nav-text">offset（只读，不可写）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画"><span class="nav-number">1.2.</span> <span class="nav-text">动画</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缓速动画（速度越来越慢）"><span class="nav-number">1.2.1.</span> <span class="nav-text">缓速动画（速度越来越慢）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件对象"><span class="nav-number">1.3.</span> <span class="nav-text">事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件冒泡"><span class="nav-number">1.3.1.</span> <span class="nav-text">事件冒泡</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件委托"><span class="nav-number">1.4.</span> <span class="nav-text">事件委托</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#行为型事件委托"><span class="nav-number">1.4.1.</span> <span class="nav-text">行为型事件委托</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#鼠标事件"><span class="nav-number">1.4.2.</span> <span class="nav-text">鼠标事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拖拽"><span class="nav-number">1.4.3.</span> <span class="nav-text">拖拽</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义属性"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">自定义属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取最近的符合条件的元素"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">获取最近的符合条件的元素</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scroll"><span class="nav-number">1.5.</span> <span class="nav-text">scroll</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取页面当前滚动条卷入的高度、长度"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">获取页面当前滚动条卷入的高度、长度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#onscroll-事件"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">onscroll 事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#window-滚动的方法"><span class="nav-number">1.5.0.3.</span> <span class="nav-text">window 滚动的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#实现页面顺滑滚动-smooth-scroll"><span class="nav-number">1.5.0.3.1.</span> <span class="nav-text">实现页面顺滑滚动 (smooth scroll)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#防抖"><span class="nav-number">1.5.1.</span> <span class="nav-text">防抖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节流"><span class="nav-number">1.5.2.</span> <span class="nav-text">节流</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#client"><span class="nav-number">1.6.</span> <span class="nav-text">client</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.6.1.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#页面高度相关总结"><span class="nav-number">1.6.2.</span> <span class="nav-text">页面高度相关总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#window"><span class="nav-number">2.</span> <span class="nav-text">window</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dloux"
+      src="/images/dloux.jpg">
+  <p class="site-author-name" itemprop="name">Dloux</p>
+  <div class="site-description" itemprop="description">ddd</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dlouxgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dlouxgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dloux</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+
+
+
+<script>
+  var pathName = window.document.location.pathname;
+  var cont = document.getElementsByClassName("content-wrap")[0];
+  console.log(cont);
+  if (pathName =='/' || pathName =='/note/') {
+  // if (/\//.test(window.document.location.pathname)) {
+    console.log(pathName);
+    console.log(cont.style.backgroundColor)
+    cont.className="content-wrap transparentcont";
+    // cont.style.backgroundColor = "rgba(255,255,255,0) !importent";
+  }
+</script>
+</body>
+</html>

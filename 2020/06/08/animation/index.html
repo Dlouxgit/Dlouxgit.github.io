@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dloux.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="动画属性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="animation">
+<meta property="og:url" content="https://dloux.gitee.io/2020/06/08/animation/index.html">
+<meta property="og:site_name" content="Dloux">
+<meta property="og:description" content="动画属性">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-08T02:12:21.000Z">
+<meta property="article:modified_time" content="2020-06-08T13:31:54.402Z">
+<meta property="article:author" content="Dloux">
+<meta property="article:tag" content="animation">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://dloux.gitee.io/2020/06/08/animation/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>animation | Dloux</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Dloux</h1>
+      
+      <span class="logo-line-after">你好</span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+ 
+
+
+
+</div>
+      
+      <div class="menu-header">
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+</div>
+      
+      
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/06/08/animation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          animation
+        </h1>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="动画属性"><a href="#动画属性" class="headerlink" title="动画属性"></a>动画属性<a id="more"></a></h2><p>动画是CSS3中具有颠覆性的特征之一，可通过设置多个节点来精确控制一个或一组动画，常用来实现复杂的动画效果</p>
+<h3 id="必要元素"><a href="#必要元素" class="headerlink" title="必要元素"></a>必要元素</h3><p>a、通过@keyframes指定动画序列；</p>
+<p>b、通过百分比将动画序列分割成多个节点；亦可以使用 from/to 不推荐</p>
+<p>c、在各节点中分别定义各属性</p>
+<p>d、通过将动画应用于相应元素</p>
+<h3 id="关键属性"><a href="#关键属性" class="headerlink" title="关键属性"></a>关键属性</h3><ul>
+<li>Animation-name     动画名称(必填)</li>
+<li>Animation-duration     动画持续时间(必填)</li>
+<li>animation-timing-function<ul>
+<li>linear/ease/ease-in/ease-out/ease-in-out/cubic-bezier(n,n,n,n)：    特定的贝塞尔曲线类型</li>
+</ul>
+</li>
+<li>animation-delay    动画延迟（只是第一次）</li>
+<li>animation-iteration-count     重复次数    infinite 无限次</li>
+<li>animation-direction        动画是否重置后再开始播放<ul>
+<li>alternate 动画直接从上一次停止的位置开始执行，倒着来</li>
+<li>normal    动画第二次直接跳到0%的状态开始执行</li>
+</ul>
+</li>
+<li>animation-fill-mode        动画执行完毕后状态<ul>
+<li>forwards    当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。</li>
+<li>backwards    在 animation-delay 所指定的一段时间内，在动画显示之前，应用开始属性值（在第一个关键帧中定义）。</li>
+<li>both    设置对象状态为动画结束或开始的状态，结束时状态优先</li>
+</ul>
+</li>
+</ul>
+<p>语法:    <code>animation: name duration timing-function delay iteration-count direction fill-mode;</code></p>
+<p><strong>name duration 必须写,其余可以都不写</strong></p>
+<p>实际上 name 写在最后是比较好的写法：<code>animation: duration timing-function delay iteration-count direction fill-mode name;</code></p>
+<h3 id="动画状态"><a href="#动画状态" class="headerlink" title="动画状态"></a>动画状态</h3><p><code>animation-play-state</code> 动画状态 (running 执行、 paused 暂停)</p>
+<p>如</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="comment">/*鼠标 hover 时动画暂停*/</span></span><br><span class="line">    <span class="attribute">animation-play-state</span>: paused; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="动画监听"><a href="#动画监听" class="headerlink" title="动画监听"></a>动画监听</h3><p><code>ele.addEventListener(&quot;animationend&quot;, myStartFunction);</code></p>
+<p>动画的事件：</p>
+<ul>
+<li>animationstart - CSS 动画开始后触发</li>
+<li>animationiteration - CSS 动画重复播放时触发</li>
+<li>animationend - CSS 动画完成后触发</li>
+</ul>
+<p>过渡监听</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 过渡只有监听结束的方法,  start 和 run 的监听方法在开发状态</span><br><span class="line">d2.addEventListener(&#39;transitionstart&#39;,function () &#123;</span><br><span class="line">	console.log(&#39;过渡开始...&#39;);</span><br><span class="line">&#125;)</span><br><span class="line">d2.addEventListener(&#39;transitionrun&#39;, function() &#123;</span><br><span class="line">	console.log(&quot;过渡执行中&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">d2.addEventListener(&#39;transitionend&#39;,function () &#123;</span><br><span class="line">	console.log(&#39;过渡结束...&#39;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="滚轮监听"><a href="#滚轮监听" class="headerlink" title="滚轮监听"></a>滚轮监听</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 火狐监听的滚轮事件</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"DOMMouseScroll"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">	<span class="comment">// 火狐</span></span><br><span class="line">	<span class="comment">// 方向: 3 往下; -3 往上 </span></span><br><span class="line">	<span class="built_in">console</span>.log(event.detail)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">window</span>.onmousewheel = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">	<span class="comment">// wheelDelta可以测试滚动</span></span><br><span class="line">	<span class="comment">// 可以判断滚动方向 但是无法判断滚动幅度.</span></span><br><span class="line">	<span class="comment">// 方向: -120 往下滚动  ; 120 往上滚动</span></span><br><span class="line">	<span class="comment">// 有兼容问题,也可能是 -150 150</span></span><br><span class="line">	<span class="built_in">console</span>.log(event.wheelDelta);	</span><br><span class="line">&#125;    <span class="comment">//IE  除了火狐之外 ，这种方式都能处理</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Dloux
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://dloux.gitee.io/2020/06/08/animation/" title="animation">https://dloux.gitee.io/2020/06/08/animation/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/animation/" rel="tag"><i class="fa fa-tag"></i> animation</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/05/h5new/" rel="prev" title="h5new">
+      <i class="fa fa-chevron-left"></i> h5new
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/09/jsRe/" rel="next" title="jsRe">
+      jsRe <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#动画属性"><span class="nav-number">1.</span> <span class="nav-text">动画属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必要元素"><span class="nav-number">1.1.</span> <span class="nav-text">必要元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键属性"><span class="nav-number">1.2.</span> <span class="nav-text">关键属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画状态"><span class="nav-number">1.3.</span> <span class="nav-text">动画状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画监听"><span class="nav-number">1.4.</span> <span class="nav-text">动画监听</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚轮监听"><span class="nav-number">2.</span> <span class="nav-text">滚轮监听</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dloux"
+      src="/images/dloux.jpg">
+  <p class="site-author-name" itemprop="name">Dloux</p>
+  <div class="site-description" itemprop="description">ddd</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dlouxgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dlouxgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dloux</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+
+
+
+<script>
+  var pathName = window.document.location.pathname;
+  var cont = document.getElementsByClassName("content-wrap")[0];
+  console.log(cont);
+  if (pathName =='/' || pathName =='/note/') {
+  // if (/\//.test(window.document.location.pathname)) {
+    console.log(pathName);
+    console.log(cont.style.backgroundColor)
+    cont.className="content-wrap transparentcont";
+    // cont.style.backgroundColor = "rgba(255,255,255,0) !importent";
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dloux.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="video &amp; audio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="h5new">
+<meta property="og:url" content="https://dloux.gitee.io/2020/06/05/h5new/index.html">
+<meta property="og:site_name" content="Dloux">
+<meta property="og:description" content="video &amp; audio">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-05T01:01:41.000Z">
+<meta property="article:modified_time" content="2020-07-24T14:17:52.808Z">
+<meta property="article:author" content="Dloux">
+<meta property="article:tag" content="jsBaic">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://dloux.gitee.io/2020/06/05/h5new/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>h5new | Dloux</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Dloux</h1>
+      
+      <span class="logo-line-after">你好</span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+ 
+
+
+
+</div>
+      
+      <div class="menu-header">
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+</div>
+      
+      
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/06/05/h5new/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          h5new
+        </h1>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="video-amp-audio"><a href="#video-amp-audio" class="headerlink" title="video &amp; audio"></a>video &amp; audio<a id="more"></a></h2><ul>
+<li>属性<ul>
+<li>currentTime 视频播放的当前进度</li>
+<li>duration 视频的总时间</li>
+<li>paused 视频播放是否是暂停</li>
+</ul>
+</li>
+<li>方法<ul>
+<li><code>load()</code> 重新加载音频/视频元素<ul>
+<li>语法: <code>audio|video.load()</code></li>
+<li>用于在更改来源或其他设置后对音频/视频元素进行更新</li>
+</ul>
+</li>
+<li><code>play()</code> 播放</li>
+<li><code>pause()</code> 暂停</li>
+<li>更多精彩请自行查阅 <a href="http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp" target="_blank" rel="noopener">W3</a></li>
+</ul>
+</li>
+<li>事件<ul>
+<li>oncanplay: 事件在用户可以开始播放视频/音频（audio/video）时触发。</li>
+<li>ontimeupdate: 通过该事件来报告当前的播放进度.</li>
+<li>onended: 播放完时触发</li>
+</ul>
+</li>
+<li>全屏：video.webkitRequestFullScreen()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ad = <span class="built_in">document</span>.querySelector(<span class="string">"audio"</span>),</span><br><span class="line">    vd = <span class="built_in">document</span>.querySelector(<span class="string">"video"</span>),</span><br><span class="line">    line = <span class="built_in">document</span>.querySelector(<span class="string">".line"</span>),</span><br><span class="line">    process = <span class="built_in">document</span>.querySelector(<span class="string">".process"</span>)</span><br><span class="line"><span class="comment">// line、process 是自定义的 div,用来模拟进度条,line 是背景色，process是进度条颜色</span></span><br><span class="line"><span class="built_in">console</span>.log(ad.currentTime) <span class="comment">// 当前放了几秒，不可写</span></span><br><span class="line"><span class="built_in">console</span>.log(ad.duration) <span class="comment">// 音频总时长</span></span><br><span class="line"><span class="built_in">console</span>.log(ad.paused)  <span class="comment">// 是否暂停，是个布尔值</span></span><br><span class="line"><span class="comment">// 视频同音频属性一样</span></span><br><span class="line">ad.volume = <span class="number">.5</span> <span class="comment">// 控制音量，在 0-1 直接取值，可读写</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 进度条拖动事件</span></span><br><span class="line">line.onmousedown = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    jindutiao(e)</span><br><span class="line">    line.onmousemove = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">		jindutiao(e)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 播放事件</span></span><br><span class="line">vd.ontimeupdate = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 自定义进度条长度 = 当前视频进度条 / 总视频进度条长度</span></span><br><span class="line">    process.style.width = vd.currentTime / vd.duration</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jindutiao</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 鼠标与盒子的左边距 = 鼠标与页面的左边距 - 盒子鱼页面的左边距</span></span><br><span class="line">        <span class="keyword">var</span> left = e.pageX - line.offsetLeft</span><br><span class="line">        process.style.width = <span class="number">1</span> + <span class="string">'px'</span></span><br><span class="line">    <span class="comment">// 视频当前播放进度 = 当前鼠标与盒子的左边距 / 进度条长度</span></span><br><span class="line">    	vd.currentTime = left / line.offsetWidth</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Web-存储"><a href="#Web-存储" class="headerlink" title="Web 存储"></a>Web 存储</h2><p>随着互联网的快速发展，基于网页的应用越来越普遍，同时也变的越来越复杂，为了满足各种各样的需求，会经常性在本地存储大量的数据，传统方式我们以 document.cookie 来进行存储的，但是由于其存储大小只有4k左右，并且解析也相当的复杂，给开发带来诸多不便，HTML5规范则提出解决方案。</p>
+<h3 id="sessionStorage-localStorage"><a href="#sessionStorage-localStorage" class="headerlink" title="sessionStorage/localStorage"></a>sessionStorage/localStorage</h3><ol>
+<li><p><code>storage</code> 存储: <code>window.sessionStorage</code> <code>window.localStorage</code> (向本地保存数据,有可能在浏览器内存里面，有可能在硬盘上面)</p>
+</li>
+<li><p>特性</p>
+<ul>
+<li>设置、读取方便</li>
+<li>容量较大，<code>sessionStorage</code> 约5M、<code>localStorage</code> 约20M 不同的浏览器大小可能有差异</li>
+<li>均只能存储字符串类型的对象（虽然规范中可以存储其他原生类型的对象，但是目前为止没有浏览器对其进行实现），可以将对象 <code>JSON.stringify()</code> 编码后存储</li>
+</ul>
+</li>
+<li><p><code>window.sessionStorage</code></p>
+<ul>
+<li><p>生命周期为当前窗口或标签页，一旦窗口或标签页被关闭了，那么所有通过 <code>sessionStorage</code> 存储的数据也就被清空了。 注意： 刷新不算关闭窗口/页面，数据不会被清空</p>
+</li>
+<li><p>在同一个窗口下数据可以共享</p>
+</li>
+</ul>
+</li>
+<li><p><code>window.localStorage</code></p>
+<ul>
+<li>永久生效，除非手动删除</li>
+<li>可以多窗口共享</li>
+<li>IE8 以上的 IE 版本才支持 <code>localStorage</code> 这个属性</li>
+<li><code>localStorage</code> 本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡</li>
+</ul>
+</li>
+<li><p>两者本质区别：不同浏览器无法共享 <code>localStorage</code> 或 <code>sessionStorage</code> 中的信息。相同浏览器的不同页面间可以共享相同的 <code>localStorage</code>（页面属于相同域名和端口），但是不同页面或标签页间无法共享 <code>sessionStorage</code> 的信息。</p>
+</li>
+<li><p><strong>方法详解</strong></p>
+<ul>
+<li><code>setItem(key, value)</code> 设置存储内容     同名替换原则</li>
+<li><code>getItem(key)</code> 读取存储内容</li>
+<li><code>removeItem(key)</code> 删除键值为key的存储内容</li>
+<li><code>clear()</code> 清空所有存储内容</li>
+<li><code>key(n)</code> 以索引值来获取对应的键</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--可以在页面 F12 的 Application 中的 Storage 看到存储的 localStorage 和 sessionStorage，也可以直接在 F12 这里输入存储的内容。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"输入用户名"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>sessionStorage存储<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>localStorage存储<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>sessionStorage获取<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>localStorage获取<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>sessionStorage删除name<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>localStorage删除name<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>删除所有<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 默认引入 jq</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> ipt = $(<span class="string">"input"</span>)</span></span><br><span class="line"><span class="javascript">    $(<span class="string">"button:eq(0)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">        sessionStorage.setItem(<span class="string">"name"</span>, $ipt.val())</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="javascript">    $(<span class="string">"button:eq(1)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">        localStorage.setItem(<span class="string">"name"</span>, $ipt.val())</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="javascript">    $(<span class="string">"button:eq(2)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(sessionStorage.getItem(<span class="string">"name"</span>))</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="javascript">    $(<span class="string">"button:eq(3)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(localStorage.getItem(<span class="string">"name"</span>))</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="javascript">    $(<span class="string">"button:eq(4)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">        sessionStorage.removeItem(<span class="string">"name"</span>)</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="javascript">    $(<span class="string">"button:eq(5)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">        localStorage.removeItem(<span class="string">"name"</span>)</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="javascript">    $(<span class="string">"button:eq(6)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line">        sessionStorage.clear()</span><br><span class="line">        localStorage.clear()</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="补充新增全局属性"><a href="#补充新增全局属性" class="headerlink" title="补充新增全局属性"></a>补充新增全局属性</h2><ul>
+<li><p><strong>contentEditable</strong>属性  单独某一个标签的属性 可以使内容能被编辑</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--点击 div 后，变成像 input 框一样，可以被编辑，向里面输入内容--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">contentEditable</span>&gt;</span>可编辑，内容被编辑在这<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 以下事件使得 按下回车不再换行，而是完成编辑</span></span></span><br><span class="line"><span class="javascript">    $(<span class="string">"div"</span>).keydown(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 打印按下的键的 ASCII 码</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(event.keyCode)</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 退格 9 空格 32 shift 16 回车 13</span></span></span><br><span class="line">        if (event.keyCode == 13) &#123;</span><br><span class="line"><span class="actionscript">            <span class="comment">// 阻止浏览器默认事件</span></span></span><br><span class="line">            event.preventDefault()</span><br><span class="line"><span class="actionscript">            <span class="comment">// 让元素失去焦点</span></span></span><br><span class="line"><span class="javascript">            $(<span class="string">"div"</span>).blur()</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="actionscript">    <span class="comment">// 模拟 input 标签的 onchange事件。。里面的值改变了按下回车或者失去焦点会触发，保存文本</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 开启全局所有元素可编辑</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.designMode = <span class="string">'on'</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>designMode</strong>属性（这个在js中进行使用，让页面中所有的元素开启可编辑模式） 让页面所有的标签都可以被编辑 比如div、p、h1等等</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">document</span>.designMode = <span class="string">"on"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>draggable</strong> 拖拽属性<br>拖拽元素:     页面中设置了draggable=”true”属性的元素，不能省略 = “true”</p>
+<p>目标元素:  页面中任何一个元素都可以成为目标元素</p>
+<p>拖拽元素</p>
+<ul>
+<li>ondrag             应用于拖拽元素，整个拖拽过程都会调用</li>
+<li>ondragstart    应用于拖拽元素，当拖拽开始时调用</li>
+<li>ondragleave    应用于拖拽元素，当鼠标离开拖拽元素时调用</li>
+<li>ondragend        应用于拖拽元素，当拖拽结束时调用</li>
+</ul>
+<p>目标元素</p>
+<ul>
+<li>ondragenter    应用于目标元素，当拖拽元素进入时调用</li>
+<li>ondragover    应用于目标元素，当停留在目标元素上时调用</li>
+<li>ondrop    应用于目标元素，当在目标元素上松开鼠标时调用，需要在ondragover上阻止浏览器的默认事件，因为浏览器默认是禁止元素堆叠的</li>
+<li>ondragleave    应用于目标元素，当拖拽元素离开目标元素时调用</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--必须写成 draggable="true"，而不能只写 draggable, 和上面那个可编辑属性不一样，不知道为啥--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span> <span class="attr">draggable</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  	<span class="keyword">var</span> box = $(<span class="string">".box"</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="javascript">      	content = $(<span class="string">".content"</span>)[<span class="number">0</span>]</span></span><br><span class="line"><span class="actionscript">      box.ondrag = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">          </span><br><span class="line">      &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p><strong>fullscreen</strong> 全屏属性</p>
+<h4 id="注意：-开启全屏的时候是用元素对象-如box-requestFullscreen-，关闭全屏的时候是用document-对象，不能用元素对象关闭"><a href="#注意：-开启全屏的时候是用元素对象-如box-requestFullscreen-，关闭全屏的时候是用document-对象，不能用元素对象关闭" class="headerlink" title="注意： 开启全屏的时候是用元素对象,如box.requestFullscreen()，关闭全屏的时候是用document 对象，不能用元素对象关闭"></a>注意： 开启全屏的时候是用元素对象,如<code>box.requestFullscreen()</code>，关闭全屏的时候是用document 对象，不能用元素对象关闭</h4><ul>
+<li>开启全屏</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">if</span> (E.requestFullscreen) &#123;</span><br><span class="line">  	E.requestFullscreen();</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span> (E.webkitRequestFullscreen) &#123;</span><br><span class="line">  	E.webkitRequestFullscreen();</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span> (E.mozRequestFullscreen) &#123;</span><br><span class="line">  	E.mozRequestFullscreen();</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  	alert(<span class="string">"sorry,无法全屏"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>退出全屏必须使用 document 的api</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">if</span> (<span class="built_in">document</span>.exitFullscreen) &#123;</span><br><span class="line">  	<span class="built_in">document</span>.exitFullscreen();</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.webkitCancelFullScreen) &#123;</span><br><span class="line">  	<span class="built_in">document</span>.webkitCancelFullScreen();</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.mozCancelFullScreen) &#123;</span><br><span class="line">  	<span class="built_in">document</span>.mozCancelFullScreen();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>判断是否是全屏</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ifFullscreen</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">document</span>.fullscreen || <span class="built_in">document</span>.webkitIsFullScreen || <span class="built_in">document</span>.mozFullScreen || <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>注意：给全屏状态下的元素添加全屏样式不起作用，但给全屏状态下的元素的子类添加样式可用</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* :fullscreen 实验中的功能,使用请加浏览器前缀 慎用 */</span></span><br><span class="line">.全屏状态下的元素<span class="selector-pseudo">:fullscreen</span> 子类&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="题外"><a href="#题外" class="headerlink" title="题外"></a>题外</h4><p>顺便一提，你可以会见到 .htm 后缀的文件，那是以前有一个系统叫 DOS，它只允许最多三个字符的后缀名，而后来 linux 和 windows 都支持更长的后缀名，所以变成了 .html。同样的，.jpg 和 .jpeg 的关系也是如此，不过 .jpeg 没有流行起来（相对于 .html），大家仍习惯于 .jpg。</p>
+
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Dloux
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://dloux.gitee.io/2020/06/05/h5new/" title="h5new">https://dloux.gitee.io/2020/06/05/h5new/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jsBaic/" rel="tag"><i class="fa fa-tag"></i> jsBaic</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/03/jQuery/" rel="prev" title="jQuery">
+      <i class="fa fa-chevron-left"></i> jQuery
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/08/animation/" rel="next" title="animation">
+      animation <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#video-amp-audio"><span class="nav-number">1.</span> <span class="nav-text">video &amp; audio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-存储"><span class="nav-number">2.</span> <span class="nav-text">Web 存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sessionStorage-localStorage"><span class="nav-number">2.1.</span> <span class="nav-text">sessionStorage&#x2F;localStorage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充新增全局属性"><span class="nav-number">3.</span> <span class="nav-text">补充新增全局属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意：-开启全屏的时候是用元素对象-如box-requestFullscreen-，关闭全屏的时候是用document-对象，不能用元素对象关闭"><span class="nav-number">3.0.1.</span> <span class="nav-text">注意： 开启全屏的时候是用元素对象,如box.requestFullscreen()，关闭全屏的时候是用document 对象，不能用元素对象关闭</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题外"><span class="nav-number">3.0.2.</span> <span class="nav-text">题外</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dloux"
+      src="/images/dloux.jpg">
+  <p class="site-author-name" itemprop="name">Dloux</p>
+  <div class="site-description" itemprop="description">ddd</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dlouxgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dlouxgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dloux</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+
+
+
+<script>
+  var pathName = window.document.location.pathname;
+  var cont = document.getElementsByClassName("content-wrap")[0];
+  console.log(cont);
+  if (pathName =='/' || pathName =='/note/') {
+  // if (/\//.test(window.document.location.pathname)) {
+    console.log(pathName);
+    console.log(cont.style.backgroundColor)
+    cont.className="content-wrap transparentcont";
+    // cont.style.backgroundColor = "rgba(255,255,255,0) !importent";
+  }
+</script>
+</body>
+</html>
