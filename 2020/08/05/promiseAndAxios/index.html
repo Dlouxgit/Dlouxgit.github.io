@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dloux.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Promise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="promiseAndAxios">
+<meta property="og:url" content="https://dloux.gitee.io/2020/08/05/promiseAndAxios/index.html">
+<meta property="og:site_name" content="Dloux">
+<meta property="og:description" content="Promise">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-05T13:56:52.000Z">
+<meta property="article:modified_time" content="2020-08-06T14:50:54.684Z">
+<meta property="article:author" content="Dloux">
+<meta property="article:tag" content="promiseAndAxios">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://dloux.gitee.io/2020/08/05/promiseAndAxios/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>promiseAndAxios | Dloux</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Dloux</h1>
+      
+      <span class="logo-line-after">你好</span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+ 
+
+
+
+</div>
+      
+      <div class="menu-header">
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+</div>
+      
+      
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/08/05/promiseAndAxios/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dloux.jpg">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="ddd">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+    
+  <div class="post-top">
+   <div class="post-top-hover">
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          promiseAndAxios
+        </h1>
+
+          
+
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise<a id="more"></a></h2><p>Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6 将其写进了语言标准，统一了用法，原生提供了<code>Promise</code>对象。</p>
+<p>所谓 <code>Promise</code>，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</p>
+<p>一个 <code>Promise</code>有以下几种状态:</p>
+<ul>
+<li><em>pending</em>: 初始状态，既不是成功，也不是失败状态。</li>
+<li><em>fulfilled</em>: 意味着操作成功完成。</li>
+<li><em>rejected</em>: 意味着操作失败。</li>
+</ul>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>举两个不同写法的例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 回调地狱，主要是到最后无法分清闭合的 ) 或者 &#125; 是谁的</span></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'模拟异步请求1'</span>)</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'模拟异步请求2'</span>)</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'模拟异步请求3'</span>)</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'模拟异步请求4'</span>)</span><br><span class="line">            &#125;, <span class="number">1000</span>)</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Promise 链式操作，拆分每层，只要是异步操作，就丢进去，并在最后 resolve，在 then() 里传入一个 resolve 被成功执行后的回调函数，可以接收到 resolve 传递来的值。第一个参数是 resolve 函数，调用后将使该 Promise 的状态变为 fulfilled。 第二个参数是 reject(可选)，调用后使该 Promise 的状态变为 rejected，表示失败回调，可以被 catch 里的回调函数捕获，同样的，传递的值也会被接受。由于 catch 函数可以捕获到之前所有的 rejected，所以不管前面返回多少层的 Promise，都可以在最后写一次来捕获之前的所有 Promise 的 rejected 状态。</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'模拟异步请求1'</span>)</span><br><span class="line">        resolve(<span class="string">'msg1'</span>)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'模拟异步请求2'</span>)</span><br><span class="line">            resolve(<span class="string">'msg2'</span>)</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'模拟异步请求3'</span>)</span><br><span class="line">            resolve(<span class="string">'msg3'</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'模拟异步请求4'</span>)</span><br><span class="line">        resolve(<span class="string">'msg4'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h3><p>当我们只想用 Promise 来分布操作的代码，但这些代码不是异步操作，每次都要返回一个新的 Promise，并且还需要 resolve 出去，非常繁琐，这时你可以简写它。</p>
+<h4 id="简写一"><a href="#简写一" class="headerlink" title="简写一"></a>简写一</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">	原本写法 resolve</span></span><br><span class="line"><span class="comment">	return new Promise((resolve, reject) =&gt; &#123;</span></span><br><span class="line"><span class="comment">		resolve('msg')</span></span><br><span class="line"><span class="comment">	&#125;)</span></span><br><span class="line"><span class="comment">	原本写法 reject</span></span><br><span class="line"><span class="comment">	return new Promise((resolve, reject) =&gt; &#123;</span></span><br><span class="line"><span class="comment">		reject('err')</span></span><br><span class="line"><span class="comment">	&#125;)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'模拟异步请求1'</span>)</span><br><span class="line">        resolve(<span class="string">'msg'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'模拟自己的代码'</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(<span class="string">'msg'</span>)  <span class="comment">// resolve 的简写，省去了 new</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'模拟自己的代码'</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(<span class="string">'err'</span>) <span class="comment">// reject 的简写，省去了 new</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(err)   </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="简写二"><a href="#简写二" class="headerlink" title="简写二"></a>简写二</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'模拟异步请求1'</span>)</span><br><span class="line">        resolve(<span class="string">'msg'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'模拟自己的代码'</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'msg'</span>  <span class="comment">// 简写 resolve 方法 2，直接 return，会自动帮我们包装成 Promise 对象</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line"> 	<span class="keyword">throw</span> <span class="string">'err'</span>   <span class="comment">// 简写 reject 方法 2，直接 throw，会自动帮我们包装成 Promise 对象，不过如果这个错误是异步的，比如写在定时器中，则无法被 catch 捕获，只能使用 rejected 了。当然我们这里只是模拟报错，</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h3><p>如果需要同时多个 Promise 完成了之后才能执行操作，可以使用 <code>Promise.all().then()</code> 方法</p>
+<p>这是老写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 网络请求1</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: <span class="string">'url1'</span>,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) =&gt; </span>&#123;</span><br><span class="line">	        resolve(data)</span><br><span class="line">	    &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 网络请求2</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: <span class="string">'url2'</span>,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) =&gt; </span>&#123;</span><br><span class="line">        	resolve(data)</span><br><span class="line">	    &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 由于我们需要两个请求的数据都拿到了之后才能执行操作，但我们无法确定哪个请求先被完成，如果按正常的思路，就是我们需要一个 flag</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法一</span></span><br><span class="line"><span class="keyword">let</span> isResult1 = <span class="literal">false</span></span><br><span class="line"><span class="keyword">let</span> isResult2 = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleResult</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isResult1 &amp;&amp; isResult2) &#123;  <span class="comment">// 只有当两个值都为 true 时才执行</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'执行操作'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleResult</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> resNum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">// 闭包保存</span></span><br><span class="line">        resNum++</span><br><span class="line">        <span class="keyword">if</span> (resNum === <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'执行操作'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url: <span class="string">'url1'</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) =&gt; </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'结果一'</span>)</span><br><span class="line">		isResult1 = <span class="literal">true</span>  <span class="comment">// 这是方法一的内容</span></span><br><span class="line">		handleResult()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url: <span class="string">'url2'</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) =&gt; </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'结果二'</span>)</span><br><span class="line">		isResult2 = <span class="literal">true</span> <span class="comment">// 这是方法二的内容</span></span><br><span class="line">		handleResult()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>Promise.all</code> 写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.all([</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: <span class="string">'url1'</span>,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) =&gt; </span>&#123;</span><br><span class="line">                resolve(data)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: <span class="string">'url2'</span>,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) =&gt; </span>&#123;</span><br><span class="line">                resolve(data)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">]).then(<span class="function"><span class="params">results</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(results[<span class="number">0</span>]) <span class="comment">// 保存第一个 Promise 的返回值</span></span><br><span class="line">	<span class="built_in">console</span>.log(results[<span class="number">1</span>]) <span class="comment">// 保存第二个 Promise 的返回值</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h4><p>在 <code>axios</code> 中，也有类似的方法 <code>axios.all</code>，来处理并发请求，也就是当多个请求都返回结果了之后才执行回调。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">axios.all([</span><br><span class="line">    axios(&#123;</span><br><span class="line">        url: <span class="string">'url1'</span>,</span><br><span class="line">        <span class="comment">// method: 'get'  // 不屑 method 默认请求方式为 get</span></span><br><span class="line">        params: &#123;  <span class="comment">// 传入服务器所需要的参数</span></span><br><span class="line">            type: <span class="string">'type1'</span>,</span><br><span class="line">            page: <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">    axios(&#123;</span><br><span class="line">        url: <span class="string">'url2'</span></span><br><span class="line">    &#125;)</span><br><span class="line">]).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;  <span class="comment">// 传入的 res 是一个数组，里面包含了每个请求的结果，当所有请求都完成了才会执行 then</span></span><br><span class="line">    <span class="built_in">console</span>.log(res[<span class="number">0</span>])  <span class="comment">// 拿到第一个请求的数据</span></span><br><span class="line">    <span class="built_in">console</span>.log(res[<span class="number">1</span>])  <span class="comment">// 拿到第二个请求的数据</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面的写法由于我们想要获取 res 的每项需要通过下标，有点麻烦，axios 提供了 axios.spread() 方法来分离返回的数组内容，也就是帮忙展开了数组。</span></span><br><span class="line"></span><br><span class="line">axios.all([</span><br><span class="line">    axios(&#123;</span><br><span class="line">        url: <span class="string">'url1'</span>,</span><br><span class="line">        <span class="comment">// method: 'get'  // 不屑 method 默认请求方式为 get</span></span><br><span class="line">        params: &#123;  <span class="comment">// 传入服务器所需要的参数</span></span><br><span class="line">            type: <span class="string">'type1'</span>,</span><br><span class="line">            page: <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">    axios(&#123;</span><br><span class="line">        url: <span class="string">'url2'</span></span><br><span class="line">    &#125;)</span><br><span class="line">]).then(axios.spread(<span class="function">(<span class="params">res1, res2</span>) =&gt;</span> &#123;  <span class="comment">// 分离出了 res1，res2，不过这个方法挺少用的。</span></span><br><span class="line">    <span class="built_in">console</span>.log(res1)  <span class="comment">// 第一个请求结果</span></span><br><span class="line">    <span class="built_in">console</span>.log(res2)  <span class="comment">// 第二个请求结果</span></span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
+
+<h2 id="axios-1"><a href="#axios-1" class="headerlink" title="axios"></a>axios</h2><p><em>Axios</em> 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js （这是其他请求库所不具备的）中。它支持多种请求方式。 下面 <code>[]</code> 内的内容是可选部分</p>
+<ul>
+<li><code>axios(config)</code></li>
+<li><code>axios.request(config)</code></li>
+<li><code>axios.get(url[, config])</code></li>
+<li><code>axios.delete(url[, config])</code></li>
+<li><code>axios.head(url[, config])</code></li>
+<li><code>axios.post(url[, data[, config]])</code></li>
+<li><code>axios.put(url[, data[, config]])</code></li>
+<li><code>axios.patch(url[, data[, config]])</code></li>
+</ul>
+<p>现在我们随便写两个请求</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">    baseURL: <span class="string">'http://123.207.32.32:8000'</span>,</span><br><span class="line">    timeout: <span class="number">5</span>,</span><br><span class="line">    url: <span class="string">'/home/multidata'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">axios(&#123;</span><br><span class="line">    baseURL: <span class="string">'http://123.207.32.32:8000'</span>,</span><br><span class="line">    timeout: <span class="number">5</span>,</span><br><span class="line">    url: <span class="string">'/home/data'</span>,</span><br><span class="line">    params: &#123;</span><br><span class="line">        type: <span class="string">'sell'</span>,</span><br><span class="line">        page: <span class="number">5</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>马上就发现了，我们这两个 axios 都有相同的配置，我们应当把它抽离出来。axios 提供了全局配置 <code>axios.defaults</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.baseURL = <span class="string">'http://123.207.32.32:8000'</span>  <span class="comment">// 请求根路径</span></span><br><span class="line">axios.defaults.timeout = <span class="number">5</span></span><br><span class="line">axios(&#123;</span><br><span class="line">    url: <span class="string">'/home/multidata'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">axios(&#123;</span><br><span class="line">    url: <span class="string">'/home/data'</span>,</span><br><span class="line">    params: &#123;</span><br><span class="line">        type: <span class="string">'sell'</span>,</span><br><span class="line">        page: <span class="number">5</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>如果我们需要在 header 里加入自定义请求头，可能需要加上 token 之类的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.headers:&#123;<span class="string">'x-Requested-With'</span>:<span class="string">'XMLHttpRequest'</span>&#125;</span><br><span class="line"><span class="comment">// 例</span></span><br><span class="line">axios.default.headers.Authorization = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">'token'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>直接列出常见配置项吧。。一个个写太麻烦了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 请求地址</span></span><br><span class="line">url: <span class="string">'/user'</span></span><br><span class="line"><span class="comment">// 请求类型</span></span><br><span class="line">methods: <span class="string">'get'</span></span><br><span class="line"><span class="comment">// 请求根路径</span></span><br><span class="line">baseURL: <span class="string">'http://www.xx.com/api'</span></span><br><span class="line"><span class="comment">// 请求前的数据处理</span></span><br><span class="line">transformRequest: [<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;]</span><br><span class="line"><span class="comment">// 请求后的数据处理</span></span><br><span class="line">transformResponse: [<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;]</span><br><span class="line"><span class="comment">// 自定义请求头</span></span><br><span class="line">headers: &#123;<span class="string">'x-Requested-With'</span>:<span class="string">'XMLHttpRequest'</span>&#125;</span><br><span class="line"><span class="comment">// URL 查询对象 params 和 get 请求对应，post 里写这个无效，因为这个最终会被拼接到 url 中，而 post 不需要， post 需要把请求参数放到请求体里</span></span><br><span class="line">params: &#123;<span class="attr">page</span>: <span class="number">1</span>&#125; </span><br><span class="line"><span class="comment">// 查看对象序列化函数</span></span><br><span class="line">paramsSerializer: <span class="function"><span class="keyword">function</span>(<span class="params">params</span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// request body 这个和 post 请求对应</span></span><br><span class="line">data: &#123;<span class="attr">key</span>: <span class="string">'aa'</span>&#125;</span><br><span class="line"><span class="comment">// 超时设置 ms</span></span><br><span class="line">timeout: <span class="number">1000</span></span><br><span class="line"><span class="comment">// 跨域是否带 Token</span></span><br><span class="line">withCredentials: <span class="literal">false</span></span><br><span class="line"><span class="comment">// 自定义请求处理</span></span><br><span class="line">adapter: <span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject, config</span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 身份验证信息</span></span><br><span class="line">auth: &#123; <span class="attr">uname</span>:<span class="string">''</span>, <span class="attr">pwd</span>: <span class="string">'12'</span>&#125;</span><br><span class="line"><span class="comment">// 响应的数据格式 json/blob/document/arraybuffer/text/stream</span></span><br><span class="line">responseType: <span class="string">'json'</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+  </div>
+  </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Dloux
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://dloux.gitee.io/2020/08/05/promiseAndAxios/" title="promiseAndAxios">https://dloux.gitee.io/2020/08/05/promiseAndAxios/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/promiseAndAxios/" rel="tag"><i class="fa fa-tag"></i> promiseAndAxios</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/03/router/" rel="prev" title="router">
+      <i class="fa fa-chevron-left"></i> router
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">1.</span> <span class="nav-text">Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">1.1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简写"><span class="nav-number">1.2.</span> <span class="nav-text">简写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简写一"><span class="nav-number">1.2.1.</span> <span class="nav-text">简写一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简写二"><span class="nav-number">1.2.2.</span> <span class="nav-text">简写二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-all"><span class="nav-number">1.3.</span> <span class="nav-text">Promise.all()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#axios"><span class="nav-number">1.3.1.</span> <span class="nav-text">axios</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#axios-1"><span class="nav-number">2.</span> <span class="nav-text">axios</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dloux"
+      src="/images/dloux.jpg">
+  <p class="site-author-name" itemprop="name">Dloux</p>
+  <div class="site-description" itemprop="description">ddd</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dlouxgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dlouxgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dloux</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+
+
+
+<script>
+  var pathName = window.document.location.pathname;
+  var cont = document.getElementsByClassName("content-wrap")[0];
+  console.log(cont);
+  if (pathName =='/' || pathName =='/note/') {
+  // if (/\//.test(window.document.location.pathname)) {
+    console.log(pathName);
+    console.log(cont.style.backgroundColor)
+    cont.className="content-wrap transparentcont";
+    // cont.style.backgroundColor = "rgba(255,255,255,0) !importent";
+  }
+</script>
+</body>
+</html>
