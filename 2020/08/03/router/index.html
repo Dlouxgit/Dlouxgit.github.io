@@ -1,35 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+
+
+
+
+<html class="theme-next pisces" lang="en">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<script>
-    (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
-                alert('密码错误！');
-                history.back();
-            }
-        }
-    })();
-</script>
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"dloux.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
 
-  <meta name="description" content="路由">
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/social-share.js/1.0.9/css/share.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.0.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=0.0.4">
+
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=0.0.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="router, vue-router," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="路由">
 <meta property="og:type" content="article">
 <meta property="og:title" content="router">
 <meta property="og:url" content="https://dloux.gitee.io/2020/08/03/router/index.html">
@@ -37,23 +90,69 @@
 <meta property="og:description" content="路由">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-03T13:24:39.000Z">
-<meta property="article:modified_time" content="2020-08-05T12:19:40.326Z">
+<meta property="article:modified_time" content="2020-08-11T09:32:13.037Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="router, vue-router">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://dloux.gitee.io/2020/08/03/router/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '0.0.4',
+    sidebar: {"position":"right","display":"always","offset":52,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    since: '6/2/2020 11:30:00',
+    onlineAPI: '',
+    site: {
+      title: 'Dloux',
+      subtitle: '',
+      author: 'Dloux'
+    },
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    leancloud: {
+      enable: false,
+      appID: '',
+      appKey: ''
+    },
+    favicon: {
+      visibilitychange: true,
+      narmal: '',
+      hidden: '/images/failure.ico',
+      show_text: '(/≧▽≦/)咦！又好了！',
+      hide_text: '(●—●)喔哟，崩溃啦！'
+    }
   };
 </script>
+
+
+
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="canonical" href="https://dloux.gitee.io/2020/08/03/router/"/>
+
+
+
+
 
   <title>router | Dloux</title>
   
@@ -63,146 +162,233 @@
 
 
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
-</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
+  
+  
+    
+  
 
-  <div class="site-meta">
+  <div class="container sidebar-position-right page-post-detail">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><nav class="site-nav">
+  
 
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Dloux</h1>
+  
+    <ul id="menu" class="menu">
       
-      <span class="logo-line-after">你好</span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
- 
-
-
-
-</div>
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
       
-      <div class="menu-header">
+        
+        <li class="menu-item menu-item-实验室">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-magic"></i> <br />
+            
+            实验室
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archive/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-投喂">
+          <a href="/donate" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cutlery"></i> <br />
+            
+            投喂
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-后宫">
+          <a href="/friends/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-mars"></i> <br />
+            
+            后宫
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于我">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
 
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
+      
+      <li class="menu-item search">
+          <form class="search-form">
+            <input name="keyword" type="text" class="search-input" placeholder="站内搜索">
+            <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
+          </form>
+      </li>
+      <li class="menu-item online"><span id="online-count">?</span>人在线</li>
+    </ul>
+  
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
-
-  </li>
-  </ul>
+  
 </nav>
+
+<div class="site-brand-wrapper" style="background-image: url(/images/header-sagiri.jpg)">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <div class="brand">
+        <span class="logo-line-before"><i></i></span>
+        <div class="site-title">
+          <div id="animate" class="animate">
+            <span>D</span><span>l</span><span>o</span><span>u</span><span>x</span>
+          </div>
+          <div id="guide" class="guide">
+            <span>D</span><span>l</span><span>o</span><span>u</span><span>x</span>
+          </div>
+        </div>
+        <span class="logo-line-after"><i></i></span>
+      </div>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
-      
-      
+<div class="site-master" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-master-avatar" itemprop="image" src="/images/DIYgod.jpg" alt="Dloux" />
+    <h2 class="site-master-description" itemprop="description">
+        catch fish with the hands
+    </h2>
+</div>
+
+
+ </div>
     </header>
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
+    <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
+          <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
     
+
+  
+
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
+			<div class="post-month">08月</div>
+			<div class="post-day">03</div>
+	</div>
+  
+
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/08/03/router/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/dloux.jpg">
       <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="ddd">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/DIYgod.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Dloux">
     </span>
-    
-  <div class="post-top">
-   <div class="post-top-hover">
+
     
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          router
-        </h1>
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">router</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-03T21:24:39+08:00">
+                2020-08-03
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
 
-        
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
+    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
+
+      
+      
 
       
         <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由<a id="more"></a></h2><p>路由 ( routing ) 是网络工程里的术语，它通过互联的网络把信息从源地址传输到目的地址的活动。（摘自维基百科）</p>
@@ -358,8 +544,9 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 写法 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/home"</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/about"</span>&gt;</span>关于<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span>   </span><br><span class="line">    <span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">"Home,About"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>被包裹的组件将会多出两个生命周期钩子， <code>activated</code> 和 <code>deactivated</code> ，每次被激活或者取消激活状态的时候触发。</p>
-<p><code>include</code> 可以是字符串或正则，如果是字符，匹配组件的 name 属性，如果要匹配多个组件，用 <code>,</code> 隔开，<strong>并且这里不要随便加空格 <code></code>，这样就会不匹配了！</strong>，表示被匹配的组件可以有 keep-alive 的效果，也就是多了 <code>activated</code> 和 <code>deactivated</code> ，并且 <code>created</code> 只会调用一次，<code>destroyed</code> 不会被调用</p>
-<p><code>exclude</code> 可以是字符串或正则，与 include 作用相反，被匹配的组件没有 keep-alive 的效果，被排除在外，同样不要随便加空格。</p>
+<h5 id="组件的-name"><a href="#组件的-name" class="headerlink" title="组件的 name"></a>组件的 name</h5><p>组件的 name 属性在 <code>include</code> 和 <code>exclude</code> 里非常重要。没有 name 就只能用正则匹配了。</p>
+<h6 id="include"><a href="#include" class="headerlink" title="include"></a>include</h6><p><code>include</code> 可以是字符串或正则，如果是字符，匹配组件的 <strong>name</strong> 属性，如果要匹配多个组件，用 <code>,</code> 隔开，<strong>并且这里不要随便加空格 <code></code>，这样就会不匹配了！</strong>，表示被匹配的组件可以有 keep-alive 的效果，也就是多了 <code>activated</code> 和 <code>deactivated</code> ，并且 <code>created</code> 只会调用一次，<code>destroyed</code> 不会被调用</p>
+<h6 id="exclude"><a href="#exclude" class="headerlink" title="exclude"></a>exclude</h6><p><code>exclude</code> 可以是字符串或正则，与 include 作用相反，被匹配的组件没有 keep-alive 的效果，被排除在外，同样不要随便加空格。</p>
 <p>同样不能加空格的地方是正则，想匹配 2-9个 数字的时候，我们写成 <code>/\d{2,9}/</code></p>
 <p>但绝对不能写成 <code>/\d{2, 9}/</code>，这是个错误的正则，所以 <strong>一般和正则有关的东西，都不要随便加空格。</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Home 页面 --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">        Home 页面</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default &#123;</span><br><span class="line">        name: &#39;Home&#39;,</span><br><span class="line">        created() &#123;</span><br><span class="line">            console.log(&#39;created，只会在创建的时候被调用，而 keep-alive 使它不会被 destroy，所以只会调用最初的一次之后就不再调用&#39;)</span><br><span class="line">        &#125;,</span><br><span class="line">        destroyed() &#123;</span><br><span class="line">            console.log(&#39;destroyed，不会被调用，因为状态被缓存了，即使离开，组件也不会被 destroy，只会处于不活跃状态&#39;)</span><br><span class="line">        &#125;,</span><br><span class="line">        activated() &#123;</span><br><span class="line">            console.log(&#39;activated，每次被激活的时候都会调用，相当于替代了 created&#39;)</span><br><span class="line">        &#125;,</span><br><span class="line">        deactivated() &#123;</span><br><span class="line">            console.log(&#39;deactivated，每次被取消激活的时候都会调用，相当于取代了 destroyed&#39;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!-- About 页面 --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">        About 页面</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default &#123;</span><br><span class="line">        name: &#39;About&#39;,</span><br><span class="line">        created() &#123;</span><br><span class="line">            console.log(&#39;created，只会在创建的时候被调用，而 keep-alive 使它不会被 destroy，所以只会调用最初的一次之后就不再调用&#39;)</span><br><span class="line">        &#125;,</span><br><span class="line">        destroyed() &#123;</span><br><span class="line">            console.log(&#39;destroyed，不会被调用，因为状态被缓存了，即使离开，组件也不会被 destroy，只会处于不活跃状态&#39;)</span><br><span class="line">        &#125;,</span><br><span class="line">        activated() &#123;</span><br><span class="line">            console.log(&#39;activated，每次被激活的时候都会调用，相当于替代了 created&#39;)</span><br><span class="line">        &#125;,</span><br><span class="line">        deactivated() &#123;</span><br><span class="line">            console.log(&#39;deactivated，每次被取消激活的时候都会调用，相当于取代了 destroyed&#39;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
@@ -367,170 +554,328 @@
 
 
 
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div class="post-share">分享到：</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Dloux WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Dloux Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
 
   </div>
-  </div>
-
-    
-    
-    
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:  </strong>Dloux
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link: </strong>
-    <a href="https://dloux.gitee.io/2020/08/03/router/" title="router">https://dloux.gitee.io/2020/08/03/router/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
-  </li>
-</ul>
 </div>
 
+      </div>
+    
 
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/router-vue-router/" rel="tag"><i class="fa fa-tag"></i> router, vue-router</a>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/router-vue-router/" rel="tag"># router, vue-router</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/24/webpack/" rel="next" title="webpack">
+                <i class="fa fa-chevron-left"></i> webpack
+              </a>
+            
           </div>
 
-        
+          <span class="post-nav-divider"></span>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/07/24/webpack/" rel="prev" title="webpack">
-      <i class="fa fa-chevron-left"></i> webpack
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/05/promiseAndAxios/" rel="next" title="promiseAndAxios">
-      promiseAndAxios <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-
-      </footer>
-    
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/05/promiseAndAxios/" rel="prev" title="promiseAndAxios">
+                promiseAndAxios <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
-  
-  
-  
 
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <div class="disqus-loading">
+          <strong>Disqus 加载中...</strong>
+          <p>如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p>
+        </div>
+      </div>
+    </div>
+
+  
+
+
+
+
+
+  
+
+    
+      <script type="text/javascript">
+        if (disqus_config) {
+          var disqus_config = function () {
+            this.page.url = 'https://dloux.gitee.io/2020/08/03/router/';
+            this.page.identifier = '2020/08/03/router/';
+            this.page.title = 'router';
+          };
+          if (window.DISQUS) {
+            $('.disqus-loading').remove();
+            window.DISQUS.reset({
+              reload: true,
+              config: function () {
+                this.page.url = 'https://dloux.gitee.io/2020/08/03/router/';
+                this.page.identifier = '2020/08/03/router/';
+                this.page.title = 'router';
+              }
+            });
+          }
+        }
+        else {
+          var disqus_config = function () {
+            this.page.url = 'https://dloux.gitee.io/2020/08/03/router/';
+            this.page.identifier = '2020/08/03/router/';
+            this.page.title = 'router';
+          };
+          var d = document, s = d.createElement('script');
+          s.src = 'https://diygod-me.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', '' + +new Date());
+          (d.head || d.body).appendChild(s);
+        }
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         </div>
+        
           
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
   </div>
 
-  <aside class="sidebar">
+  <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
+      
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/card.jpg"
+                alt="Dloux" />
+            
+              <p class="site-author-name" itemprop="name"><span style="opacity:.2;"></span>Dloux</p>
+              <p class="site-description motion-element" itemprop="description">你能抓到我么？</p>
+          </div>
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/DIYgod" target="_blank" title="GitHub" data-balloon="GitHub" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/DIYgod" target="_blank" title="Twitter" data-balloon="Twitter" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/images/qq-g.jpg" target="_blank" title="QQ 群" data-balloon="QQ 群" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-qq"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+            
+
+          </nav>
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.png" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
       <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">1.</span> <span class="nav-text">路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单举例"><span class="nav-number">1.1.</span> <span class="nav-text">简单举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前后端路由发展"><span class="nav-number">1.2.</span> <span class="nav-text">前后端路由发展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#后端渲染"><span class="nav-number">1.2.1.</span> <span class="nav-text">后端渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前后端分离"><span class="nav-number">1.2.2.</span> <span class="nav-text">前后端分离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SPA（single-page-application，单页面应用）"><span class="nav-number">1.2.3.</span> <span class="nav-text">SPA（single page application，单页面应用）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSR（server-side-render，服务端渲染）"><span class="nav-number">1.2.4.</span> <span class="nav-text">SSR（server side render，服务端渲染）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hash-路由-与-h5-的-history-模式"><span class="nav-number">1.3.</span> <span class="nav-text">hash 路由 与 h5 的 history 模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hash-路由-（默认模式）"><span class="nav-number">1.3.1.</span> <span class="nav-text">hash 路由 （默认模式）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h5-的-history-对象"><span class="nav-number">1.3.2.</span> <span class="nav-text">h5 的 history 对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-router"><span class="nav-number">1.4.</span> <span class="nav-text">vue-router</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础"><span class="nav-number">1.4.1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态路由"><span class="nav-number">1.4.2.</span> <span class="nav-text">动态路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒加载"><span class="nav-number">1.4.3.</span> <span class="nav-text">懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#懒加载的三种写法"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">懒加载的三种写法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌套路由"><span class="nav-number">1.4.4.</span> <span class="nav-text">嵌套路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由传参"><span class="nav-number">1.4.5.</span> <span class="nav-text">路由传参</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导航守卫"><span class="nav-number">1.5.</span> <span class="nav-text">导航守卫</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局守卫"><span class="nav-number">1.5.1.</span> <span class="nav-text">全局守卫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由独享的守卫"><span class="nav-number">1.5.2.</span> <span class="nav-text">路由独享的守卫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件内的守卫"><span class="nav-number">1.5.3.</span> <span class="nav-text">组件内的守卫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#keep-alive"><span class="nav-number">1.5.4.</span> <span class="nav-text">keep-alive</span></a></li></ol></li></ol></li></ol></div>
-      </div>
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">1.</span> <span class="nav-text">路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单举例"><span class="nav-number">1.1.</span> <span class="nav-text">简单举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前后端路由发展"><span class="nav-number">1.2.</span> <span class="nav-text">前后端路由发展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#后端渲染"><span class="nav-number">1.2.1.</span> <span class="nav-text">后端渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前后端分离"><span class="nav-number">1.2.2.</span> <span class="nav-text">前后端分离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SPA（single-page-application，单页面应用）"><span class="nav-number">1.2.3.</span> <span class="nav-text">SPA（single page application，单页面应用）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSR（server-side-render，服务端渲染）"><span class="nav-number">1.2.4.</span> <span class="nav-text">SSR（server side render，服务端渲染）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hash-路由-与-h5-的-history-模式"><span class="nav-number">1.3.</span> <span class="nav-text">hash 路由 与 h5 的 history 模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hash-路由-（默认模式）"><span class="nav-number">1.3.1.</span> <span class="nav-text">hash 路由 （默认模式）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h5-的-history-对象"><span class="nav-number">1.3.2.</span> <span class="nav-text">h5 的 history 对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-router"><span class="nav-number">1.4.</span> <span class="nav-text">vue-router</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础"><span class="nav-number">1.4.1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态路由"><span class="nav-number">1.4.2.</span> <span class="nav-text">动态路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒加载"><span class="nav-number">1.4.3.</span> <span class="nav-text">懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#懒加载的三种写法"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">懒加载的三种写法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌套路由"><span class="nav-number">1.4.4.</span> <span class="nav-text">嵌套路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由传参"><span class="nav-number">1.4.5.</span> <span class="nav-text">路由传参</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导航守卫"><span class="nav-number">1.5.</span> <span class="nav-text">导航守卫</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局守卫"><span class="nav-number">1.5.1.</span> <span class="nav-text">全局守卫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由独享的守卫"><span class="nav-number">1.5.2.</span> <span class="nav-text">路由独享的守卫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件内的守卫"><span class="nav-number">1.5.3.</span> <span class="nav-text">组件内的守卫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#keep-alive"><span class="nav-number">1.5.4.</span> <span class="nav-text">keep-alive</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#组件的-name"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">组件的 name</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#include"><span class="nav-number">1.5.4.1.1.</span> <span class="nav-text">include</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#exclude"><span class="nav-number">1.5.4.1.2.</span> <span class="nav-text">exclude</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
       <!--/noindex-->
+      
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dloux"
-      src="/images/dloux.jpg">
-  <p class="site-author-name" itemprop="name">Dloux</p>
-  <div class="site-description" itemprop="description">ddd</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">28</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">22</span>
-        <span class="site-state-item-name">tags</span>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/dlouxgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dlouxgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-  </div>
-
-
-
-      </div>
+      
 
     </div>
   </aside>
-  <div id="sidebar-dimmer"></div>
 
 
+        
       </div>
     </main>
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
+      <div class="footer-image"></div>
       <div class="footer-inner">
-        
+        <p>博客已萌萌哒运行<span id="since"></span><span class="my-face">(●'◡'●)ﾉ♥</span></p>
+<p>custom text</p>
 
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Dloux</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
+<p>© <span itemprop="copyrightYear">2020</span> Dloux.
+    由 <a href="https://hexo.io/" target="_blank" class="external" rel="nofollow">Hexo</a> 强力驱动.
+    Theme By <a href="https://github.com/DIYgod/hexo-theme-sagiri" target="_blank" class="external" rel="nofollow">Sagiri</a> v0.0.4.
+    <a href="/sitemap.xml" target="_blank">站点地图</a>.
+    xxxx.
+</p>
+<p>Made with <i class="fa fa-heart throb" style="color: #d43f57;"></i> by <span class="author" itemprop="copyrightHolder">Dloux</span>. </p>
 
         
 
@@ -540,40 +885,27 @@
 
 
 
-
+        
       </div>
     </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    <canvas id="evanyou"></canvas>
+    <canvas id="live2d" width="150" height="400" class="live2d"></canvas>
+
+    
+
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+  <script type="text/javascript" src="/js/sagiri.min.js?v=0.0.4"></script>
 
   
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -582,31 +914,13 @@
   
 
   
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-  <script async src="/js/cursor/fireworks.js"></script>
-  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
-
-
-
-<script>
-  var pathName = window.document.location.pathname;
-  var cont = document.getElementsByClassName("content-wrap")[0];
-  console.log(cont);
-  if (pathName =='/' || pathName =='/note/') {
-  // if (/\//.test(window.document.location.pathname)) {
-    console.log(pathName);
-    console.log(cont.style.backgroundColor)
-    cont.className="content-wrap transparentcont";
-    // cont.style.backgroundColor = "rgba(255,255,255,0) !importent";
-  }
-</script>
 </body>
 </html>

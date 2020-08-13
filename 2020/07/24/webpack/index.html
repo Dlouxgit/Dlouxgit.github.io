@@ -1,35 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+
+
+
+
+<html class="theme-next pisces" lang="en">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<script>
-    (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
-                alert('密码错误！');
-                history.back();
-            }
-        }
-    })();
-</script>
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"dloux.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
 
-  <meta name="description" content="webpack4">
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/social-share.js/1.0.9/css/share.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.0.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=0.0.4">
+
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=0.0.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="webpack," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="webpack4">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack">
 <meta property="og:url" content="https://dloux.gitee.io/2020/07/24/webpack/index.html">
@@ -37,23 +90,69 @@
 <meta property="og:description" content="webpack4">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-24T14:05:17.000Z">
-<meta property="article:modified_time" content="2020-08-05T15:00:41.667Z">
+<meta property="article:modified_time" content="2020-08-10T08:20:09.754Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="webpack">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://dloux.gitee.io/2020/07/24/webpack/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '0.0.4',
+    sidebar: {"position":"right","display":"always","offset":52,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    since: '6/2/2020 11:30:00',
+    onlineAPI: '',
+    site: {
+      title: 'Dloux',
+      subtitle: '',
+      author: 'Dloux'
+    },
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    leancloud: {
+      enable: false,
+      appID: '',
+      appKey: ''
+    },
+    favicon: {
+      visibilitychange: true,
+      narmal: '',
+      hidden: '/images/failure.ico',
+      show_text: '(/≧▽≦/)咦！又好了！',
+      hide_text: '(●—●)喔哟，崩溃啦！'
+    }
   };
 </script>
+
+
+
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="canonical" href="https://dloux.gitee.io/2020/07/24/webpack/"/>
+
+
+
+
 
   <title>webpack | Dloux</title>
   
@@ -63,146 +162,233 @@
 
 
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
-</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
+  
+  
+    
+  
 
-  <div class="site-meta">
+  <div class="container sidebar-position-right page-post-detail">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><nav class="site-nav">
+  
 
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Dloux</h1>
+  
+    <ul id="menu" class="menu">
       
-      <span class="logo-line-after">你好</span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
- 
-
-
-
-</div>
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
       
-      <div class="menu-header">
+        
+        <li class="menu-item menu-item-实验室">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-magic"></i> <br />
+            
+            实验室
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archive/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-投喂">
+          <a href="/donate" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cutlery"></i> <br />
+            
+            投喂
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-后宫">
+          <a href="/friends/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-mars"></i> <br />
+            
+            后宫
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于我">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
 
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
+      
+      <li class="menu-item search">
+          <form class="search-form">
+            <input name="keyword" type="text" class="search-input" placeholder="站内搜索">
+            <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
+          </form>
+      </li>
+      <li class="menu-item online"><span id="online-count">?</span>人在线</li>
+    </ul>
+  
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
-
-  </li>
-  </ul>
+  
 </nav>
+
+<div class="site-brand-wrapper" style="background-image: url(/images/header-sagiri.jpg)">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <div class="brand">
+        <span class="logo-line-before"><i></i></span>
+        <div class="site-title">
+          <div id="animate" class="animate">
+            <span>D</span><span>l</span><span>o</span><span>u</span><span>x</span>
+          </div>
+          <div id="guide" class="guide">
+            <span>D</span><span>l</span><span>o</span><span>u</span><span>x</span>
+          </div>
+        </div>
+        <span class="logo-line-after"><i></i></span>
+      </div>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
-      
-      
+<div class="site-master" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-master-avatar" itemprop="image" src="/images/DIYgod.jpg" alt="Dloux" />
+    <h2 class="site-master-description" itemprop="description">
+        catch fish with the hands
+    </h2>
+</div>
+
+
+ </div>
     </header>
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
+    <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
+          <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
     
+
+  
+
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
+			<div class="post-month">07月</div>
+			<div class="post-day">24</div>
+	</div>
+  
+
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/07/24/webpack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/dloux.jpg">
       <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="ddd">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/DIYgod.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Dloux">
     </span>
-    
-  <div class="post-top">
-   <div class="post-top-hover">
+
     
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          webpack
-        </h1>
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">webpack</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-24T22:05:17+08:00">
+                2020-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
 
-        
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
+    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
+
+      
+      
 
       
         <h2 id="webpack4"><a href="#webpack4" class="headerlink" title="webpack4"></a>webpack4<a id="more"></a></h2><p><font color="red">注意：由于国内的那个 webpack 中文网一直没有更新，它上面的东西还是 webpack3 的，已经太老了，如果想要看文档的话，去官方 <code>webpack.js.org</code></font></p>
@@ -238,7 +424,7 @@
 <li><code>runtime-only</code> ，字面意思，只有运行功能，运行时代码中不可以有任何的 template（Vue 实例挂载的 #app ）也会被当做 template。它不包含对 template 编译的代码。<strong>默认使用这个版本，如果要修改，需要到 webpack.json 去配置 resolve</strong></li>
 <li><code>runtime-compiler</code>，字面意思，运行和编译功能，代码中可以有 template，compiler 用于编译 template</li>
 </ul>
-<h5 id="别名-alias"><a href="#别名-alias" class="headerlink" title="别名 alias"></a>别名 alias</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">    output: &#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line">    resolve: &#123;</span><br><span class="line">        <span class="comment">/* </span></span><br><span class="line"><span class="comment">        	alias 别名的意思，git 中也有类似的操作</span></span><br><span class="line"><span class="comment">        	比如 git commit -m "提交" 太长了，我们可以给它设置别名，改成 git c "提交"</span></span><br><span class="line"><span class="comment">        	格式是 git config --global alias.别名 "命令全称"</span></span><br><span class="line"><span class="comment">        	因此写成 git config --global alias.c "commit -m"</span></span><br><span class="line"><span class="comment">        	</span></span><br><span class="line"><span class="comment">        	在这里的 alias 作用也类似，在 js 文件中，如果找到 import 'vue'，就加载 node_modules/vue/dist/vue.esm.js，也就是 runtime-compiler 版本</span></span><br><span class="line"><span class="comment">            默认加载的是 node_modules/vue/dist/vue.runtime.js，也就是 runtime-only 版本</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        alias: &#123; </span><br><span class="line">            <span class="string">'vue$'</span>: <span class="string">'vue/dist/vue.esm.js'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="别名-alias"><a href="#别名-alias" class="headerlink" title="别名 alias"></a>别名 alias</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">    output: &#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line">    resolve: &#123;</span><br><span class="line">        <span class="comment">/* </span></span><br><span class="line"><span class="comment">        	alias 别名的意思，git 中也有类似的操作</span></span><br><span class="line"><span class="comment">        	比如 git commit -m "提交" 太长了，我们可以给它设置别名，改成 git c "提交"</span></span><br><span class="line"><span class="comment">        	格式是 git config --global alias.别名 "命令全称"</span></span><br><span class="line"><span class="comment">        	因此写成 git config --global alias.c "commit -m"</span></span><br><span class="line"><span class="comment">        	</span></span><br><span class="line"><span class="comment">        	在这里的 alias 作用也类似，在 js 文件中，如果找到 import 'vue'，就加载 node_modules/vue/dist/vue.esm.js，也就是 runtime-compiler 版本</span></span><br><span class="line"><span class="comment">            默认加载的是 node_modules/vue/dist/vue.runtime.js，也就是 runtime-only 版本</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        alias: &#123; </span><br><span class="line">            <span class="string">'vue$'</span>: <span class="string">'vue/dist/vue.esm.js'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 一般我们 npm install 某个插件，拿到的都是 .esm.js 版本，这是模块化(ECMAScript Module)的版本。去该插件的 github 地址里的 dist 里查看，但 vue 默认用的不是 .esm.js</span></span><br></pre></td></tr></table></figure>
 
 <h5 id="处理-vue-文件"><a href="#处理-vue-文件" class="headerlink" title="处理 .vue 文件"></a>处理 .vue 文件</h5><p>同样的，也需要安装 loader，不过 loader 只是加载用的，并不能编译，所以还需要一个模板编译器，所以命令行输入 <code>npm i vue-loader vue-template-compiler -D</code> 安装。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 同样的，在 use 里加上</span></span><br><span class="line">&#123;</span><br><span class="line">    test: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">    use: [<span class="string">'vue-loader'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -263,7 +449,7 @@
 
 
 <h4 id="添加版权的-Plugin"><a href="#添加版权的-Plugin" class="headerlink" title="添加版权的 Plugin"></a>添加版权的 Plugin</h4><p><code>BannerPlugin</code> 是 webpack 自带的插件，可以在打包后的 js 文件头部加上点想写的东西。</p>
-<p>讲故事：比如 vue 前面就有一串这样的版权信息，使用 MIT 开源协议，这个协议对使用者的束缚更小，React 的协议也从 BSD + 专利条款改为更受欢迎的 MIT 许可证，原来 React 的协议允许 Facebook 随时收回 React 的使用权，随时可以告你侵权，这是一种防御性质的 license，但由于这个开源协议存在的原因，许多大公司开始弃用 React，最后 Facebook 做出让步，改为 MIT。当时使用 React 的国外大型公司有 Apache基金会、Wordpress，国内的百度等公司，那时候的这些公司都宣布弃用 React。</p>
+<p>讲故事：比如 vue 前面就有一串这样的版权信息，使用 MIT 开源协议，这个协议对使用者的束缚更小，React 的协议也从 BSD + 专利条款改为更受欢迎的 MIT 许可证，原来 React 的协议允许 Facebook 随时收回 React 的使用权，随时可以告你侵权，这是一种防御性质的 license，但由于这个开源协议存在的原因，许多大公司开始弃用 React，最后 Facebook 做出让步，改为 MIT。当时使用 React 的国外大型公司有 Apache基金会、Wordpress，国内的百度等公司，那时候的这些公司都宣布弃用 React。如果希望别人使用你的代码时必须声明这是你的代码，可以使用 Apache License，开放性比较高的就是 MIT。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment"> * Vue.js v2.6.11</span></span><br><span class="line"><span class="comment"> * (c) 2014-2019 Evan You</span></span><br><span class="line"><span class="comment"> * Released under the MIT License.</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 
 <p>使用：</p>
@@ -328,7 +514,7 @@
 <h3 id="vue-cli-的配置文件位置-vuerc"><a href="#vue-cli-的配置文件位置-vuerc" class="headerlink" title="vue-cli 的配置文件位置 .vuerc"></a>vue-cli 的配置文件位置 .vuerc</h3><p>一般这些全局配置文件都在 C:\Users\Administrator，在这里也可以找到 git 的配置文件和 .npmrc ， 关于 rc 的后缀名源自 linux，表示是在命令行（终端）运行的， run command</p>
 <p>在 .vuerc 中，可以修改创建的 vue 模板。就是 vue create projectname 创建后保存的模板可以在这里删除修改。</p>
 <h3 id="vue-cli3-的配置文件"><a href="#vue-cli3-的配置文件" class="headerlink" title="vue-cli3+ 的配置文件"></a>vue-cli3+ 的配置文件</h3><p>vue-cli3+ 之后，作者希望 vue 可以 0 配置上手，因此创建项目后，根目录不再能看到配置文件(vue-cli2 中可以看到一堆)，这是因为 vue-cli3+ 之后，配置文件都交给 <code>@vue-cli-service</code> 托管了，在 <code>npm i @vue-cli</code> 的时候会一起下载，也因此 package.json 中的 scripts 变成了 ，都从 <code>vue-cli-sevice</code> 的配置文件中获取。</p>
-<p>如果想要查看，配置文件的入口文件在 <code>/node_modules/@vue/cli-service/webpack.config.js</code>，可以根据它的导入来确认真正的配置文件。</p>
+<p>如果想要查看，配置文件的入口文件在 <code>/node_modules/@vue/cli-service/webpack.config.js</code>，可以根据它的导入来确认真正的配置文件。记得是找 <code>@vue</code> 文件夹。</p>
 <p>另一种方法是通过 vue ui 可视化面板中的配置 选项中查看。</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">        <span class="attr">"serve"</span>: <span class="string">"vue-cli-service serve"</span>,</span><br><span class="line">        <span class="attr">"build"</span>: <span class="string">"vue-cli-service build"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -337,173 +523,332 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"bin": &#123;</span><br><span class="line">  "webpack": "bin/webpack.js"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>就是执行了这个 JSON 文件同级下的 bin 文件夹内的 webpack.js</p>
-<h3 id="别名-alias-在-vue-cli-中的使用"><a href="#别名-alias-在-vue-cli-中的使用" class="headerlink" title="别名 alias 在 vue-cli 中的使用"></a>别名 alias 在 vue-cli 中的使用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js (这是 vue-cli3+ 之后的自定义配置文件，将会与默认配置文件混合，并且覆盖它)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">    resolve: &#123;</span><br><span class="line">        <span class="comment">/* </span></span><br><span class="line"><span class="comment">        	alias 是别名的意思，在这里配置了之后，import 就可以改写了</span></span><br><span class="line"><span class="comment">        	原来在 js 中 import 的写法</span></span><br><span class="line"><span class="comment">        	assets:  '../../assets/xxx' 或 '@/assets/xxx'</span></span><br><span class="line"><span class="comment">        	components:  '../../components/xxx' 或 '@/components/xxx'</span></span><br><span class="line"><span class="comment">        	views:  '../../views/xxx' 或 '@/views/xxx'</span></span><br><span class="line"><span class="comment">        	增加别名之后在 js 中 import 的写法</span></span><br><span class="line"><span class="comment">        	assets: 'assets/xxx'</span></span><br><span class="line"><span class="comment">        	components: 'components/xxx'</span></span><br><span class="line"><span class="comment">        	views: 'views/xxx'</span></span><br><span class="line"><span class="comment">        	增加别名之后在 html 中，比如在 src 属性上写访问静态资源，前面需要加上 ~</span></span><br><span class="line"><span class="comment">        	如 &lt;img src="~assets/img/img1.png"&gt;</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        alias: &#123; </span><br><span class="line">            <span class="string">'@'</span>: resolve(<span class="string">'src'</span>),</span><br><span class="line">            <span class="string">'assets'</span>: resolve(<span class="string">'@/assets'</span>),   <span class="comment">// 在 vue-cli3+ 中，可以用上面定义的 @ 代表 src</span></span><br><span class="line">            <span class="string">'components'</span>: resolve(<span class="string">'@/components'</span>), <span class="comment">// 但在 vue-cli2 中不行，还是得写成 src/</span></span><br><span class="line">            <span class="string">'views'</span>: resolve(<span class="string">'@/views'</span>) <span class="comment">// 比如这个 views，就得写成 resolve('src/views')</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="别名-alias-在-vue-cli-中的使用"><a href="#别名-alias-在-vue-cli-中的使用" class="headerlink" title="别名 alias 在 vue-cli 中的使用"></a>别名 alias 在 vue-cli 中的使用</h3><p>可以在 <code>node_modules/@vue/cli-service/lib/config/base.js</code> 中看到，大概在 39-59 行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js (这是 vue-cli3+ 之后的自定义配置文件，将会与默认配置文件混合，并且覆盖它)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// configureWebpack 表示告诉 Vue 要配置 webpack，必须卸载这个对象里面才能配置 webpack</span></span><br><span class="line">    configureWebpack: &#123; </span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        resolve: &#123;</span><br><span class="line">            <span class="comment">/* </span></span><br><span class="line"><span class="comment">                alias 是别名的意思，在这里配置了之后，import 就可以改写了</span></span><br><span class="line"><span class="comment">                原来在 js 中 import 的写法</span></span><br><span class="line"><span class="comment">                assets:  '../../assets/xxx' 或 '@/assets/xxx'</span></span><br><span class="line"><span class="comment">                components:  '../../components/xxx' 或 '@/components/xxx'</span></span><br><span class="line"><span class="comment">                views:  '../../views/xxx' 或 '@/views/xxx'</span></span><br><span class="line"><span class="comment">                增加别名之后在 js 中 import 的写法</span></span><br><span class="line"><span class="comment">                assets: 'assets/xxx'</span></span><br><span class="line"><span class="comment">                components: 'components/xxx'</span></span><br><span class="line"><span class="comment">                views: 'views/xxx'</span></span><br><span class="line"><span class="comment">                增加别名之后在 html 中，比如在 src 属性上写访问静态资源，前面需要加上 ~</span></span><br><span class="line"><span class="comment">                如 &lt;img src="~assets/img/img1.png"&gt;</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            alias: &#123; </span><br><span class="line">                <span class="string">'@'</span>: resolve(<span class="string">'src'</span>),  <span class="comment">// 写了这行之后就可以用 @ 表示 src 路径了，自己的 webpack 中也能这样，但不知道是不是 webpack4+ 才支持。</span></span><br><span class="line">                <span class="string">'assets'</span>: <span class="string">'@/assets'</span>,   <span class="comment">// 在 vue-cli3+ 中，可以用上面定义的 @ 代表 src</span></span><br><span class="line">                <span class="string">'components'</span>: <span class="string">'@/components'</span>, <span class="comment">// 但在 vue-cli2 中不行，还是得写成 src/</span></span><br><span class="line">                <span class="string">'views'</span>: <span class="string">'@/views'</span> <span class="comment">// 比如这个 views，就得写成 resolve('src/views')</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="exe-是-execute（执行的缩写），所以那些可执行的文件都是-exe-结尾"><a href="#exe-是-execute（执行的缩写），所以那些可执行的文件都是-exe-结尾" class="headerlink" title=".exe 是 execute（执行的缩写），所以那些可执行的文件都是 .exe 结尾"></a>.exe 是 execute（执行的缩写），所以那些可执行的文件都是 .exe 结尾</h3>
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div class="post-share">分享到：</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Dloux WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Dloux Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
 
   </div>
-  </div>
-
-    
-    
-    
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:  </strong>Dloux
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link: </strong>
-    <a href="https://dloux.gitee.io/2020/07/24/webpack/" title="webpack">https://dloux.gitee.io/2020/07/24/webpack/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
-  </li>
-</ul>
 </div>
 
+      </div>
+    
 
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/webpack/" rel="tag"><i class="fa fa-tag"></i> webpack</a>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/22/AdvancedFunction/" rel="next" title="AdvancedFunction">
+                <i class="fa fa-chevron-left"></i> AdvancedFunction
+              </a>
+            
           </div>
 
-        
+          <span class="post-nav-divider"></span>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/07/22/AdvancedFunction/" rel="prev" title="AdvancedFunction">
-      <i class="fa fa-chevron-left"></i> AdvancedFunction
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/03/router/" rel="next" title="router">
-      router <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-
-      </footer>
-    
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/03/router/" rel="prev" title="router">
+                router <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
-  
-  
-  
 
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <div class="disqus-loading">
+          <strong>Disqus 加载中...</strong>
+          <p>如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p>
+        </div>
+      </div>
+    </div>
+
+  
+
+
+
+
+
+  
+
+    
+      <script type="text/javascript">
+        if (disqus_config) {
+          var disqus_config = function () {
+            this.page.url = 'https://dloux.gitee.io/2020/07/24/webpack/';
+            this.page.identifier = '2020/07/24/webpack/';
+            this.page.title = 'webpack';
+          };
+          if (window.DISQUS) {
+            $('.disqus-loading').remove();
+            window.DISQUS.reset({
+              reload: true,
+              config: function () {
+                this.page.url = 'https://dloux.gitee.io/2020/07/24/webpack/';
+                this.page.identifier = '2020/07/24/webpack/';
+                this.page.title = 'webpack';
+              }
+            });
+          }
+        }
+        else {
+          var disqus_config = function () {
+            this.page.url = 'https://dloux.gitee.io/2020/07/24/webpack/';
+            this.page.identifier = '2020/07/24/webpack/';
+            this.page.title = 'webpack';
+          };
+          var d = document, s = d.createElement('script');
+          s.src = 'https://diygod-me.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', '' + +new Date());
+          (d.head || d.body).appendChild(s);
+        }
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         </div>
+        
           
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
   </div>
 
-  <aside class="sidebar">
+  <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
+      
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/card.jpg"
+                alt="Dloux" />
+            
+              <p class="site-author-name" itemprop="name"><span style="opacity:.2;"></span>Dloux</p>
+              <p class="site-description motion-element" itemprop="description">你能抓到我么？</p>
+          </div>
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/DIYgod" target="_blank" title="GitHub" data-balloon="GitHub" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/DIYgod" target="_blank" title="Twitter" data-balloon="Twitter" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/images/qq-g.jpg" target="_blank" title="QQ 群" data-balloon="QQ 群" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-qq"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+            
+
+          </nav>
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.png" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
       <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack4"><span class="nav-number">1.</span> <span class="nav-text">webpack4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">1.1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#起步"><span class="nav-number">1.2.</span> <span class="nav-text">起步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些踩坑记录"><span class="nav-number">1.3.</span> <span class="nav-text">一些踩坑记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始配置"><span class="nav-number">1.4.</span> <span class="nav-text">初始配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loader-部分"><span class="nav-number">1.5.</span> <span class="nav-text">loader 部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图片处理"><span class="nav-number">1.5.1.</span> <span class="nav-text">图片处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#babel"><span class="nav-number">1.5.2.</span> <span class="nav-text">babel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue"><span class="nav-number">1.5.3.</span> <span class="nav-text">Vue</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-Vue"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">安装 Vue</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#别名-alias"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">别名 alias</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理-vue-文件"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">处理 .vue 文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#省略后缀名"><span class="nav-number">1.5.3.4.</span> <span class="nav-text">省略后缀名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plugins"><span class="nav-number">1.6.</span> <span class="nav-text">Plugins</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#清除dist目录的插件"><span class="nav-number">1.6.1.</span> <span class="nav-text">清除dist目录的插件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分离-css-文件的-Plugin"><span class="nav-number">1.6.2.</span> <span class="nav-text">分离 css 文件的 Plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-1"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用-1"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加版权的-Plugin"><span class="nav-number">1.6.3.</span> <span class="nav-text">添加版权的 Plugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-dist-目录下添加-html-文件"><span class="nav-number">1.6.4.</span> <span class="nav-text">在 dist 目录下添加 html 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#压缩代码"><span class="nav-number">1.6.5.</span> <span class="nav-text">压缩代码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-2"><span class="nav-number">1.6.5.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用-2"><span class="nav-number">1.6.5.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地服务器"><span class="nav-number">1.6.6.</span> <span class="nav-text">本地服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#配置"><span class="nav-number">1.6.6.1.</span> <span class="nav-text">配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拆分-webpack-config-js-配置文件"><span class="nav-number">1.7.</span> <span class="nav-text">拆分 webpack.config.js 配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拆分"><span class="nav-number">1.7.1.</span> <span class="nav-text">拆分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-3"><span class="nav-number">1.7.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-3"><span class="nav-number">1.7.3.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原完整未拆分版本"><span class="nav-number">2.</span> <span class="nav-text">原完整未拆分版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题外："><span class="nav-number">3.</span> <span class="nav-text">题外：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-打包后的-js-文件"><span class="nav-number">3.1.</span> <span class="nav-text">webpack 打包后的 js 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-cli-的-runtime-only-和-runtime-compiler"><span class="nav-number">3.2.</span> <span class="nav-text">Vue-cli 的 runtime-only 和 runtime-compiler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli-的配置文件位置-vuerc"><span class="nav-number">3.3.</span> <span class="nav-text">vue-cli 的配置文件位置 .vuerc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli3-的配置文件"><span class="nav-number">3.4.</span> <span class="nav-text">vue-cli3+ 的配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-webpack-之后干了什么"><span class="nav-number">3.5.</span> <span class="nav-text">输入 webpack 之后干了什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#别名-alias-在-vue-cli-中的使用"><span class="nav-number">3.6.</span> <span class="nav-text">别名 alias 在 vue-cli 中的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exe-是-execute（执行的缩写），所以那些可执行的文件都是-exe-结尾"><span class="nav-number">3.7.</span> <span class="nav-text">.exe 是 execute（执行的缩写），所以那些可执行的文件都是 .exe 结尾</span></a></li></ol></li></ol></div>
-      </div>
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack4"><span class="nav-number">1.</span> <span class="nav-text">webpack4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">1.1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#起步"><span class="nav-number">1.2.</span> <span class="nav-text">起步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些踩坑记录"><span class="nav-number">1.3.</span> <span class="nav-text">一些踩坑记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始配置"><span class="nav-number">1.4.</span> <span class="nav-text">初始配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loader-部分"><span class="nav-number">1.5.</span> <span class="nav-text">loader 部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图片处理"><span class="nav-number">1.5.1.</span> <span class="nav-text">图片处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#babel"><span class="nav-number">1.5.2.</span> <span class="nav-text">babel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue"><span class="nav-number">1.5.3.</span> <span class="nav-text">Vue</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-Vue"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">安装 Vue</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#别名-alias"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">别名 alias</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理-vue-文件"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">处理 .vue 文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#省略后缀名"><span class="nav-number">1.5.3.4.</span> <span class="nav-text">省略后缀名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plugins"><span class="nav-number">1.6.</span> <span class="nav-text">Plugins</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#清除dist目录的插件"><span class="nav-number">1.6.1.</span> <span class="nav-text">清除dist目录的插件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分离-css-文件的-Plugin"><span class="nav-number">1.6.2.</span> <span class="nav-text">分离 css 文件的 Plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-1"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用-1"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加版权的-Plugin"><span class="nav-number">1.6.3.</span> <span class="nav-text">添加版权的 Plugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-dist-目录下添加-html-文件"><span class="nav-number">1.6.4.</span> <span class="nav-text">在 dist 目录下添加 html 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#压缩代码"><span class="nav-number">1.6.5.</span> <span class="nav-text">压缩代码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-2"><span class="nav-number">1.6.5.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用-2"><span class="nav-number">1.6.5.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地服务器"><span class="nav-number">1.6.6.</span> <span class="nav-text">本地服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#配置"><span class="nav-number">1.6.6.1.</span> <span class="nav-text">配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拆分-webpack-config-js-配置文件"><span class="nav-number">1.7.</span> <span class="nav-text">拆分 webpack.config.js 配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拆分"><span class="nav-number">1.7.1.</span> <span class="nav-text">拆分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-3"><span class="nav-number">1.7.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-3"><span class="nav-number">1.7.3.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原完整未拆分版本"><span class="nav-number">2.</span> <span class="nav-text">原完整未拆分版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题外："><span class="nav-number">3.</span> <span class="nav-text">题外：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-打包后的-js-文件"><span class="nav-number">3.1.</span> <span class="nav-text">webpack 打包后的 js 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-cli-的-runtime-only-和-runtime-compiler"><span class="nav-number">3.2.</span> <span class="nav-text">Vue-cli 的 runtime-only 和 runtime-compiler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli-的配置文件位置-vuerc"><span class="nav-number">3.3.</span> <span class="nav-text">vue-cli 的配置文件位置 .vuerc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli3-的配置文件"><span class="nav-number">3.4.</span> <span class="nav-text">vue-cli3+ 的配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-webpack-之后干了什么"><span class="nav-number">3.5.</span> <span class="nav-text">输入 webpack 之后干了什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#别名-alias-在-vue-cli-中的使用"><span class="nav-number">3.6.</span> <span class="nav-text">别名 alias 在 vue-cli 中的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exe-是-execute（执行的缩写），所以那些可执行的文件都是-exe-结尾"><span class="nav-number">3.7.</span> <span class="nav-text">.exe 是 execute（执行的缩写），所以那些可执行的文件都是 .exe 结尾</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
       <!--/noindex-->
+      
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dloux"
-      src="/images/dloux.jpg">
-  <p class="site-author-name" itemprop="name">Dloux</p>
-  <div class="site-description" itemprop="description">ddd</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">28</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">22</span>
-        <span class="site-state-item-name">tags</span>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/dlouxgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dlouxgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-  </div>
-
-
-
-      </div>
+      
 
     </div>
   </aside>
-  <div id="sidebar-dimmer"></div>
 
 
+        
       </div>
     </main>
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
+      <div class="footer-image"></div>
       <div class="footer-inner">
-        
+        <p>博客已萌萌哒运行<span id="since"></span><span class="my-face">(●'◡'●)ﾉ♥</span></p>
+<p>custom text</p>
 
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Dloux</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
+<p>© <span itemprop="copyrightYear">2020</span> Dloux.
+    由 <a href="https://hexo.io/" target="_blank" class="external" rel="nofollow">Hexo</a> 强力驱动.
+    Theme By <a href="https://github.com/DIYgod/hexo-theme-sagiri" target="_blank" class="external" rel="nofollow">Sagiri</a> v0.0.4.
+    <a href="/sitemap.xml" target="_blank">站点地图</a>.
+    xxxx.
+</p>
+<p>Made with <i class="fa fa-heart throb" style="color: #d43f57;"></i> by <span class="author" itemprop="copyrightHolder">Dloux</span>. </p>
 
         
 
@@ -513,40 +858,27 @@
 
 
 
-
+        
       </div>
     </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    <canvas id="evanyou"></canvas>
+    <canvas id="live2d" width="150" height="400" class="live2d"></canvas>
+
+    
+
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+  <script type="text/javascript" src="/js/sagiri.min.js?v=0.0.4"></script>
 
   
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -555,31 +887,13 @@
   
 
   
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-  <script async src="/js/cursor/fireworks.js"></script>
-  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
-
-
-
-<script>
-  var pathName = window.document.location.pathname;
-  var cont = document.getElementsByClassName("content-wrap")[0];
-  console.log(cont);
-  if (pathName =='/' || pathName =='/note/') {
-  // if (/\//.test(window.document.location.pathname)) {
-    console.log(pathName);
-    console.log(cont.style.backgroundColor)
-    cont.className="content-wrap transparentcont";
-    // cont.style.backgroundColor = "rgba(255,255,255,0) !importent";
-  }
-</script>
 </body>
 </html>

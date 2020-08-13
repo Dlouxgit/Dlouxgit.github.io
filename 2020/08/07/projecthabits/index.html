@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/social-share.js/1.0.9/css/share.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.0.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=0.0.4">
+
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=0.0.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="项目习惯," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="项目习惯在开始项目的时候，想想业务逻辑，可以画画图看看各个业务之间的联系。再先划分目录，比如在 vue 项目中，划分 src 的目录，别一开始直接动手。 vue-cli4 （不选择 vue-router 和 vuex 的情况下）中已经默认在 src 目录下建立了  views、assets、components 三个文件夹。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="projecthabits">
+<meta property="og:url" content="https://dloux.gitee.io/2020/08/07/projecthabits/index.html">
+<meta property="og:site_name" content="Dloux">
+<meta property="og:description" content="项目习惯在开始项目的时候，想想业务逻辑，可以画画图看看各个业务之间的联系。再先划分目录，比如在 vue 项目中，划分 src 的目录，别一开始直接动手。 vue-cli4 （不选择 vue-router 和 vuex 的情况下）中已经默认在 src 目录下建立了  views、assets、components 三个文件夹。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-07T08:17:45.000Z">
+<meta property="article:modified_time" content="2020-08-12T13:47:47.287Z">
+<meta property="article:author" content="Dloux">
+<meta property="article:tag" content="项目习惯">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '0.0.4',
+    sidebar: {"position":"right","display":"always","offset":52,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    since: '6/2/2020 11:30:00',
+    onlineAPI: '',
+    site: {
+      title: 'Dloux',
+      subtitle: '',
+      author: 'Dloux'
+    },
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    leancloud: {
+      enable: false,
+      appID: '',
+      appKey: ''
+    },
+    favicon: {
+      visibilitychange: true,
+      narmal: '',
+      hidden: '/images/failure.ico',
+      show_text: '(/≧▽≦/)咦！又好了！',
+      hide_text: '(●—●)喔哟，崩溃啦！'
+    }
+  };
+</script>
+
+
+
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="canonical" href="https://dloux.gitee.io/2020/08/07/projecthabits/"/>
+
+
+
+
+
+  <title>projecthabits | Dloux</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-实验室">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-magic"></i> <br />
+            
+            实验室
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archive/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-投喂">
+          <a href="/donate" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cutlery"></i> <br />
+            
+            投喂
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-后宫">
+          <a href="/friends/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-mars"></i> <br />
+            
+            后宫
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于我">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+      <li class="menu-item search">
+          <form class="search-form">
+            <input name="keyword" type="text" class="search-input" placeholder="站内搜索">
+            <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
+          </form>
+      </li>
+      <li class="menu-item online"><span id="online-count">?</span>人在线</li>
+    </ul>
+  
+
+  
+</nav>
+
+<div class="site-brand-wrapper" style="background-image: url(/images/header-sagiri.jpg)">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <div class="brand">
+        <span class="logo-line-before"><i></i></span>
+        <div class="site-title">
+          <div id="animate" class="animate">
+            <span>D</span><span>l</span><span>o</span><span>u</span><span>x</span>
+          </div>
+          <div id="guide" class="guide">
+            <span>D</span><span>l</span><span>o</span><span>u</span><span>x</span>
+          </div>
+        </div>
+        <span class="logo-line-after"><i></i></span>
+      </div>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+<div class="site-master" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-master-avatar" itemprop="image" src="/images/DIYgod.jpg" alt="Dloux" />
+    <h2 class="site-master-description" itemprop="description">
+        catch fish with the hands
+    </h2>
+</div>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
+			<div class="post-month">08月</div>
+			<div class="post-day">07</div>
+	</div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/08/07/projecthabits/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/DIYgod.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">projecthabits</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-07T16:17:45+08:00">
+                2020-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="项目习惯"><a href="#项目习惯" class="headerlink" title="项目习惯"></a>项目习惯</h2><p>在开始项目的时候，想想业务逻辑，可以画画图看看各个业务之间的联系。再先划分目录，比如在 vue 项目中，划分 src 的目录，别一开始直接动手。</p>
+<p><code>vue-cli4</code> （不选择 vue-router 和 vuex 的情况下）中已经默认在 src 目录下建立了  <code>views</code>、<code>assets</code>、<code>components</code> 三个文件夹。<a id="more"></a></p>
+<h3 id="大目录划分"><a href="#大目录划分" class="headerlink" title="大目录划分"></a>大目录划分</h3><p>这时候，我们需要新建几个目录。</p>
+<ul>
+<li><p>新建 <code>store</code> 目录，用于 vuex </p>
+</li>
+<li><p>新建 <code>router</code> 目录用于 vue-router</p>
+</li>
+<li><p>新建 <code>plugins</code> 用于之后可能会引用的插件库，如 <code>element-ui</code></p>
+</li>
+<li><p>新建 <code>network</code> 用于网络请求的封装，先建立一个简单封装 <code>axios</code> 的 js 文件</p>
+</li>
+<li><p>新建 <code>common</code> 目录，用于存放可能会定义的常量、工具代码、混入代码等，里面可能放置 <code>utils.js</code>、<code>const.js</code> 、<code>mixin.js</code> 这种文件。</p>
+</li>
+</ul>
+<p>大的目录划分好了之后再划分小的目录。</p>
+<h3 id="小目录划分"><a href="#小目录划分" class="headerlink" title="小目录划分"></a>小目录划分</h3><ul>
+<li><p>在 <code>components</code> 中新建几个目录</p>
+<ul>
+<li>新建 <code>common</code> 目录，里面存放完全公共的组件，与业务完全无关的组件，可以直接拖到下个项目中复用的组件</li>
+<li>新建 <code>content</code> 目录，里面存放与业务相关的组件，可能是多个组件复用了这个组件，所以放到这里更加合适，无法被下个项目复用</li>
+</ul>
+</li>
+<li><p>在 <code>assets</code> 中新建几个目录</p>
+<ul>
+<li>新建 <code>css</code> 目录，存放公共样式及初始化样式。在创建项目的时候，一般都会直接去找到 <code>normalize.css</code> 这个 css 文件，并引入，github 上直接搜或者 <code>npm install normalize.css --save</code> 就行，用于把各种标签让它们样式变得差不多，风格统一。之后你可以自己新建一个 <code>base.css</code> ，用于控制项目整体的基本设置。先把这两个 css 文件搞定，样式的初始化就完成了。之后自己如果还有代码，就接着写在 <code>base.css</code> 里。</li>
+<li>新建 <code>img</code> 目录，存放图片，到时候每个页面用到的资源也单独分一个文件夹，如在 img 目录下新建 <code>home</code>、<code>detail</code> 、<code>profile</code> 等文件夹</li>
+<li>新建 <code>font</code> 目录，存放可能引用的字体图标（阿里矢量图标库）</li>
+</ul>
+</li>
+</ul>
+<h3 id="单个文件整理"><a href="#单个文件整理" class="headerlink" title="单个文件整理"></a>单个文件整理</h3><h4 id="editorconfig"><a href="#editorconfig" class="headerlink" title=".editorconfig"></a>.editorconfig</h4><p>在根目录下新建 <code>.editorconfig</code> ，里面配置项目的代码风格，<code>vue-cli4</code> 中已经自动生成了，但你可以修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">root &#x3D; true                     根据 root 来解析，只有 root 为 true 时才会解析下面的。</span><br><span class="line"></span><br><span class="line">[*]                             * 表示所有文件</span><br><span class="line">charset &#x3D; utf-8                 表示使用 utf-8 编码</span><br><span class="line">indent_style &#x3D; space            表示使用空格缩进而不是 tab</span><br><span class="line">indent_size &#x3D; 2                 表示缩进 2 个空格</span><br><span class="line">end_of_line &#x3D; lf                表示换行用的字符为 lf，不同操作系统中换行的字符是不一样的</span><br><span class="line">insert_final_newline &#x3D; true     表示在代码最后一行的下面拆入一行空行</span><br><span class="line">trim_trailing_whitespace &#x3D; true 表示清除每行代码结束之后的无用空格,</span><br><span class="line">                               如 const a &#x3D; 123,    这前面的一直到 , 的空格都会被删除</span><br><span class="line"></span><br><span class="line">这个文件定制了代码格式，同时 VSCode 上有插件可以让你每次格式化的时候自动调用项目下的 .editorconfig 文件的格式来格式化。</span><br><span class="line"></span><br><span class="line">关闭 eslint，在 vue.config 里写一下，useEslint: true 改成 useEslint: false 即可</span><br></pre></td></tr></table></figure>
+
+<h4 id="vue-config-js"><a href="#vue-config-js" class="headerlink" title="vue.config.js"></a>vue.config.js</h4><p>在根目录下新建 <code>vue.config.js</code>，可以自定义 <code>webpack</code> 配置。一般先配置一下目录别名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    configureWebpack: &#123;</span><br><span class="line">        resolve: &#123;</span><br><span class="line">            extensions: [<span class="string">'.js'</span>, <span class="string">'.vue'</span>],  <span class="comment">// 用来省略后缀名的，这里只是举个例子， 这个配置在 vue-cli 里已经写好了。</span></span><br><span class="line">            alias: &#123; <span class="comment">// 路径别名， resolve() 方法需要 require('path') 导入 path 模块，vue-cli 已经导入了</span></span><br><span class="line">                <span class="comment">// '@': path.resolve('src'), // 这个在 vue-cli 里已经写了，拿来用就行</span></span><br><span class="line">                <span class="string">'assets'</span>: <span class="string">'@/assets'</span>,</span><br><span class="line">                <span class="string">'components'</span>: <span class="string">'@/components'</span>,</span><br><span class="line">                <span class="string">'views'</span>: <span class="string">'@/views'</span>,</span><br><span class="line">                <span class="string">'network'</span>: <span class="string">'@/network'</span>,</span><br><span class="line">                <span class="string">'common'</span>: <span class="string">'@/common'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这样设置别名之后，在 js 区域，就只要 import 'components/Home.vue' 就引入组件了，不需要 import '../../components/Home.vue' 这样写一堆 ../ 了， 但注意的一点是，在 HTML 区域，得 在 路径前加上 ~ ，如 &lt;img src="~assets/img/home/img1.png"&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="base-css"><a href="#base-css" class="headerlink" title="base.css"></a>base.css</h4><p>在 <code>assets/css</code> 目录下新建 base.css 文件夹</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">"./normalize.css"</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;  <span class="comment">/* 这个伪类指代 html 标签，我们一般这样写，而不是写 html */</span></span><br><span class="line">    <span class="comment">/* 下面这一堆 -- 开头的，表示自定义的变量，是的 css 也能自定义变量，不是只有预编译器才有，到时候使用就可以写成 如 font-size: var(--font-size) 的写法来使用自定义的变量 */</span></span><br><span class="line">    <span class="attribute">--color-text</span>: <span class="number">#666</span>;</span><br><span class="line">    <span class="attribute">--color-high-text</span>: <span class="number">#ff5777</span>;</span><br><span class="line">    <span class="attribute">--color-tint</span>: <span class="number">#ff8198</span>;  <span class="comment">/* 一般指整体的背景颜色，导航这些地方 */</span></span><br><span class="line">    <span class="attribute">--color-background</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">--font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">--line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">*,</span><br><span class="line">*<span class="selector-pseudo">::before</span>,</span><br><span class="line">*<span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">user-select</span>: none; <span class="comment">/* 禁止用户选中文字图标等 */</span></span><br><span class="line">    <span class="attribute">-webkit-tap-highlight-color</span>: transparent; <span class="comment">/* webkit 是苹果浏览器引擎，tap点击背景高亮，color颜色，颜色用数值调节 */</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">var</span>(--color-background);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--color-text);</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>: <span class="built_in">var</span>(--color-text);</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clear-fix</span><span class="selector-pseudo">::after</span> &#123;  <span class="comment">/* 清除浮动，以后只要用到了浮动的元素给它这个类名即可  */</span></span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">visibility</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clear-fix</span> &#123;</span><br><span class="line">    <span class="attribute">zoom</span>: <span class="number">1</span>; <span class="comment">/* 针对 IE 低版本(IE6\7) 起到类似 BFC 的效果 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="引入-request-js-的网络请求"><a href="#引入-request-js-的网络请求" class="headerlink" title="引入 request.js 的网络请求"></a>引入 request.js 的网络请求</h4><p>将每个页面需要请求的接口全部再多封装一层，达到统一控制的效果，只需要控制新的这个 js 文件，就可以改变多个页面的请求配置。举例，比如有个 home 组件需要发送请求，我们就在 network 目录下新建一个 home.js 来统一控制</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// network/home.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; request &#125; <span class="keyword">from</span> <span class="string">'./request'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">getHomeMultiData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> request(&#123;</span><br><span class="line">        url: <span class="string">'/home/multidata'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="import-的顺序与分组"><a href="#import-的顺序与分组" class="headerlink" title="import 的顺序与分组"></a>import 的顺序与分组</h3><p>在组件中引入已封装好的内容时，需要分组，如下，下面的注释内容在真正写的时候应该为空行，用于分组。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 子组件</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> HomeSwiper <span class="keyword">from</span> <span class="string">'./childComps/HomeSwiper'</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> HomeRecommendViews <span class="keyword">from</span> <span class="string">'./childComps/HomeRecommendViews'</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> HomeFeatureViews <span class="keyword">from</span> <span class="string">'./childComps/HomeFeatureViews'</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 公共组件</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> NavBar <span class="keyword">from</span> <span class="string">'components/common/navbar/NavBar'</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> TabControl <span class="keyword">from</span> <span class="string">'components/content/tabControl/TabControl'</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 方法</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> &#123; getHomeMultiData &#125; <span class="keyword">from</span> <span class="string">'network/home'</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 并且注册组件时也应该按照上面的导入顺序</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">      components: &#123;</span><br><span class="line">        HomeSwiper,</span><br><span class="line">        HomeRecommendViews,</span><br><span class="line">        HomeFeatureViews,</span><br><span class="line">        NavBar,</span><br><span class="line">        TabControl</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="复杂数据的处理"><a href="#复杂数据的处理" class="headerlink" title="复杂数据的处理"></a>复杂数据的处理</h3><p>遇到复杂数据时，先决定一下要使用什么样的数据结构再开始写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">goods: &#123; <span class="comment">// 举例总共三组数据，每组数据当前 page 都不一样，需要分组记录，各自独立自己的 page</span></span><br><span class="line">    <span class="string">'pop'</span>: &#123;<span class="attr">page</span>: <span class="number">1</span>, <span class="attr">list</span>: [](<span class="number">30</span>个)&#125;,</span><br><span class="line">    <span class="string">'news'</span>: &#123;<span class="attr">page</span>: <span class="number">5</span>, <span class="attr">list</span>: [](<span class="number">150</span>个)&#125;,</span><br><span class="line">    <span class="string">'sell'</span>: &#123;<span class="attr">page</span>: <span class="number">2</span>, <span class="attr">list</span>: [](<span class="number">60</span>个)&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 再复杂点可能使用 Map 结构来映射，像这样</span></span><br><span class="line"><span class="comment">// Map -&gt; Map -&gt; Array</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="提取数据的处理"><a href="#提取数据的处理" class="headerlink" title="提取数据的处理"></a>提取数据的处理</h4><p>有时候会遇到很分散的数据，他们分布在不同对象中，他们里面有很多属性（可能有的数据对我们来说一点用也没有，因为它们是给 Android 或 iOS 用的，大家用的都是同一个 API 服务器），但我们需要同时使用它们这几个对象里面的某几个属性。这时候就需要把松散的数据整合一下，再进行处理。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// detail.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Goods</span> </span>&#123;</span><br><span class="line">    <span class="comment">// itemInfo 这个对象里可能还有 itemInfo[a], itemInfo[b],itemInfo[c] 这样的属性，这样写我们就把其他的属性都被过滤了，只取出了我们需要的并且把它们重新整合起来成为一个对象。</span></span><br><span class="line">    <span class="keyword">constructor</span>(itemInfo, columns, services) &#123;</span><br><span class="line">        <span class="keyword">this</span>.title = itemInfo.title</span><br><span class="line">        <span class="keyword">this</span>.desc = itemInfo.desc</span><br><span class="line">        <span class="keyword">this</span>.newPrice = itemInfo.newPrice</span><br><span class="line">        <span class="keyword">this</span>.columns = columns</span><br><span class="line">        <span class="keyword">this</span>.services = services</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在某个组件中使用</span></span><br><span class="line"><span class="keyword">import</span> &#123; Goods &#125; <span class="keyword">from</span> <span class="string">'network/detail.js  // 这个类和 network 写一起了，所以从这里引</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">    created() &#123;</span></span><br><span class="line"><span class="string">        getData().then(res =&gt; &#123;</span></span><br><span class="line"><span class="string">            const data = res.result</span></span><br><span class="line"><span class="string">            this.goods = new Goods(data.itemInfo, data.column, data.shopInfo.services)</span></span><br><span class="line"><span class="string">        &#125;)</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="对象的方法的调用（异步）"><a href="#对象的方法的调用（异步）" class="headerlink" title="对象的方法的调用（异步）"></a>对象的方法的调用（异步）</h3><p>我们在对对象上的方法进行调用时，需要先做一层判断，如果存在这个对象（或者对象不为空），我们才尝试进行调用方法，否则能回变成调用 null 这个对象上的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = <span class="literal">null</span></span><br><span class="line"><span class="comment">// 模拟异步获取 obj</span></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    obj = &#123;</span><br><span class="line">        func() &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用时的写法</span></span><br><span class="line">obj &amp;&amp; obj.func()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更严谨的写法</span></span><br><span class="line">obj &amp;&amp; obj.func &amp;&amp; obj.func()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否为空对象 也可以这样写</span></span><br><span class="line"><span class="built_in">Object</span>.keys(obj).length !== <span class="number">0</span> &amp;&amp; obj.func()</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组长度的获取（异步）"><a href="#数组长度的获取（异步）" class="headerlink" title="数组长度的获取（异步）"></a>数组长度的获取（异步）</h3><p>我们在获取数组的长度时，需要先做一层判断，该数组长度是否为 0，之后再获取长度。并且之后如果有某个属性想实时监听数组的长度，可以使用 watch 来监听该数组的变化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            arr: []</span><br><span class="line">            arrLength: <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created() &#123;</span><br><span class="line">        <span class="comment">// 模拟异步获取 arr</span></span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">        <span class="keyword">this</span>.arrLength = <span class="keyword">this</span>.arr.length !== <span class="number">0</span> &amp;&amp; <span class="keyword">this</span>.arr.length</span><br><span class="line">    &#125;,</span><br><span class="line">    watch: &#123; <span class="comment">// 监听数组的变化，一旦发生变化，给 arrLength 赋予新值。</span></span><br><span class="line">        arr() &#123;</span><br><span class="line">            <span class="keyword">this</span>.arrLength = <span class="keyword">this</span>.arr.length</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="计算属性的返回值"><a href="#计算属性的返回值" class="headerlink" title="计算属性的返回值"></a>计算属性的返回值</h3><p>在计算属性中，我们可能要根据请求的结果返回不同的值，我们可以使用 <code>||</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 某个可复用组件中</span></span><br><span class="line">&#123;</span><br><span class="line">    computed: &#123;</span><br><span class="line">        showImg() &#123;</span><br><span class="line">            <span class="comment">// 发送请求得到 product 后，可能不同页面中引用该组件得到的数据不同，可能这个页面的返回对象有 image 属性，另一个页面的返回对象没有，它只有 show.img 属性，但我们想做到两个页面共同使用同一组件，就可以这样。</span></span><br><span class="line">            <span class="comment">// 先找 image 属性，如果找到了直接返回(短路)，如果没有 image 属性， 就去找 show.img。当然这样写必然是先检测 image，再检测 show.img</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.product.image || <span class="keyword">this</span>.product.show.img</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="better-scroll"><a href="#better-scroll" class="headerlink" title="better-scroll"></a>better-scroll</h3><p>它是移动端的滚动插件。优化滚动，原生滚动太卡了，并且这个插件有触底回弹效果。它是用 <code>transform: translate</code> 来实现上下滚动的，所以写在 <code>.wrap</code> 里的原生的 <code>position: fixed</code> 会失效，因为并不是由于内容高度撑起导致的滚动条，所以 <code>fixed</code> 无效。在 <code>translate</code> 向上移动的时候， 被 <code>fixed</code> 的元素也被上移了。</p>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><p>它需要挂载 DOM，所以应该在 mounted 钩子内调用，并且必须给该容器元素一个固定高度，该高度必须小于它的直接子元素高度，并且它的直接子元素只允许有一个，我们可以在它的直接子元素内填写相应的内容，不允许直接把内容直接添加在容器元素内并成为容器元素的直接子元素。</p>
+<p>最后记得给容器加上 overflow: hidden</p>
+<p>由于它替代了原生的滚动，所以如果需要对滚动进行处理，需要先拿到 new BScroll 这个对象实例，使用它的方法来触发滚动事件。</p>
+<h5 id="refresh"><a href="#refresh" class="headerlink" title="refresh"></a>refresh</h5><p>注意涉及异步的操作都需要使用 BS 的 <code>refresh()</code> 方法来重新确定 <code>.content</code> 这个 DOM 的高度，如涉及图片加载需要用到 图片的 onload 事件，表示图片加载完成，再调用一次 <code>refresh()</code> ，网络请求成功的 success 也需要 <code>refresh()</code> 。</p>
+<h4 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h4><p>如果使用 BS 的组件被包裹在 <code>&lt;keep-alive&gt;</code> 内，则每次 <code>activated</code> 都需要先 <code>refresh</code>，再进行其他的 BS 操作，否则高度获取会出现问题。如果想保存当前 BS 高度，让下次激活页面时仍停留在这里，写法是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    activated() &#123;</span><br><span class="line">        <span class="keyword">this</span>.$refs.scroll.refresh()</span><br><span class="line">        <span class="keyword">this</span>.$refs.scroll.scrollTo(<span class="number">0</span>, <span class="keyword">this</span>.saveY, <span class="number">0</span>) <span class="comment">// 参数(x, y, durationTime)</span></span><br><span class="line">    &#125;,</span><br><span class="line">    deactived() &#123;</span><br><span class="line">        <span class="keyword">this</span>.saveY = <span class="keyword">this</span>.$refs.scroll.scroll.y <span class="comment">// 拿到名为 scoll 的组件里的 scroll 对象的 y</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="关于图片、请求等异步操作"><a href="#关于图片、请求等异步操作" class="headerlink" title="关于图片、请求等异步操作"></a>关于图片、请求等异步操作</h4><p>如果需要获取涉及图片的 DOM 元素的高度，需要用到 图片的 onload 事件，表示图片加载完成，此时再获取 DOM 才是真正的高度，否则由于图片异步加载，获取高度时图片可能还未加载，高度为 0，获取到错误高度。应该在 onload 事件的回调函数中获取 DOM 高度。</p>
+<p>同理，发送网络请求也应该在 success 的回调函数中获取 DOM 高度。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 正确写法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"contentWrap"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 错误写法，因为直接子元素仅允许存在一个。 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"wrapItem"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"wrapItem"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// probe: 侦测</span></span></span><br><span class="line"><span class="actionscript">	<span class="keyword">const</span> bs = <span class="keyword">new</span> BScroll(<span class="string">'.wrap'</span>, &#123;</span></span><br><span class="line"><span class="actionscript">        probeType: <span class="number">0</span>, <span class="comment">// 默认为 0，值为 0 时，不监听实时位置， 1 表示会在屏幕滑动超过一定时间后派发 scroll 事件，2 表示在手指滚动的过程中侦测，手指离开后的惯性滚动过程和回弹过程不侦测，3 表示 只要是滚动就侦测，惯性和回弹也侦测</span></span></span><br><span class="line"><span class="actionscript">        click: <span class="literal">false</span>, <span class="comment">// 默认为 false，不监听容器内部 非表单元素 的点击事件</span></span></span><br><span class="line"><span class="actionscript">        pullUpLoad: <span class="literal">false</span> <span class="comment">// 默认为 false，不开启上拉加载时间，也就是页面拉到底了之后会触发的钩子</span></span></span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line"><span class="actionscript">    bs.on(<span class="string">'scroll'</span>, position =&gt; &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(position) <span class="comment">// 实时滚动位置</span></span></span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line"><span class="actionscript">    bs.on(<span class="string">'pullingUp'</span>, () =&gt; &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">'上拉加载更多'</span>)</span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 设置延时，模拟异步请求</span></span></span><br><span class="line"><span class="javascript">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">            <span class="comment">// 表示结束上拉加载，调用这个方法之后，才会在触底时再次触发上拉加载事件，否则 '上拉加载更多只会打印一次'</span></span></span><br><span class="line"><span class="actionscript">            bs.refresh() <span class="comment">// 由于 better-scroll 是获取 .wrap 和 .content 的高度来决定可以滚动的范围。但图片加载和网络请求是异步的，可能会影响获取的 .content 高度，而此时 .content 的高度已经被 BS 获取了（BS 将会遍历 .content 里的元素，获取高度），比如此时 .wrap 是 50px， .content 是 100px, 但图片加载完成后 .content 是 1000px, 但此时可滚动距离已经被确定好了，是 50px，即使后来图片加载完成，可滚动范围仍然是 50px。因此有了 refresh() 这个方法，作用是重新获取 .content 的高度，应当在图片触发 onload 事件时，重新调用一次，BS 的高度可以通过 bs.scrollerHeight 获取</span></span></span><br><span class="line">            bs.finishPullup()</span><br><span class="line">        &#125;, 2000)</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line"><span class="actionscript">    <span class="comment">// 到达指定位置的方法 bs.scrollTo(x, y, time) ，如</span></span></span><br><span class="line"><span class="actionscript">    bs.scrollTo(<span class="number">0</span>, <span class="number">0</span>, <span class="number">300</span>) <span class="comment">// 达到 0, 0 的位置，滚动的动画效果将持续 300ms</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 如果同时需要上下（上有 navbar 下有 tabbar）有一个空出来的高度，可以用绝对定位，也可以用 calc --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.wrap</span> &#123;</span></span><br><span class="line">        position: absolute;</span><br><span class="line">        top: 44px;</span><br><span class="line">        bottom: 49px;</span><br><span class="line">        left: 0;</span><br><span class="line">        right: 0;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当然，如果用原生的 <code>scroll (overflow: scroll)</code> ，就只需要一层包装即可，不像上面需要两层才能写真正的内容。</p>
+<h3 id="插件库的依赖问题"><a href="#插件库的依赖问题" class="headerlink" title="插件库的依赖问题"></a>插件库的依赖问题</h3><p>不要直接依赖任何插件库，最好都自己再封装一层，让这些组件依赖于自己封装的 js 文件，让自己封装的 js 文件依赖于插件库，这样如果插件库出了问题，就只需要修改自己封装的 js 文件即可，不需要到每个组件中去替换并引入新的插件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不要这样写</span></span><br><span class="line"><span class="keyword">import</span> BScroll <span class="keyword">from</span> <span class="string">'better-scroll'</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="防抖节流"><a href="#防抖节流" class="headerlink" title="防抖节流"></a>防抖节流</h3><p>虽然我们有时要用到防抖节流，但用户卡了也不知道是网页的问题还是网络的问题。。就这样，卡了等于自己的问题hhh</p>
+<h4 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h4><p>当某个事件频繁触发导致某个事件处理函数频繁调用的时候，可以考虑使用防抖来提升性能。将被频繁调用的函数传入 debounce 来生产新的优化过后的函数，并把事件处理函数修改成它。效果是，当连续的几次事件触发事件非常短时，前几次方法都将被取消 <code>(clearTimeout)</code> ，只调用最后一次方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func, delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (timer) clearTimeout(timer)</span><br><span class="line">        timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">        &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h4><p>在一定时间内只调用一次真正的处理函数 <code>(外面的 if 将被执行多次)</code> 。不管事件触发多少次。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> flag = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (flag) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">            flag = tue</span><br><span class="line">        &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h3><p><code>z-index</code> 只对定位元素起效果，所以要用的话，至少加个 <code>position: relative;</code></p>
+<p>如果元素脱离了标准流，如果它和另一个标准流元素在同一个位置展示，它将会覆盖在标准流元素的上面。</p>
+<h3 id="日期格式处理"><a href="#日期格式处理" class="headerlink" title="日期格式处理"></a>日期格式处理</h3><p>请求时我们经常从后端拿到时间戳，并且页面展示的要求是 <code>yyyy-mm-dd</code>，所以我们需要对它进行转化，而由于时间戳转日期格式的需求非常常见，所以我们需要把它封装一下以供复用。不要每次都用 + 拼接字符串了。</p>
+<p>不过， js 里没有内置这种格式化日期的方法，需要手动实现，其他语言大部分都有。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* utils.js */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">formatDate</span>(<span class="params">data, fmt</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 年与下面的处理不一样，因为它不需要加前置 0</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/(y+)/</span>.test(fmt)) &#123;</span><br><span class="line">        <span class="comment">// substr 根据写的 y 的个数决定从哪里开始截取，如 2020，写 yyyy，从第 0 位，变成 2020；写 yyy 从第一位，变成 020；写 yy 从第二位，变成 20；写 y 从第三位，变成 0。</span></span><br><span class="line">        fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (data.getFullYear() + <span class="string">''</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> o = &#123;</span><br><span class="line">        <span class="string">'M+'</span>: date.getMonth() + <span class="number">1</span>,</span><br><span class="line">        <span class="string">'d+'</span>: date.getDate(),</span><br><span class="line">        <span class="string">'h+'</span>: date.getHours(),</span><br><span class="line">        <span class="string">'m+'</span>: date.getMinutes(),</span><br><span class="line">        <span class="string">'s+'</span>: date.getSeconds()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> o) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">`(<span class="subst">$&#123;k&#125;</span>)`</span>).test(fmt)) &#123;</span><br><span class="line">            <span class="keyword">const</span> str = o[k] + <span class="string">''</span></span><br><span class="line">            fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="built_in">RegExp</span>.$<span class="number">1.</span>length === <span class="number">2</span>) ? str : padLeftZero(str))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fmt</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">padLeftZero</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 先在前面加两个 0，再根据字符串长度决定从哪里开始截取，如 len = 1，就从第一位开始截取。从 X 变成 00X 再变成 0X 返回</span></span><br><span class="line">    <span class="keyword">return</span> (<span class="string">'00'</span> + str).substr(str.length)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使用 */</span></span><br><span class="line"><span class="keyword">import</span> &#123; formatDate &#125; <span class="keyword">from</span> <span class="string">'common/utils.js'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自动替换 yyyy 这些字符，而 '-' 和 ' ' 将会被保留。 只想要年，就写成 'yyyy'，只想要日就写成 'dd'</span></span><br><span class="line"><span class="keyword">const</span> date = formatDate(<span class="number">1383910321802</span>, <span class="string">'yyyy-MM-dd hh-mm-ss'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="关于-this-nextTick-的使用"><a href="#关于-this-nextTick-的使用" class="headerlink" title="关于 this.$nextTick() 的使用"></a>关于 <code>this.$nextTick()</code> 的使用</h3><p>由于 <code>mounted</code> 不会承诺所有的子组件也都一起被挂载，因此可能会遇上这样的情况。</p>
+<p>在页面中，如果引入了很多组件，那么显然，当该页面自身的元素渲染完毕时，组件内的元素可能还未渲染完毕，此时获取 DOM 可能并不正确，如果希望在全部组件都渲染完毕时 (图片等资源的内容可能是异步的，但该元素已被加载到页面中，此时可能拿不到正确的图片大小) 获取 DOM，可以在 <code>mounted</code> 钩子中加入 <code>this.$nextTick</code> ，它里面的回调函数将在下一次 DOM 渲染完毕时调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        <span class="keyword">this</span>.$nextTick() &#123;</span><br><span class="line">            <span class="comment">// ... 操作 DOM</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="for-…-in-…"><a href="#for-…-in-…" class="headerlink" title="for … in …"></a>for … in …</h3><p><code>for ... in ...</code>  是对象遍历使用的，但如果用在数组上，返回的 key 就是下标，而且是字符串类型的下标。注意使用。</p>
+<h3 id="判断一个数的区间"><a href="#判断一个数的区间" class="headerlink" title="判断一个数的区间"></a>判断一个数的区间</h3><p>需求是给一个数，拿到该数所在的区间下标。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> zo = [<span class="number">0</span>, <span class="number">2000</span>, <span class="number">4000</span>, <span class="number">6000</span>]</span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">	0: 0 ~ 2000 [0, 2000)</span></span><br><span class="line"><span class="comment">	1: 2000 ~ 4000 [2000, 4000)</span></span><br><span class="line"><span class="comment">	2: 4000 ~ 6000 [4000, 6000)</span></span><br><span class="line"><span class="comment">	3: 6000 + [6000, +∞)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getZo</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 普通写法</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; zo.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((i &lt; zo.length - <span class="number">1</span> &amp;&amp; num &gt;= z[i] &amp;&amp; num &lt; z[i + <span class="number">1</span>]) || (i === zo.length - <span class="number">1</span> &amp;&amp; num &gt;= z[i] ) ) &#123;</span><br><span class="line">            <span class="keyword">return</span> i</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 普通写法的 hack 写法，在数组中最后 push 入一个无穷大(Number.MAX_VALUE)，然后就可以把 关于 i 与 length 的判断和 || 之后的判断都删去了，变成 if (num &gt;= zo[i] &amp;&amp; num &lt; zo[i+1])，同时 for 的结束条件改为 i &lt; zo.length - 1。 （PS：无穷大可能会多占内存，但空间换时间就是这样吧。）</span></span><br><span class="line">    <span class="keyword">const</span> zoClone = [...zo, <span class="built_in">Number</span>.MAX_VALUE]</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; zoClone.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (num &gt;= zoClone[i] &amp;&amp; num &lt; zoClone[i + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> i</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 反序写法，推荐。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = zo.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (num &gt; z[i]) &#123;</span><br><span class="line">            <span class="keyword">return</span> i <span class="comment">// 检索到了就必须中断循环，否则下一个 i 的值必定也满足条件，将覆盖掉当前正确的值。当然用 break 也行。</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h3><p>每个 mutation 都建议执行单一功能，比如在购物车中，可能会有 addCart (添加购物车) 的 mutation，它里面可能会有 商品数量 + 1 ，和添加新商品两种功能。我们应该把这两种功能写成两个 mutation，而不是被整合到 addCart 中。而判断数量 + 1还是添加新商品的逻辑，建议放到 action 中，它不止可以处理异步，还可以处理复杂的逻辑。</p>
+<h4 id="Vuex-的文件管理"><a href="#Vuex-的文件管理" class="headerlink" title="Vuex 的文件管理"></a>Vuex 的文件管理</h4><p>Vuex 的各个部分也应该被拆分。以下是简单的购物车例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store/index.js</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> mutations <span class="keyword">from</span> <span class="string">'./mutations.js'</span></span><br><span class="line"><span class="keyword">import</span> actions <span class="keyword">from</span> <span class="string">'./actions.js'</span></span><br><span class="line"><span class="keyword">import</span> getters <span class="keyword">from</span> <span class="string">'./getters.js'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建 state 对象，</span></span><br><span class="line"><span class="keyword">const</span> state = &#123;</span><br><span class="line">    cartList: []</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.store(&#123;</span><br><span class="line">    state,</span><br><span class="line">    mutations,</span><br><span class="line">    actions,</span><br><span class="line">    getters</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br><span class="line"></span><br><span class="line"><span class="comment">// store/mutations.js</span></span><br><span class="line"><span class="comment">// 导入方法名的变量</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">    ADD_COUNTER,</span><br><span class="line">    ADD_TO_CART</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'./mutation-types'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="comment">// 变量名不能直接作为函数名，需要加上 []</span></span><br><span class="line">    [ADD_COUNTER](state, payload) &#123;</span><br><span class="line">        payload.count++</span><br><span class="line">    &#125;,</span><br><span class="line">    [ADD_TO_CART](state, payload) &#123;</span><br><span class="line">        payload.checked = <span class="literal">false</span> <span class="comment">// 注意，如果需要用到 checkbox 的选中与否，一定是在商品的对象中定义的，不要新建映射，这一点很重要。</span></span><br><span class="line">        state.cartList.push(payload)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// store/actions.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">    ADD_COUNTER,</span><br><span class="line">    ADD_TO_CART</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'./mutation-types'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="comment">// 有时候也会把 context 解构，写成  addCart(&#123; state, commit &#125;, payload) 直接拿取 context 对象上的 state 和 commit 方法</span></span><br><span class="line">    <span class="comment">// 这里虽然不是异步操作，但复杂逻辑应该写在 actions 而不是 mutations 中 </span></span><br><span class="line">    addCart(context, payload) &#123;</span><br><span class="line">        <span class="keyword">let</span> oldProduct = context.state.cartList.find(<span class="function"><span class="params">item</span> =&gt;</span> item.id === payload.id)</span><br><span class="line">        <span class="keyword">if</span> (oldProduct) &#123;</span><br><span class="line">            context.commit(ADD_COUNTER, oldProduct)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            payload.count = <span class="number">1</span></span><br><span class="line">            context.commit(ADD_TO_CART, payload)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    想写个异步也行，直接返回 Promise 即可</span></span><br><span class="line"><span class="comment">    addCart(context, payload) &#123;</span></span><br><span class="line"><span class="comment">        return new Promise((resolve, reject) =&gt; &#123;</span></span><br><span class="line"><span class="comment">            let oldProduct = context.state.cartList.find(item =&gt; item.id === payload.id)</span></span><br><span class="line"><span class="comment">            if (oldProduct) &#123;</span></span><br><span class="line"><span class="comment">                context.commit(ADD_COUNTER, oldProduct)</span></span><br><span class="line"><span class="comment">                resolve('商品数量 + 1')</span></span><br><span class="line"><span class="comment">            &#125; else &#123;</span></span><br><span class="line"><span class="comment">                payload.count = 1</span></span><br><span class="line"><span class="comment">                context.commit(ADD_TO_CART, payload)</span></span><br><span class="line"><span class="comment">                resolve('添加商品')</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">        &#125;)</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// store/getters.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    cartLength(state) &#123;</span><br><span class="line">        <span class="keyword">return</span> state.cartList.length</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// store/mutation-types.js ，这个文件定义常量，如果需要修改方法名，直接在这里修改会非常方便。</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD_COUNTER = <span class="string">'add_counter'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD_TO_CART = <span class="string">'add_to_cart'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="css-顺序"><a href="#css-顺序" class="headerlink" title="css 顺序"></a>css 顺序</h3><p>改变布局 》 改变盒子的 》 颜色之类的普通样式调整。如</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">background</span>: grey;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="移动端的点击优化"><a href="#移动端的点击优化" class="headerlink" title="移动端的点击优化"></a>移动端的点击优化</h3><p>由于移动端的 click 事件默认有 300ms 的延迟判断时间（用于判断是否为双击放大），但我们基本上不需要这个 300ms 的延迟。所以引入 fastClick 来处理这 300ms 的延迟。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// npm 安装</span></span><br><span class="line">npm install fastclick --save</span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> FastClick <span class="keyword">from</span> <span class="string">'fastclick'</span></span><br><span class="line"><span class="comment">// 插件内置方法， attach 到 body 上</span></span><br><span class="line">FastClick.attach(<span class="built_in">document</span>.body)</span><br></pre></td></tr></table></figure>
+
+<h3 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h3><p>有时候我们希望当我们当前视口里能看到图片时才加载图片，可以使用 vue-lazyload 插件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// npm 安装</span></span><br><span class="line">npm install vue-lazyload --save</span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> VueLazyLoad <span class="keyword">from</span> <span class="string">'vue-lazyload'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 简单实用</span></span><br><span class="line"><span class="comment">// Vue.use(VueLazyLoad)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 允许传入参数使用</span></span><br><span class="line">Vue.use(VueLazyLoad, &#123;</span><br><span class="line">    <span class="comment">// 有很多参数，详细可以去看看文档，这里随便例举两个。</span></span><br><span class="line">    loading: <span class="built_in">require</span>(<span class="string">'~assets/img/common/loading.png'</span>), <span class="comment">// 图片在加载时显示的图片，需要用到 require() 获取图片， import() 还未尝试。</span></span><br><span class="line">    error: <span class="built_in">require</span>(<span class="string">'~assets/img/common/error.png'</span>) <span class="comment">// 图片加载失败显示的图片</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 组件中使用，把原本的 &lt;img :src="imgSrc"&gt; 的 :src 改成 v-lazy 就会使用懒加载</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	&lt;template&gt;</span></span><br><span class="line"><span class="comment">		&lt;div&gt;</span></span><br><span class="line"><span class="comment">			&lt;img v-lazy="imgSrc"&gt;</span></span><br><span class="line"><span class="comment">		&lt;/div&gt;</span></span><br><span class="line"><span class="comment">	&lt;/template&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="px2rem、px2vm"><a href="#px2rem、px2vm" class="headerlink" title="px2rem、px2vm"></a>px2rem、px2vm</h3><p>移动端响应式的解决方案，将 px 转换成 rem 或者 vw。可以下载 px2rem 或 px2vw 这种插件，它们可以帮我们写的 px 在打包时转化为 rem 或 vw，两个选一个即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装 px2vm，它的配置项需要单独新建一个 postcss.config.js</span></span><br><span class="line">npm install postcss-px-to-viewport --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment">// postcss.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: &#123;</span><br><span class="line">    autoprefixer: &#123;&#125;,</span><br><span class="line">    <span class="string">'postcss-px-to-viewport'</span>: &#123;</span><br><span class="line">       viewportWidth: <span class="number">750</span>,   <span class="comment">// 视窗的宽度，对应的是我们设计稿的宽度，一般是750</span></span><br><span class="line">      viewportHeight: <span class="number">1334</span>, <span class="comment">// 视窗的高度，根据750设备的宽度来指定，一般指定1334，也可以不配置</span></span><br><span class="line">      unitPrecision: <span class="number">3</span>,     <span class="comment">// 指定`px`转换为视窗单位值的小数位数</span></span><br><span class="line">      viewportUnit: <span class="string">"vw"</span>,   <span class="comment">//指定需要转换成的视窗单位，建议使用vw</span></span><br><span class="line">      selectorBlackList: [<span class="string">'.ignore'</span>],<span class="comment">// 指定不转换为视窗单位的类，可以自定义，可以无限添加,建议定义一至两个通用的类名</span></span><br><span class="line">      minPixelValue: <span class="number">1</span>,     <span class="comment">// 小于或等于`1px`不转换为视窗单位，你也可以设置为你想要的值</span></span><br><span class="line">      mediaQuery: <span class="literal">false</span>     <span class="comment">// 允许在媒体查询中转换`px`</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 安装 px2rem，它是一个 loader 去 vue.config.js 中配置。</span></span><br><span class="line">npm install px2rem-loader --save-dev</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="题外"><a href="#题外" class="headerlink" title="题外"></a>题外</h3><h5 id="另一种封装及使用组件的方式"><a href="#另一种封装及使用组件的方式" class="headerlink" title="另一种封装及使用组件的方式"></a>另一种封装及使用组件的方式</h5><p>我们希望在全局都能使用某个弹窗（toast）时，可以使用这种形式的组件封装。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 组件内容在该代码框最后。</span></span><br><span class="line"><span class="comment">/* components/common/toast/index.js */</span></span><br><span class="line"><span class="keyword">import</span> Toast <span class="keyword">from</span> <span class="string">'./Toast.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line"></span><br><span class="line">obj.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 创建组件构造器</span></span><br><span class="line">    <span class="keyword">const</span> ToastConstructor = Vue.extend(Toast)</span><br><span class="line">    <span class="comment">// 拿到组件实例对象</span></span><br><span class="line">    <span class="keyword">const</span> toast = <span class="keyword">new</span> ToastConstructor()</span><br><span class="line">    <span class="comment">// 把这个组件挂载到新建的 div 元素上</span></span><br><span class="line">    toast.$mount(<span class="built_in">document</span>.createElement(<span class="string">'div'</span>))</span><br><span class="line">    <span class="comment">// 把新建的挂载着 toast 组件的 div 添加到 body 中，该 div 通过 toast.$el 来获取</span></span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(toast.$el)</span><br><span class="line">    <span class="comment">// 把这个组件实例挂载到 Vue 的原型上，此时可以使用该组件的方法。</span></span><br><span class="line">    Vue.prototype.$toast = toast</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    	因为此时 import 而来的 Toast 已经是被编译过的，所以不能直接加入到 body 中，必须挂载到某个元素上，然后在页面初始化时该元素会被加入到 body 中，之后由 Vue 把该元素替换为 Toast 元素。这也是上面代码的流程。</span></span><br><span class="line"><span class="comment">    	document.body.appendChild(Toast.$el) // error</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> obj</span><br><span class="line"></span><br><span class="line"><span class="comment">/* main.js */</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> toast <span class="keyword">from</span> <span class="string">'components/common/toast/index.js'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Vue.use 实际上是调用传入对象上的 install 方法。</span></span><br><span class="line">Vue.use(toast)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 某组件中使用 */</span></span><br><span class="line">&#123;</span><br><span class="line">    methods: &#123;</span><br><span class="line">        toastShow() &#123;</span><br><span class="line">            <span class="keyword">this</span>.$toast.show(msg)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* components/common/toast/Toast.vue */</span></span><br><span class="line"><span class="comment">/* 以下是组件内容，由于高亮会出错，直接整体注释了。</span></span><br><span class="line"><span class="comment">&lt;template&gt;</span></span><br><span class="line"><span class="comment">  &lt;div class="toast" v-show="isShow"&gt;</span></span><br><span class="line"><span class="comment">    &#123;&#123;msg&#125;&#125;</span></span><br><span class="line"><span class="comment">  &lt;/div&gt;</span></span><br><span class="line"><span class="comment">&lt;/template&gt;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">&lt;script&gt;</span></span><br><span class="line"><span class="comment">export default &#123;</span></span><br><span class="line"><span class="comment">  data() &#123;</span></span><br><span class="line"><span class="comment">    return &#123;</span></span><br><span class="line"><span class="comment">      msg: 'hhh',</span></span><br><span class="line"><span class="comment">      isShow: false</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">  &#125;,</span></span><br><span class="line"><span class="comment">  methods: &#123;</span></span><br><span class="line"><span class="comment">    show(msg, duration = 2000) &#123;</span></span><br><span class="line"><span class="comment">      this.isShow = true</span></span><br><span class="line"><span class="comment">      this.msg = msg</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">      setTimeout(() =&gt; &#123;</span></span><br><span class="line"><span class="comment">        this.isShow = false</span></span><br><span class="line"><span class="comment">      &#125;, duration)</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">&lt;/script&gt;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">&lt;style lang="stylus" scoped&gt;</span></span><br><span class="line"><span class="comment">.toast</span></span><br><span class="line"><span class="comment">  position fixed</span></span><br><span class="line"><span class="comment">  top 50%</span></span><br><span class="line"><span class="comment">  left 50%</span></span><br><span class="line"><span class="comment">  transform translate(-50%, -50%)</span></span><br><span class="line"><span class="comment">  background rgba(0, 0, 0, 0.6)</span></span><br><span class="line"><span class="comment">  color #fff</span></span><br><span class="line"><span class="comment">  padding 5px 8px</span></span><br><span class="line"><span class="comment">  border-radius 4px</span></span><br><span class="line"><span class="comment">&lt;/style&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div class="post-share">分享到：</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Dloux WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Dloux Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E9%A1%B9%E7%9B%AE%E4%B9%A0%E6%83%AF/" rel="tag"># 项目习惯</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/05/promiseAndAxios/" rel="next" title="promiseAndAxios">
+                <i class="fa fa-chevron-left"></i> promiseAndAxios
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <div class="disqus-loading">
+          <strong>Disqus 加载中...</strong>
+          <p>如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p>
+        </div>
+      </div>
+    </div>
+
+  
+
+
+
+
+
+  
+
+    
+      <script type="text/javascript">
+        if (disqus_config) {
+          var disqus_config = function () {
+            this.page.url = 'https://dloux.gitee.io/2020/08/07/projecthabits/';
+            this.page.identifier = '2020/08/07/projecthabits/';
+            this.page.title = 'projecthabits';
+          };
+          if (window.DISQUS) {
+            $('.disqus-loading').remove();
+            window.DISQUS.reset({
+              reload: true,
+              config: function () {
+                this.page.url = 'https://dloux.gitee.io/2020/08/07/projecthabits/';
+                this.page.identifier = '2020/08/07/projecthabits/';
+                this.page.title = 'projecthabits';
+              }
+            });
+          }
+        }
+        else {
+          var disqus_config = function () {
+            this.page.url = 'https://dloux.gitee.io/2020/08/07/projecthabits/';
+            this.page.identifier = '2020/08/07/projecthabits/';
+            this.page.title = 'projecthabits';
+          };
+          var d = document, s = d.createElement('script');
+          s.src = 'https://diygod-me.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', '' + +new Date());
+          (d.head || d.body).appendChild(s);
+        }
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/card.jpg"
+                alt="Dloux" />
+            
+              <p class="site-author-name" itemprop="name"><span style="opacity:.2;"></span>Dloux</p>
+              <p class="site-description motion-element" itemprop="description">你能抓到我么？</p>
+          </div>
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/DIYgod" target="_blank" title="GitHub" data-balloon="GitHub" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/DIYgod" target="_blank" title="Twitter" data-balloon="Twitter" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/images/qq-g.jpg" target="_blank" title="QQ 群" data-balloon="QQ 群" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-qq"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+            
+
+          </nav>
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.png" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目习惯"><span class="nav-number">1.</span> <span class="nav-text">项目习惯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#大目录划分"><span class="nav-number">1.1.</span> <span class="nav-text">大目录划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小目录划分"><span class="nav-number">1.2.</span> <span class="nav-text">小目录划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单个文件整理"><span class="nav-number">1.3.</span> <span class="nav-text">单个文件整理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#editorconfig"><span class="nav-number">1.3.1.</span> <span class="nav-text">.editorconfig</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-config-js"><span class="nav-number">1.3.2.</span> <span class="nav-text">vue.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#base-css"><span class="nav-number">1.3.3.</span> <span class="nav-text">base.css</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引入-request-js-的网络请求"><span class="nav-number">1.3.4.</span> <span class="nav-text">引入 request.js 的网络请求</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#import-的顺序与分组"><span class="nav-number">1.4.</span> <span class="nav-text">import 的顺序与分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂数据的处理"><span class="nav-number">1.5.</span> <span class="nav-text">复杂数据的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#提取数据的处理"><span class="nav-number">1.5.1.</span> <span class="nav-text">提取数据的处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的方法的调用（异步）"><span class="nav-number">1.6.</span> <span class="nav-text">对象的方法的调用（异步）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组长度的获取（异步）"><span class="nav-number">1.7.</span> <span class="nav-text">数组长度的获取（异步）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算属性的返回值"><span class="nav-number">1.8.</span> <span class="nav-text">计算属性的返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#better-scroll"><span class="nav-number">1.9.</span> <span class="nav-text">better-scroll</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意点"><span class="nav-number">1.9.1.</span> <span class="nav-text">注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#refresh"><span class="nav-number">1.9.1.1.</span> <span class="nav-text">refresh</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#keep-alive"><span class="nav-number">1.9.2.</span> <span class="nav-text">keep-alive</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于图片、请求等异步操作"><span class="nav-number">1.9.3.</span> <span class="nav-text">关于图片、请求等异步操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件库的依赖问题"><span class="nav-number">1.10.</span> <span class="nav-text">插件库的依赖问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防抖节流"><span class="nav-number">1.11.</span> <span class="nav-text">防抖节流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#防抖"><span class="nav-number">1.11.1.</span> <span class="nav-text">防抖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节流"><span class="nav-number">1.11.2.</span> <span class="nav-text">节流</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z-index"><span class="nav-number">1.12.</span> <span class="nav-text">z-index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日期格式处理"><span class="nav-number">1.13.</span> <span class="nav-text">日期格式处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于-this-nextTick-的使用"><span class="nav-number">1.14.</span> <span class="nav-text">关于 this.$nextTick() 的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-…-in-…"><span class="nav-number">1.15.</span> <span class="nav-text">for … in …</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断一个数的区间"><span class="nav-number">1.16.</span> <span class="nav-text">判断一个数的区间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vuex"><span class="nav-number">1.17.</span> <span class="nav-text">Vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vuex-的文件管理"><span class="nav-number">1.17.1.</span> <span class="nav-text">Vuex 的文件管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css-顺序"><span class="nav-number">1.18.</span> <span class="nav-text">css 顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端的点击优化"><span class="nav-number">1.19.</span> <span class="nav-text">移动端的点击优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片懒加载"><span class="nav-number">1.20.</span> <span class="nav-text">图片懒加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#px2rem、px2vm"><span class="nav-number">1.21.</span> <span class="nav-text">px2rem、px2vm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题外"><span class="nav-number">1.22.</span> <span class="nav-text">题外</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#另一种封装及使用组件的方式"><span class="nav-number">1.22.0.1.</span> <span class="nav-text">另一种封装及使用组件的方式</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-image"></div>
+      <div class="footer-inner">
+        <p>博客已萌萌哒运行<span id="since"></span><span class="my-face">(●'◡'●)ﾉ♥</span></p>
+<p>custom text</p>
+
+<p>© <span itemprop="copyrightYear">2020</span> Dloux.
+    由 <a href="https://hexo.io/" target="_blank" class="external" rel="nofollow">Hexo</a> 强力驱动.
+    Theme By <a href="https://github.com/DIYgod/hexo-theme-sagiri" target="_blank" class="external" rel="nofollow">Sagiri</a> v0.0.4.
+    <a href="/sitemap.xml" target="_blank">站点地图</a>.
+    xxxx.
+</p>
+<p>Made with <i class="fa fa-heart throb" style="color: #d43f57;"></i> by <span class="author" itemprop="copyrightHolder">Dloux</span>. </p>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    <canvas id="evanyou"></canvas>
+    <canvas id="live2d" width="150" height="400" class="live2d"></canvas>
+
+    
+
+  </div>
+
+  <script type="text/javascript" src="/js/sagiri.min.js?v=0.0.4"></script>
+
+  
+
+
+
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
