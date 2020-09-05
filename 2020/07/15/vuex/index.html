@@ -90,7 +90,7 @@
 <meta property="og:description" content="Vuex">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-15T01:51:46.000Z">
-<meta property="article:modified_time" content="2020-08-12T09:47:59.328Z">
+<meta property="article:modified_time" content="2020-08-19T15:00:25.215Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="vuex">
 <meta name="twitter:card" content="summary">
@@ -473,7 +473,7 @@
 <h2 id="Module-vuex模块化"><a href="#Module-vuex模块化" class="headerlink" title="Module  vuex模块化"></a>Module  vuex模块化</h2><h3 id="vuex官方解释"><a href="#vuex官方解释" class="headerlink" title="vuex官方解释"></a>vuex官方解释</h3><p>由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割。</p>
 <h3 id="通俗点的说法"><a href="#通俗点的说法" class="headerlink" title="通俗点的说法"></a>通俗点的说法</h3><p>当我们写大型的项目的时候  我们所有的需要共享的信息或状态都写在同一个 state 里面  导致 state 或其他的操作比较臃肿 那么 为了解决这个问题 vuex提出了模块化 modules.</p>
 <p>下面是我们模块化的写法，在 main.js 的同级新建一个 store 文件夹 在这个 store 文件夹新建一个 index.js 里面写上一些内容。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import Vuex from &#39;vuex&#39;</span><br><span class="line"></span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"></span><br><span class="line">import moduleA from &quot;.&#x2F;modules&#x2F;moduleA&quot;</span><br><span class="line">import moduleB from &quot;.&#x2F;modules&#x2F;moduleB&quot;</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    a: moduleA,   </span><br><span class="line">    b: moduleB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> moduleA <span class="keyword">from</span> <span class="string">"./modules/moduleA"</span></span><br><span class="line"><span class="keyword">import</span> moduleB <span class="keyword">from</span> <span class="string">"./modules/moduleB"</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    a: moduleA,   </span><br><span class="line">    b: moduleB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>在 index.js 的同级新建一个 modules 的文件夹 这个文件夹分别有两个 js 分别为 moduleA 和 moduleB 内容分别为以下内容，再在 main.js 里面引入 index.js ，这个模块化的写法就已经完成 。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> moduleA = &#123;   <span class="comment">// moduleA</span></span><br><span class="line">    state: &#123; <span class="attr">num</span>:<span class="number">1</span> &#125;,</span><br><span class="line">    mutations: &#123;  </span><br><span class="line">        addNum(state)&#123;</span><br><span class="line">            state.num += <span class="number">2</span>  <span class="comment">// 调用的时候执行 this.$store.commit('addNum')</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    actions: &#123; </span><br><span class="line">        asyncAddNum(context,val)&#123;</span><br><span class="line">            context.commit(<span class="string">"addNum"</span>,val) <span class="comment">// 调用的时候执行 this.$store.dispatch('asyncAddNum')</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    getters: &#123; </span><br><span class="line">        addNums(state)&#123;</span><br><span class="line">            <span class="keyword">return</span> state.num + <span class="string">"元 "</span>  <span class="comment">// 调用的时候执行 this.$store.getters.addNums</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> moduleA</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> moduleB = &#123;</span><br><span class="line">    state: &#123; <span class="attr">num</span>:<span class="number">2</span> &#125;,</span><br><span class="line">    mutations: &#123; </span><br><span class="line">        addNum(state)&#123;</span><br><span class="line">            state.num += <span class="number">3</span></span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> moduleB</span><br></pre></td></tr></table></figure>
@@ -784,12 +784,21 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
             
             
 

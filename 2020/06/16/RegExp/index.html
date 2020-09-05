@@ -90,7 +90,7 @@
 <meta property="og:description" content="正则">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-16T02:48:52.000Z">
-<meta property="article:modified_time" content="2020-08-13T02:44:05.705Z">
+<meta property="article:modified_time" content="2020-08-17T14:13:54.044Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="RegExp">
 <meta name="twitter:card" content="summary">
@@ -531,12 +531,13 @@
 <p>在上面的示例中，函数每次只返回下一个数字，但通常结果是基于匹配的。</p>
 <p>调用该函数 <code>func(str, p1, p2, ..., pn, offset, s)</code> 的参数是：</p>
 <ol>
-<li><code>str</code> — 匹配项，</li>
-<li><code>p1, p2, ..., pn</code> — 圆括号里的内容（如果有的话），</li>
+<li><code>str</code> — 表示匹配项，即 <code>()</code> 正则表达式中的内容 如 <code>/a([1-9])/</code> 如果有匹配项，它的值将会是<code>a</code> 加上  <code>1-9</code> 之间的一个数字</li>
+<li><code>p1, p2, ..., pn</code> — 圆括号里的内容（如果有的话），有几个捕获组就有几个这样的参数</li>
 <li><code>offset</code> — 匹配项所在的位置，</li>
 <li><code>s</code> — 源字符串。</li>
 </ol>
 <p>如果在 regexp 中没有圆括号，那么该函数总是有 3 个参数：<code>func(str, offset, s)</code>。</p>
+<p>返回值将会替换第一个参数的位置的内容。</p>
 <p>下面的代码展示了匹配的所有信息：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 显示并且替换所有的匹配项</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">replacer</span>(<span class="params">str, offset, s</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Found <span class="subst">$&#123;str&#125;</span> at position <span class="subst">$&#123;offset&#125;</span> in string <span class="subst">$&#123;s&#125;</span>`</span>);</span><br><span class="line">  <span class="keyword">return</span> str.toLowerCase();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">"HO-Ho-ho"</span>.replace(<span class="regexp">/ho/gi</span>, replacer);</span><br><span class="line"><span class="built_in">console</span>.log( <span class="string">'Result: '</span> + result ); <span class="comment">// Result: ho-ho-ho</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// shows each match:</span></span><br><span class="line"><span class="comment">// Found HO at position 0 in string HO-Ho-ho</span></span><br><span class="line"><span class="comment">// Found Ho at position 3 in string HO-Ho-ho</span></span><br><span class="line"><span class="comment">// Found ho at position 6 in string HO-Ho-ho</span></span><br></pre></td></tr></table></figure>
 
@@ -700,22 +701,6 @@
 <p>例如：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"2 servings of rice are worth 30￥"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果我们要选择后面带￥的数字</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\d+(?=￥)/</span>;</span><br><span class="line"><span class="comment">// 如果我们选择后面不带￥的数字，由于后面带￥的字符串后边界必定是￥，用\b排除了就行，否者可能会打出["2","3"]，下面带\b的同理</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\d+(?!￥)\b/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"1 duck costs ￥28"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果我们要选择前面带￥的数字</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(?&lt;=￥)\d+/</span>;</span><br><span class="line"><span class="comment">// 如果我们选择前面不带￥的数字</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\b(?&lt;!￥)\d+/</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br></pre></td></tr></table></figure>
 
-
-
-<p>题目：</p>
-<ol>
-<li><p>写一个正则表达式，检验字符串首尾是否是数字?检验首尾是否都是数字?<br>答:  /^\d|\d$/  和 /^\d[\w\W]*\d$/</p>
-</li>
-<li><p>校验1-200的整数<br>答:  /^(1\d{2}|[1-9]\d?|200)$/</p>
-</li>
-<li><p>电话号码验证: 以 13/15/18(0-9) 或 145/147/149 或 166 或 17(0-8) 或 198/199开头后面跟任意8个数字<br>答:  /^1([358]\d|4[579]|66|7[0-8]|9[89])\d{8}$/</p>
-</li>
-<li><p>查找颜色：#后接三位或者6位十六进制数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/your regexp/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"color: #3f3; background-color: #AA00ef; and: #abcd"</span>;</span><br><span class="line"><span class="built_in">console</span>.log( str.match(reg) ); <span class="comment">// #3f3 #AA0ef</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>答：/#([a-f0-9]{6}|[a-f0-9]{3})\b/gi     /#([a-f0-9]{3}){1,2}\b/gi</p>
 <p><a href="https://regexper.com/" target="_blank" rel="noopener">正则查看器</a></p>
 <p><a href="https://aoxiaoqiang.github.io/reg/" target="_blank" rel="noopener">正则查看器</a></p>
 
@@ -972,12 +957,21 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
             
             
 
