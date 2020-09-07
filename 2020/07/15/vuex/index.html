@@ -90,7 +90,7 @@
 <meta property="og:description" content="Vuex">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-15T01:51:46.000Z">
-<meta property="article:modified_time" content="2020-08-19T15:00:25.215Z">
+<meta property="article:modified_time" content="2020-09-05T09:22:53.811Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="vuex">
 <meta name="twitter:card" content="summary">
@@ -440,7 +440,7 @@
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    num:<span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    updateNum(state,val)&#123;</span><br><span class="line">      state.num += val;  <span class="comment">// this.$store.commit("updateNum",2)</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>提交多个载荷 vuex不支持提交多个载荷 提交多个载荷需换种写法, 换成对象或数组</p>
+<p>提交多个载荷， vuex 不支持提交多个载荷 提交多个载荷需换种写法, 换成对象或数组</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    num:<span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    updateNum(state,val)&#123;</span><br><span class="line">      state.num += val.val;  <span class="comment">// this.$store.commit("updateNum",&#123;val:1,val1:2&#125;)</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h4 id="mutations-的另一种提交风格"><a href="#mutations-的另一种提交风格" class="headerlink" title="mutations 的另一种提交风格"></a>mutations 的另一种提交风格</h4><p>在此之前的 <code>this.$store.commit(&#39;mutationName&#39;)</code> 是普通的提交风格，还有另外一种提交风格，这样就是提交 payload(载荷) 了。</p>
