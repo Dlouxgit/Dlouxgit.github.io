@@ -1,0 +1,148 @@
+.container {
+  .fade-banner {
+    position: relative;
+    padding: 7.5% 50%;
+
+    .about-banner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      margin-top: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .banner-1 {
+
+      animation: alternates 20s ease-in-out infinite;
+    }
+
+    .banner-2 {
+      animation: alternates-reverse 20s ease-in-out infinite;
+
+    }
+
+    @keyframes alternates {
+      0% {
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0;
+      }
+
+      30% {
+        z-index: 1;
+        opacity: 1;
+      }
+
+      70% {
+        opacity: 1;
+      }
+
+      80% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes alternates-reverse {
+      0% {
+        opacity: 1;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      30% {
+        opacity: 0;
+      }
+
+      70% {
+        opacity: 0;
+      }
+
+      80% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  .about-content {
+    .about-content-c {
+      p {
+        text-indent: 2em;
+      }
+
+      position: relative;
+      color: #6b6b6b;
+      font-size: 16px;
+
+      .brand-mask {
+        position: absolute;
+        text-align: center;
+        color: #fff;
+        font-size: 30px;
+        background-color: rgba(0, 0, 0, .4);
+      }
+
+
+      .chat-us {
+        font-size: 26px;
+        color: #373737;
+       
+
+        p {
+          font-size: 16px;
+          color: #616060;
+          line-height: 1.4;
+        }
+
+
+      }
+
+      .addr {
+        overflow: hidden;
+        font-size: 16px;
+        color: #616060;
+        line-height: 1.5;
+
+       
+      }
+    }
+  }
+
+}
+
+.footer {
+  width: 100%;
+  overflow: hidden;
+  color: #f3f3f3;
+  background-color: #4d4d4d;
+  margin-top: 60px;
+  .footer-c {
+    .record {
+      P {
+        color: #f3f3f3;
+      }
+    }
+
+    .join {
+      .join-item {
+        color: #f3f3f3;
+      }
+    }
+  }
+}

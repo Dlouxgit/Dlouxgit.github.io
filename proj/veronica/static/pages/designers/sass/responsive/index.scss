@@ -1,0 +1,74 @@
+@media (min-width:769px) {
+  .container {
+    margin: 80px 0 86px;
+
+    .banner {
+      margin: 0;
+      filter: grayscale(100%);
+      transition: filter .6s linear;
+
+      &:hover {
+        filter: none;
+      }
+    }
+
+    .commit-title {
+      margin: 100px auto 60px;
+    }
+    .designer-content {
+      width: 1200px;
+      margin: 0 auto;
+      .designer-content-c {
+        margin-right: -150px;
+        overflow: hidden;
+        .designer {
+          float: left;
+          width: 300px;
+          margin-right: 150px;
+          color: #a4a4a4;
+          font-size: 14px;
+          h3 {
+            color: #2e2e2e;
+            font-size: 18px;
+            margin-top: 40px;
+          }
+          .position {
+            margin: 15px 0 35px;
+          }
+          .more {
+            // margin-top: 50px;
+            // width: 148px;
+            // height: 53px;
+            // border: 1px solid;
+
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:768px) {
+  .container {
+    margin-top: 80px;
+    .designer-content {
+      .designer-content-c {
+        .designer {
+          width: 300px;
+          margin: 0 auto 50px;
+          color: #a4a4a4;
+          font-size: 14px;
+          h3 {
+            color: #2e2e2e;
+            font-size: 18px;
+            margin-top: 40px;
+          }
+          .position {
+            margin: 15px 0 35px;
+          }
+        }
+      }
+    }
+  }
+
+}

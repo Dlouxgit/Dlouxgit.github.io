@@ -1,0 +1,60 @@
+.container .wedding-content .wedding-details {
+  background: url(../img/Jewelry-1.jpg) no-repeat left top; }
+  .container .wedding-content .wedding-details .wedding-text {
+    color: #cecece; }
+    .container .wedding-content .wedding-details .wedding-text .vertical-line {
+      position: absolute;
+      height: 70px;
+      width: 2px;
+      margin-left: -17px;
+      background-color: #454545; }
+    .container .wedding-content .wedding-details .wedding-text h3,
+    .container .wedding-content .wedding-details .wedding-text h4 {
+      color: #4c4c4c; }
+    .container .wedding-content .wedding-details .wedding-text .appointment {
+      text-align: center;
+      border: 1px solid #fefefe; }
+      .container .wedding-content .wedding-details .wedding-text .appointment:hover {
+        background-color: #b9ab77;
+        border: 1px solid #b9ab77;
+        color: #ffffff; }
+.container .wedding-content .wedding-details-size {
+  background: url(../img/Jewelry-2.jpg) no-repeat left top; }
+.container .wedding-content .wedding-size-text {
+  color: #6a6a6a; }
+.container .wedding-content .my-wedding-banner {
+  position: relative;
+  background-color: #dddddd; }
+  .container .wedding-content .my-wedding-banner span {
+    display: inline-block;
+    color: #999999;
+    cursor: pointer;
+    background-color: #f7f5f5; }
+    .container .wedding-content .my-wedding-banner span:hover {
+      color: #0a0a0a;
+      box-shadow: 0 0 0 1px #b9ab77 inset; }
+.container .wedding-content .wedding-swiper {
+  position: static;
+  user-select: none; }
+  .container .wedding-content .wedding-swiper .swiper-button {
+    width: 32px;
+    height: 50px;
+    background-color: #cacaca;
+    background-size: 15px 25px; }
+  .container .wedding-content .wedding-swiper .more {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    color: #bdbcbc;
+    border: 1px solid currentColor; }
+    .container .wedding-content .wedding-swiper .more:hover {
+      color: #baae81; }
+.container .footer {
+  overflow: hidden;
+  background-color: #4d4d4d; }
+  .container .footer .footer-c p {
+    color: #f1efef; }
+  .container .footer .footer-c .join .join-item {
+    color: #f1efef; }
+
+/*# sourceMappingURL=style.css.map */

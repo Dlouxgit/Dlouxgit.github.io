@@ -1,0 +1,66 @@
+@media (min-width: 769px) {
+  .container {
+    margin-top: 80px; }
+    .container .acitivity-details .details-text {
+      width: 810px;
+      height: 200px;
+      margin: 0 auto;
+      padding: 50px 65px 0px;
+      box-sizing: border-box; }
+      .container .acitivity-details .details-text .date {
+        text-align: right; }
+        .container .acitivity-details .details-text .date h3 {
+          line-height: 1;
+          font-size: 60px; }
+        .container .acitivity-details .details-text .date p {
+          line-height: 2.5;
+          font-size: 16px; }
+      .container .acitivity-details .details-text .text {
+        margin-left: 205px; }
+        .container .acitivity-details .details-text .text h3 {
+          font-size: 16px; }
+        .container .acitivity-details .details-text .text p {
+          margin-top: 25px;
+          line-height: 2;
+          font-size: 12px; }
+    .container .acitivity-details .swiper-wrapper {
+      margin-bottom: 120px; }
+    .container .acitivity-details .swiper-pagination {
+      bottom: 35px; }
+    .container .banner {
+      filter: grayscale(100%);
+      transition: filter .6s linear; }
+      .container .banner:hover {
+        filter: none; }
+    .container .commit-title {
+      margin: 100px auto 60px; } }
+@media (max-width: 768px) {
+  .container {
+    margin-top: 80px; }
+    .container .acitivity-details .details-text {
+      height: 160px;
+      margin: 20px auto 0;
+      padding: 5px;
+      box-sizing: border-box; }
+      .container .acitivity-details .details-text .date {
+        text-align: right; }
+        .container .acitivity-details .details-text .date h3 {
+          line-height: 1;
+          font-size: 20px; }
+        .container .acitivity-details .details-text .date p {
+          line-height: 2.5;
+          font-size: 15px; }
+      .container .acitivity-details .details-text .text {
+        margin-left: 70px; }
+        .container .acitivity-details .details-text .text h3 {
+          font-size: 16px; }
+        .container .acitivity-details .details-text .text p {
+          margin-top: 15px;
+          line-height: 2;
+          font-size: 12px; }
+    .container .acitivity-details .swiper-wrapper {
+      margin-bottom: 100px; }
+    .container .acitivity-details .swiper-pagination {
+      bottom: 40px; } }
+
+/*# sourceMappingURL=index.css.map */

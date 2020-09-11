@@ -1,0 +1,62 @@
+@media (min-width: 769px) {
+  .container {
+    margin-top: 86px; }
+    .container img {
+      float: left; }
+    .container .about-banner {
+      margin: 0;
+      filter: grayscale(100%);
+      transition: filter .6s linear; }
+      .container .about-banner:hover {
+        filter: none; }
+    .container .about-content .about-content-c {
+      width: 1080px;
+      margin: 0 auto; }
+      .container .about-content .about-content-c .brand-mask {
+        width: 421px;
+        height: 315px;
+        line-height: 315px; }
+      .container .about-content .about-content-c img {
+        margin-right: 65px; }
+      .container .about-content .about-content-c .about-text .Paris {
+        margin-top: 100px; }
+    .container .commit-title {
+      margin: 100px auto 70px; }
+    .container .chat-us .chat-us {
+      font-size: 26px;
+      color: #373737;
+      line-height: 3; }
+      .container .chat-us .chat-us p {
+        font-size: 16px;
+        color: #616060;
+        line-height: 1.4; }
+    .container .addr #baiduaddr {
+      margin: 40px 35px 0 0;
+      width: 475px;
+      height: 270px;
+      float: left; }
+    .container .addr .addr-title {
+      margin-top: 200px; } }
+@media (max-width: 768px) {
+  .container {
+    margin-top: 80px; }
+    .container .about-content .about-content-c {
+      padding: 5px; }
+      .container .about-content .about-content-c img {
+        width: 100%; }
+      .container .about-content .about-content-c p {
+        margin-top: 10px; }
+      .container .about-content .about-content-c .chat-us {
+        font-size: 20px;
+        line-height: 2; }
+        .container .about-content .about-content-c .chat-us p {
+          font-size: 16px;
+          color: #616060;
+          line-height: 1.4; }
+      .container .about-content .about-content-c .addr {
+        margin-bottom: 20px; }
+        .container .about-content .about-content-c .addr #baiduaddr {
+          margin-top: 30px;
+          padding: 25% 50%; } }
+
+/*# sourceMappingURL=index.css.map */

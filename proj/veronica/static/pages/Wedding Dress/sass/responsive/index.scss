@@ -1,0 +1,223 @@
+@media (min-width:769px) {
+  .container {
+    margin-top: 180px;
+
+    .wedding-content {
+      .wedding-content-c {
+        width: 1200px;
+        margin: 0 auto;
+
+        .wedding-details {
+          height: 780px;
+          margin-bottom: 50px;
+
+          .wedding-text {
+            margin-left: 805px;
+
+            // .vertical-line { 
+
+            // }
+            h3 {
+              margin-top: 20px;
+              font-size: 30px;
+            }
+
+            h4 {
+              font-size: 16px;
+              text-indent: 115px;
+            }
+
+            p {
+              font-size: 14px;
+
+              &:nth-child(4) {
+                margin-top: 24px;
+                text-indent: 145px;
+              }
+
+              &:nth-child(5) {
+                text-indent: 85px;
+              }
+
+              &:nth-child(6) {
+                margin-top: 24px;
+              }
+            }
+
+            .appointment {
+              width: 148px;
+              height: 43px;
+              line-height: 43px;
+              margin: 80px auto;
+            }
+
+          }
+        }
+
+        .wedding-details-size {
+          height: 780px;
+          margin-bottom: 50px;
+        }
+
+        .wedding-size-text {
+          width: 710px;
+
+          p {
+            font-size: 16px;
+
+            &:first-child {
+
+              font-size: 14px;
+            }
+
+            &:nth-child(2) {
+              margin-top: 40px;
+            }
+
+            &:nth-child(3) {
+              margin-top: 12px;
+            }
+          }
+        }
+      }
+
+      .my-wedding-banner {
+              height: 555px;
+        .wedding-banner-c {
+          font-size: 0;
+          width: 1200px;
+          margin: 0 auto;
+
+          span { 
+            padding: 7px;
+            font-size: 12px;
+            margin-right: 40px;
+            margin: 100px 40px 40px 0;
+          }
+          .swiper-button-prev {
+            left: 140px;
+          }
+          .swiper-button-next{
+            right: 140px;
+          }
+          .more {
+            margin: 60px auto;
+            line-height: 43px; 
+            width: 148px;
+            height: 43px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:768px) {
+  .container {
+    margin-top: 90px;
+
+    .wedding-content {
+      .wedding-content-c {
+        padding: 0 7px;
+
+        .wedding-details {
+          padding: 32.5% 30%;
+          background-size: 100%;
+          margin-bottom: 25px;
+          margin-right: 40%;
+
+          .wedding-text {
+            position: absolute;
+            margin-top: -32.5%;
+            margin-left: 30%;
+            padding:0 10px 0 5px;
+            text-align: justify;
+
+            .vertical-line {
+              display: none;
+            }
+
+            h3 {
+              font-size: 14px;
+            }
+
+            h4 {
+              font-size: 12px;
+            }
+
+            p {
+              font-size: 12px;
+
+              &:nth-child(4) {
+                margin-top: 12px;
+              }
+              &:nth-child(5) {
+                margin-top: 6px;
+              }&:nth-child(5) {
+                margin-top: 20px;
+              }
+
+            }
+
+            .appointment {
+              margin: 30px auto;
+            }
+          }
+        }
+
+        .wedding-details-size {
+          padding: 32.5% 30%;
+          background-size: 100%;
+          margin-bottom: 25px;
+          margin-right: 40%;
+        }
+
+        .wedding-size-text {
+          width: 60%;
+          text-align: justify;
+          margin-bottom: 25px;
+          p {
+            font-size: 14px;
+
+            &:first-child {
+              font-size: 12px;
+            }
+
+            &:nth-child(2) {
+              margin-top: 20px;
+            }
+
+            &:nth-child(3) {
+              margin-top: 6px;
+            }
+          }
+        }
+      }
+      .my-wedding-banner {
+
+        .wedding-banner-c {
+          font-size: 0;
+          padding: 5px;
+          span { 
+            padding: 7px;
+            font-size: 12px;
+            margin-right: 40px;
+            margin: 30px 30px 30px 0;
+          }
+          .swiper-button-prev {
+            display: none;
+          }
+          .swiper-button-next{
+            display: none;
+          }
+          .more {
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            margin: 30px auto;
+          }
+        }
+      }
+    }
+  }
+}
