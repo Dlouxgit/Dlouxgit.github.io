@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"><!-- 禁止移动端放大页面，同时设定元件宽高适配移动端 -->
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="C:\Users\WagTen\Desktop\JS\font-awesome-4.7.0\css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0; 
+        }
+
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            background: url(img/bg-2.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            user-select: none;
+            -webkit-user-select: none; /* Edge */
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .m-login-box {
+            height: 150px;
+            width: 150px;
+            /* background: url(img/bg-1.jpg);
+            background-position: center;
+            background-repeat: no-repeat; */
+            left: 50%;
+            top: 50%;
+            position: absolute;
+            transform: translate(-30%,-30%);
+            -webkit-tap-highlight-color:rgba(0,0,0,0);/*阻止移动端点击选中后会出现的蓝框  */
+        }
+
+       
+        .m-login-lock {
+            position: absolute;
+            width: 68px;
+            height: 68px;
+            left: calc(-68px + 50%);
+            top: calc(-68px + 50%);
+            /* left: calc(-67px + 50%);
+            top: calc(-67px + 50%); */
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            line-height: 68px;
+            text-align: center;
+            /* border: 1px solid #91a7af; 这三行都是为了解决下面那行注释掉的动画造成的edge浏览器抖动现象，但没什么卵用*/
+            /* transform: translate(0,0,0); */
+            /* backface-visibility: hidden; */
+            /* animation: 2s ease 0s infinite forwards beBig ; scale和box-shadow同时使用会导致元素蜜汁抖动*/ 
+            animation:  2s ease 0s infinite forwards shineWhite;
+            /* box-shadow: 0 0 1px 1px rgba(0,0,255,0.2); */
+        }
+        
+        .m-login-box::after {
+            content: "";
+            width: 75px; 
+            height: 75px;
+            left: calc(-75px + 50%);    
+            top: calc(-75px + 50%);
+            /* left: calc(-73.5px + 50%);    
+            top: calc(-73.5px + 50%); */
+            position: absolute;
+            border-radius: 50%;
+            display: block;
+            border: 3px outset #e69e4b;
+            animation: 5s linear 0s infinite forwards rotating;
+        }
+
+         .u-login-rotate-ani,.u-login-rotate-ani2 {
+            /* width: 100px; */
+            /* height: 100px; */
+            width: 150px;
+            height: 150px;
+            border: 2px solid white;
+            border-radius: 50%;
+            left: calc(-75px + 50%);    
+            top: calc(-75px + 50%);
+            position: absolute;
+            box-shadow: 0 0 100px 10px hsla(0,0%,100%,.5);
+        } 
+        .m-login-box::before {
+            content: "";
+            width: 81px;
+            height: 81px;
+            left: calc(-78px + 50%);
+            top: calc(-78px + 50%); 
+            /* left: calc(-76.5px + 50%);
+            top: calc(-76.5px + 50%);  */
+            position: absolute;
+            border-radius: 50%;
+            display: block;
+            border: 3px solid #1b779e;
+
+        }
+
+        @keyframes rotateop {
+            0% {
+                opacity: 1;
+            }
+            25%,75% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotate2 {
+            0% {
+                transform: rotate3d(1,1,1,0deg);
+            }
+            100% {
+                transform: rotate3d(1,1,1,1turn);
+                /* 1turn = 360deg */
+            }  
+        }
+
+        @keyframes rotate1 {
+            0% {
+                transform: rotate3d(-1,1,1,0);
+            }
+            100% {
+                transform: rotate3d(-1,1,1,360deg);
+            }
+        }
+
+        /* 正常能运行版本 垃圾版本  上面是正常版本 */
+        /* @keyframes rotate2 {
+            0% {
+                transform: rotate3d(1,0,0,90deg);
+            }
+            33% {
+                transform: rotate3d(0,0,0,360deg);
+            }
+            66% {
+                transform: rotate3d(0,1,0,90deg);
+            }
+            100% {
+                transform: rotate3d(0,0,0,90deg);
+            }  
+        }
+
+        @keyframes rotate1 {
+            0% {
+                transform: rotate3d(0,0,0,0);
+            }
+            33% {
+                transform: rotate3d(0,1,0,90deg);
+            }
+            66% {
+                transform: rotate3d(1,0,0,90deg);
+            }
+            100% {
+                transform: rotate3d(0,0,0,360deg);
+            }
+        } */
+
+
+
+        @keyframes rotating {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes shineWhite{
+            0% {
+                -webkit-box-shadow:0 0 1px #dfdfdf;
+                box-shadow:0 0 1px #dfdfdf
+            }
+            50% {
+                -webkit-box-shadow:0 0 110px hsla(0,0%,100%,.6);
+                box-shadow:0 0 11px hsla(0,0%,100%,.6)
+            }
+            100% 
+            {
+                -webkit-box-shadow:0 0 1px #dfdfdf;
+                box-shadow:0 0 1px #dfdfdf
+            }
+        }
+        @keyframes shineWhite{
+            0% {
+                -webkit-box-shadow:0 0 1px #dfdfdf;
+                box-shadow:0 0 1px #dfdfdf
+            }
+            50% {
+                -webkit-box-shadow:0 0 110px hsla(0,0%,100%,.6);
+                box-shadow:0 0 11px hsla(0,0%,100%,.6)
+            }
+            100% 
+            {
+                -webkit-box-shadow:0 0 1px #dfdfdf;
+                box-shadow:0 0 1px #dfdfdf
+            }
+        }
+
+        @keyframes beBig {
+            0% {
+                transform: scale(1);
+                 box-shadow:0 0 1px #dfdfdf 
+            }
+            50% {
+                transform: scale(1.05);
+                 box-shadow:0 0 10px hsla(0,0%,100%,.6) 
+            }
+            100% {
+                transform: scale(1);
+                box-shadow:0 0 1px #dfdfdf 
+            }
+        }
+
+        /* @keyframes skewPage {
+            0% {
+                transform: rotateX(0deg) ;
+            }
+            100% {
+                transform: rotateX(85deg) scale(0.5) translateY(2100px);
+                 transform: rotateX(85deg) scale(0.2) ; 
+                
+            }
+        } */
+        @-webkit-keyframes skewPage {
+            0% {
+                transform: rotateX(0deg) ;
+                top: 0%;
+                /* box-shadow: 0 0 20000px 20000px rgba(255,255,255,0.2) inset; */
+            }
+            100% {
+                /* transform: rotateX(85deg) scale(0.2) translateY(7700px); */
+                /* transform: rotateX(75deg) scale(0.4); */
+                transform: translateZ(-700px) rotateX(88deg);
+                /* top: 50%; */
+                opacity: 0.5;
+                box-shadow: 0 0 20000px 20000px rgba(255,255,255,0.2) inset;
+            }
+        }
+        @keyframes skewPage {
+            0% {
+                transform: rotateX(0deg) ;
+                top: 0%;
+                /* box-shadow: 0 0 20000px 20000px rgba(255,255,255,0.2) inset; */
+            }
+            100% {
+                /* transform: rotateX(85deg) scale(0.2) translateY(7700px); */
+                /* transform: rotateX(75deg) scale(0.4); */
+                transform: translateZ(-700px) rotateX(88deg);
+                /* top: 10%; */
+                opacity: 0.5;
+                box-shadow: 0 0 20000px 20000px rgba(255,255,255,0.2) inset;
+                
+            }
+        }
+
+        .pointer {
+            /* animation: skewPage 1s linear .2s infinite forwards running; */
+            /*  */
+            cursor: pointer;
+            
+        }
+        body {
+            transform-style: preserve-3d;
+            perspective: 900px;
+            -webkit-perspective: 900px;
+            overflow: hidden;
+        }
+
+        .fa-lock {
+            color: white;
+        }
+
+        .m-login-content {
+            background: url(img/bg-1.jpg);
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            transform-origin:50% 150%;
+            transition: all .4s ease-in .2s;
+            /* perspective: 800px;
+            -webkit-perspective: 800px; */
+            /* animation: skewPage 1s linear .2s 1 forwards running; */
+        }
+
+        .animationEnd {
+            transform: translateZ(-700px) rotateX(88deg);
+                top: 0%;
+                opacity: 0.5;
+                box-shadow: 0 0 20000px 20000px rgba(255,255,255,0.2) inset;
+        }
+        .animationEnd2 {
+            animation: skewPage 0s linear 0s 1 forwards;
+        }
+
+        .disphidden {
+            /* display: none; */
+            visibility: hidden;
+        }
+
+        .input {
+            background: none;
+            border:none;
+            width: 100px;
+            position: relative;
+            left: 4px;
+            font-size: 14px;
+            color: #fff;
+            padding: 2px 5px 2px 0px;
+            line-height: 36px;
+            outline: none;
+        }
+        .m-input-box {
+            background: hsla(0,0%,100%,.2);
+            width: 150px;
+            height: 36px;
+            border-radius: 5px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            text-align: center;
+            transform: translate(-50%,-50%);
+            /* border: 2px solid rgb(7,114,159); */
+            /* animation: inputBorder .5s linear 5s 1 forwards ; */
+            user-select: none;
+        }
+        /* .m-input-box::after {
+            content: '';
+            display: block;
+            position: relative;
+            top: -42px;
+            left: -2px;
+            width: 148px;
+            height: 36px;
+            border-radius: 7px;
+            border: 2px solid rgb(7,114,159);
+            visibility: hidden;
+            opacity: 0;
+            animation: inputBorder .5s linear 5s 1 forwards ;
+            z-index: -1;
+        } */
+        .fa-key {
+            color: hsla(0,0%,100%,.8);
+        }
+        input::-webkit-input-placeholder {
+            font-size: 16px;
+            color: hsla(0,0%,100%,.6);
+        }
+        @keyframes inputBorder {
+            0% {
+                border: none;
+                opacity: 0;
+                width: 180px;
+                height: 50px;
+                top: -60px;
+                left: -20px;
+            }
+            100% {
+                width: 148px;
+                height: 36px;
+                top: -42px;
+                left: -2px;
+                opacity: 1;
+                border: 2px solid rgb(7,114,159);
+            }
+        }
+        .border {
+            position: relative;
+            width: 180px;
+            height: 50px;
+            border-radius: 7px;
+            top: -60px;
+            left: -20px;
+            opacity: 0;
+            border: 2px solid rgb(7,114,159);
+            z-index: -1;
+            transition: all .4s;
+        }
+        .border1 {
+            position: relative;
+            border-radius: 7px;
+            top: -42px;
+            left: -2px;
+            opacity: 1;
+            border: 2px solid rgb(7,114,159);
+            transition: all .4s;
+            width: 148px;
+            height: 36px;
+        }
+        .fa-key {
+            transform: rotate(-45deg);
+            transition: transform .35s ease-in 0s;
+        }
+        .fa-key:hover {
+            cursor: pointer;
+            transform: rotate(45deg);
+            transition: transform .35s ease-out 0s;
+        }
+        .footer {
+            text-align: left;
+            color: hsla(0,0%,100%,.6);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 1em 2em;
+            box-sizing: border-box;
+            font-size: 12px;
+        }
+        .footer ul{
+            display: flex;
+            list-style-type: none;
+            float: right;
+        }
+        .footer li {
+            padding: 0 .5em;
+        }
+
+        .footer a {
+            color: hsla(0,0%,100%,.6);
+            font-size: 12px;
+        }
+
+        .active {
+            animation: skewPage .2s ease-in 2.2s 1 forwards;
+        }
+
+        .active2 {
+            transform: translateZ(-700px) rotateX(88deg);
+            opacity: 0.5;
+            box-shadow: 0 0 20000px 20000px rgba(255,255,255,0.2) inset;
+            transition: all .4s ease-in 2.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="m-input-box">
+        <input type="password" placeholder="输入访问口令" class='input' maxlength="10">
+        <a><i class="fa fa-key" aria-hidden="true"></i></a>
+        <div class="border"></div>
+    </div>
+    <div class="m-login-content">
+        <div class="m-login-box pointer">
+            <div class="m-login-lock" style="cursor:pointer">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+                <div class="u-login-rotate-ani disphidden"></div>
+                <div class="u-login-rotate-ani2 disphidden"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">© 2020 dloux All Rights Reserved.
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="aboutme.html">关于我</a></li>
+            <li><a href="resume.html">简历</a></li>
+        </ul>
+    </div>
+    <script>
+        var loginCircle1 = document.getElementsByClassName("u-login-rotate-ani")[0];
+        var loginCircle2 = document.getElementsByClassName("u-login-rotate-ani2")[0];
+        var loginCheck = document.getElementsByClassName("m-login-box")[0];
+        var loginContent = document.getElementsByClassName("m-login-content")[0];
+        var inputLine = document.getElementsByClassName("input")[0];
+        var blueBorder = document.getElementsByClassName("border")[0];
+        var keyImg = document.getElementsByClassName("fa-key")[0];
+        // console.log(window.getComputedStyle(loginCircle1,null).height); //获取只读的css属性
+        var flag = true;
+        var flag2 = true;
+        // var inputFlag = true; 因为设置的动画时间很短，基本不需要这个了~
+        loginCheck.addEventListener("click", clickRotate);
+        loginContent.addEventListener("animationend",function(event) {
+            var event = window.event;
+            var target = event.target;
+            target.style.cssText = "animation:'';";
+            event.stopPropagation();
+        })
+
+        function clickRotate() {
+            if(flag) {
+                flag = false;
+                loginCircle1.style.cssText="animation: 2s linear .2s 1 forwards rotate1,2s linear .5s 1 forwards rotateop;";
+                loginCircle2.style.cssText="animation: 2s linear .2s 1 forwards rotate2,2s linear .5s 1 forwards rotateop;";
+                loginCircle1.className = "u-login-rotate-ani";
+                loginCircle2.className = "u-login-rotate-ani2";
+                // loginContent.style.cssText="animation: skewPage .2s ease-in 2.2s 1 forwards;";
+                                    //好了 发现用transition比animation快乐一点，不需要定时器啥的了。。
+                                    //因为异步的问题，经常定时到了但动画还没结束
+                                    //接着由于定时器改变了类名从而改变了样式，导致直接跳转到动画结束状态。
+                                    // 所以改进了一下，让动画能完整显示了！
+                loginContent.className= loginContent.className + " active2";
+
+                setTimeout(function(){loginContent.addEventListener("click", backToZero);},2400);
+                setTimeout(function(){
+                loginCircle1.className = "u-login-rotate-ani disphidden";
+                loginCircle2.className = "u-login-rotate-ani2 disphidden";
+                loginContent.className= loginContent.className + " pointer";
+                // loginContent.className = 'm-login-content animationEnd pointer';
+                        //好了 发现用transition比animation快乐一点，不需要定时器啥的了。。
+                // loginContent.style.cssText="animation: ;";
+                },2400);
+                loginCheck.removeEventListener("click", clickRotate);
+            }
+            setTimeout(function(){flag = true;},3000);
+        }
+
+
+        function backToZero() {
+            if(flag2) {
+                // loginContent.style.cssText="animation: skewPage .2s ease-out .2s 1 reverse forwards;";
+                loginContent.className = 'm-login-content'; //好了 发现用transition比animation快乐一点，不需要定时器啥的了。。
+                setTimeout(function() {
+                    loginContent.className = 'm-login-content';
+                    loginContent.style.cssText="animation: ;";
+                },400);
+                flag2 = false;
+                loginCheck.addEventListener("click", clickRotate);
+                loginContent.removeEventListener("click", backToZero);
+                setTimeout(function() {
+                    flag2 = true;
+                },500);
+            }
+        }
+        inputLine.addEventListener("focus", inputFocus);
+        function inputFocus() {
+            if(inputLine == document.activeElement) {
+                blueBorder.className = 'border border1'; //用类来控制动画感觉好多了，不用麻烦的定时器了！
+                                    //而且还相当连贯，不会出现下一个动画出现而上一个动画没结束导致的动画停顿问题！
+                // blueBorder.style.cssText = "animation: inputBorder .2s ease 0s 1 forwards ;";
+                // setTimeout("blueBorder.style.cssText ='animation: ; opacity: 1;'", 200);
+            }
+        }
+        inputLine.addEventListener("blur", inputBlur);
+        function inputBlur() {
+            blueBorder.className = 'border';
+            // blueBorder.style.cssText = "animation: inputBorder .2s ease 0s 1 reverse forwards ;";
+            // setTimeout(function() {
+            //     blueBorder.style.cssText = "animation: ;";
+            // },200);
+        }
+        keyImg.addEventListener("click", keyDo); 
+        function keyDo() {
+            console.log(1);
+        }
+
+
+
+
+        // function clickRotate() {
+        //     if(flag){
+        //         flag = false;
+        //         loginCircle1.style.cssText="animation: 2s linear .2s 1 forwards rotate1,2s linear .5s 1 forwards rotateop;";
+        //         loginCircle2.style.cssText="animation: 2s linear .2s 1 forwards rotate2,2s linear .5s 1 forwards rotateop;";
+        //         loginContent.style.cssText="animation: skewPage .2s linear 2.2s 1 forwards;";//页面下缩
+        //         setTimeout("loginCircle1.style.cssText='animation: ;'",2700);//删除圆圈动画准备下一次
+        //         setTimeout("loginCircle2.style.cssText='animation: ;'",2700);//删除圆圈动画准备下一次
+        //         setTimeout(function() {
+        //         // loginContent.style.cssText='animation: ; opacity: 0.5;box-shadow: 0 0 20000px 20000px rgba(255,255,255,0.2) inset;';
+        //         loginContent.style.cssText='animation: ;'; //删除页面动画
+        //         loginContent.className = " m-login-content pointer animationEnd2"; //使页面可点击，并且保持动画结束时的效果
+                
+        //         },2800);
+        //         loginCheck.removeEventListener("click", clickRotate); //移除转圈的点击事件
+        //         setTimeout(function(){
+        //             flag = true; //节流阀打开
+        //             loginContent.addEventListener("click", backToZero); //添加页面的点击事件
+        //         }, 2800);
+        //     }
+        // }
+
+        // function backToZero () {
+        //     // loginContent.className = "m-login-content";
+        //     loginContent.style.cssText="";
+        //     loginContent.style.cssText="animation: skewPage 5.2s linear .2s 3 reserve forwards;";
+        //     setTimeout(function(){
+        //         loginContent.className = "m-login-content ";
+        //         // loginContent.style.cssText='animation: ';
+        //         // loginContent.style.cssText='animation: skewPage 0s linear 0s 1 reverse forwards;';
+        //             loginCheck.addEventListener("click", clickRotate);
+        //         }, 400);
+
+        // }
+    </script>
+</body>
+</html>

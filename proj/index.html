@@ -90,7 +90,7 @@
 <meta property="og:description" content="项目地址： 一点家具  移动端前台 PC 端后台管理  ​    一个完整的前后端分离项目，形成闭环。前台页面采用 uniapp，集成了 H5 端、微信小程序端、APP 端，兼容三端并基本实现了一致的页面展示。后端采用 Java。后台管理使用 Vue 完成，用于控制前台的展示效果，主要完成了修改商品订单及退单下单功能。  萤火虫电影  移动端项目  一个常规的移动端项目，使用了 baiduMap">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-04T12:02:24.000Z">
-<meta property="article:modified_time" content="2020-09-12T13:52:46.123Z">
+<meta property="article:modified_time" content="2020-09-13T08:19:42.806Z">
 <meta property="article:author" content="Dloux">
 <meta name="twitter:card" content="summary">
 
@@ -212,7 +212,7 @@
       
         
         <li class="menu-item menu-item-关于我">
-          <a href="/about/" rel="section">
+          <a href="/proj/cv/resume.html" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
             
@@ -321,8 +321,73 @@
 <p>⼀个驾校的 PC 端官⽹，主要⽤作展⽰视频图⽂宣传</p>
 <blockquote>
 <h3 id="Veronica-婚纱"><a href="#Veronica-婚纱" class="headerlink" title="Veronica 婚纱"></a>Veronica 婚纱</h3></blockquote>
-<p><a href="http://bufantec.com/site/hunsha-%E5%A9%9A%E7%BA%B1" target="_blank" rel="noopener">婚纱</a></p>
+<p><a href="http://bufantec.com/site/hunsha/index.html" target="_blank" rel="noopener">婚纱</a></p>
 <p>⼀个婚纱类的 PC 端官⽹。 </p>
+<hr>
+<h2 id="一些小东西"><a href="#一些小东西" class="headerlink" title="一些小东西"></a>一些小东西</h2><p>看到一些很有意思的东西就动手实现了一遍。</p>
+<blockquote>
+<h3 id="粒子消失效果"><a href="#粒子消失效果" class="headerlink" title="粒子消失效果"></a>粒子消失效果</h3></blockquote>
+<p><a href="https://dlouxgit.github.io/proj/private/lizi/lizi.html" target="_blank" rel="noopener">粒子</a></p>
+<p>点击按钮，按钮变成粒子消失。点击按钮右侧鼠标有 hover 效果的空白处，还原按钮。</p>
+<blockquote>
+<h3 id="2015-百度-IFE-学院-task03"><a href="#2015-百度-IFE-学院-task03" class="headerlink" title="2015 百度 IFE 学院 task03"></a>2015 百度 IFE 学院 task03</h3></blockquote>
+<p><a href="https://dlouxgit.github.io/proj/private/ife/task3/index.html" target="_blank" rel="noopener">task03</a></p>
+<p>这是百度 IFE 学院 2015 年的题目，当时还不知道有这个组织，后来开始学习了之后才知道这个学院，可惜错过了。因为百度可能经营不利，已经取消了这个项目，个人表示非常遗憾。它非常磨练 JS 基础，我也仅仅只是刷完了春季的内容，非常推荐把里面的题目都做一遍！</p>
+<p>本题目：参考设计稿实现一个简单的个人任务管理系统</p>
+<p>任务需求描述：</p>
+<ul>
+<li><p>最左侧为任务分类列表，支持查看所有任务或者查看某个分类下的所有任务</p>
+<ul>
+<li>初始时有一个<code>默认分类</code>，进入页面时默认选中<code>默认分类</code>。</li>
+<li>分类支持多层级别。</li>
+<li>分类支持<strong>增加</strong>分类、<strong>删除</strong>分类两个操作<ul>
+<li>在左侧分类最下方有添加操作，点击后弹出浮层让输入新分类的名称，新分类将会被添加到当前选中的分类下。浮层可以为自行设计实现，也可以直接使用<code>prompt</code>。</li>
+<li>当鼠标<code>hover</code>过某一个分类时，右侧会出现<strong>删除按钮</strong>，点击后，弹出确认是否删除的浮层，确认后删除掉该分类。弹出的确认浮层可以自行设计实现，也可以直接使用<code>confirm</code>。</li>
+<li>不能为<code>默认分类</code>添加子分类，也不能删除<code>默认分类</code>。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>每一个分类名字后显示一个当前分类下的未完成任务总数量。</li>
+</ul>
+</li>
+<li><p>中间列为任务列表，用于显示当前选中分类下的所有未完成任务</p>
+<ul>
+<li>任务列表按日期（升序或者降序，自行设定）进行聚类</li>
+<li>用不同的字体颜色或者图标来标示任务的状态，任务状态有两张：<code>已完成</code>或<code>未完成</code>。</li>
+<li>下方显示<code>新增任务</code>的按钮，点击后，右侧列会变成新增任务编辑界面。</li>
+<li>单击某个任务后，会在右侧显示该任务的详细信息。</li>
+<li>在任务列表的上方有任务筛选项，可以选择在任务列表中显示所有任务，或者只显示<code>已完成</code>或者<code>未完成</code>的任务。</li>
+</ul>
+</li>
+<li><p>右侧为任务详细描述部分</p>
+<ul>
+<li>第一行显示任务标题，对于未完成的任务，在标题行的右侧会有<code>完成任务</code>的操作按钮及<code>编辑任务</code>的按钮。</li>
+<li>点击<code>完成任务</code>按钮时，弹出确认是否确认完成的浮层，确认后该任务完成，更新中间列任务的状态。弹出的确认浮层可以自行设计实现，也可以直接使用<code>confirm</code>。</li>
+<li>点击<code>编辑任务</code>操作后，右侧变更为编辑窗口。</li>
+</ul>
+</li>
+<li><p>新增及编辑任务窗口描述</p>
+<ul>
+<li>有3个输入框：分别是标题输入框，完成日期输入框及内容输入框</li>
+<li>标题输入框：输入标题，为单行，需要自行设定一个标题输入限制的规则（如字数），并给出良好提示。</li>
+<li>日期输入框：单行输入框，按照要求格式输入日期，如yyyy-mm-dd</li>
+<li>内容输入框：多行输入框，自行设定一个内容输入的限制（如字数），并给出良好提示。</li>
+<li>确认按钮：确认新增或修改。</li>
+<li>取消按钮：取消新增或修改。</li>
+</ul>
+</li>
+</ul>
+<p>任务实现要求：</p>
+<ul>
+<li>整个界面的高度和宽度始终保持和浏览器窗口大小一致。当窗口变化高宽时，界面中的内容自适应变化。</li>
+<li>左侧列表和中间列表保持一个固定宽度（自行设定），右侧自适应。</li>
+<li>需要自行设定一个最小宽度和最小高度，当浏览器窗口小于最小值时，界面内容的高度和宽度不再跟随变化，允许浏览器出现滚动条。</li>
+<li>通过本地存储来作为任务数据的保存方式。</li>
+<li>不使用任何类库及框架。</li>
+<li>尽可能符合<a href="https://github.com/ecomfe/spec" target="_blank" rel="noopener">代码规范</a>的要求。</li>
+<li>浏览器兼容性要求：Chrome、IE8+。</li>
+</ul>
 
         
       </div>
@@ -548,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目地址："><span class="nav-number">1.</span> <span class="nav-text">项目地址：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一点家具"><span class="nav-number">1.1.</span> <span class="nav-text">一点家具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#萤火虫电影"><span class="nav-number">1.2.</span> <span class="nav-text">萤火虫电影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利安驾校官⽹"><span class="nav-number">1.3.</span> <span class="nav-text">利安驾校官⽹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Veronica-婚纱"><span class="nav-number">1.4.</span> <span class="nav-text">Veronica 婚纱</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目地址："><span class="nav-number">1.</span> <span class="nav-text">项目地址：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一点家具"><span class="nav-number">1.1.</span> <span class="nav-text">一点家具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#萤火虫电影"><span class="nav-number">1.2.</span> <span class="nav-text">萤火虫电影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利安驾校官⽹"><span class="nav-number">1.3.</span> <span class="nav-text">利安驾校官⽹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Veronica-婚纱"><span class="nav-number">1.4.</span> <span class="nav-text">Veronica 婚纱</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些小东西"><span class="nav-number">2.</span> <span class="nav-text">一些小东西</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#粒子消失效果"><span class="nav-number">2.1.</span> <span class="nav-text">粒子消失效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2015-百度-IFE-学院-task03"><span class="nav-number">2.2.</span> <span class="nav-text">2015 百度 IFE 学院 task03</span></a></li></ol></li></ol></div>
             
 
           </div>
