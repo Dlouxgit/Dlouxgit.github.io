@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+     * 响应式处理
+     */
+    function defineReactive(target, key, value, enumerable) {
+      if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+        // 非数组的引用类型，递归
+        reactify(value)
+      }
+      Object.defineProperty(target, key, {
+        configurable: true,
+        enumerable: !!enumerable,
+        get() {
+          console.log(`读取 ${key} 属性`)
+          return value
+        },
+        set(newVal) {
+          console.log(`设置 ${key} 为 ${newVal}`)
+          if (typeof newVal === 'object' && newVal !== null) {
+            // 如果传入的值是引用类型，把它变为响应式
+            reactify(newVal)
+          }
+          value = newVal
+        }
+      })
+    }
+    function reactify(o) {
+      let keys = Object.keys(o)
+      for (let i = 0; i < keys.length; i++) {
+        let key = keys[i]
+        let value = o[key]
+        if (Array.isArray(value)) {
+          // 数组
+          value.__proto__ = array_methods
+          for (let j = 0; j < value.length; j++) {
+            if (typeof value[j] !== 'object') {
+              // 对数组中的基本类型值做响应式
+              // defineReactive(value, j, value[j], true)
+            } else if(Array.isArray(value[j])) {
+              // Vue 中并没有做这一步。那我就注释掉了
+              // 对数组中的值做响应式
+              // reactify(value[j])
+              // 对数组本身做响应式，这个应该放在 reactify() 之后，如果放在它之前，将会触发一次 getter
+              // defineReactive(value, j, value[j], true)
+            } else{
+              reactify(value[j])
+            }
+          }
+          // debugger
+          defineReactive(o, key, value, true)
+        } else {
+          // 对象 或 非引用值
+          defineReactive(o, key, value, true)
+        }
+      }
+    }
+    /**
+     * 拦截方法
+     */
+    let ARRAY_METHODS = [
+      'push',
+      'pop',
+      'unshift',
+      'shift',
+      'reverse',
+      'splice',
+      'sort'
+    ]
+    let arr = []
+    let array_methods = Object.create(Array.prototype)
+    ARRAY_METHODS.forEach(method => {
+      array_methods[method] = function () {
+        for (let i = 0; i < arguments.length; i++) {
+          reactify(arguments[i])
+        }
+        // 需要修改回原本的上下文，因此需要 apply
+        Array.prototype[method].apply(this, arguments)
+      }
+    })
+    arr.__proto__ = array_methods
+
+    let obj = {
+      a: 1,
+      b: 2,
+      c: [
+        { d: 1 },
+        'e',
+        [1,2],
+        1,
+        2
+      ]
+    }
+    reactify(obj)
+  </script>
+</body>
+</html>
