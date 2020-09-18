@@ -6,33 +6,175 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="root">
+    {{name}}--{{msg}}--{{class.name}}--
+  </div>
   <script>
+    class VNode {
+      constructor(tag, data, value, type) {
+        this.tag = tag && tag.toLowerCase()
+        this.data = data
+        this.value = value
+        this.type = type
+        this.children = []
+      }
+      appendChild(vnode) {
+        this.children.push(vnode)
+      }
+    }
+
+    function getVNode(node) {
+      const type = node.nodeType
+      let _vnode = null
+      if (type === 1) { // 元素节点
+        let nodeName = node.nodeName
+        let attrs = node.attributes
+        let attrsObj = {}
+        for (let i = 0; i < attrs.length; i++) { // 属性节点 === 2，有 nodeName 和 nodeValue 属性
+          attrsObj[attrs[i].nodeName] = attrs[i].nodeValue
+        }
+        _vnode = new VNode(nodeName, attrsObj, undefined, type)
+        console.log(_vnode)
+        let childNodes = node.childNodes
+        for (let i = 0; i < childNodes.length; i++) {
+          _vnode.appendChild(getVNode(childNodes[i]))
+        }
+      } else if (type === 3) {
+        let value = node.nodeValue
+        _vnode = new VNode(undefined, undefined, value, type)
+      }
+      return _vnode
+    }
+
+    const mustacheRE = /\{\{(.+?)\}\}/g
+
+    function getValueByPath(obj, path) {
+      let paths = path.split('.')
+      let res = obj
+      let prop = null
+      while (prop = paths.shift()) {
+        res = res[prop]
+      }
+      
+      return res
+    }
+    function parseVNode(vnode) {
+      let type = vnode.type
+      let _node = null
+      if (type === 3) {
+        return document.createTextNode(vnode.value)
+      } else if (type === 1) {
+        _node = document.createElement(vnode.tag)
+        let data = vnode.data
+        Object.keys(data).forEach(key => {
+          let attrName = key
+          let attrValue = data[key]
+          _node.setAttribute(attrName, attrValue)
+        })
+        let children = vnode.children
+        children.forEach(subNode => {
+          _node.appendChild(parseVNode(subNode))
+        })
+      }
+      return _node
+    }
+
+    // 从带坑的 vnode 转变成与 data 结合后的 vnode
+    function compine(vnode, data) {
+      let _tag = vnode.tag
+      let _data = vnode.data
+      let _value = vnode.value
+      let _type = vnode.type
+      let _children = vnode.children
+      let _vnode = null
+
+      if (_type === 3) {
+        
+        _value = _value.replace(mustacheRE, function(_, g) {
+          const path = g.trim()
+          return getValueByPath(data, path)
+        })
+        _vnode = new VNode(_tag, _data, _value, _type)
+      } else if (_type === 1) {
+        _vnode = new VNode(_tag, _data, _value, _type)
+        // 由于此时已经是 VNode 了，就不需要再调用 getVNode 了，直接递归当前函数来处理 子VNode
+        _children.forEach(_subVNode => _vnode.appendChild(compine(_subVNode, data)))
+      }
+      
+      return _vnode
+    }
+
+    function FVue(options) {
+      this._data = options.data
+      this._el = options.el
+      this.$el = this._template = document.querySelector(this._el)
+      this._parent = this._template.parentNode
+
+      // 处理数据，使其响应式，并 proxy 到实例上
+      this.initData()
+      this.mount()
+    }
+    FVue.prototype.mount = function () {
+      // 需要个一个 render 方法生成虚拟 DOM
+      this.render = this.createRenderFn()
+      this.mountComponent()
+    }
+    FVue.prototype.mountComponent = function () {
+      let mount = function () {
+        this.update(this.render())
+      }
+      mount.call(this)
+    }
+    FVue.prototype.createRenderFn = function () {
+      let ast = getVNode(this._template)
+      // AST + data => VNode
+      return function render() {
+        let _tmp = compine(ast, this._data)
+        return _tmp
+      }
+    }
+    FVue.prototype.update = function (vnode) {
+      this._parent.replaceChild(parseVNode(vnode), document.querySelector(this._el))
+    }
+
+
     /**
      * 响应式处理
      */
-    function defineReactive(target, key, value, enumerable) {
+     function defineReactive(target, key, value, enumerable) {
       if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
         // 非数组的引用类型，递归
+        // debugger
+        // 需要传入 FVue 实例才能完成引用类型的属性值为基础类型的数据的重新渲染
+        // 但这样基本类型的数据是无法重绘的，也就是下面 class.name 的值如果换成别的基本类型，页面是无法变化的
         reactify(value)
       }
+      const _this = this
+      console.log(this)
+      
       Object.defineProperty(target, key, {
         configurable: true,
         enumerable: !!enumerable,
         get() {
+          // 把模板与数据结合时，会将用到的属性都读取一次。
           console.log(`读取 ${key} 属性`)
           return value
         },
         set(newVal) {
           console.log(`设置 ${key} 为 ${newVal}`)
+          
           if (typeof newVal === 'object' && newVal !== null) {
             // 如果传入的值是引用类型，把它变为响应式
             reactify(newVal)
           }
           value = newVal
+          // 此时页面如果有数据更新，则把整个页面全部更新。这是非常消耗性能的做法，但现在无法解耦，需要 Dep Observer Watcher 才能解耦
+          // 当传入非引用值时，this 指向全局了，勉强处理一下不让它报错。但这样对象中的基本类型的数据是无法重绘的，也就是下面 class.name 的值如果换成别的基本类型，是无法变化的,只能等到其他数据改变的时候，触发下面这个全页重新渲染的方法才会让页面中与那个属性绑定的位置发生变化
+          typeof _this.mountComponent === 'function' && _this.mountComponent()
         }
       })
     }
-    function reactify(o) {
+    function reactify(o, vm) {
       let keys = Object.keys(o)
       for (let i = 0; i < keys.length; i++) {
         let key = keys[i]
@@ -43,22 +185,25 @@
           for (let j = 0; j < value.length; j++) {
             if (typeof value[j] !== 'object') {
               // 对数组中的基本类型值做响应式
+              // Vue 中并没有做这一步。那我就注释掉了
               // defineReactive(value, j, value[j], true)
             } else if(Array.isArray(value[j])) {
-              // Vue 中并没有做这一步。那我就注释掉了
+              // 对数组也不做处理，我注释掉了。
               // 对数组中的值做响应式
               // reactify(value[j])
               // 对数组本身做响应式，这个应该放在 reactify() 之后，如果放在它之前，将会触发一次 getter
               // defineReactive(value, j, value[j], true)
             } else{
-              reactify(value[j])
+              reactify(value[j], vm)
             }
           }
+          // 对数组本身响应式化
           // debugger
-          defineReactive(o, key, value, true)
+          defineReactive.call(vm, o, key, value, true)
         } else {
           // 对象 或 非引用值
-          defineReactive(o, key, value, true)
+          
+          defineReactive.call(vm, o, key, value, true)
         }
       }
     }
@@ -79,6 +224,7 @@
     ARRAY_METHODS.forEach(method => {
       array_methods[method] = function () {
         for (let i = 0; i < arguments.length; i++) {
+          
           reactify(arguments[i])
         }
         // 需要修改回原本的上下文，因此需要 apply
@@ -87,18 +233,37 @@
     })
     arr.__proto__ = array_methods
 
-    let obj = {
-      a: 1,
-      b: 2,
-      c: [
-        { d: 1 },
-        'e',
-        [1,2],
-        1,
-        2
-      ]
+    FVue.prototype.initData = function () {
+      reactify(this._data, this)
+      const keys = Object.keys(this._data)
+      for (let i = 0; i < keys.length; i++) {
+        proxy(this, '_data', keys[i])
+      }
     }
-    reactify(obj)
+    function proxy(target, propName, key) {
+      Object.defineProperty(target, key, {
+        enumerable: true,
+        configurable: true,
+        get() {
+          return target[propName][key]
+        },
+        set(newVal) {
+          target[propName][key] = newVal
+        }
+      })
+    }
+
+    let vm = new FVue({
+      el: '#root',
+      data: {
+        name: 'zhangsan',
+        msg: 'A new Vue',
+        class: {
+          name: 'ClassName'
+        },
+        d: [123,55,[11,23],{a: [123], b: {a:1},c: 1}]
+      }
+    })
   </script>
 </body>
 </html>
