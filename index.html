@@ -296,6 +296,144 @@
   
   
   <div class="post-date">
+			<div class="post-month">11月</div>
+			<div class="post-day">08</div>
+	</div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/11/08/2020-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/11/08/2020-1/" itemprop="url">2020.1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-08T23:12:30+08:00">
+                2020-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="10月份遇到的问题"><a href="#10月份遇到的问题" class="headerlink" title="10月份遇到的问题"></a>10月份遇到的问题</h2><ol>
+<li>用 wx 的 jssdk 时，wx.ready() 用 Promise 返回出去，不然调用获取地理位置的方法(getLocation)的时候可能会获取不到。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ready</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(resolve, reject) &#123;</span><br><span class="line">        wx.ready(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            resolve()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>select 选择框记得 options 的值绑定为字符串类型，不然默认的表单验证类型为字符串，到时候如果绑定的值为数字，将会视为内容不存在，导致校验不通过。</p>
+</li>
+<li><p>uniapp 转微信小程序 toJSON 方法报错，那就去那个 .vue 文件内的 methods 里定义一个 toJSON 的空白方法，但这个方法会影响到微信原生的其他组件的效果，如底部导航，因为这相当于你定义了一个 toJSON 覆盖了微信原生的 toJSON 方法。</p>
+</li>
+</ol>
+
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/11/08/2020-1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
 			<div class="post-month">09月</div>
 			<div class="post-day">05</div>
 	</div>
@@ -1459,138 +1597,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date">
-			<div class="post-month">06月</div>
-			<div class="post-day">16</div>
-	</div>
-  
-
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/06/16/RegExp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/dloux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/06/16/RegExp/" itemprop="url">RegExp</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-16T10:48:52+08:00">
-                2020-06-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/06/16/RegExp/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1705,7 +1716,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
