@@ -39,6 +39,8 @@
             position: relative;
             top: 400px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
         .res::after {
@@ -46,12 +48,41 @@
             display: inline;
             line-height: 150px;
         }
+        
+        .mealName {
+            height: 150px;
+            line-height: 150px;
+            transition: .3s;
+        }
+        
+        .mealWrap {
+            height: 150px;
+            line-height: 150px;
+            transition: .3s;
+            position: absolute;
+            width: 100%;
+        }
     </style>
 </head>
 
 <body>
     <button>吃饭了!!</button>
     <div class="res"></div>
+    <div class="res">
+        <div class="mealWrap">
+            <div class="mealName">螺狮粉</div>
+            <div class="mealName">炸鸡</div>
+            <div class="mealName">冒菜</div>
+            <div class="mealName">麻辣烫</div>
+            <div class="mealName">麻辣香锅</div>
+            <div class="mealName">炒饭</div>
+            <div class="mealName">面</div>
+            <div class="mealName">寿司</div>
+            <div class="mealName">三明治</div>
+            <div class="mealName">披萨</div>
+            <div class="mealName">螺狮粉</div>
+        </div>
+    </div>
     <script>
         const btn = document.querySelector('button')
         const wmName = document.querySelector('.res')
@@ -65,7 +96,9 @@
             '炒饭',
             '面',
             '寿司',
-            '三明治'
+            '三明治',
+            '螺狮粉',
+            '披萨'
         ]
         btn.addEventListener('click', function() {
             let len = wmList.length
@@ -79,6 +112,34 @@
                 }, 1 / i / i * 1030000)
             }
         })
+
+        const mealWrap = document.querySelector('.mealWrap')
+        let i = 0
+        setInterval(() => {
+            mealWrap.style.top = -150 * i + 'px'
+
+            i++
+            if (i === wmList.length) {
+                setTimeout(() => {
+                    mealWrap.style.transition = '0s'
+
+                }, 200);
+                i = 0
+                setTimeout(() => {
+                    mealWrap.style.transition = '0.3s'
+                }, 1200);
+            }
+
+
+            // if (i === wmList.length + 1) {
+            //     i = 0
+            //     console.log('length')
+            //     mealWrap.style.transition = '0s'
+            //     setTimeout(() => {
+            //         mealWrap.style.transition = '0.3s'
+            //     }, 1200);
+            // }
+        }, 1000)
 
         function wmRandom(len) {
             return wmList[Math.floor(Math.random() * len)]
