@@ -385,7 +385,8 @@
           
             <h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><p>把 blog 搬迁到新电脑上时，需要经过以下步骤</p>
 <ol>
-<li>设置全局 git 的账号和邮箱</li>
+<li>设置全局 git 的账号和邮箱，并生成 ssh key</li>
+<li>到 github 设置新电脑的 ssh key</li>
 <li>把 etc 下的 host 添加为 github 地址 <code>140.82.112.4       github.com</code> ，定向解析</li>
 <li>打开 cmd 输入 <code>ipconfig /flushdns</code>，清理 DNS 缓存</li>
 <li><code>hexo g -d</code></li>
