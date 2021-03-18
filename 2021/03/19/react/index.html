@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/social-share.js/1.0.9/css/share.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.0.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=0.0.4">
+
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=0.0.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="react," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="React 基础 设置组件状态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react">
+<meta property="og:url" content="https://dloux.gitee.io/2021/03/19/react/index.html">
+<meta property="og:site_name" content="Dloux">
+<meta property="og:description" content="React 基础 设置组件状态">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-18T16:17:24.000Z">
+<meta property="article:modified_time" content="2021-03-18T16:29:06.907Z">
+<meta property="article:author" content="Dloux">
+<meta property="article:tag" content="react">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '0.0.4',
+    sidebar: {"position":"right","display":"always","offset":52,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    since: '6/2/2020 11:30:00',
+    onlineAPI: '',
+    site: {
+      title: 'Dloux',
+      subtitle: '',
+      author: 'Dloux'
+    },
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    leancloud: {
+      enable: false,
+      appID: '',
+      appKey: ''
+    },
+    favicon: {
+      visibilitychange: true,
+      narmal: '',
+      hidden: '/images/failure.ico',
+      show_text: '(/≧▽≦/)咦！又好了！',
+      hide_text: '(●—●)喔哟，崩溃啦！'
+    }
+  };
+</script>
+
+
+
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="canonical" href="https://dloux.gitee.io/2021/03/19/react/"/>
+
+
+
+
+
+  <title>react | Dloux</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-实验室">
+          <a href="/proj" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-magic"></i> <br />
+            
+            实验室
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于我">
+          <a href="/proj/cv/resume.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-吃个饭">
+          <a href="/proj/meal/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            吃个饭
+          </a>
+        </li>
+      
+
+      
+      <li class="menu-item search">
+          <form class="search-form">
+            <input name="keyword" type="text" class="search-input" placeholder="站内搜索">
+            <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
+          </form>
+      </li>
+      <li class="menu-item online"><span id="online-count">?</span>人在线</li>
+    </ul>
+  
+
+  
+</nav>
+
+<div class="site-brand-wrapper" style="background-image: url(/images/header-cat.jpg)">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <div class="brand">
+        <span class="logo-line-before"><i></i></span>
+        <div class="site-title">
+          <div id="animate" class="animate">
+            <span>D</span><span>l</span><span>o</span><span>u</span><span>x</span>
+          </div>
+          <div id="guide" class="guide">
+            <span>D</span><span>l</span><span>o</span><span>u</span><span>x</span>
+          </div>
+        </div>
+        <span class="logo-line-after"><i></i></span>
+      </div>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+<div class="site-master" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-master-avatar" itemprop="image" src="/images/dloux.jpg" alt="Dloux" />
+    <h2 class="site-master-description" itemprop="description">
+        catch fish with the hands
+    </h2>
+</div>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
+			<div class="post-month">03月</div>
+			<div class="post-day">19</div>
+	</div>
+  
+  <div class="post-badge">
+    
+      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+          <span itemprop="name">技术</span>
+        </a>
+      </span>
+    
+  </div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/03/19/react/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">react</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-19T00:17:24+08:00">
+                2021-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">•</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="React-基础"><a href="#React-基础" class="headerlink" title="React 基础"></a>React 基础</h2><ol>
+<li><p>设置组件状态<a id="more"></a></p>
+<p>通过 <code>import React, { useState } from &#39;react&#39;;</code> 来使用 useState</p>
+<p>如 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [opt, setOpt] = useState(&#123;</span><br><span class="line">    page: <span class="number">1</span>,</span><br><span class="line">    limit: <span class="number">10</span>,</span><br><span class="line">    kwd: <span class="string">''</span></span><br><span class="line">  &#125;)</span><br><span class="line"><span class="comment">// useState 返回一个数组，第一个为传入的值，第二个为修改第一个值的方法(dispatch)，一般通过结构赋值来获得该状态和修改状态的方法。</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line">setOpt(&#123;</span><br><span class="line">  ...opt,</span><br><span class="line">  page: <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 也可以接受一个函数。</span></span><br><span class="line">setOpt(<span class="function">(<span class="params">oldOpt</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(oldOpt)</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    ...opt,</span><br><span class="line">    page: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>路由</p>
+<p>通过 <code>import { history } from &#39;umi&#39;;</code>  使用 history </p>
+<p>如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">history.push(&#123;</span><br><span class="line">  pathname: <span class="string">'/ratings/template-list'</span>,</span><br><span class="line">  query: &#123; <span class="attr">id</span>: row.key &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接受</span></span><br><span class="line"><span class="keyword">this</span>.props.location.query.name</span><br><span class="line"><span class="comment">// 参考 https://www.cnblogs.com/houjl/p/10056718.html</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>监听属性改变时触发副作用</p>
+<p>通过 <code>import { useEffect } from &#39;react&#39;;</code> 来使用 useEffect</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第二个参数传空数组 相当于 Vue 中的 Created</span></span><br><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'第一次render之后执行!'</span>)</span><br><span class="line">  &#125;, [])</span><br><span class="line"><span class="comment">// 不传第二个参数 每次 render 都会执行</span></span><br><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'每次 render 之后执行!'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="comment">// 第二个参数为不为空数组时，当 n 发生变化就执行，相当于 Vue Watch 了</span></span><br><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'每次render之后执行!'</span>)</span><br><span class="line">  &#125;, [n])</span><br><span class="line"><span class="comment">// </span></span><br><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    	<span class="built_in">console</span>.log(<span class="string">'组件被 componentWillUnmount 之前执行!'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, [])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>React 中的 ref</p>
+<p>通过 <code>import { useRef } from &#39;react&#39;;</code> 来使用 useRef，它也可以被使用为函数式组件中的 this, 因为函数式组件没有 this 来存放东西</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 有些情况下，我们需要保证函数组件每次 render 之后，某些变量不会被重复申明，比如说 Dom 节点，定时器的 id 等等，在类组件中，我们完全可以通过给类添加一个自定义属性来保留，比如说 this.xxx， 但是函数组件没有 this，自然无法通过这种方法使用，有的朋友说，我可以用 useState 来保留变量的值，但是 useState 会触发组件 render，在这里完全是不需要的，我们就需要使用 useRef 来实现了，具体看下面例子</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [ count, setCount ] = useState(<span class="number">0</span>)</span><br><span class="line">  <span class="keyword">const</span> timer = useRef(<span class="literal">null</span>)</span><br><span class="line">  <span class="keyword">let</span> timer2 </span><br><span class="line">  </span><br><span class="line">  useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> id = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      setCount(<span class="function"><span class="params">count</span> =&gt;</span> count + <span class="number">1</span>)</span><br><span class="line">    &#125;, <span class="number">500</span>)</span><br><span class="line"></span><br><span class="line">    timer.current = id</span><br><span class="line">    timer2 = id</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      clearInterval(timer.current)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, [])</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> onClickRef = useCallback(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    clearInterval(timer.current)</span><br><span class="line">  &#125;, [])</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> onClick = useCallback(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    clearInterval(timer2)</span><br><span class="line">  &#125;, [])</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      点击次数: &#123; count &#125;</span><br><span class="line">      &lt;button onClick=&#123;onClick&#125;&gt;普通&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">      &lt;button onClick=&#123;onClickRef&#125;&gt;useRef&lt;/</span>button&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 当我们们使用普通的按钮去暂停定时器时发现定时器无法清除，因为 App 组件每次 render，都会重新申明一次 timer2, 定时器的 id 在第二次 render 时，就丢失了，所以无法清除定时器，针对这种情况，就需要使用到 useRef，来为我们保留定时器 id，类似于 this.xxx，这就是 useRef 的另外一种用法。</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ Ref.current 相当于 Vue 里初始化时 data() return 的对象了！！ 非常关键</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>umi.request 中，GET 请求带数组时</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参考 https://github.com/umijs/umi-request/blob/master/README_zh-CN.md</span></span><br><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">'@/utils/request'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getListData</span>(<span class="params">params</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> request(<span class="string">'/api/listdata'</span>, &#123;</span><br><span class="line">    params,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如果传入的 params 为 &#123; array: [0, 1] &#125; ，期望请求格式为 array[0]=0&amp;array[1]=1， umi.request 会转换成 array=0&amp;array=1 导致后端无法接收数据，因为它默认的序列化方式是 Qs.stringify(params, &#123; arrayFormat: 'repeat', strictNullHandling: true &#125;)</span></span><br><span class="line"><span class="comment">// 可以使用 paramsSerializer 对 params 做自定义的序列化。 一般引入 qs 使用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Qs <span class="keyword">from</span> <span class="string">"qs"</span>;</span><br><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">'@/utils/request'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getListData</span>(<span class="params">params</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> request(<span class="string">'/api/listdata'</span>, &#123;</span><br><span class="line">    paramsSerializer: <span class="function">(<span class="params">params</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> Qs.stringify(params)</span><br><span class="line">    &#125;,</span><br><span class="line">    params,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><em>ProFormCaptcha</em> 组件中，低版本 pro-form 会出现 bug</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原版</span></span><br><span class="line">&lt;ProFormCaptcha</span><br><span class="line">  fieldProps=&#123;&#123;</span><br><span class="line">    size: <span class="string">'large'</span>,</span><br><span class="line">    prefix: <span class="xml"><span class="tag">&lt;<span class="name">MailTwoTone</span> <span class="attr">className</span>=<span class="string">&#123;styles.prefixIcon&#125;</span> /&gt;</span></span>,</span><br><span class="line">  &#125;&#125;</span><br><span class="line">  captchaProps=&#123;&#123;</span><br><span class="line">    size: <span class="string">'large'</span>,</span><br><span class="line">  &#125;&#125;</span><br><span class="line">  placeholder=&#123;intl.formatMessage(&#123;</span><br><span class="line">    id: <span class="string">'pages.login.captcha.placeholder'</span>,</span><br><span class="line">    defaultMessage: <span class="string">'请输入验证码'</span>,</span><br><span class="line">  &#125;)&#125;</span><br><span class="line">  captchaTextRender=&#123;(timing, count) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (timing) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;count&#125;</span> <span class="subst">$&#123;intl.formatMessage(&#123;</span></span></span><br><span class="line"><span class="string"><span class="subst">        id: <span class="string">'pages.getCaptchaSecondText'</span>,</span></span></span><br><span class="line"><span class="string"><span class="subst">        defaultMessage: <span class="string">'获取验证码'</span>,</span></span></span><br><span class="line"><span class="string"><span class="subst">      &#125;</span>)&#125;`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> intl.formatMessage(&#123;</span><br><span class="line">      id: <span class="string">'pages.login.phoneLogin.getVerificationCode'</span>,</span><br><span class="line">      defaultMessage: <span class="string">'获取验证码'</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;&#125;</span><br><span class="line">  name=<span class="string">"captcha"</span></span><br><span class="line">  <span class="comment">// phoneName="mobile"  加入这一行即可验证手机号。</span></span><br><span class="line">  rules=&#123;[</span><br><span class="line">    &#123;</span><br><span class="line">      required: <span class="literal">true</span>,</span><br><span class="line">      message: (</span><br><span class="line">        &lt;FormattedMessage</span><br><span class="line">          id=<span class="string">"pages.login.captcha.required"</span></span><br><span class="line">          defaultMessage=<span class="string">"请输入验证码！"</span></span><br><span class="line">        /&gt;</span><br><span class="line">      ),</span><br><span class="line">    &#125;,</span><br><span class="line">  ]&#125;</span><br><span class="line">  onGetCaptcha=&#123;<span class="keyword">async</span> (mobile) =&gt; &#123;</span><br><span class="line">    form.validateFields([<span class="string">'mobile'</span>])</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">      &#125;)</span><br><span class="line">    <span class="comment">// if (!form.getFieldValue('mobile')) &#123;</span></span><br><span class="line">    <span class="comment">//   message.error('请先输入手机号');</span></span><br><span class="line">    <span class="comment">//   return;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">await</span> getFakeCaptcha(mobile);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result === <span class="literal">false</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    message.success(<span class="string">'获取验证码成功！验证码为：1234'</span>);</span><br><span class="line">  &#125;&#125;</span><br><span class="line">/&gt;</span><br><span class="line"><span class="comment">// 点击获取验证码按钮时，会出现要求验证码非空而不是手机号非空 解决方法： 升级 pro-form 至 1.11版本以上</span></span><br><span class="line"><span class="comment">// 升级后点击按钮不再触发 验证码的验证。而是直接通过，看了源码之后了解到，需要配置 phoneName="mobile"，将会在获取验证码之前验证 'mobile' 表单字段。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数组件传值</p>
+<p>函数组件接受一个对象，挂载着传入进来的值</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cmp</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Cmp</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; value &#125; = props</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">    	&lt;div&gt;</span><br><span class="line">            &#123;value&#125; <span class="comment">/* 将显示 9527 */</span></span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ Father</span></span><br><span class="line"><span class="regexp">export default function Father() &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">    	&lt;Cmp value=&#123;9527&#125; /</span>&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><em>Authorized</em> 鉴权</p>
+<ol>
+<li><p>直接去看 utils 下的 Authorized.js, 发现它引入了相同目录下的 authority.js 文件来获取权限，同时引入了 <code>@/components/Authorized</code> 组件，authority.js 作用是获取当前 localStorage 里的角色名称。之后把这个角色名称传入 <code>@/components/Authorized</code> 这个组件中。 </p>
+</li>
+<li><p>来到 <code>@/components/Authorized/index.jsx</code> 之后发现它引入了同级目录下的 renderAuthorize.js 和 Authorized.jsx，Authorized 是一个组件，接收 children, authority, noMatch 三个参数，里面通过引入同级目录下的 checkPermissions 来得到需要渲染的 dom，调用方式为 check(<em>authority</em>, childrenRender, <em>noMatch</em>)，参数一为通过渲染所需的权限（即在 router 中定义的组件的 authority 角色权限数组），参数二为权限通过时渲染的组件，参数三为权限不通过时渲染的组件。调用 check 时，会调用 checkPermissions(<em>authority</em>, CURRENT, <em>target</em>, <em>Exception</em>)，中间多了一个 CURRENT 参数，这个参数就是从当前 localStorage 中读取的角色权限，之后会判断是否在 authority 中，如果存在，返回 target，即正确路由，否则返回未通过组件，一般为 403.</p>
+</li>
+<li><p>renderAuthorize 是一个方法，接受一个组件，返回一个方法，返回的方法接受角色名称，最后把之前的组件返回，同时对外暴露当前的角色名称 CURRENT。</p>
+</li>
+</ol>
+</li>
+<li><p>页面路由守卫</p>
+<p>antd pro 中使用 umi.js，查看 <a href="https://umijs.org/zh-CN/docs/routing#redirect，通过在" target="_blank" rel="noopener">https://umijs.org/zh-CN/docs/routing#redirect，通过在</a> route 中增加 wrappers 属性来完成前置路由守卫</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// route</span></span><br><span class="line">&#123;</span><br><span class="line">    name: <span class="string">'task-list'</span>,</span><br><span class="line">    path: <span class="string">'/ratings/task-list'</span>,</span><br><span class="line">    wrappers: [</span><br><span class="line">      <span class="string">'./wrappers/auth'</span>,</span><br><span class="line">    ],</span><br><span class="line">    component: <span class="string">'./ratings/task-list'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// wrappers</span></span><br><span class="line"><span class="keyword">import</span> &#123; Redirect &#125; <span class="keyword">from</span> <span class="string">'umi'</span></span><br><span class="line"><span class="keyword">import</span> &#123; Result &#125; <span class="keyword">from</span> <span class="string">'antd'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; getAuthority &#125; <span class="keyword">from</span> <span class="string">'@/utils/authority'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (props) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> authorityList = props.route.authority  <span class="comment">// 获取页面权限，如果该路由设置了 authority 就能获取到。</span></span><br><span class="line">  <span class="keyword">const</span> CURRENT = getAuthority() &amp;&amp; getAuthority()[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (CURRENT &amp;&amp; <span class="built_in">Array</span>.isArray(authorityList) &amp;&amp;  authorityList.some(<span class="function"><span class="params">authority</span> =&gt;</span> CURRENT === authority)) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &#123; props.children &#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  return &lt;Result</span></span><br><span class="line"><span class="regexp">  status="403"</span></span><br><span class="line"><span class="regexp">  title="403"</span></span><br><span class="line"><span class="regexp">  subTitle="Sorry, you are not authorized to access this page."</span></span><br><span class="line"><span class="regexp">  /</span>&gt;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// if (isLogin) &#123;</span></span><br><span class="line">  <span class="comment">//   return &lt;div&gt;&#123; props.children &#125;&lt;/div&gt;;</span></span><br><span class="line">  <span class="comment">//   &#125; </span></span><br><span class="line">  <span class="comment">// else &#123;</span></span><br><span class="line">    <span class="comment">// return &lt;Redirect to="/user/login" /&gt;;</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录逻辑</p>
+<p>点击登录后，在 User/login/index.jsx 中会触发 handleSubmit 方法，它会触发 model 层的 dispatch ，调用 login/login 接口，而 dispatch 需要到 @/models/login.js 中查看</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// User/login/index.jsx</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">const</span> handleSubmit = <span class="function">(<span class="params">values</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; dispatch &#125; = props;</span><br><span class="line">    dispatch(&#123;</span><br><span class="line">      type: <span class="string">'login/login'</span>,</span><br><span class="line">      payload: &#123; ...values, type &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment">// login.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; stringify &#125; <span class="keyword">from</span> <span class="string">'querystring'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; history &#125; <span class="keyword">from</span> <span class="string">'umi'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; fakeAccountLogin &#125; <span class="keyword">from</span> <span class="string">'@/services/login'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; setAuthority &#125; <span class="keyword">from</span> <span class="string">'@/utils/authority'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; getPageQuery &#125; <span class="keyword">from</span> <span class="string">'@/utils/utils'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; message &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Model = &#123;</span><br><span class="line">  namespace: <span class="string">'login'</span>,</span><br><span class="line">  state: &#123;</span><br><span class="line">    status: <span class="literal">undefined</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  effects: &#123;</span><br><span class="line">    *login(&#123; payload &#125;, &#123; call, put &#125;) &#123;</span><br><span class="line">      <span class="keyword">const</span> response = <span class="keyword">yield</span> call(fakeAccountLogin, payload);</span><br><span class="line">      <span class="built_in">console</span>.log(response)</span><br><span class="line">      <span class="keyword">yield</span> put(&#123;</span><br><span class="line">        type: <span class="string">'changeLoginStatus'</span>,</span><br><span class="line">        payload: response,</span><br><span class="line">      &#125;); <span class="comment">// Login successfully</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (response.status === <span class="string">'ok'</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> urlParams = <span class="keyword">new</span> URL(<span class="built_in">window</span>.location.href);</span><br><span class="line">        <span class="keyword">const</span> params = getPageQuery(); <span class="comment">// 获取地址栏 ? 后的参数 返回一个对象</span></span><br><span class="line">        message.success(<span class="string">'🎉 🎉 🎉  登录成功！'</span>);</span><br><span class="line">        <span class="keyword">let</span> &#123; redirect &#125; = params;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (redirect) &#123;</span><br><span class="line">          <span class="keyword">const</span> redirectUrlParams = <span class="keyword">new</span> URL(redirect);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span> (redirectUrlParams.origin === urlParams.origin) &#123;</span><br><span class="line">            redirect = redirect.substr(urlParams.origin.length);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (redirect.match(<span class="regexp">/^\/.*#/</span>)) &#123;</span><br><span class="line">              redirect = redirect.substr(redirect.indexOf(<span class="string">'#'</span>) + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">window</span>.location.href = <span class="string">'/'</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        history.replace(redirect || <span class="string">'/'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    logout() &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; redirect &#125; = getPageQuery(); <span class="comment">// Note: There may be security issues, please note</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">window</span>.location.pathname !== <span class="string">'/user/login'</span> &amp;&amp; !redirect) &#123;</span><br><span class="line">        history.replace(&#123;</span><br><span class="line">          pathname: <span class="string">'/user/login'</span>,</span><br><span class="line">          search: stringify(&#123;</span><br><span class="line">            redirect: <span class="built_in">window</span>.location.href,</span><br><span class="line">          &#125;),</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  reducers: &#123;</span><br><span class="line">    changeLoginStatus(state, &#123; payload &#125;) &#123;</span><br><span class="line">      setAuthority(payload.currentAuthority);</span><br><span class="line">      <span class="keyword">return</span> &#123; ...state, <span class="attr">status</span>: payload.status, <span class="attr">type</span>: payload.type &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Model;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>proTable 组件里的 editable 属性</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 列出的可配置选项为 https://www.npmjs.com/package/@ant-design/pro-table#editable</span></span><br><span class="line"><span class="comment">// 默认会出现保存、删除、取消 三个按钮，现在需要隐藏删除。通过 actionRender 自定义操作栏。但无法获取修改后表单，经过一番实验，发现返回的 config 参数中，里面的 form 对象上存在获取表单值的方法。文档上并未提及 actionRender 属性的具体用法。以下为获取行内修改后表单元素的暂行办法，找不到哪个方法能够触发 文档中的 onSave 方法。</span></span><br><span class="line">&lt;ProTable</span><br><span class="line">      editable=&#123;&#123;</span><br><span class="line">        type: <span class="string">'multiple'</span>,</span><br><span class="line">        actionRender: <span class="function">(<span class="params">row, config</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> (</span><br><span class="line">            [</span><br><span class="line">              &lt;a </span><br><span class="line">                key=<span class="string">"save"</span></span><br><span class="line">                onClick=&#123;<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">                  <span class="keyword">const</span> opt = config.form.getFieldsValue([config.recordKey])[config.recordKey]</span><br><span class="line">                  opt.id = config.recordKey</span><br><span class="line">                  <span class="keyword">await</span> updateUser(opt)</span><br><span class="line">                  actionRef.current.reload()</span><br><span class="line">                  config.cancelEditable(config.recordKey)</span><br><span class="line">                &#125;&#125;</span><br><span class="line">              &gt;保存&lt;<span class="regexp">/a&gt;,</span></span><br><span class="line"><span class="regexp">              &lt;a </span></span><br><span class="line"><span class="regexp">                key="cancel"</span></span><br><span class="line"><span class="regexp">                onClick=&#123;() =&gt; config.cancelEditable(config.recordKey)&#125;</span></span><br><span class="line"><span class="regexp">              &gt;取消&lt;/</span>a&gt;</span><br><span class="line">            ]</span><br><span class="line">          )</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;&#125;</span><br><span class="line"><span class="comment">//    ...</span></span><br><span class="line">    /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>React 修改组件的初始值，如添加和编辑使用同一组件的情况</p>
+<p>使用一个变量去控制这个组件的渲染，就像 Vue 中 v-if 一样</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如</span><br><span class="line">&#123; createModalVisible &amp;&amp; <span class="xml"><span class="tag">&lt;<span class="name">ActionForm</span>/&gt;</span></span> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>antd 中，当表单元素与 Form 组件同时使用时， Form 组件将会接管表单元素的一些属性，如</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> normFile = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Upload event:'</span>, e);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(e)) &#123;</span><br><span class="line">        <span class="keyword">return</span> e;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> e &amp;&amp; e.fileList.filter(<span class="function"><span class="params">file</span> =&gt;</span> !!file.status);</span><br><span class="line">&#125;;</span><br><span class="line">&lt;Form&gt;</span><br><span class="line">    &#123;<span class="comment">/* 接管了 name 属性 */</span>&#125;</span><br><span class="line">    &lt;Form.Item</span><br><span class="line">        label=<span class="string">"模板名称"</span></span><br><span class="line">        name=<span class="string">"name"</span></span><br><span class="line">        rules=&#123;[</span><br><span class="line">            &#123;</span><br><span class="line">                required: <span class="literal">true</span>,</span><br><span class="line">                message: <span class="string">'请输入模板名称'</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">        ]&#125;</span><br><span class="line">    &gt;</span><br><span class="line">        &lt;Input /&gt;</span><br><span class="line">    &lt;<span class="regexp">/Form.Item&gt;</span></span><br><span class="line"><span class="regexp">    &#123;/</span>* 接管了 name fileList 属性 *<span class="regexp">/&#125;</span></span><br><span class="line"><span class="regexp">    &#123;/</span>* fileList 由 getValueFromEvent 函数的返回值定义 *<span class="regexp">/&#125;</span></span><br><span class="line"><span class="regexp">    &#123;/</span>* valuePropName 指定触发事件后返回的 e 对象中的属性作为该 FormItem 属性验证的标准；比如下面的上传组件中写了 fileList，如果改成 fff，那么在上传时虽然文件上传成功，但 FormItem 找不到返回的事件对象 e 中 fff 属性，仍然定义为未上传文件，即使 e.fileList 有值，同时也不会触发 Upload 组件中的 beforeUpload。 默认值为 value *<span class="regexp">/&#125;</span></span><br><span class="line"><span class="regexp">    &lt;Form.Item</span></span><br><span class="line"><span class="regexp">        name="upload"</span></span><br><span class="line"><span class="regexp">        label="上传模板"</span></span><br><span class="line"><span class="regexp">        valuePropName="fileList"</span></span><br><span class="line"><span class="regexp">        getValueFromEvent=&#123;normFile&#125;</span></span><br><span class="line"><span class="regexp">        extra="请上传 excel 格式文件"</span></span><br><span class="line"><span class="regexp">        rules=&#123;[</span></span><br><span class="line"><span class="regexp">            &#123;</span></span><br><span class="line"><span class="regexp">                required: true,</span></span><br><span class="line"><span class="regexp">                message: '请上传模板',</span></span><br><span class="line"><span class="regexp">            &#125;,</span></span><br><span class="line"><span class="regexp">        ]&#125;</span></span><br><span class="line"><span class="regexp">    &gt;</span></span><br><span class="line"><span class="regexp">        &lt;Upload </span></span><br><span class="line"><span class="regexp">            maxCount=&#123;1&#125;</span></span><br><span class="line"><span class="regexp">            listType="picture"</span></span><br><span class="line"><span class="regexp">            beforeUpload=&#123;file =&gt; &#123;</span></span><br><span class="line"><span class="regexp">				let suffix = name.substr(name.lastIndexOf("."))</span></span><br><span class="line"><span class="regexp">                if (".xls" != suffix &amp;&amp; ".xlsx" != suffix) &#123;</span></span><br><span class="line"><span class="regexp">                    return false</span></span><br><span class="line"><span class="regexp">                &#125; else &#123;</span></span><br><span class="line"><span class="regexp">                    return true</span></span><br><span class="line"><span class="regexp">                &#125;</span></span><br><span class="line"><span class="regexp">            &#125;&#125;</span></span><br><span class="line"><span class="regexp">        &gt;</span></span><br><span class="line"><span class="regexp">            &lt;Button icon=&#123;&lt;UploadOutlined /</span>&gt;&#125;&gt;上传模板&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>Upload&gt;</span><br><span class="line"></span><br><span class="line">    &lt;<span class="regexp">/Form.Item&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>Form&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>React 中样式问题</p>
+<p>修改组件样式， Vue 中可以通过不添加 scoped 或者样式穿透来修改组件样式， React 中通过将类名包裹在 :global() 来实现</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如下 .ant-statistic-title 是 antd Statistic 组件默认的属性名</span></span><br><span class="line"><span class="comment">// 这样直接修改会破坏其他的组件的样式，可以在想要修改样式的标签外面定义一个父级元素，在用一个父级选择器就可以了。</span></span><br><span class="line"><span class="selector-pseudo">:global(.ant-statistic-title)</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对比在 Vue 中，写法大概是这样，这应该和上面 React 的修改方法等同，都会修改其他组件的样式。</span></span><br><span class="line">&lt;style lang="less"&gt;</span><br><span class="line">    <span class="selector-class">.ant-statistic-title</span> &#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line">&lt;style lang="stylus" scoped&gt;</span><br><span class="line">    &gt;&gt;&gt; <span class="selector-class">.ant-statistic-title</span> &#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>React 中，所有数组组件必须绑定 key 值，因此在 antd 中，Table 组件的 dataSource 和 columns 都需要指定 key值，columns key 值在它的本身的数组中的每个对象上分别定义，dataSource 需要使用 rowKey 指定需要绑定的 主键，默认为 ‘key’，如果数据中没有 key，将会报错，错误为，看了半天才发现是 Table 组件导致的问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">devScripts.js:<span class="number">5836</span> Warning: Each child <span class="keyword">in</span> a list should have a unique <span class="string">"key"</span> prop.</span><br><span class="line"></span><br><span class="line">Check the render method <span class="keyword">of</span> <span class="string">`Body`</span>. See https:<span class="comment">//reactjs.org/link/warning-keys for more information.</span></span><br><span class="line">    at BodyRow (http:<span class="comment">//localhost:8000/vendors~p__TableList~p__Welcome~p__ratings__project-list~p__ratings__review-list~p__ratings__task-li~a67d39dd.js:2555:25)</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="16">
+<li><p>antd pro 中，ProTable 的 columns 中设置的属性，如果为 dateRange，将无法设置格式化时间，需要自己手动修改</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> columns = [</span><br><span class="line">    &#123;</span><br><span class="line">      title: <span class="string">'完成时间'</span>,</span><br><span class="line">      dataIndex: <span class="string">'end_at'</span>,</span><br><span class="line">      hideInTable: <span class="literal">true</span>,</span><br><span class="line">      valueType: <span class="string">'dateRange'</span>,</span><br><span class="line">      search: &#123;</span><br><span class="line">        transform: <span class="function">(<span class="params">value</span>) =&gt;</span>  (&#123; <span class="attr">end_at</span>: [value[<span class="number">0</span>].split(<span class="string">' '</span>)[<span class="number">0</span>], value[<span class="number">1</span>].split(<span class="string">' '</span>)[<span class="number">0</span>]] &#125;) <span class="comment">// 格式化</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h2 id="题外："><a href="#题外：" class="headerlink" title="题外："></a>题外：</h2><h3 id="ES6-的解构赋值"><a href="#ES6-的解构赋值" class="headerlink" title="ES6 的解构赋值"></a>ES6 的解构赋值</h3><ol>
+<li><h5 id="多层解构"><a href="#多层解构" class="headerlink" title="多层解构"></a>多层解构</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> res = &#123;</span><br><span class="line">    data: &#123;</span><br><span class="line">        data: &#123;</span><br><span class="line">            msg: <span class="string">'last'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        meta: &#123;</span><br><span class="line">            pagination: &#123;</span><br><span class="line">                count: <span class="number">2</span>,</span><br><span class="line">                current_page: <span class="number">1</span>,</span><br><span class="line">                links: &#123;&#125;,</span><br><span class="line">                per_page: <span class="number">20</span>,</span><br><span class="line">                total: <span class="number">2</span>,</span><br><span class="line">                total_pages: <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    status: <span class="string">'success'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">data</span>: &#123; data, <span class="attr">meta</span>: &#123; <span class="attr">pagination</span>: &#123; total, <span class="attr">total_pages</span>: pageSize, <span class="attr">current_page</span>: current &#125; &#125; &#125;, status &#125; = res</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此时能够解构出 data, total, pageSize, current, status 五种变量， meta 和 pagination 并不是变量</span></span><br><span class="line"><span class="built_in">console</span>.log(data) <span class="comment">// &#123; msg: 'last' &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(total) <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(pageSize) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(current) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(status) <span class="comment">// 'success'</span></span><br><span class="line"><span class="built_in">console</span>.log(meta) <span class="comment">// ERROR meta is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(pagination) <span class="comment">// ERROR pagination is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果需要同时解构出 meta 和 pagination, 在外层多定义一次即可，解构赋值已定义的变量永远在 : 右边。</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">data</span>: &#123; data, meta, <span class="attr">meta</span>: &#123; pagination, <span class="attr">pagination</span>: &#123; total, <span class="attr">total_pages</span>: pageSize, <span class="attr">current_page</span>: current &#125; &#125; &#125;, status &#125; = res</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="剥离属性"><a href="#剥离属性" class="headerlink" title="剥离属性"></a>剥离属性</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正常写的时候，后端返回的 resData 如下，但此时我们不需要 id 和 category_id 时，可能会写成下面这样</span></span><br><span class="line"><span class="keyword">const</span> resData = [</span><br><span class="line">    &#123;</span><br><span class="line">        id: <span class="number">1</span>,</span><br><span class="line">        category_id: <span class="number">1</span>,</span><br><span class="line">        content: <span class="string">'content1'</span>,</span><br><span class="line">        detail: <span class="string">'detail1'</span>,</span><br><span class="line">        score: <span class="string">'score1'</span>,</span><br><span class="line">        type: <span class="string">'type1'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        id: <span class="number">2</span>,</span><br><span class="line">        category_id: <span class="number">2</span>,</span><br><span class="line">        content: <span class="string">'content2'</span>,</span><br><span class="line">        detail: <span class="string">'detail2'</span>,</span><br><span class="line">        score: <span class="string">'score2'</span>,</span><br><span class="line">        type: <span class="string">'type2'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tableDataList = resData.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        columns,</span><br><span class="line">        data: &#123;</span><br><span class="line">            content: item.content,</span><br><span class="line">            detail: item.detail,</span><br><span class="line">            score: item.score,</span><br><span class="line">            type: item.type,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 但我们可以通过 ... 来快速剥离属性，省略了很多不必要的写法，并且非常清楚</span></span><br><span class="line"><span class="keyword">const</span> tableDataList = resData.map(<span class="function">(<span class="params">&#123; id, category_id, ...item&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        columns,</span><br><span class="line">        data: item</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组</span></span><br><span class="line"><span class="keyword">const</span> deleteNumber = <span class="function">(<span class="params">arr, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> [...arr.slice(<span class="number">0</span>, index), ...arr.slice(index + <span class="number">1</span>)];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> testArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(deleteNumber(testArr, <span class="number">4</span>)); <span class="comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h3 id="linux-与-windows-的文件名"><a href="#linux-与-windows-的文件名" class="headerlink" title="linux 与 windows 的文件名"></a>linux 与 windows 的文件名</h3><p>服务器一般是 linux ，而 linux 是大小写敏感的， windows 是大小写不敏感的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// actionForm.jsx</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以看到， ActionForm 与存在的文件名 actionForm 不对应，但 windows 可以读取到这个文件，linux 严格检测大小写，将不会读取</span></span><br><span class="line"><span class="keyword">import</span> ActionForm <span class="keyword">from</span> <span class="string">'./components/ActionForm'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 同时，如果在 windows 上，仅仅改变文件名的大小写，是不会触发 git status 状态的改变的。</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div class="post-share">分享到：</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Dloux WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Dloux Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/18/electron/" rel="next" title="electron">
+                <i class="fa fa-chevron-left"></i> electron
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/19/vite/" rel="prev" title="vite">
+                vite <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <div class="disqus-loading">
+          <strong>Disqus 加载中...</strong>
+          <p>如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p>
+        </div>
+      </div>
+    </div>
+
+  
+
+
+
+
+
+  
+
+    
+      <script type="text/javascript">
+        if (disqus_config) {
+          var disqus_config = function () {
+            this.page.url = 'https://dloux.gitee.io/2021/03/19/react/';
+            this.page.identifier = '2021/03/19/react/';
+            this.page.title = 'react';
+          };
+          if (window.DISQUS) {
+            $('.disqus-loading').remove();
+            window.DISQUS.reset({
+              reload: true,
+              config: function () {
+                this.page.url = 'https://dloux.gitee.io/2021/03/19/react/';
+                this.page.identifier = '2021/03/19/react/';
+                this.page.title = 'react';
+              }
+            });
+          }
+        }
+        else {
+          var disqus_config = function () {
+            this.page.url = 'https://dloux.gitee.io/2021/03/19/react/';
+            this.page.identifier = '2021/03/19/react/';
+            this.page.title = 'react';
+          };
+          var d = document, s = d.createElement('script');
+          s.src = 'https://diygod-me.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', '' + +new Date());
+          (d.head || d.body).appendChild(s);
+        }
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/sidebar-card.jpg"
+                alt="Dloux" />
+            
+              <p class="site-author-name" itemprop="name"><span style="opacity:.2;"></span>Dloux</p>
+              <p class="site-description motion-element" itemprop="description">你能抓到我么？</p>
+          </div>
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/dlouxgit" target="_blank" title="GitHub" data-balloon="GitHub" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/dlouxgit" target="_blank" title="Twitter" data-balloon="Twitter" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/images/qq-g.jpg" target="_blank" title="QQ 群" data-balloon="QQ 群" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-qq"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+            
+
+          </nav>
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.png" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React-基础"><span class="nav-number">1.</span> <span class="nav-text">React 基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题外："><span class="nav-number">2.</span> <span class="nav-text">题外：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6-的解构赋值"><span class="nav-number">2.1.</span> <span class="nav-text">ES6 的解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#多层解构"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">多层解构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#剥离属性"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">剥离属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-与-windows-的文件名"><span class="nav-number">2.2.</span> <span class="nav-text">linux 与 windows 的文件名</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-image"></div>
+      <div class="footer-inner">
+        <p>博客已萌萌哒运行<span id="since"></span><span class="my-face">(●'◡'●)ﾉ♥</span></p>
+<p>custom text</p>
+
+<p>© <span itemprop="copyrightYear">2021</span> Dloux.
+    由 <a href="https://hexo.io/" target="_blank" class="external" rel="nofollow">Hexo</a> 强力驱动.
+    Theme By <a href="https://github.com/DIYgod/hexo-theme-sagiri" target="_blank" class="external" rel="nofollow">Sagiri</a> v0.0.4.
+    <a href="/sitemap.xml" target="_blank">站点地图</a>.
+    xxxx.
+</p>
+<p>Made with <i class="fa fa-heart throb" style="color: #d43f57;"></i> by <span class="author" itemprop="copyrightHolder">Dloux</span>. </p>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    <canvas id="evanyou"></canvas>
+    <!-- 暂时注释 live2d
+    <canvas id="live2d" width="150" height="400" class="live2d"></canvas>
+    -->
+    
+
+  </div>
+
+  <script type="text/javascript" src="/js/sagiri.min.js?v=0.0.4"></script>
+
+  
+
+
+
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
