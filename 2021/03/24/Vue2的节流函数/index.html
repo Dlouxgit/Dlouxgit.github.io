@@ -71,7 +71,7 @@
 
 
 
-  <meta name="keywords" content="vite," />
+  <meta name="keywords" content="Vue," />
 
 
 
@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="vite 如果在 vite.config.ts 中定义了 &#39;@&#39; 这个别名，其他的别名不要以 @ 开头，如">
+<meta name="description" content="Vue2的节流函数在 Vue2 的 methods，中，想定义一个高阶函数返回的方法时，this 的指向需要注意一下。 123456789101112131415161718192021222324&#x2F;&#x2F; util.jsexport function throttle(fn, wait, _this) &amp;#123;    let timer    &#x2F;&#x2F; console.log(_this) &#x2F;&#x2F; u">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vite">
-<meta property="og:url" content="https://dloux.gitee.io/2021/03/19/vite/index.html">
+<meta property="og:title" content="Vue2的节流函数">
+<meta property="og:url" content="https://dloux.gitee.io/2021/03/24/Vue2%E7%9A%84%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Dloux">
-<meta property="og:description" content="vite 如果在 vite.config.ts 中定义了 &#39;@&#39; 这个别名，其他的别名不要以 @ 开头，如">
+<meta property="og:description" content="Vue2的节流函数在 Vue2 的 methods，中，想定义一个高阶函数返回的方法时，this 的指向需要注意一下。 123456789101112131415161718192021222324&#x2F;&#x2F; util.jsexport function throttle(fn, wait, _this) &amp;#123;    let timer    &#x2F;&#x2F; console.log(_this) &#x2F;&#x2F; u">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-18T16:26:14.000Z">
-<meta property="article:modified_time" content="2021-03-18T16:30:34.320Z">
+<meta property="article:published_time" content="2021-03-24T14:03:02.000Z">
+<meta property="article:modified_time" content="2021-03-24T16:05:40.892Z">
 <meta property="article:author" content="Dloux">
-<meta property="article:tag" content="vite">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
 
 
@@ -148,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="https://dloux.gitee.io/2021/03/19/vite/"/>
+  <link rel="canonical" href="https://dloux.gitee.io/2021/03/24/Vue2的节流函数/"/>
 
 
 
 
 
-  <title>vite | Dloux</title>
+  <title>Vue2的节流函数 | Dloux</title>
   
 
 
@@ -309,7 +309,7 @@
   
   <div class="post-date">
 			<div class="post-month">03月</div>
-			<div class="post-day">19</div>
+			<div class="post-day">24</div>
 	</div>
   
   <div class="post-badge">
@@ -324,7 +324,7 @@
   
 
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/03/19/vite/">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/03/24/Vue2%E7%9A%84%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dloux">
@@ -341,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vite</h1>
+          <h1 class="post-title" itemprop="name headline">Vue2的节流函数</h1>
         
 
         <div class="post-meta">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-19T00:26:14+08:00">
-                2021-03-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-24T22:03:02+08:00">
+                2021-03-24
               </time>
             
 
@@ -413,14 +413,10 @@
       
 
       
-        <h2 id="vite"><a href="#vite" class="headerlink" title="vite"></a>vite</h2><ol>
-<li><p>如果在 <code>vite.config.ts</code> 中定义了 <code>&#39;@&#39;</code> 这个别名，其他的别名不要以 <code>@</code> 开头，如<a id="more"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">  alias: &#123;</span><br><span class="line">    <span class="string">'/@'</span>: root,</span><br><span class="line">    <span class="string">'src'</span>: join(__dirname, <span class="string">'src'</span>), <span class="comment">// 不要写成 '@src': join(__dirname, 'src')，编译器会飘红，但是好像能用</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="Vue2的节流函数"><a href="#Vue2的节流函数" class="headerlink" title="Vue2的节流函数"></a>Vue2的节流函数</h2><p>在 Vue2 的 methods，中，想定义一个高阶函数返回的方法时，this 的指向需要注意一下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// util.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, wait, _this</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="comment">// console.log(_this) // undefined</span></span><br><span class="line">    <span class="comment">// console.log(this) // undefined</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!timer) &#123;</span><br><span class="line">            <span class="comment">// console.log(this) // Vue Components</span></span><br><span class="line">            timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                fn.apply(<span class="keyword">this</span>, args)</span><br><span class="line">            &#125;, wait)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// .vue 文件</span></span><br><span class="line"><span class="keyword">import</span> &#123; throttle &#125; <span class="keyword">from</span> <span class="string">'@/utils/util'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    methods: &#123;</span><br><span class="line">        mouseMove: throttle(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>) <span class="comment">//  Vue Components</span></span><br><span class="line">        &#125;, <span class="number">300</span>, <span class="keyword">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-</li>
-</ol>
+<p>在上面使用的过程中，在高阶函数返回的函数外部，得到的 this 是空，但同时传进去的 _this 也是空，只是因为，在页面初始化的时候，这个 mouseMove 函数已经执行了 throttle()，但是此时， Vue Components 还未被实例化，无法得到 this，因此是 undefined（小程序中，网页可能得到全局变量）。而在返回得函数中能拿到 this，是因为返回的函数是注册在 methods 中的，Vue 把 this 绑定给这个 function 了，因此这个返回的函数能拿到 this，进而 apply，也因此 methods 中真正调用的函数可以打印出 this.</p>
 
       
     </div>
@@ -471,7 +467,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vite/" rel="tag"># vite</a>
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -484,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/03/19/react/" rel="next" title="react">
-                <i class="fa fa-chevron-left"></i> react
+              <a href="/2021/03/19/uniapp%E5%9D%91/" rel="next" title="uniapp-mp">
+                <i class="fa fa-chevron-left"></i> uniapp-mp
               </a>
             
           </div>
@@ -493,10 +489,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/03/19/uniapp-app/" rel="prev" title="uniapp-app">
-                uniapp-app <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -544,27 +536,27 @@
       <script type="text/javascript">
         if (disqus_config) {
           var disqus_config = function () {
-            this.page.url = 'https://dloux.gitee.io/2021/03/19/vite/';
-            this.page.identifier = '2021/03/19/vite/';
-            this.page.title = 'vite';
+            this.page.url = 'https://dloux.gitee.io/2021/03/24/Vue2%E7%9A%84%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/';
+            this.page.identifier = '2021/03/24/Vue2的节流函数/';
+            this.page.title = 'Vue2的节流函数';
           };
           if (window.DISQUS) {
             $('.disqus-loading').remove();
             window.DISQUS.reset({
               reload: true,
               config: function () {
-                this.page.url = 'https://dloux.gitee.io/2021/03/19/vite/';
-                this.page.identifier = '2021/03/19/vite/';
-                this.page.title = 'vite';
+                this.page.url = 'https://dloux.gitee.io/2021/03/24/Vue2%E7%9A%84%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/';
+                this.page.identifier = '2021/03/24/Vue2的节流函数/';
+                this.page.title = 'Vue2的节流函数';
               }
             });
           }
         }
         else {
           var disqus_config = function () {
-            this.page.url = 'https://dloux.gitee.io/2021/03/19/vite/';
-            this.page.identifier = '2021/03/19/vite/';
-            this.page.title = 'vite';
+            this.page.url = 'https://dloux.gitee.io/2021/03/24/Vue2%E7%9A%84%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/';
+            this.page.identifier = '2021/03/24/Vue2的节流函数/';
+            this.page.title = 'Vue2的节流函数';
           };
           var d = document, s = d.createElement('script');
           s.src = 'https://diygod-me.disqus.com/embed.js';
@@ -722,7 +714,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vite"><span class="nav-number">1.</span> <span class="nav-text">vite</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue2的节流函数"><span class="nav-number">1.</span> <span class="nav-text">Vue2的节流函数</span></a></li></ol></div>
             
 
           </div>
