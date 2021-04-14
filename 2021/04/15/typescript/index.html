@@ -71,7 +71,7 @@
 
 
 
-  <meta name="keywords" content="AdvancedFunction," />
+  <meta name="keywords" content="typescript," />
 
 
 
@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="高阶函数">
+<meta name="description" content="Typescript已经听到很久很久这个名字，但一直没有真正使用过，每次都是浅尝辄止，试着整理一下吧。 关键字declare主要用在声明文件 .d.ts 中，在 vue3 内，会自动读取项目下的 .d.ts 文件，为 VSCode 编写提供方便，可以显示已声明的类型。 12345678910declare type Nullable&lt;T&gt; &#x3D; T | null;declare inte">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AdvancedFunction">
-<meta property="og:url" content="https://dloux.gitee.io/2020/07/22/AdvancedFunction/index.html">
+<meta property="og:title" content="typescript">
+<meta property="og:url" content="https://dloux.gitee.io/2021/04/15/typescript/index.html">
 <meta property="og:site_name" content="Dloux">
-<meta property="og:description" content="高阶函数">
+<meta property="og:description" content="Typescript已经听到很久很久这个名字，但一直没有真正使用过，每次都是浅尝辄止，试着整理一下吧。 关键字declare主要用在声明文件 .d.ts 中，在 vue3 内，会自动读取项目下的 .d.ts 文件，为 VSCode 编写提供方便，可以显示已声明的类型。 12345678910declare type Nullable&lt;T&gt; &#x3D; T | null;declare inte">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-22T06:27:02.000Z">
-<meta property="article:modified_time" content="2020-07-28T12:21:01.706Z">
+<meta property="article:published_time" content="2021-04-14T16:27:44.000Z">
+<meta property="article:modified_time" content="2021-04-14T16:39:12.907Z">
 <meta property="article:author" content="Dloux">
-<meta property="article:tag" content="AdvancedFunction">
+<meta property="article:tag" content="typescript">
 <meta name="twitter:card" content="summary">
 
 
@@ -148,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="https://dloux.gitee.io/2020/07/22/AdvancedFunction/"/>
+  <link rel="canonical" href="https://dloux.gitee.io/2021/04/15/typescript/"/>
 
 
 
 
 
-  <title>AdvancedFunction | Dloux</title>
+  <title>typescript | Dloux</title>
   
 
 
@@ -308,13 +308,23 @@
   
   
   <div class="post-date">
-			<div class="post-month">07月</div>
-			<div class="post-day">22</div>
+			<div class="post-month">04月</div>
+			<div class="post-day">15</div>
 	</div>
+  
+  <div class="post-badge">
+    
+      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+          <span itemprop="name">技术</span>
+        </a>
+      </span>
+    
+  </div>
   
 
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/07/22/AdvancedFunction/">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/04/15/typescript/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dloux">
@@ -331,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">AdvancedFunction</h1>
+          <h1 class="post-title" itemprop="name headline">typescript</h1>
         
 
         <div class="post-meta">
@@ -343,8 +353,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-22T14:27:02+08:00">
-                2020-07-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-15T00:27:44+08:00">
+                2021-04-15
               </time>
             
 
@@ -353,6 +363,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">•</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -381,16 +413,12 @@
       
 
       
-        <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数<a id="more"></a></h2><h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><p><code>filter</code> 接受一个回调函数，它将会遍历数组，该回调函数必须返回一个布尔值，表示被遍历到的值是否过滤(添加进 <code>filter</code> 内部的新数组作为返回值)。遍历完成后， <code>filter</code> 会返回这个新数组，需要接收。由于返回的是新数组，所以可以链式编程。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">67</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"><span class="keyword">const</span> newArr = arr.filter(<span class="function"><span class="params">n</span> =&gt;</span> n &gt; <span class="number">10</span>) <span class="comment">// [67]</span></span><br></pre></td></tr></table></figure>
+        <h2 id="Typescript"><a href="#Typescript" class="headerlink" title="Typescript"></a>Typescript</h2><p>已经听到很久很久这个名字，但一直没有真正使用过，每次都是浅尝辄止，试着整理一下吧。</p>
+<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><h4 id="declare"><a href="#declare" class="headerlink" title="declare"></a>declare</h4><p>主要用在声明文件 .d.ts 中，在 vue3 内，会自动读取项目下的 .d.ts 文件，为 VSCode 编写提供方便，可以显示已声明的类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> <span class="keyword">type</span> Nullable&lt;T&gt; = T | <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">interface</span> Diy &#123;</span><br><span class="line">    diy: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">type</span> Diy2 = &#123;</span><br><span class="line">    diy2: <span class="built_in">string</span>,</span><br><span class="line">    [propName: <span class="built_in">string</span>]: <span class="built_in">any</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><p><code>map</code> 接受一个回调函数，它将会遍历数组，该函数每次的返回值，会作为函数内部新数组的内容，遍历完成后，<code>map</code> 会返回这个新数组，需要接受。由于返回的是新数组，所以可以链式编程。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">const</span> newArr = arr.map(<span class="function"><span class="params">n</span> =&gt;</span> n * <span class="number">2</span>) <span class="comment">// [2, 4, 6]</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h4><p><code>reduce</code> 接受一个回调函数，它将会遍历数组。它的作用是对数组内容进行汇总，该回调函数的第一个参数是一个函数，接受两个参数，一个表示上一次执行该函数返回的值<code>(previousValue)</code>，一个表示数组当前值<code>(currentValue)</code>。回调函数的第二个参数是初始值，用于表示第一次执行第一个参数(它是函数)时，<code>(previousValue)</code> 的值。遍历完成后， <code>reduce</code> 会返回这个汇总的值<code>(previousValue)</code>，需要接收。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// arr.reduce((previousValue, currentValue) =&gt; &#123;&#125;, originValue)</span></span><br><span class="line"><span class="comment">// 源码中对 reduce 进行了两次声明，因为是 ts 写的，所以第一次声明不会被第二次声明覆盖，两者都会存在，这叫做重载。</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">const</span> totalVal = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current) <span class="comment">// 6</span></span><br><span class="line"><span class="keyword">const</span> totalVal = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current, <span class="number">0</span>) <span class="comment">// 6</span></span><br><span class="line"><span class="keyword">const</span> totalVal = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current, <span class="number">7</span>) <span class="comment">// 13</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意，当数组中被遍历的项为对象时，必须加上初始值，因为对象与数值相加,两者都会自动调用 toString() 方法后相加。</span></span><br><span class="line"><span class="keyword">const</span> arr = [&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;, &#123;<span class="attr">a</span>: <span class="number">2</span>&#125;, &#123;<span class="attr">a</span>: <span class="number">3</span>&#125;]</span><br><span class="line"><span class="keyword">const</span> totalval = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current.a) <span class="comment">// "[object Object]23"</span></span><br><span class="line"><span class="keyword">const</span> totalval = arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> prev + current.a, <span class="number">0</span>) <span class="comment">// 123</span></span><br></pre></td></tr></table></figure>
-
-
+<p>在 tsconfig.json 中定义 typeRoots，可以向 typescript 域中自动引入路径中的 .d.ts 文件中的变量。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">"compilerOptions": &#123;</span><br><span class="line">    ...</span><br><span class="line">    "typeRoots": [</span><br><span class="line">      "./node_modules/@types",</span><br><span class="line">      <span class="string">"./typings"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -442,7 +470,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/AdvancedFunction/" rel="tag"># AdvancedFunction</a>
+            <a href="/tags/typescript/" rel="tag"># typescript</a>
           
         </div>
       
@@ -455,8 +483,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/15/vuex/" rel="next" title="vuex">
-                <i class="fa fa-chevron-left"></i> vuex
+              <a href="/2021/04/12/%E6%89%AB%E7%A0%81%E8%B7%B3%E8%BD%AC/" rel="next" title="扫码跳转">
+                <i class="fa fa-chevron-left"></i> 扫码跳转
               </a>
             
           </div>
@@ -464,10 +492,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/24/webpack/" rel="prev" title="webpack">
-                webpack <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -515,27 +539,27 @@
       <script type="text/javascript">
         if (disqus_config) {
           var disqus_config = function () {
-            this.page.url = 'https://dloux.gitee.io/2020/07/22/AdvancedFunction/';
-            this.page.identifier = '2020/07/22/AdvancedFunction/';
-            this.page.title = 'AdvancedFunction';
+            this.page.url = 'https://dloux.gitee.io/2021/04/15/typescript/';
+            this.page.identifier = '2021/04/15/typescript/';
+            this.page.title = 'typescript';
           };
           if (window.DISQUS) {
             $('.disqus-loading').remove();
             window.DISQUS.reset({
               reload: true,
               config: function () {
-                this.page.url = 'https://dloux.gitee.io/2020/07/22/AdvancedFunction/';
-                this.page.identifier = '2020/07/22/AdvancedFunction/';
-                this.page.title = 'AdvancedFunction';
+                this.page.url = 'https://dloux.gitee.io/2021/04/15/typescript/';
+                this.page.identifier = '2021/04/15/typescript/';
+                this.page.title = 'typescript';
               }
             });
           }
         }
         else {
           var disqus_config = function () {
-            this.page.url = 'https://dloux.gitee.io/2020/07/22/AdvancedFunction/';
-            this.page.identifier = '2020/07/22/AdvancedFunction/';
-            this.page.title = 'AdvancedFunction';
+            this.page.url = 'https://dloux.gitee.io/2021/04/15/typescript/';
+            this.page.identifier = '2021/04/15/typescript/';
+            this.page.title = 'typescript';
           };
           var d = document, s = d.createElement('script');
           s.src = 'https://diygod-me.disqus.com/embed.js';
@@ -693,7 +717,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#高阶函数"><span class="nav-number">1.</span> <span class="nav-text">高阶函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#filter"><span class="nav-number">1.0.1.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map"><span class="nav-number">1.0.2.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce"><span class="nav-number">1.0.3.</span> <span class="nav-text">reduce</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Typescript"><span class="nav-number">1.</span> <span class="nav-text">Typescript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字"><span class="nav-number">1.1.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#declare"><span class="nav-number">1.1.1.</span> <span class="nav-text">declare</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
