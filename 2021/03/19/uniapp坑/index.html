@@ -90,7 +90,7 @@
 <meta property="og:description" content="uniapp 坑 uniapp 中不支持 reduce 方法。  不要使用行内方法，用 computed 或 filter 来代替">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-18T16:29:47.000Z">
-<meta property="article:modified_time" content="2021-03-18T16:30:24.608Z">
+<meta property="article:modified_time" content="2021-04-16T17:34:10.757Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="uniapp">
 <meta name="twitter:card" content="summary">
@@ -446,9 +446,14 @@
 </li>
 </ol>
 <ol start="11">
-<li>PC 端小程序 内核版本很低，很多 api 无法使用，如 <code>Object.entries</code>，需要 polyfill</li>
-<li>调试 PC 端小程序时，点击上面工具条的预览按钮，点击自动预览，切换成 PC 端自动预览</li>
-<li>正确的 input 赋值流程应该是，点击后为输入的值创造一个副本，不影响原来的 value 值，但失焦时，检验输入值是否有效，如果有效就把输入值赋值给 value，否则舍弃输入值，仍显示原来的 value，而不是每次输入值都去修改原来的 value 值，一般仅提供 <code>change、blur、focus</code> 方法。</li>
+<li><p>PC 端小程序 内核版本很低，很多 api 无法使用，如 <code>Object.entries</code>，需要 polyfill</p>
+</li>
+<li><p>调试 PC 端小程序时，点击上面工具条的预览按钮，点击自动预览，切换成 PC 端自动预览</p>
+</li>
+<li><p>正确的 input 赋值流程应该是，点击后为输入的值创造一个副本，不影响原来的 value 值，但失焦时，检验输入值是否有效，如果有效就把输入值赋值给 value，否则舍弃输入值，仍显示原来的 value，而不是每次输入值都去修改原来的 value 值，一般仅提供 <code>change、blur、focus</code> 方法。</p>
+</li>
+<li><p>微信小程序的地图如果使用默认的 map，想要用经纬度获取文字地址，需要引入腾讯地图的 jssdk，传入 key，之后逆解析得到地址。</p>
+</li>
 </ol>
 
       
