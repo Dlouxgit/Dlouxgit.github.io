@@ -90,7 +90,7 @@
 <meta property="og:description" content="rolluprollup 是一个 JavaScript 的模块打包器，一般用来编写库或者组件，因为它打包生成的文件仍然保持原来的文件结构，和 webpack 大有不同，同时也有 treeshaking 功能。 使用安装npm init、npm i rollup -D 创建配置文件在根目录下新建 rollup.config.js 文件，导出一个对象 12345678&#x2F;&#x2F; rollup.config.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-17T18:11:40.000Z">
-<meta property="article:modified_time" content="2021-05-06T16:40:42.808Z">
+<meta property="article:modified_time" content="2021-05-08T16:36:55.215Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="rollup">
 <meta name="twitter:card" content="summary">
@@ -419,7 +419,8 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rollup.config.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    input: <span class="string">'./src/main.js'</span>, <span class="comment">// 入口文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        file: <span class="string">'./dist/js/main.min.js'</span>,</span><br><span class="line">        format: <span class="string">'iife'</span> <span class="comment">// 输出格式，这里是匿名的立即执行函数作用域，其他有 cjs es amd 和 umd</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在 package.json 中加入指令 <code>build: rollup -c</code> 或者 <code>build: rollup --config</code> 可以让根目录下的 config 生效。</p>
-<h2 id="从零实现一个-rollup"><a href="#从零实现一个-rollup" class="headerlink" title="从零实现一个 rollup"></a>从零实现一个 rollup</h2><h3 id="1-初始化目录"><a href="#1-初始化目录" class="headerlink" title="1. 初始化目录"></a>1. 初始化目录</h3><h3 id="2-2"><a href="#2-2" class="headerlink" title="2.  2"></a>2.  2</h3>
+<h2 id="从零实现一个-rollup"><a href="#从零实现一个-rollup" class="headerlink" title="从零实现一个 rollup"></a>从零实现一个 rollup</h2><h3 id="1-初始化目录"><a href="#1-初始化目录" class="headerlink" title="1. 初始化目录"></a>1. 初始化目录</h3><h3 id="2-2"><a href="#2-2" class="headerlink" title="2.  2"></a>2.  2</h3><p>2</p>
+
       
     </div>
     
