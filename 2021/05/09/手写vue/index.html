@@ -71,7 +71,7 @@
 
 
 
-  <meta name="keywords" content="css," />
+  <meta name="keywords" content="vue," />
 
 
 
@@ -82,21 +82,18 @@
 
 
 
-<meta name="description" content="3dCSS3的一些3d样式笔记（perserve方面）">
+<meta name="description" content="手写Vue项目初始化 初始化项目 npm init -y  安装依赖 rollup 打包和 babel 转译 npm i rollup @babel&#x2F;core rollup-plugin-babel bel @babel&#x2F;preset-env -D  @babel&#x2F;preset-env 是 babel 插件集合，core 的 transfer 会调用这些插件来转化为低级语法。   在根目录下新建">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3d">
-<meta property="og:url" content="https://dloux.gitee.io/2020/05/15/3d/index.html">
+<meta property="og:title" content="手写vue">
+<meta property="og:url" content="https://dloux.gitee.io/2021/05/09/%E6%89%8B%E5%86%99vue/index.html">
 <meta property="og:site_name" content="Dloux">
-<meta property="og:description" content="3dCSS3的一些3d样式笔记（perserve方面）">
+<meta property="og:description" content="手写Vue项目初始化 初始化项目 npm init -y  安装依赖 rollup 打包和 babel 转译 npm i rollup @babel&#x2F;core rollup-plugin-babel bel @babel&#x2F;preset-env -D  @babel&#x2F;preset-env 是 babel 插件集合，core 的 transfer 会调用这些插件来转化为低级语法。   在根目录下新建">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://dloux.gitee.io/2020/05/15/3d/img%5Cimage-20200515093022617.png">
-<meta property="og:image" content="https://dloux.gitee.io/2020/05/15/3d/img%5Cimage-20200515093302076.png">
-<meta property="article:published_time" content="2020-05-15T01:04:29.000Z">
-<meta property="article:modified_time" content="2020-05-15T13:33:58.951Z">
+<meta property="article:published_time" content="2021-05-09T01:42:14.000Z">
+<meta property="article:modified_time" content="2021-05-09T16:24:25.314Z">
 <meta property="article:author" content="Dloux">
-<meta property="article:tag" content="css">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://dloux.gitee.io/2020/05/15/3d/img%5Cimage-20200515093022617.png">
 
 
 
@@ -151,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="https://dloux.gitee.io/2020/05/15/3d/"/>
+  <link rel="canonical" href="https://dloux.gitee.io/2021/05/09/手写vue/"/>
 
 
 
 
 
-  <title>3d | Dloux</title>
+  <title>手写vue | Dloux</title>
   
 
 
@@ -312,12 +309,22 @@
   
   <div class="post-date">
 			<div class="post-month">05月</div>
-			<div class="post-day">15</div>
+			<div class="post-day">09</div>
 	</div>
+  
+  <div class="post-badge">
+    
+      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+          <span itemprop="name">技术</span>
+        </a>
+      </span>
+    
+  </div>
   
 
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/05/15/3d/">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/05/09/%E6%89%8B%E5%86%99vue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dloux">
@@ -334,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">3d</h1>
+          <h1 class="post-title" itemprop="name headline">手写vue</h1>
         
 
         <div class="post-meta">
@@ -346,8 +353,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-15T09:04:29+08:00">
-                2020-05-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-09T09:42:14+08:00">
+                2021-05-09
               </time>
             
 
@@ -356,6 +363,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">•</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -384,24 +413,44 @@
       
 
       
-        <h2 id="3d"><a href="#3d" class="headerlink" title="3d"></a>3d</h2><p>CSS3的一些3d样式笔记（perserve方面）</p>
-<a id="more"></a>
+        <h2 id="手写Vue"><a href="#手写Vue" class="headerlink" title="手写Vue"></a>手写Vue</h2><h3 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h3><ul>
+<li><p>初始化项目 <code>npm init -y</code></p>
+</li>
+<li><p>安装依赖 rollup 打包和 babel 转译 <code>npm i rollup @babel/core rollup-plugin-babel bel @babel/preset-env -D</code></p>
+<ul>
+<li>@babel/preset-env 是 babel 插件集合，core 的 transfer 会调用这些插件来转化为低级语法。</li>
+</ul>
+</li>
+<li><p>在根目录下新建 src 目录，并在这个目录新建 <code>index.js</code>，之后再根目录新建 <code>rollup.config.js</code> </p>
+<ul>
+<li><pre><code class="javascript"><span class="comment">// index.js</span>
+<span class="function"><span class="keyword">function</span> <span class="title">Vue</span>(<span class="params"></span>) </span>{
 
-<p>transform:  translateZ( )   （没有 transform-style: preserve-3d 就不会有效果，看起来没有什么变化）</p>
-<p>transform-style: preserve-3d;    （想要有立体效果，就必须给父元素添加这个属性，默认值是 <code>flat</code>，表示2d展示。 preserve-3d 这样相当于开启3d展示。这个<strong>属性不继承</strong>，想要子元素有空间效果，就必须给父元素添加）</p>
-<p>perspective:  100px     (景深，透视，通俗点讲就是设置屏幕的距离与物体的距离，值越大距离越远。，绕Y旋转时，最大值应该不超过图片宽度，（实际上超出的值也是有效的），否则可能看不见，因为图片宽度没有那么大，如果是绕中线旋转，那应该是 1/2 的图片宽度，作为属性给<strong>父元素</strong>设置时，作用于所有子元素）</p>
-<p>transform: perspective(100px)    （给自己设置景深，必须写在变换的最前面，否则不起效果，如 transform: rotateY(45deg）perspective(100px); 是不起效果的。必须写在前面transform: perspective(100px) rotateY(45deg);  因为 transform 这个属性，前面的值会影响后面的值）</p>
-<p><img src="img%5Cimage-20200515093022617.png" alt=""></p>
-<div align="center">给父元素添加 perspective: 300px 时，如上 </div>
+}
+<span class="keyword">export</span> <span class="keyword">default</span> Vue
+&lt;!--￼<span class="number">0</span>--&gt;</code></pre>
+</li>
+</ul>
+</li>
+<li><p>修改 package.json 下的 script, 加入 <code>&quot;dev&quot;: &quot;rollup -c -w&quot;</code>，-c 表示读取根目录下的 rollup.config.js， -w 表示监控文件改变</p>
+</li>
+<li><p>执行 <code>npm run dev</code> 后，会发现 dist 目录下新增了 vue.js 和 vue.js.map ，在这个目录下新建 index.html，并引入生成的 vue.js，之后在 script 标签内 <code>console.log(Vue)</code> 会发现把 Vue 这个函数打印出来了。</p>
+</li>
+</ul>
+<h3 id="Vue-的初始化"><a href="#Vue-的初始化" class="headerlink" title="Vue 的初始化"></a>Vue 的初始化</h3><p>我们知道，我们在 Vue2 中，是通过 new Vue(options) 来实现 Vue 挂载的。所以我们先在 html 文件中写上一个 id 为 app 的 div，之后 <code>new Vue({el: &#39;#app&#39;, data: { msg: &#39;newVue&#39; } })</code>，这就是正常的 Vue 初始化。</p>
+<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><p>由于 Vue 中 data 的所有属性都被响应式处理，每次使用 this.xxx 调用时，都会触发它的 get() 造成行能浪费，因为 get 中绑定了很多操作，同理 set 也是，如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">this</span>.count = <span class="keyword">this</span>.count + i</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	如上面的写法， get 和 set 都被触发了 10000 次</span></span><br><span class="line"><span class="comment">	下面为优化后的写法，get 与 set 都只触发了 1 次</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">let</span> count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    count = count + i</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.count = <span class="keyword">this</span>.count + count</span><br></pre></td></tr></table></figure>
 
-<p><img src="img%5Cimage-20200515093302076.png" alt=""></p>
-<div align="center">给子元素添加 transform: perspective(300px) 时，如上</div>
-
-<p>相当于给父元素添加 perspective: 时，是一个人看所有东西，给子元素添加 transform: perspective( ) 时，是每个东西都分配一个人去看（而且他们相对于自己对应的物体的位置是一样的）</p>
-<p>perspective-origin:  100% 0% （视角方向）</p>
-<p>transform-origin: 100% 0%     (设置以什么点开启变换)</p>
-<p>backface-visibility: hidden;      （翻转到背后时背景是否可见，默认为 visible ，背景可见）</p>
-<p>一旦用 3d 属性，可以触发设备的硬件加速，让浏览器性能提升。</p>
+<h4 id="优化原则"><a href="#优化原则" class="headerlink" title="优化原则"></a>优化原则</h4><ul>
+<li><p>不要把所有数据放再在 data 中，因为所有的数据</p>
+</li>
+<li><p>不要把数据层级写的太深，因为如果拿到的值是对象，会对其递归调用 observe</p>
+</li>
+<li><p>不要频繁获取数据</p>
+</li>
+<li><p>如果数据不需要响应式，可以用 Object.freeze 冻结属性</p>
+</li>
+</ul>
 
       
     </div>
@@ -452,7 +501,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"># css</a>
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
         </div>
       
@@ -465,8 +514,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/14/git/" rel="next" title="git">
-                <i class="fa fa-chevron-left"></i> git
+              <a href="/2021/05/02/%E8%BF%91%E7%8A%B6/" rel="next" title="近状">
+                <i class="fa fa-chevron-left"></i> 近状
               </a>
             
           </div>
@@ -474,10 +523,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/05/15/bfc/" rel="prev" title="bfc">
-                bfc <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -525,27 +570,27 @@
       <script type="text/javascript">
         if (disqus_config) {
           var disqus_config = function () {
-            this.page.url = 'https://dloux.gitee.io/2020/05/15/3d/';
-            this.page.identifier = '2020/05/15/3d/';
-            this.page.title = '3d';
+            this.page.url = 'https://dloux.gitee.io/2021/05/09/%E6%89%8B%E5%86%99vue/';
+            this.page.identifier = '2021/05/09/手写vue/';
+            this.page.title = '手写vue';
           };
           if (window.DISQUS) {
             $('.disqus-loading').remove();
             window.DISQUS.reset({
               reload: true,
               config: function () {
-                this.page.url = 'https://dloux.gitee.io/2020/05/15/3d/';
-                this.page.identifier = '2020/05/15/3d/';
-                this.page.title = '3d';
+                this.page.url = 'https://dloux.gitee.io/2021/05/09/%E6%89%8B%E5%86%99vue/';
+                this.page.identifier = '2021/05/09/手写vue/';
+                this.page.title = '手写vue';
               }
             });
           }
         }
         else {
           var disqus_config = function () {
-            this.page.url = 'https://dloux.gitee.io/2020/05/15/3d/';
-            this.page.identifier = '2020/05/15/3d/';
-            this.page.title = '3d';
+            this.page.url = 'https://dloux.gitee.io/2021/05/09/%E6%89%8B%E5%86%99vue/';
+            this.page.identifier = '2021/05/09/手写vue/';
+            this.page.title = '手写vue';
           };
           var d = document, s = d.createElement('script');
           s.src = 'https://diygod-me.disqus.com/embed.js';
@@ -703,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3d"><span class="nav-number">1.</span> <span class="nav-text">3d</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#手写Vue"><span class="nav-number">1.</span> <span class="nav-text">手写Vue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目初始化"><span class="nav-number">1.1.</span> <span class="nav-text">项目初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-的初始化"><span class="nav-number">1.2.</span> <span class="nav-text">Vue 的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能优化"><span class="nav-number">1.3.</span> <span class="nav-text">性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优化原则"><span class="nav-number">1.3.1.</span> <span class="nav-text">优化原则</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

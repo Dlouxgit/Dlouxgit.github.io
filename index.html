@@ -307,6 +307,203 @@
   
   <div class="post-date">
 			<div class="post-month">05月</div>
+			<div class="post-day">09</div>
+	</div>
+  
+  <div class="post-badge">
+    
+      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+          <span itemprop="name">技术</span>
+        </a>
+      </span>
+    
+  </div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/05/09/%E6%89%8B%E5%86%99vue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/05/09/%E6%89%8B%E5%86%99vue/" itemprop="url">手写vue</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-09T09:42:14+08:00">
+                2021-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">•</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="手写Vue"><a href="#手写Vue" class="headerlink" title="手写Vue"></a>手写Vue</h2><h3 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h3><ul>
+<li><p>初始化项目 <code>npm init -y</code></p>
+</li>
+<li><p>安装依赖 rollup 打包和 babel 转译 <code>npm i rollup @babel/core rollup-plugin-babel bel @babel/preset-env -D</code></p>
+<ul>
+<li>@babel/preset-env 是 babel 插件集合，core 的 transfer 会调用这些插件来转化为低级语法。</li>
+</ul>
+</li>
+<li><p>在根目录下新建 src 目录，并在这个目录新建 <code>index.js</code>，之后再根目录新建 <code>rollup.config.js</code> </p>
+<ul>
+<li><pre><code class="javascript"><span class="comment">// index.js</span>
+<span class="function"><span class="keyword">function</span> <span class="title">Vue</span>(<span class="params"></span>) </span>{
+
+}
+<span class="keyword">export</span> <span class="keyword">default</span> Vue
+&lt;!--￼<span class="number">0</span>--&gt;</code></pre>
+</li>
+</ul>
+</li>
+<li><p>修改 package.json 下的 script, 加入 <code>&quot;dev&quot;: &quot;rollup -c -w&quot;</code>，-c 表示读取根目录下的 rollup.config.js， -w 表示监控文件改变</p>
+</li>
+<li><p>执行 <code>npm run dev</code> 后，会发现 dist 目录下新增了 vue.js 和 vue.js.map ，在这个目录下新建 index.html，并引入生成的 vue.js，之后在 script 标签内 <code>console.log(Vue)</code> 会发现把 Vue 这个函数打印出来了。</p>
+</li>
+</ul>
+<h3 id="Vue-的初始化"><a href="#Vue-的初始化" class="headerlink" title="Vue 的初始化"></a>Vue 的初始化</h3><p>我们知道，我们在 Vue2 中，是通过 new Vue(options) 来实现 Vue 挂载的。所以我们先在 html 文件中写上一个 id 为 app 的 div，之后 <code>new Vue({el: &#39;#app&#39;, data: { msg: &#39;newVue&#39; } })</code>，这就是正常的 Vue 初始化。</p>
+<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><p>由于 Vue 中 data 的所有属性都被响应式处理，每次使用 this.xxx 调用时，都会触发它的 get() 造成行能浪费，因为 get 中绑定了很多操作，同理 set 也是，如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">this</span>.count = <span class="keyword">this</span>.count + i</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	如上面的写法， get 和 set 都被触发了 10000 次</span></span><br><span class="line"><span class="comment">	下面为优化后的写法，get 与 set 都只触发了 1 次</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">let</span> count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    count = count + i</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.count = <span class="keyword">this</span>.count + count</span><br></pre></td></tr></table></figure>
+
+<h4 id="优化原则"><a href="#优化原则" class="headerlink" title="优化原则"></a>优化原则</h4><ul>
+<li><p>不要把所有数据放再在 data 中，因为所有的数据</p>
+</li>
+<li><p>不要把数据层级写的太深，因为如果拿到的值是对象，会对其递归调用 observe</p>
+</li>
+<li><p>不要频繁获取数据</p>
+</li>
+<li><p>如果数据不需要响应式，可以用 Object.freeze 冻结属性</p>
+</li>
+</ul>
+
+            <div class="post-button text-center">
+              <a class="btn" href="/2021/05/09/%E6%89%8B%E5%86%99vue/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
+			<div class="post-month">05月</div>
 			<div class="post-day">02</div>
 	</div>
   
@@ -1764,168 +1961,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date">
-			<div class="post-month">03月</div>
-			<div class="post-day">19</div>
-	</div>
-  
-  <div class="post-badge">
-    
-      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-          <span itemprop="name">技术</span>
-        </a>
-      </span>
-    
-  </div>
-  
-
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/03/19/uniapp%E5%9D%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/dloux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/19/uniapp%E5%9D%91/" itemprop="url">uniapp-mp</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-19T00:29:47+08:00">
-                2021-03-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="uniapp-坑"><a href="#uniapp-坑" class="headerlink" title="uniapp 坑"></a>uniapp 坑</h2><ol>
-<li><p>uniapp 中不支持 reduce 方法。</p>
-</li>
-<li><p>不要使用行内方法，用 computed 或 filter 来代替
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/03/19/uniapp%E5%9D%91/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2039,7 +2074,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
