@@ -90,7 +90,7 @@
 <meta property="og:description" content="手写Vue项目初始化 初始化项目 npm init -y  安装依赖 rollup 打包和 babel 转译 npm i rollup @babel&#x2F;core rollup-plugin-babel bel @babel&#x2F;preset-env -D  @babel&#x2F;preset-env 是 babel 插件集合，core 的 transfer 会调用这些插件来转化为低级语法。   在根目录下新建">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-09T01:42:14.000Z">
-<meta property="article:modified_time" content="2021-05-15T19:10:57.647Z">
+<meta property="article:modified_time" content="2021-05-16T04:11:30.243Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -448,6 +448,7 @@
 <h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><p>由于 Vue 中 data 的所有属性都被响应式处理，每次使用 this.xxx 调用时，都会触发它的 get() 造成行能浪费，因为 get 中绑定了很多操作，同理 set 也是，如</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">this</span>.count = <span class="keyword">this</span>.count + i</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	如上面的写法， get 和 set 都被触发了 10000 次</span></span><br><span class="line"><span class="comment">	下面为优化后的写法，get 与 set 都只触发了 1 次</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">let</span> count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    count = count + i</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.count = <span class="keyword">this</span>.count + count</span><br></pre></td></tr></table></figure>
 
+<p><code>Vue2</code> 的 <code>diff</code> 是递归比较的，性能消耗比较大，在 <code>v-if</code> 时，由于 <code>vnode</code> 树不管这个节点在多深的节点，都会从根节点开始递归，因此性能不好。在 <code>vue3</code> 中，会把可能会更新的节点存入数组，发现更新了就遍历一遍数组，而不是递归，性能比 <code>vue2</code> 好很多。在 v-for 循环时，如果用 index 指定为 <code>key</code>，那么在 <code>ABCD</code> 节点变成 <code>DCBA</code> 时，会触发四次更新（相当于四个节点标签复用了，它们的子节点没复用，如果四个标签是 input 标签，就会保留原标签的值，只是改变标签的属性，会出现问题），因为老节点的 <code>A</code> 和新节点的 <code>D</code> key 值一样，标签一样，因此触发节点修改而不是节点移动，因此 ABCD 就触发了四次更新，而不是三次移动，每次更新页面重新渲染，性能不好。</p>
 <h4 id="优化原则"><a href="#优化原则" class="headerlink" title="优化原则"></a>优化原则</h4><ul>
 <li><p>不要把所有数据放再在 data 中，因为所有的数据</p>
 </li>
