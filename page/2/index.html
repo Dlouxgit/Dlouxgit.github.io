@@ -307,6 +307,167 @@
   
   <div class="post-date">
 			<div class="post-month">03月</div>
+			<div class="post-day">25</div>
+	</div>
+  
+  <div class="post-badge">
+    
+      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+          <span itemprop="name">技术</span>
+        </a>
+      </span>
+    
+  </div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/03/25/cover-view/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/25/cover-view/" itemprop="url">小程序 cover-view</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-25T23:05:14+08:00">
+                2021-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">•</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="小程序-cover-view"><a href="#小程序-cover-view" class="headerlink" title="小程序 cover-view"></a>小程序 cover-view</h2><p>众所周知，小程序中有些原生组件，默认层级最高，普通的 view 无法在上面覆盖，此时需要使用 <code>cover-view</code> 标签。而这个标签相比于 view，缺少很多属性，使用的时候发现这里没有那里也没有。</p>
+<p>覆盖原生组件时，只可以使用 cover-view 和 cover-image，其中 cover-view 不允许设置 background-image (因此 linear 这些渐变色背景也无法使用)，可以使用 cover-image ，把内容绝对定位来替代，cover-image 不允许使用 base64，支持网络路径。</p>
+<p>cover-view 已经支持 <code>overflow-y: scroll</code> 了，我在实现 map 组件上的覆盖物滚动时，使用了 touchstart, touchmove, touchend 三个事件修改 top 值来拟造滑动效果，虽然可以实现，但滑动效果非常卡，并且一旦滑动过快，会出现闪烁，touchmove 并不能完全监听到我所有的滑动，而是隔一段时间才监听到一次，看起来是内部已经做了节流处理，因此我改用了 <code>overflow</code> 属性带来的原生滚动，舒服多了。但从地图底部拖动到顶部时的拖动边界，仍然监听不灵敏，目前考虑将其置为按钮，不允许自定义滚动位置，仅允许滚动到两个固定位置，否则回退。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/03/25/cover-view/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
+			<div class="post-month">03月</div>
 			<div class="post-day">24</div>
 	</div>
   
@@ -1656,165 +1817,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date">
-			<div class="post-month">09月</div>
-			<div class="post-day">05</div>
-	</div>
-  
-  <div class="post-badge">
-    
-      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
-          <span itemprop="name">源码</span>
-        </a>
-      </span>
-    
-  </div>
-  
-
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2020/09/05/Vue%E6%BA%90%E7%A0%81%E9%80%90%E8%A1%8C%E8%A7%A3%E8%AF%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/dloux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/09/05/Vue%E6%BA%90%E7%A0%81%E9%80%90%E8%A1%8C%E8%A7%A3%E8%AF%BB/" itemprop="url">Vue源码逐行解读</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-05T10:44:02+08:00">
-                2020-09-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%BA%90%E7%A0%81/" itemprop="url" rel="index">
-                    <span itemprop="name">源码</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由于直接在 vue 文件夹中跳来跳去会非常混乱，要去各个文件一层层中找到想要的函数，不方便查找，就逐行看下来了，不过这样跳来跳去可以比较清楚地了解 Vue 的运行流程，各有利弊吧。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/09/05/Vue%E6%BA%90%E7%A0%81%E9%80%90%E8%A1%8C%E8%A7%A3%E8%AF%BB/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1928,7 +1930,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
