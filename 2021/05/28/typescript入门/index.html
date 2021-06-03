@@ -90,7 +90,7 @@
 <meta property="og:description" content="TypescriptTypeScript是Javascript的超集，遵循最新的ES5&#x2F;ES6规范。Typescript扩展了Javascript语法。 环境配置 安装 typescript 对 ts 编译12345npm i typescript -gtsc --init # 生成 tsconfig.jsontsc # 可以将 ts 编译成 jstsc --watch # 监听 ts 文件变化生">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-28T12:41:00.000Z">
-<meta property="article:modified_time" content="2021-05-30T16:32:51.075Z">
+<meta property="article:modified_time" content="2021-06-03T16:31:33.534Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="typescript入门">
 <meta name="twitter:card" content="summary">
@@ -471,11 +471,12 @@
 </ul>
 <h3 id="类型推导"><a href="#类型推导" class="headerlink" title="类型推导"></a>类型推导</h3><ul>
 <li><h4 id="类型推导-1"><a href="#类型推导-1" class="headerlink" title="类型推导"></a>类型推导</h4><p>声明变量没有赋予值时默认变量是 <code>any</code> 类型</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name <span class="comment">// 类型为 any</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name <span class="comment">// 类型为 any</span></span><br><span class="line">name = <span class="string">'dl'</span></span><br><span class="line">name = <span class="number">10</span></span><br></pre></td></tr></table></figure>
 
-
-
+<p>声明变量赋值时以赋值类型为准</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">'dl'</span> <span class="comment">// name 被推导为字符串类型</span></span><br><span class="line">name = <span class="number">10</span> <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
 </li>
+<li></li>
 </ul>
 
       
