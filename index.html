@@ -306,6 +306,193 @@
   
   
   <div class="post-date">
+			<div class="post-month">06月</div>
+			<div class="post-day">06</div>
+	</div>
+  
+  <div class="post-badge">
+    
+      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+          <span itemprop="name">技术</span>
+        </a>
+      </span>
+    
+  </div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/06/06/%E6%89%8B%E5%86%99vue3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/06/06/%E6%89%8B%E5%86%99vue3/" itemprop="url">手写vue3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-06T11:03:55+08:00">
+                2021-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">•</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Vue3"><a href="#Vue3" class="headerlink" title="Vue3"></a>Vue3</h2><blockquote>
+<p>vue3 中使用了 monorepo 的方式来管理各个模块，各个模块都各自为一个包，根目录下都存在一个 package.json，可以单独打包。npm 不能实现这种打包方式， yarn 可以。</p>
+</blockquote>
+<h3 id="reactivity"><a href="#reactivity" class="headerlink" title="reactivity"></a>reactivity</h3><p>Vue3 的代理是通过 Proxy 实现的，因此无法兼容低版本浏览器。</p>
+<p>导出一个 VueReactivity 对象，上面有四个方法：reactive, readonly, shallowReactive, shallowReadonly.</p>
+<ol>
+<li><p>在 src 下新建 index.ts，用于导出模块。</p>
+</li>
+<li><p>在 src 下新建 reactive.ts，定义并导出四个方法后，可以想象到，四个方法都是通过 Proxy 来代理，可以通过同一个函数传入不同参数来生成，因此定义一个 createProxy 方法，传入 target 目标对象，readonly 是否可以可读，handler 表示 Proxy 代理的处理方法。之后从另一个叫做 baseHandlers.ts 的文件中导入 handler。</p>
+</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; isObject &#125; <span class="keyword">from</span> <span class="string">'@vue/shared'</span></span><br><span class="line"><span class="keyword">import</span> &#123; mutableHandlers, readonlyHandlers, shallowReactiveHandlers, shallowReadonlyHandlers &#125; <span class="keyword">from</span> <span class="string">'baseHandlers'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reactiveMap = <span class="keyword">new</span> WeakMap()</span><br><span class="line"><span class="keyword">const</span> readonlyMap = <span class="keyword">new</span> WeakMap()</span><br><span class="line"><span class="keyword">const</span> shallowMap = <span class="keyword">new</span> WeakMap()</span><br><span class="line"><span class="keyword">const</span> shallowReadonlyMap = <span class="keyword">new</span> WeakMap()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reactive = createReactiveObject(, , reactiveMap)</span><br><span class="line"><span class="keyword">const</span> readonly = createReactiveObject(, , readonlyMap)</span><br><span class="line"><span class="keyword">const</span> shallowReactive = createReactiveObject(, , shallowMap)</span><br><span class="line"><span class="keyword">const</span> shallowReadonly = createReactiveObject(, , shallowReadonlyMap)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createReactiveObject</span>(<span class="params">target, baseHandlers, proxyMap</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!isObject(target)) &#123;</span><br><span class="line">        <span class="keyword">return</span> target</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> existsProxy = proxyMap.get(target)</span><br><span class="line">    <span class="keyword">if</span> (existsProxy) &#123;</span><br><span class="line">        <span class="keyword">return</span> existsProxy</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> proxy = <span class="keyword">new</span> Proxy(target, baseHandlers)</span><br><span class="line">    proxyMap.set(target, proxy)</span><br><span class="line">    <span class="keyword">return</span> proxy</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在 src 下新建 baseHandlers.ts，由于每个 Proxy 的 handler 存在 get 和 set，而上面四种方法又存在 shallow 和 readonly 两个布尔变量，因此有四种可能，同样可以定义一个函数根据传入的参数生成不同的 get / set。</li>
+</ol>
+<blockquote>
+<p>Reflect.get(target, key, receiver) 的第三个参数，是传入的上下文对象，当 key 为 function 时，里面的 this 指向 receiver，否则指向 target。</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// getter</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">get</span> = createGetter()</span><br><span class="line"><span class="keyword">const</span> readonlyGet = createGetter(<span class="literal">true</span>)</span><br><span class="line"><span class="keyword">const</span> shallowGet = createGetter(<span class="literal">false</span>, <span class="literal">true</span>)</span><br><span class="line"><span class="keyword">const</span> shallowReadonlyGet = createGetter(<span class="literal">true</span>, <span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// setter</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">set</span> = createSetter()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createSetter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">set</span>(<span class="params">target, key, value, receiver</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> res = Reflect.set(target, key, value, receiver)</span><br><span class="line">        <span class="comment">// 触发更新</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// getter</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createGetter</span>(<span class="params">isReadonly = <span class="literal">false</span>, isShallow = <span class="literal">false</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">target, key, receiver</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> res = Reflect.get(target, key, receiver)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (!isReadonly) &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (isShallow) &#123;</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (isObject(res)) &#123;</span><br><span class="line">            <span class="keyword">return</span> isReadonly ? readonly(res) : reactive(res)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> mutableHandlers = &#123;</span><br><span class="line">    <span class="keyword">get</span>,</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> shallowHandlers = &#123;</span><br><span class="line">    <span class="keyword">get</span>: shallowGet,</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> readonlyHandlers = &#123;</span><br><span class="line">    <span class="keyword">get</span>: readonlyGet,</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> shallowReadonlyHandlers = &#123;</span><br><span class="line">    <span class="keyword">get</span>: shallowReadonlyGet,</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>在 src 下新建 effect.ts，导出一个 effect 函数</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">effect</span>(<span class="params">fn, options = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> effect = createReactiveEffect(fn, options)</span><br><span class="line">    <span class="keyword">if</span> (!options.lazy) &#123;</span><br><span class="line">        effect()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> effect</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> uid = <span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> activeEffect</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createReactiveEffect</span>(<span class="params">fn, options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> effect = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        activeEffect = fn <span class="comment">// Dep.target = watcher</span></span><br><span class="line">        </span><br><span class="line">        fn()</span><br><span class="line">    &#125;</span><br><span class="line">    effect.id = uid++ <span class="comment">// 唯一标识，类比 Watcher</span></span><br><span class="line">    effect._isEffect = <span class="literal">true</span> <span class="comment">// 用于标识这个函数是 effect 函数</span></span><br><span class="line">    effect.raw = fn <span class="comment">// 把用户传入的函数保存到当前的 effect 上</span></span><br><span class="line">    effect.deps = [] <span class="comment">// 把后续用来存放此 effect 对于哪些属性</span></span><br><span class="line">    effect.options = options</span><br><span class="line">    <span class="keyword">return</span> effect</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> targetMap = <span class="keyword">new</span> WeakMap()</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">track</span>(<span class="params">target, <span class="keyword">type</span>, key</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> depsMap = targetMap.get(target)</span><br><span class="line">    <span class="keyword">if</span> (!depsMap) &#123;</span><br><span class="line">        targetMap.set(target, (depsMap = <span class="keyword">new</span> Map)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> dep = depsMap.get(key)</span><br><span class="line">    <span class="keyword">if</span> (!dep) &#123;</span><br><span class="line">        depsMap.set(key, (dep = <span class="keyword">new</span> Set))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!dep.has(activeEffect)) &#123;</span><br><span class="line">        dep.add(activeEffect)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">trigger</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> depsMap = targetMap.get(target)</span><br><span class="line">    <span class="keyword">if</span> (!depsMap)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">const</span> effects = depsMap.get(key)</span><br><span class="line">    effects &amp;&amp; effects.forEach(<span class="function"><span class="params">effect</span> =&gt;</span> effect())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+            <div class="post-button text-center">
+              <a class="btn" href="/2021/06/06/%E6%89%8B%E5%86%99vue3/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
 			<div class="post-month">05月</div>
 			<div class="post-day">28</div>
 	</div>
@@ -991,15 +1178,27 @@
 <p>为了防止 <code>dep</code> 的 <code>subs</code> 和 <code>watcher</code> 的 <code>deps</code> 互相重复添加，<code>vue2</code> 里在判断浏览器不支持 Set 的时候，自己生成了一个 <code>SimpleSet</code>，非标准规范，用于防止添加重复的 <code>sub</code> 或 <code>dep</code>。</p>
 <p>当监听到某个属性变化时，会走到 <code>setter</code> 装饰器，调用 <code>dep.notify()</code>，通知这个 <code>dep</code> 上的 subs 数组中所有的 <code>watcher</code>，调用这些 <code>watcher</code> 的 <code>update()</code> 方法，这个 <code>update</code> 又调用了<code>dep.get()</code> 来重新渲染页面。</p>
 <h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p><code>Vue.component(name, options)</code> 的第二个参数，如果是对象，就会调用 <code>Vue.extend</code> 返回组件的构造函数，这个构造函数的原型继承自 <code>Vue</code> 的实例。</p>
-<p>组件在初始化时，会调用 <code>Vue.extend</code> 来生成 <code>Vue</code> 的实例作为组件的原型，同时通过 <code>mergeOptions</code> 把 Vue 上的全局 <code>options</code> 放到自己的 <code>options</code> 上（期间涉及到同名属性合并策略，同名生命周期默认都会保存，同名属性默认自己的将会覆盖全局。在 <code>Vue</code> 中，合并策略是允许自定义的），<code>Vue</code> （这里写的是 Vue 方便理解，实际上是当前组件的父组件）上会多出一个 <code>components</code> 的属性用于存放组件。<code>Vue.component</code> 至此结束。</p>
+<p>组件在初始化时，会调用 <code>Vue.extend</code> （会调用一次 <code>_init</code>，可以合并 options 和响应式处理数据）来生成 <code>Vue</code> 的实例作为组件的原型，同时通过 <code>mergeOptions</code> 把 Vue 上的全局 <code>options</code> 放到自己的 <code>options</code> 上（期间涉及到同名属性合并策略，同名生命周期默认都会保存，同名属性默认自己的将会覆盖全局。在 <code>Vue</code> 中，合并策略是允许自定义的），<code>Vue</code> （这里写的是 Vue 方便理解，实际上是当前组件的父组件）上会多出一个 <code>components</code> 的属性用于存放组件。<code>Vue.component</code> 至此结束。</p>
 <p>在创造真实节点时，内部会对模板进行编译操作，调用 <code>_c(&#39;组件名&#39;)</code>（<code>_c</code> 即 <code>createElement</code> 用于创造虚拟节点），通过 <code>isReservedTag</code> 方法来判断是否为组件，如果是组件，调用 <code>createComponent</code> 来生成 <code>vnode</code>，组件的虚拟节点上存在 <code>componentOptions</code>  属性（见下）。如果 <code>componentOptions</code> 里的 <code>Ctor</code> （如果是构造函数，说明已经被 <code>Vue.extend</code> 过了，可以直接使用。如果是对象，则需要将其转为构造函数，通过 <code>Vue.extend</code> 生成，就是 Vue 原型的实例，同时也作为组件的构造函数）。之后挂载上组件的 <code>hook</code> 后就创造了一个组件的虚拟节点并返回。</p>
-<p>在通过 <code>createElm</code> 创造真实节点的时候，如果是组件，就会调用组件的 <code>hook</code>，里面的 <code>init</code> 方法会<code>new Ctor({})</code> 创造一个组件实例后，并放到组件虚拟节点的 <code>vnode.componentInstance</code> 属性上，之后调用 <code>$mount</code> 生成一个 <code>$el</code> ，对应组件模板渲染的结果。</p>
+<p>在通过 <code>createElm</code> 创造真实节点的时候，如果是组件<code>(通过 createComponent 来判断，不过这个方法和上面创造虚拟节点的方法重名了，这里的目的调用上面同名方法定义的 init hook，生成 vnode.componentInstance)</code>，就会调用组件的 <code>hook</code>，里面的 <code>init</code> 方法会<code>new Ctor({})</code> 创造一个组件实例后，并放到组件虚拟节点的 <code>vnode.componentInstance</code> 属性上，之后调用 <code>$mount</code> 生成一个 <code>$el</code> ，对应组件模板渲染的结果。</p>
 <p>组件在 <code>new Ctor()</code> 时会进行组件节点的初始化，给组件再次添加一个独立的渲染 <code>watcher</code>，每个组件都有自己的 <code>watcher</code>，更新时，只需要更新自己组件对应的渲染 <code>watcher</code>，因为组件渲染时，组件对应的属性只会收集自己的渲染 <code>watcher</code>。</p>
 <p>*<em>所有的组件实例都是通过 Vue.extend 来实现的。组件上的 componentOptions 里放着组件的所有内容，属性，事件，插槽，Ctor，children  等。 而 componentInstance 则是 new Ctor() 产生的，存放着 $el *</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Vue.extend = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>._init(options)</span><br><span class="line">    &#125;</span><br><span class="line">    Sub.prototype = <span class="built_in">Object</span>.create(Vue.prototype)</span><br><span class="line">	Sub.constructor = Sub</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 合并 options, 实例.__proto = 全局组件</span></span><br><span class="line">    Sub.options = mergeOptions(Vue.options, opt) </span><br><span class="line">    <span class="keyword">return</span> Sub</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">Vue.extend = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>._init(options)</span><br><span class="line">    &#125;</span><br><span class="line">    Sub.prototype = <span class="built_in">Object</span>.create(Vue.prototype)</span><br><span class="line">	Sub.constructor = Sub</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 合并 options, 实例.__proto = 全局组件</span></span><br><span class="line">    Sub.options = mergeOptions(Vue.options, opt) </span><br><span class="line">    <span class="keyword">return</span> Sub</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// demo.html</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	当检测到传入的 render 函数的 tag 为组件（这里是 App 组件）时，会走 createComponent，里面同样会调用 Vue.extend，如上所述一致，之后返回一个组件的虚拟节点</span></span><br><span class="line"><span class="comment">    let App = &#123;</span></span><br><span class="line"><span class="comment">        render(h) &#123;</span></span><br><span class="line"><span class="comment">            return h('h1', &#123; class: 'xxx' &#125;, 'hello world')</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    const vm = new Vue(&#123;</span></span><br><span class="line"><span class="comment">        el: '#app',</span></span><br><span class="line"><span class="comment">        render: h =&gt; h(App, &#123; a: 1, on: &#123; click: function() &#123;&#125; &#125; &#125;)</span></span><br><span class="line"><span class="comment">    &#125;)</span></span><br><span class="line"><span class="comment">   </span></span><br><span class="line"><span class="comment">    下面是虚拟节点，listeners 是 on 上定义的方法</span></span><br><span class="line"><span class="comment">    &#123;</span></span><br><span class="line"><span class="comment">	    tag: 'vue-component-1-App',</span></span><br><span class="line"><span class="comment">	    componentOptions: &#123; Ctor, propsData, listeners &#125;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">     流程</span></span><br><span class="line"><span class="comment">     1. h(App) 返回一个组件的虚拟节点</span></span><br><span class="line"><span class="comment">     2. 过程中会先将用户的参数变成一个 Ctor （通过 Vue.extend）</span></span><br><span class="line"><span class="comment">     3. 给组件的 data 上添加 hook （init、prepatch、insert、destroy）</span></span><br><span class="line"><span class="comment">     4. 返回组件的虚拟节点</span></span><br><span class="line"><span class="comment">     5. 创造真实节点 patch -&gt; createElm ，过程中会调用组件的 init hook 进行初始化， 为vnode.componentInstance 赋值为 new Ctor()</span></span><br><span class="line"><span class="comment">     6. 组件.$mount() 通过 vm._render 生成 vm.$el</span></span><br><span class="line"><span class="comment">     7. vnode.componentInstance.$el 取到的就是组件要渲染的内容</span></span><br><span class="line"><span class="comment">     </span></span><br><span class="line"><span class="comment">     注意，渲染 App 的时候，它只是h =&gt; h(App, &#123; a: 1, on: &#123; click: function() &#123;&#125; &#125; &#125;) ，是拿不到 h('h1', &#123; class: 'xxx' &#125;, 'hello world') 的，它是在 new Ctor（会调用 _init） 时候才能进行 App 的初始化，才会创建组件内容的虚拟节点</span></span><br><span class="line"><span class="comment">     </span></span><br><span class="line"><span class="comment">     渲染时，遇到组件先渲染组件，然后再去渲染组件里的内容，再拿这个内容去替换这个组件</span></span><br><span class="line"><span class="comment">     </span></span><br><span class="line"><span class="comment">     </span></span><br><span class="line"><span class="comment">     组件更新会走 prepatch，比较插槽，比较属性</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>流程图如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[CreateComponent] --&gt;B[Vue.extend] --&gt; C[installComponentHooks]</span><br><span class="line">A1[patch] --&gt;B1[createElm] --&gt; C1[createComponent]</span><br><span class="line">	C --&gt; D[init]</span><br><span class="line">	C1 --&gt; D[init]</span><br><span class="line">	D --&gt; E[createComponentInstanceForVnode]</span><br><span class="line">	E --&gt; F[$mount]</span><br><span class="line">	F --&gt; G[insert]</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p> 函数式组件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没有状态，没有 this，没有 new，没有生命周期，不会有 Watcher</span></span><br><span class="line"><span class="comment">// 只负责页面渲染 木偶组件（内部不用再创造实例）</span></span><br><span class="line">Vue.component(<span class="string">'my-button'</span>, &#123;</span><br><span class="line">    functional: <span class="literal">true</span>,</span><br><span class="line">    props: &#123;</span><br><span class="line">        text: <span class="built_in">String</span></span><br><span class="line">    &#125;</span><br><span class="line">    render(h, &#123; slots, data, props &#125;) &#123;</span><br><span class="line">        <span class="keyword">return</span> h(<span class="string">'button'</span>, props.text) <span class="comment">// 每次用函数式组件返回的虚拟节点直接进行渲染</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        text: <span class="string">'张三'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">	创造函数组件也可以写成</span></span><br><span class="line"><span class="comment">	&lt;template functional&gt;</span></span><br><span class="line"><span class="comment">	&lt;/template&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">// createFunctionalComponent(Ctor, propsData, data, context) 创造函数组件的虚拟节点直接返回，不用 new 实例</span></span><br></pre></td></tr></table></figure>
 
-
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210607000031091.png" alt="image-20210607000031091"></p>
+<p>函数式组件主要逻辑</p>
+<blockquote>
+<p><a href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6" target="_blank" rel="noopener">异步组件</a></p>
+</blockquote>
+<p>异步组件原理，先弄个占位符，加载完毕后重新渲染。</p>
+<p><code>Vue.Component</code> 调用 <code>createComponent</code> 如果传入的第二个参数不是对象，而是函数，同时没有 <code>Ctor.cid</code>（Ctor 是第一个参数，可能是类组件，函数或对象或 void，对象会走 Vue.extend 生成一个类组件） ，则触发异步组件逻辑。<code>cid</code> 是在组件被调用 <code>Vue.extend</code> 后会添加在组件上的属性。</p>
 <h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><p>组件的 <code>v-model</code> 和原生标签的 <code>v-model</code> 是不一样的，虽然我们经常说 <code>v-model</code> 就是 <code>:value + @input</code>  ，但在原生标签中，经过了一步转化，为了在输入中文的时候，那些输入法的字符不显示在表单元素中。</p>
 <p>比如在 <code>&lt;input v-model=&quot;val&quot; /&gt;</code> 和 <code>&lt;input :value=&quot;val&quot; @input=&quot;e =&gt; val = e.target.value&quot;&gt;</code> ，在这两个表单中输入 ”再“ 这字时，第一个表单元素不会出现 <code>zai</code>  这三个英文字符，第二个会。实现原理是监听 <code>compressstart</code> 和 <code>compressend</code></p>
 <h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>Vue 中当值触发 <code>set</code> 时，将使用 <code>dep.notify()</code> 通知  <code>watcher</code>更新，但这些 <code>watcher</code> 中可能会存在相同的 <code>watcher</code> 被重复通知，因此，<code>Vue</code> 建立了一个 <code>watcher</code> 队列，用于去重（利用 <code>watcher.id</code> ）并缓存所有 <code>watcher</code>，等待下次空闲时加入事件队列。</p>
@@ -1875,167 +2074,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date">
-			<div class="post-month">04月</div>
-			<div class="post-day">08</div>
-	</div>
-  
-  <div class="post-badge">
-    
-      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/leetcode/" itemprop="url" rel="index">
-          <span itemprop="name">leetcode</span>
-        </a>
-      </span>
-    
-  </div>
-  
-
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/04/08/leetcode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/dloux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/04/08/leetcode/" itemprop="url">leetcode</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-08T00:24:45+08:00">
-                2021-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="leetcode"><a href="#leetcode" class="headerlink" title="leetcode"></a>leetcode</h2><h4 id="704-二分查找"><a href="#704-二分查找" class="headerlink" title="704. 二分查找"></a><a href="https://leetcode-cn.com/problems/binary-search/" target="_blank" rel="noopener">704. 二分查找</a></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">target</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> search = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> n = nums.length</span><br><span class="line">    <span class="keyword">let</span> l = <span class="number">0</span>,</span><br><span class="line">        r = n - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>( l &lt;= r) &#123;</span><br><span class="line">        <span class="keyword">const</span> mid = <span class="built_in">Math</span>.floor(l + (r - l) / <span class="number">2</span>) <span class="comment">// 防止整型溢出 2^53 - 1</span></span><br><span class="line">        <span class="keyword">if</span> (nums[mid] === target) &#123;</span><br><span class="line">            <span class="keyword">return</span> mid</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">            r = mid - <span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            l = mid + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-            <div class="post-button text-center">
-              <a class="btn" href="/2021/04/08/leetcode/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2149,7 +2187,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
