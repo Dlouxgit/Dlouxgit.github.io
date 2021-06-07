@@ -91,7 +91,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210607000031091.png">
 <meta property="article:published_time" content="2021-05-09T01:42:14.000Z">
-<meta property="article:modified_time" content="2021-06-06T16:33:33.595Z">
+<meta property="article:modified_time" content="2021-06-07T16:37:55.411Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -467,7 +467,8 @@
 <p><a href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6" target="_blank" rel="noopener">异步组件</a></p>
 </blockquote>
 <p>异步组件原理，先弄个占位符，加载完毕后重新渲染。</p>
-<p><code>Vue.Component</code> 调用 <code>createComponent</code> 如果传入的第二个参数不是对象，而是函数，同时没有 <code>Ctor.cid</code>（Ctor 是第一个参数，可能是类组件，函数或对象或 void，对象会走 Vue.extend 生成一个类组件） ，则触发异步组件逻辑。<code>cid</code> 是在组件被调用 <code>Vue.extend</code> 后会添加在组件上的属性。</p>
+<p><code>Vue.Component</code> 调用 <code>createComponent</code> 如果传入的第二个参数不是对象，而是函数（则会被当成 factory 函数），同时没有 <code>Ctor.cid</code>（Ctor 是第一个参数，可能是类组件，函数或对象或 void，对象会走 Vue.extend 生成一个类组件，<code>cid</code> 是在组件被调用 <code>Vue.extend</code> 后会添加在组件上的属性） ，则触发异步组件逻辑，调用 resolveAsyncComponent 函数。</p>
+<p>会往这个函数中传入 Vue 自己实现的 resolve 和 reject 方法，如果返回值是 Promise，则对 .then 传入 resolve 和 reject，resolve 会调用 <code>once((res) =&gt; { factory.resolved = ensureCtor(res, baseCtor); !sync &amp;&amp; forceRender(true) })</code> ensureCtor 就是 Vue.extend，之后强制渲染。resolveAsyncComponent 函数最后返回 <code>factory.loading ? factory.loadingComp : factory.resolved</code> ，即 factory 是否为 loading 状态，是就返回 loading 组件，没有 loading 就返回 undefined，否则返回 factory.resolved （调用 resolve 后会把组件挂在到 factory.resolved 上）。然后根据返回值是否为 undefined 决定渲染占位符还是真是组件，如果 loadingComp 为 undefined，占位符是 <code>&lt;!----&gt;</code> 这种 HTML 注释。如果调用 resolveAsyncComponent 函数时， factory.resolved 有值，则直接返回 factory.resolved。因此第一次会显示占位符，第二次会显示组件，因为在第一次过后，组件异步更新完成时， factory.resolved 已经有值了，并且调用 forceRender(true) 重新渲染组件。</p>
 <h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><p>组件的 <code>v-model</code> 和原生标签的 <code>v-model</code> 是不一样的，虽然我们经常说 <code>v-model</code> 就是 <code>:value + @input</code>  ，但在原生标签中，经过了一步转化，为了在输入中文的时候，那些输入法的字符不显示在表单元素中。</p>
 <p>比如在 <code>&lt;input v-model=&quot;val&quot; /&gt;</code> 和 <code>&lt;input :value=&quot;val&quot; @input=&quot;e =&gt; val = e.target.value&quot;&gt;</code> ，在这两个表单中输入 ”再“ 这字时，第一个表单元素不会出现 <code>zai</code>  这三个英文字符，第二个会。实现原理是监听 <code>compressstart</code> 和 <code>compressend</code></p>
 <h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>Vue 中当值触发 <code>set</code> 时，将使用 <code>dep.notify()</code> 通知  <code>watcher</code>更新，但这些 <code>watcher</code> 中可能会存在相同的 <code>watcher</code> 被重复通知，因此，<code>Vue</code> 建立了一个 <code>watcher</code> 队列，用于去重（利用 <code>watcher.id</code> ）并缓存所有 <code>watcher</code>，等待下次空闲时加入事件队列。</p>
