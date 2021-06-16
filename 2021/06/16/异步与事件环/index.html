@@ -71,7 +71,7 @@
 
 
 
-  <meta name="keywords" content="coin," />
+  <meta name="keywords" content="异步与事件环," />
 
 
 
@@ -82,18 +82,20 @@
 
 
 
-<meta name="description" content="这两天学会了打币技巧，忘我看盘，无心学习，拖延一下。 doge shi smars rice pig aug thmoon">
+<meta name="description" content="异步1. EventLoop 事件环进程是计算机分配任务和调度任务的最小单位 浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。 常见的渲染线程及功能：  1. GUI 渲染：页面渲染、绘图、绘制 3d 动画  2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js  3. 事件触发进程 Even">
 <meta property="og:type" content="article">
-<meta property="og:title" content="coin">
-<meta property="og:url" content="https://dloux.gitee.io/2021/05/10/coin/index.html">
+<meta property="og:title" content="异步与事件环">
+<meta property="og:url" content="https://dloux.gitee.io/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/index.html">
 <meta property="og:site_name" content="Dloux">
-<meta property="og:description" content="这两天学会了打币技巧，忘我看盘，无心学习，拖延一下。 doge shi smars rice pig aug thmoon">
+<meta property="og:description" content="异步1. EventLoop 事件环进程是计算机分配任务和调度任务的最小单位 浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。 常见的渲染线程及功能：  1. GUI 渲染：页面渲染、绘图、绘制 3d 动画  2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js  3. 事件触发进程 Even">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-05-10T15:57:45.000Z">
-<meta property="article:modified_time" content="2021-05-11T16:37:44.794Z">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210616221006486.png">
+<meta property="article:published_time" content="2021-06-16T13:32:09.000Z">
+<meta property="article:modified_time" content="2021-06-16T15:40:34.147Z">
 <meta property="article:author" content="Dloux">
-<meta property="article:tag" content="coin">
+<meta property="article:tag" content="异步与事件环">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210616221006486.png">
 
 
 
@@ -148,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="https://dloux.gitee.io/2021/05/10/coin/"/>
+  <link rel="canonical" href="https://dloux.gitee.io/2021/06/16/异步与事件环/"/>
 
 
 
 
 
-  <title>coin | Dloux</title>
+  <title>异步与事件环 | Dloux</title>
   
 
 
@@ -308,15 +310,15 @@
   
   
   <div class="post-date">
-			<div class="post-month">05月</div>
-			<div class="post-day">10</div>
+			<div class="post-month">06月</div>
+			<div class="post-day">16</div>
 	</div>
   
   <div class="post-badge">
     
       <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
-          <span itemprop="name">生活</span>
+        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+          <span itemprop="name">技术</span>
         </a>
       </span>
     
@@ -324,7 +326,7 @@
   
 
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/05/10/coin/">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dloux">
@@ -341,7 +343,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">coin</h1>
+          <h1 class="post-title" itemprop="name headline">异步与事件环</h1>
         
 
         <div class="post-meta">
@@ -353,8 +355,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-10T23:57:45+08:00">
-                2021-05-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-16T21:32:09+08:00">
+                2021-06-16
               </time>
             
 
@@ -376,8 +378,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
                   </a>
                 </span>
 
@@ -413,8 +415,32 @@
       
 
       
-        <p>这两天学会了打币技巧，忘我看盘，无心学习，拖延一下。</p>
-<p>doge shi smars rice pig aug thmoon</p>
+        <h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><p>1.</p>
+<h2 id="EventLoop-事件环"><a href="#EventLoop-事件环" class="headerlink" title="EventLoop 事件环"></a>EventLoop 事件环</h2><p>进程是计算机分配任务和调度任务的最小单位</p>
+<p>浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。</p>
+<p>常见的渲染线程及功能： </p>
+<pre><code>1. GUI 渲染：页面渲染、绘图、绘制 3d 动画
+ 2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js
+ 3. 事件触发进程 EventLoop
+ 4. webApi 也会创建线程，如事件（click 等）、定时器、ajax 请求
+ 5. webworker</code></pre><p>JS 是单线程的，指的是主线程是单线程的，实际上上面这些都是线程。</p>
+<h3 id="宏任务、微任务"><a href="#宏任务、微任务" class="headerlink" title="宏任务、微任务"></a>宏任务、微任务</h3><p>宏任务： <script> 脚本、UI 渲染、setTimeout、setInterval、postMessage、MessageChangel（I / O 操作）、setImmediate（只存在于 ie）</p>
+<p>微任务：promise、MutationObserer、object.observe（已被废弃，有 bug）、process.nextTick（只存在于 node 环境）、queueMircotask</p>
+<blockquote>
+<p>每循环一次会执行一个宏任务，并清空对应的微任务队列，每次事件循环完毕后会判断页面是否需要重新渲染，大约 16.6 ms 会渲染一次</p>
+</blockquote>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210616221006486.png" alt="image-20210616221006486"></p>
+<p>requestFrameAnimation 的渲染时机是微任务被清空的时候</p>
+<ol>
+<li>先执行 script 脚本，将宏任务和微任务进行分类，如果调用的是浏览器 api，浏览器会开一个线程，等事件到了，自动地放入到宏任务队列中，微任务是直接放到微任务队列中的</li>
+<li>js 执行完毕后，会清空所有的微任务，如果微任务再产生微任务，会放到当前微任务队列的尾部</li>
+<li><strong>如果页面需要渲染，则执行渲染流程（即在微任务之后，在一轮脚本执行完之后才会触发！requestFrameAnimation 、idleCallback 都是在这时候触发的）</strong></li>
+</ol>
+<p>事件触发线程会不停扫描宏任务队列，如果宏任务队列中有对应的回调，会取出来执行一个，继续执行上述的过程</p>
+<p>微任务队列每次执行宏任务，都会创建一个微任务队列，而宏任务队列只有一个。</p>
+<p><strong>任务的优先级</strong></p>
+<p>宏任务macrotask：主代码块 > setImmediate > MessageChannel > setTimeout / setInterval(<strong>大部分</strong>浏览器会把<strong>DOM事件回调优先处理 因为要提升用户体验 给用户反馈，其次是network IO操作的回调，再然后是UIrender，</strong>之后的顺序就难以捉摸了，其实不同浏览器的表现也不太一样，这里不做过多讨论。)</p>
+<p>微任务microtask：process.nextTick > Promise = MutationObserver</p>
 
       
     </div>
@@ -465,7 +491,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/coin/" rel="tag"># coin</a>
+            <a href="/tags/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/" rel="tag"># 异步与事件环</a>
           
         </div>
       
@@ -478,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/05/09/%E6%89%8B%E5%86%99vue/" rel="next" title="手写vue">
-                <i class="fa fa-chevron-left"></i> 手写vue
+              <a href="/2021/06/16/node/" rel="next" title="node">
+                <i class="fa fa-chevron-left"></i> node
               </a>
             
           </div>
@@ -487,10 +513,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/05/28/js%E6%B7%B1%E5%85%A5/" rel="prev" title="js深入">
-                js深入 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -538,27 +560,27 @@
       <script type="text/javascript">
         if (disqus_config) {
           var disqus_config = function () {
-            this.page.url = 'https://dloux.gitee.io/2021/05/10/coin/';
-            this.page.identifier = '2021/05/10/coin/';
-            this.page.title = 'coin';
+            this.page.url = 'https://dloux.gitee.io/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/';
+            this.page.identifier = '2021/06/16/异步与事件环/';
+            this.page.title = '异步与事件环';
           };
           if (window.DISQUS) {
             $('.disqus-loading').remove();
             window.DISQUS.reset({
               reload: true,
               config: function () {
-                this.page.url = 'https://dloux.gitee.io/2021/05/10/coin/';
-                this.page.identifier = '2021/05/10/coin/';
-                this.page.title = 'coin';
+                this.page.url = 'https://dloux.gitee.io/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/';
+                this.page.identifier = '2021/06/16/异步与事件环/';
+                this.page.title = '异步与事件环';
               }
             });
           }
         }
         else {
           var disqus_config = function () {
-            this.page.url = 'https://dloux.gitee.io/2021/05/10/coin/';
-            this.page.identifier = '2021/05/10/coin/';
-            this.page.title = 'coin';
+            this.page.url = 'https://dloux.gitee.io/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/';
+            this.page.identifier = '2021/06/16/异步与事件环/';
+            this.page.title = '异步与事件环';
           };
           var d = document, s = d.createElement('script');
           s.src = 'https://diygod-me.disqus.com/embed.js';
@@ -614,8 +636,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -697,6 +728,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#异步"><span class="nav-number">1.</span> <span class="nav-text">异步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EventLoop-事件环"><span class="nav-number">2.</span> <span class="nav-text">EventLoop 事件环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#宏任务、微任务"><span class="nav-number">2.1.</span> <span class="nav-text">宏任务、微任务</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
