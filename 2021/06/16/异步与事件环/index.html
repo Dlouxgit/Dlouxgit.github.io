@@ -82,16 +82,16 @@
 
 
 
-<meta name="description" content="异步1. EventLoop 事件环进程是计算机分配任务和调度任务的最小单位 浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。 常见的渲染线程及功能：  1. GUI 渲染：页面渲染、绘图、绘制 3d 动画  2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js  3. 事件触发进程 Even">
+<meta name="description" content="异步1. EventLoop 事件环进程是计算机分配任务和调度任务的最小单位 浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。 常见的渲染线程及功能：  1. GUI 渲染：页面渲染、绘图、绘制 3d 动画 2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js 3. 事件触发进程 EventL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="异步与事件环">
 <meta property="og:url" content="https://dloux.gitee.io/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/index.html">
 <meta property="og:site_name" content="Dloux">
-<meta property="og:description" content="异步1. EventLoop 事件环进程是计算机分配任务和调度任务的最小单位 浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。 常见的渲染线程及功能：  1. GUI 渲染：页面渲染、绘图、绘制 3d 动画  2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js  3. 事件触发进程 Even">
+<meta property="og:description" content="异步1. EventLoop 事件环进程是计算机分配任务和调度任务的最小单位 浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。 常见的渲染线程及功能：  1. GUI 渲染：页面渲染、绘图、绘制 3d 动画 2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js 3. 事件触发进程 EventL">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210616221006486.png">
 <meta property="article:published_time" content="2021-06-16T13:32:09.000Z">
-<meta property="article:modified_time" content="2021-06-16T15:40:34.147Z">
+<meta property="article:modified_time" content="2021-06-19T16:54:19.802Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="异步与事件环">
 <meta name="twitter:card" content="summary">
@@ -420,11 +420,11 @@
 <p>浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。</p>
 <p>常见的渲染线程及功能： </p>
 <pre><code>1. GUI 渲染：页面渲染、绘图、绘制 3d 动画
- 2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js
- 3. 事件触发进程 EventLoop
- 4. webApi 也会创建线程，如事件（click 等）、定时器、ajax 请求
- 5. webworker</code></pre><p>JS 是单线程的，指的是主线程是单线程的，实际上上面这些都是线程。</p>
-<h3 id="宏任务、微任务"><a href="#宏任务、微任务" class="headerlink" title="宏任务、微任务"></a>宏任务、微任务</h3><p>宏任务： <script> 脚本、UI 渲染、setTimeout、setInterval、postMessage、MessageChangel（I / O 操作）、setImmediate（只存在于 ie）</p>
+2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js
+3. 事件触发进程 EventLoop
+4. webApi 也会创建线程，如事件（click 等）、定时器、ajax 请求
+5. webworker</code></pre><p>JS 是单线程的，指的是主线程是单线程的，实际上上面这些都是线程。</p>
+<h3 id="宏任务、微任务"><a href="#宏任务、微任务" class="headerlink" title="宏任务、微任务"></a>宏任务、微任务</h3><p>宏任务： &lt;script&gt; 脚本、UI 渲染、setTimeout、setInterval、postMessage、MessageChangel（I / O 操作）、setImmediate（只存在于 ie）</p>
 <p>微任务：promise、MutationObserer、object.observe（已被废弃，有 bug）、process.nextTick（只存在于 node 环境）、queueMircotask</p>
 <blockquote>
 <p>每循环一次会执行一个宏任务，并清空对应的微任务队列，每次事件循环完毕后会判断页面是否需要重新渲染，大约 16.6 ms 会渲染一次</p>
@@ -439,8 +439,8 @@
 <p>事件触发线程会不停扫描宏任务队列，如果宏任务队列中有对应的回调，会取出来执行一个，继续执行上述的过程</p>
 <p>微任务队列每次执行宏任务，都会创建一个微任务队列，而宏任务队列只有一个。</p>
 <p><strong>任务的优先级</strong></p>
-<p>宏任务macrotask：主代码块 > setImmediate > MessageChannel > setTimeout / setInterval(<strong>大部分</strong>浏览器会把<strong>DOM事件回调优先处理 因为要提升用户体验 给用户反馈，其次是network IO操作的回调，再然后是UIrender，</strong>之后的顺序就难以捉摸了，其实不同浏览器的表现也不太一样，这里不做过多讨论。)</p>
-<p>微任务microtask：process.nextTick > Promise = MutationObserver</p>
+<p>宏任务macrotask：主代码块 &gt; setImmediate &gt; MessageChannel &gt; setTimeout / setInterval(<strong>大部分</strong>浏览器会把<strong>DOM事件回调优先处理 因为要提升用户体验 给用户反馈，其次是network IO操作的回调，再然后是UIrender，</strong>之后的顺序就难以捉摸了，其实不同浏览器的表现也不太一样，这里不做过多讨论。)</p>
+<p>微任务microtask：process.nextTick &gt; Promise = MutationObserver</p>
 
       
     </div>
