@@ -90,7 +90,7 @@
 <meta property="og:description" content="Node基本概念Node是什么?Node.js是一个基于 Chrome V8 引擎的JavaScript运行环境(runtime),Node不是一门语言是让js运行在后端的运行时,并且不包括javascript全集,因为在服务端中不包含DOM和BOM,Node也提供了一些新的模块例如http,fs模块等。Node.js 使用了事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效并且Node.js 的">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-16T13:25:35.000Z">
-<meta property="article:modified_time" content="2021-06-24T17:01:58.547Z">
+<meta property="article:modified_time" content="2021-06-25T16:55:52.590Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="node">
 <meta name="twitter:card" content="summary">
@@ -436,6 +436,22 @@
 <p>exports</p>
 <p>module</p>
 <p>require()</p>
+<h2 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h2><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><p>一个字节由 8 个位组成，gbk 中一个汉字由 2 个字节表示，utf8 中一个汉字由 3 个字节组成</p>
+<ul>
+<li>ASCII 编码</li>
+<li>GB2312</li>
+<li>GBK</li>
+<li>GB18030</li>
+<li>Unicode</li>
+<li>UTF-8</li>
+</ul>
+<p>内容会被转为十六进制，比如数字 1 在 ascii 表中为 49（十进制），转成十六进制就是 31。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buffer = Buffer.from(<span class="string">'1'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(buffer) <span class="comment">// &lt;Buffer 31&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(buffer.toString()) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>Node 中不支持 GBK 编码，需要将 GBK 转为 UTF8 编码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iconv = <span class="built_in">require</span>(<span class="string">'iconv-lite'</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readGBKText</span>(<span class="params">pathname</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bin = fs.readFileSync(pathname)</span><br><span class="line">    <span class="keyword">return</span> iconv.decode(bin, <span class="string">'gbk'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1</p>
 
       
     </div>
@@ -737,7 +753,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Node"><span class="nav-number">1.</span> <span class="nav-text">Node</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node是什么"><span class="nav-number">1.2.</span> <span class="nav-text">Node是什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node解决了哪些问题"><span class="nav-number">1.3.</span> <span class="nav-text">Node解决了哪些问题?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS单线程"><span class="nav-number">1.4.</span> <span class="nav-text">JS单线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步异步和阻塞非阻塞"><span class="nav-number">1.5.</span> <span class="nav-text">同步异步和阻塞非阻塞</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node中的模块"><span class="nav-number">2.</span> <span class="nav-text">Node中的模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#commonjs-规范"><span class="nav-number">2.0.1.</span> <span class="nav-text">commonjs 规范</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Node"><span class="nav-number">1.</span> <span class="nav-text">Node</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node是什么"><span class="nav-number">1.2.</span> <span class="nav-text">Node是什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node解决了哪些问题"><span class="nav-number">1.3.</span> <span class="nav-text">Node解决了哪些问题?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS单线程"><span class="nav-number">1.4.</span> <span class="nav-text">JS单线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步异步和阻塞非阻塞"><span class="nav-number">1.5.</span> <span class="nav-text">同步异步和阻塞非阻塞</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node中的模块"><span class="nav-number">2.</span> <span class="nav-text">Node中的模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#commonjs-规范"><span class="nav-number">2.0.1.</span> <span class="nav-text">commonjs 规范</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Buffer"><span class="nav-number">2.1.</span> <span class="nav-text">Buffer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编码"><span class="nav-number">2.1.1.</span> <span class="nav-text">编码</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

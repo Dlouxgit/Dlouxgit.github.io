@@ -623,6 +623,22 @@
 <p>exports</p>
 <p>module</p>
 <p>require()</p>
+<h2 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h2><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><p>一个字节由 8 个位组成，gbk 中一个汉字由 2 个字节表示，utf8 中一个汉字由 3 个字节组成</p>
+<ul>
+<li>ASCII 编码</li>
+<li>GB2312</li>
+<li>GBK</li>
+<li>GB18030</li>
+<li>Unicode</li>
+<li>UTF-8</li>
+</ul>
+<p>内容会被转为十六进制，比如数字 1 在 ascii 表中为 49（十进制），转成十六进制就是 31。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buffer = Buffer.from(<span class="string">'1'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(buffer) <span class="comment">// &lt;Buffer 31&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(buffer.toString()) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>Node 中不支持 GBK 编码，需要将 GBK 转为 UTF8 编码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iconv = <span class="built_in">require</span>(<span class="string">'iconv-lite'</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readGBKText</span>(<span class="params">pathname</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bin = fs.readFileSync(pathname)</span><br><span class="line">    <span class="keyword">return</span> iconv.decode(bin, <span class="string">'gbk'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1</p>
 
             <div class="post-button text-center">
               <a class="btn" href="/2021/06/16/node/#more" rel="contents">
