@@ -307,6 +307,186 @@
   
   <div class="post-date">
 			<div class="post-month">06月</div>
+			<div class="post-day">30</div>
+	</div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/06/30/%E7%BD%91%E7%BB%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/06/30/%E7%BD%91%E7%BB%9C/" itemprop="url">网络</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-30T22:01:59+08:00">
+                2021-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><h2 id="OSI-七层模型（Open-System-Interconnection）"><a href="#OSI-七层模型（Open-System-Interconnection）" class="headerlink" title="OSI 七层模型（Open System Interconnection）"></a>OSI 七层模型（Open System Interconnection）</h2><blockquote>
+<p>OSI 七层模型，是理想化的模型，将复杂的流程分解为几个功能实现复杂问题简单化。</p>
+</blockquote>
+<ul>
+<li><ol start="7">
+<li>应用层（用户最终的接口） 微信、QQ ,  <strong>HTTP\DNS\FTP\TFTP\SMTP\DHCP</strong></li>
+</ol>
+</li>
+<li><ol start="6">
+<li>表示层（数据的表示、安全、压缩）</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>会话层（建立和管理会话）</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>传输层 <strong>TCP、UDP</strong></li>
+</ol>
+</li>
+<li><ol start="3">
+<li>网络层（路由器） IP 协议 ipv4、ipv6</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>数据链路层（交换机、网卡）</li>
+</ol>
+</li>
+<li><ol>
+<li>物理层（物理设备，网线、光纤）</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>七层模型是倒着看的，下层是为了给上层提供服务的</p>
+<p>没有插 wan 口的路由器可以充当交换机，但传输效率不如交换机</p>
+</blockquote>
+<h3 id="应用层（整合表示层与会话层）"><a href="#应用层（整合表示层与会话层）" class="headerlink" title="应用层（整合表示层与会话层）"></a>应用层（整合表示层与会话层）</h3><p>代表性协议是 HTTP、DNS。</p>
+<p>管理会话建立会话、数据表示。</p>
+<p>把用户要传递的数据封装一层，即装包，但它并没有传输能力，传输是靠传输层来处理的。</p>
+<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>代表性协议是 TCP、UDP，目前有且仅有两种。</p>
+<p>传输的数据叫做<strong>段</strong>。</p>
+<p>将应用层传递来的数据进行拆分（应用层可能传来一个很大的数据，不可能一次性直接传到下一层）、包装，加入序号（用来标记这个被拆开的数据位置）、端口号（传递本地端口和对方端口以供连接）。</p>
+<h3 id="网络层（IP层）"><a href="#网络层（IP层）" class="headerlink" title="网络层（IP层）"></a>网络层（IP层）</h3><p>代表性协议是 IP 协议（ipv4、ipv6）。</p>
+<p>传输的数据叫做<strong>包</strong>。</p>
+<p>对传输层传递来的数据再进行包装，同时如果这个数据太大，也会拆分数据。将 ip 地址包装进去。</p>
+<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><p>传输的数据叫做<strong>帧</strong>。</p>
+<p>会把数据再进行包装，增加一头一尾，形成<strong>帧（Frame）</strong>，也叫 MTU， 一帧可以传 1500 字节。（注：HTTP2 中还有分帧的概念）</p>
+<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><p>物理上的设备，网线、光纤、双绞线。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="IP-地址和-MAC-地址"><a href="#IP-地址和-MAC-地址" class="headerlink" title="IP 地址和 MAC 地址"></a>IP 地址和 MAC 地址</h3><ul>
+<li>最终通信都是通过 MAC 地址通信，每个网卡都有自己的 MAC 地址（原则上唯一）。</li>
+<li>通过 DHCP 协议分配给每台电脑 IP</li>
+</ul>
+
+            <div class="post-button text-center">
+              <a class="btn" href="/2021/06/30/%E7%BD%91%E7%BB%9C/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
+			<div class="post-month">06月</div>
 			<div class="post-day">16</div>
 	</div>
   
@@ -2185,172 +2365,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date">
-			<div class="post-month">04月</div>
-			<div class="post-day">18</div>
-	</div>
-  
-  <div class="post-badge">
-    
-      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-          <span itemprop="name">技术</span>
-        </a>
-      </span>
-    
-  </div>
-  
-
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/04/18/rollup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/dloux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/04/18/rollup/" itemprop="url">rollup</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-18T02:11:40+08:00">
-                2021-04-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="rollup"><a href="#rollup" class="headerlink" title="rollup"></a>rollup</h2><p>rollup 是一个 JavaScript 的模块打包器，一般用来编写库或者组件，因为它打包生成的文件仍然保持原来的文件结构，和 webpack 大有不同，同时也有 treeshaking 功能。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>npm init</code>、<code>npm i rollup -D</code></p>
-<h3 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h3><p>在根目录下新建 rollup.config.js 文件，导出一个对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rollup.config.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    input: <span class="string">'./src/main.js'</span>, <span class="comment">// 入口文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        file: <span class="string">'./dist/js/main.min.js'</span>,</span><br><span class="line">        format: <span class="string">'iife'</span> <span class="comment">// 输出格式，这里是匿名的立即执行函数作用域，其他有 cjs es amd 和 umd</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在 package.json 中加入指令 <code>build: rollup -c</code> 或者 <code>build: rollup --config</code> 可以让根目录下的 config 生效。</p>
-<h2 id="从零实现一个-rollup"><a href="#从零实现一个-rollup" class="headerlink" title="从零实现一个 rollup"></a>从零实现一个 rollup</h2><h3 id="1-初始化目录"><a href="#1-初始化目录" class="headerlink" title="1. 初始化目录"></a>1. 初始化目录</h3><h3 id="2-2"><a href="#2-2" class="headerlink" title="2.  2"></a>2.  2</h3><p>2</p>
-
-            <div class="post-button text-center">
-              <a class="btn" href="/2021/04/18/rollup/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2464,7 +2478,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -71,7 +71,7 @@
 
 
 
-  <meta name="keywords" content="异步与事件环," />
+  <meta name="keywords" content="技术," />
 
 
 
@@ -82,20 +82,18 @@
 
 
 
-<meta name="description" content="异步1. EventLoop 事件环进程是计算机分配任务和调度任务的最小单位 浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。 常见的渲染线程及功能：  1. GUI 渲染：页面渲染、绘图、绘制 3d 动画 2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js 3. 事件触发进程 EventL">
+<meta name="description" content="网络OSI 七层模型（Open System Interconnection） OSI 七层模型，是理想化的模型，将复杂的流程分解为几个功能实现复杂问题简单化。    应用层（用户最终的接口） 微信、QQ ,  HTTP\DNS\FTP\TFTP\SMTP\DHCP    表示层（数据的表示、安全、压缩）    会话层（建立和管理会话）    传输层 TCP、UDP    网络层（路由器） IP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="异步与事件环">
-<meta property="og:url" content="https://dloux.gitee.io/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/index.html">
+<meta property="og:title" content="网络">
+<meta property="og:url" content="https://dloux.gitee.io/2021/06/30/%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="Dloux">
-<meta property="og:description" content="异步1. EventLoop 事件环进程是计算机分配任务和调度任务的最小单位 浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。 常见的渲染线程及功能：  1. GUI 渲染：页面渲染、绘图、绘制 3d 动画 2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js 3. 事件触发进程 EventL">
+<meta property="og:description" content="网络OSI 七层模型（Open System Interconnection） OSI 七层模型，是理想化的模型，将复杂的流程分解为几个功能实现复杂问题简单化。    应用层（用户最终的接口） 微信、QQ ,  HTTP\DNS\FTP\TFTP\SMTP\DHCP    表示层（数据的表示、安全、压缩）    会话层（建立和管理会话）    传输层 TCP、UDP    网络层（路由器） IP">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210616221006486.png">
-<meta property="article:published_time" content="2021-06-16T13:32:09.000Z">
-<meta property="article:modified_time" content="2021-06-19T16:54:19.802Z">
+<meta property="article:published_time" content="2021-06-30T14:01:59.000Z">
+<meta property="article:modified_time" content="2021-06-30T16:31:00.784Z">
 <meta property="article:author" content="Dloux">
-<meta property="article:tag" content="异步与事件环">
+<meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210616221006486.png">
 
 
 
@@ -150,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="https://dloux.gitee.io/2021/06/16/异步与事件环/"/>
+  <link rel="canonical" href="https://dloux.gitee.io/2021/06/30/网络/"/>
 
 
 
 
 
-  <title>异步与事件环 | Dloux</title>
+  <title>网络 | Dloux</title>
   
 
 
@@ -311,22 +309,12 @@
   
   <div class="post-date">
 			<div class="post-month">06月</div>
-			<div class="post-day">16</div>
+			<div class="post-day">30</div>
 	</div>
-  
-  <div class="post-badge">
-    
-      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-          <span itemprop="name">技术</span>
-        </a>
-      </span>
-    
-  </div>
   
 
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/06/30/%E7%BD%91%E7%BB%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dloux">
@@ -343,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">异步与事件环</h1>
+          <h1 class="post-title" itemprop="name headline">网络</h1>
         
 
         <div class="post-meta">
@@ -355,8 +343,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-16T21:32:09+08:00">
-                2021-06-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-30T22:01:59+08:00">
+                2021-06-30
               </time>
             
 
@@ -365,28 +353,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -415,32 +381,59 @@
       
 
       
-        <h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><p>1.</p>
-<h2 id="EventLoop-事件环"><a href="#EventLoop-事件环" class="headerlink" title="EventLoop 事件环"></a>EventLoop 事件环</h2><p>进程是计算机分配任务和调度任务的最小单位</p>
-<p>浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。</p>
-<p>常见的渲染线程及功能： </p>
-<pre><code>1. GUI 渲染：页面渲染、绘图、绘制 3d 动画
-2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js
-3. 事件触发进程 EventLoop
-4. webApi 也会创建线程，如事件（click 等）、定时器、ajax 请求
-5. webworker</code></pre><p>JS 是单线程的，指的是主线程是单线程的，实际上上面这些都是线程。</p>
-<h3 id="宏任务、微任务"><a href="#宏任务、微任务" class="headerlink" title="宏任务、微任务"></a>宏任务、微任务</h3><p>宏任务： &lt;script&gt; 脚本、UI 渲染、setTimeout、setInterval、postMessage、MessageChangel（I / O 操作）、setImmediate（只存在于 ie）</p>
-<p>微任务：promise、MutationObserer、object.observe（已被废弃，有 bug）、process.nextTick（只存在于 node 环境）、queueMircotask</p>
-<blockquote>
-<p>每循环一次会执行一个宏任务，并清空对应的微任务队列，每次事件循环完毕后会判断页面是否需要重新渲染，大约 16.6 ms 会渲染一次</p>
+        <h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><h2 id="OSI-七层模型（Open-System-Interconnection）"><a href="#OSI-七层模型（Open-System-Interconnection）" class="headerlink" title="OSI 七层模型（Open System Interconnection）"></a>OSI 七层模型（Open System Interconnection）</h2><blockquote>
+<p>OSI 七层模型，是理想化的模型，将复杂的流程分解为几个功能实现复杂问题简单化。</p>
 </blockquote>
-<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210616221006486.png" alt="image-20210616221006486"></p>
-<p>requestFrameAnimation 的渲染时机是微任务被清空的时候</p>
-<ol>
-<li>先执行 script 脚本，将宏任务和微任务进行分类，如果调用的是浏览器 api，浏览器会开一个线程，等事件到了，自动地放入到宏任务队列中，微任务是直接放到微任务队列中的</li>
-<li>js 执行完毕后，会清空所有的微任务，如果微任务再产生微任务，会放到当前微任务队列的尾部</li>
-<li><strong>如果页面需要渲染，则执行渲染流程（即在微任务之后，在一轮脚本执行完之后才会触发！requestFrameAnimation 、idleCallback 都是在这时候触发的）</strong></li>
+<ul>
+<li><ol start="7">
+<li>应用层（用户最终的接口） 微信、QQ ,  <strong>HTTP\DNS\FTP\TFTP\SMTP\DHCP</strong></li>
 </ol>
-<p>事件触发线程会不停扫描宏任务队列，如果宏任务队列中有对应的回调，会取出来执行一个，继续执行上述的过程</p>
-<p>微任务队列每次执行宏任务，都会创建一个微任务队列，而宏任务队列只有一个。</p>
-<p><strong>任务的优先级</strong></p>
-<p>宏任务macrotask：主代码块 &gt; setImmediate &gt; MessageChannel &gt; setTimeout / setInterval(<strong>大部分</strong>浏览器会把<strong>DOM事件回调优先处理 因为要提升用户体验 给用户反馈，其次是network IO操作的回调，再然后是UIrender，</strong>之后的顺序就难以捉摸了，其实不同浏览器的表现也不太一样，这里不做过多讨论。)</p>
-<p>微任务microtask：process.nextTick &gt; Promise = MutationObserver</p>
+</li>
+<li><ol start="6">
+<li>表示层（数据的表示、安全、压缩）</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>会话层（建立和管理会话）</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>传输层 <strong>TCP、UDP</strong></li>
+</ol>
+</li>
+<li><ol start="3">
+<li>网络层（路由器） IP 协议 ipv4、ipv6</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>数据链路层（交换机、网卡）</li>
+</ol>
+</li>
+<li><ol>
+<li>物理层（物理设备，网线、光纤）</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>七层模型是倒着看的，下层是为了给上层提供服务的</p>
+<p>没有插 wan 口的路由器可以充当交换机，但传输效率不如交换机</p>
+</blockquote>
+<h3 id="应用层（整合表示层与会话层）"><a href="#应用层（整合表示层与会话层）" class="headerlink" title="应用层（整合表示层与会话层）"></a>应用层（整合表示层与会话层）</h3><p>代表性协议是 HTTP、DNS。</p>
+<p>管理会话建立会话、数据表示。</p>
+<p>把用户要传递的数据封装一层，即装包，但它并没有传输能力，传输是靠传输层来处理的。</p>
+<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>代表性协议是 TCP、UDP，目前有且仅有两种。</p>
+<p>传输的数据叫做<strong>段</strong>。</p>
+<p>将应用层传递来的数据进行拆分（应用层可能传来一个很大的数据，不可能一次性直接传到下一层）、包装，加入序号（用来标记这个被拆开的数据位置）、端口号（传递本地端口和对方端口以供连接）。</p>
+<h3 id="网络层（IP层）"><a href="#网络层（IP层）" class="headerlink" title="网络层（IP层）"></a>网络层（IP层）</h3><p>代表性协议是 IP 协议（ipv4、ipv6）。</p>
+<p>传输的数据叫做<strong>包</strong>。</p>
+<p>对传输层传递来的数据再进行包装，同时如果这个数据太大，也会拆分数据。将 ip 地址包装进去。</p>
+<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><p>传输的数据叫做<strong>帧</strong>。</p>
+<p>会把数据再进行包装，增加一头一尾，形成<strong>帧（Frame）</strong>，也叫 MTU， 一帧可以传 1500 字节。（注：HTTP2 中还有分帧的概念）</p>
+<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><p>物理上的设备，网线、光纤、双绞线。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="IP-地址和-MAC-地址"><a href="#IP-地址和-MAC-地址" class="headerlink" title="IP 地址和 MAC 地址"></a>IP 地址和 MAC 地址</h3><ul>
+<li>最终通信都是通过 MAC 地址通信，每个网卡都有自己的 MAC 地址（原则上唯一）。</li>
+<li>通过 DHCP 协议分配给每台电脑 IP</li>
+</ul>
 
       
     </div>
@@ -491,7 +484,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/" rel="tag"># 异步与事件环</a>
+            <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
           
         </div>
       
@@ -504,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/06/16/node/" rel="next" title="node">
-                <i class="fa fa-chevron-left"></i> node
+              <a href="/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/" rel="next" title="异步与事件环">
+                <i class="fa fa-chevron-left"></i> 异步与事件环
               </a>
             
           </div>
@@ -513,10 +506,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/06/30/%E7%BD%91%E7%BB%9C/" rel="prev" title="网络">
-                网络 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -564,27 +553,27 @@
       <script type="text/javascript">
         if (disqus_config) {
           var disqus_config = function () {
-            this.page.url = 'https://dloux.gitee.io/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/';
-            this.page.identifier = '2021/06/16/异步与事件环/';
-            this.page.title = '异步与事件环';
+            this.page.url = 'https://dloux.gitee.io/2021/06/30/%E7%BD%91%E7%BB%9C/';
+            this.page.identifier = '2021/06/30/网络/';
+            this.page.title = '网络';
           };
           if (window.DISQUS) {
             $('.disqus-loading').remove();
             window.DISQUS.reset({
               reload: true,
               config: function () {
-                this.page.url = 'https://dloux.gitee.io/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/';
-                this.page.identifier = '2021/06/16/异步与事件环/';
-                this.page.title = '异步与事件环';
+                this.page.url = 'https://dloux.gitee.io/2021/06/30/%E7%BD%91%E7%BB%9C/';
+                this.page.identifier = '2021/06/30/网络/';
+                this.page.title = '网络';
               }
             });
           }
         }
         else {
           var disqus_config = function () {
-            this.page.url = 'https://dloux.gitee.io/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/';
-            this.page.identifier = '2021/06/16/异步与事件环/';
-            this.page.title = '异步与事件环';
+            this.page.url = 'https://dloux.gitee.io/2021/06/30/%E7%BD%91%E7%BB%9C/';
+            this.page.identifier = '2021/06/30/网络/';
+            this.page.title = '网络';
           };
           var d = document, s = d.createElement('script');
           s.src = 'https://diygod-me.disqus.com/embed.js';
@@ -742,7 +731,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#异步"><span class="nav-number">1.</span> <span class="nav-text">异步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EventLoop-事件环"><span class="nav-number">2.</span> <span class="nav-text">EventLoop 事件环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#宏任务、微任务"><span class="nav-number">2.1.</span> <span class="nav-text">宏任务、微任务</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-number">1.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI-七层模型（Open-System-Interconnection）"><span class="nav-number">1.1.</span> <span class="nav-text">OSI 七层模型（Open System Interconnection）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层（整合表示层与会话层）"><span class="nav-number">1.1.1.</span> <span class="nav-text">应用层（整合表示层与会话层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层"><span class="nav-number">1.1.2.</span> <span class="nav-text">传输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层（IP层）"><span class="nav-number">1.1.3.</span> <span class="nav-text">网络层（IP层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据链路层"><span class="nav-number">1.1.4.</span> <span class="nav-text">数据链路层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理层"><span class="nav-number">1.1.5.</span> <span class="nav-text">物理层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.2.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-地址和-MAC-地址"><span class="nav-number">1.2.1.</span> <span class="nav-text">IP 地址和 MAC 地址</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
