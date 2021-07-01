@@ -3,13 +3,14 @@
 
 
 
-<html class="theme-next pisces" lang="en">
+<html class="theme-next pisces" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
+<meta name="theme-color" content="#fff">
 
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/fonts/Candyshop.otf" as="font" type="font/otf" crossorigin="anonymous">
 
 
 
@@ -33,14 +34,8 @@
 
 
 
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-
-
-  
-  
-    
-  
-  <link href="https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
 
 
 
@@ -50,28 +45,32 @@
 
   
 
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
 
 
 
   
 
-<link href="https://cdn.bootcss.com/social-share.js/1.0.9/css/share.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.0.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.0.74" rel="stylesheet" type="text/css" />
 
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=0.0.4">
-
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=0.0.74">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=0.0.4" color="#222">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=0.0.74">
+
+
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=0.0.74" color="#fff">
+
+
+  <link rel="manifest" href="/manifest.json">
 
 
 
 
 
-  <meta name="keywords" content="Dloux,blog" />
+  <meta name="keywords" content="DIYgod,blog" />
 
 
 
@@ -84,11 +83,10 @@
 
 <meta name="description" content="catch fish with the hands">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dloux">
+<meta property="og:title" content="Hi, Dloux">
 <meta property="og:url" content="https://dloux.gitee.io/page/2/index.html">
-<meta property="og:site_name" content="Dloux">
+<meta property="og:site_name" content="Hi, Dloux">
 <meta property="og:description" content="catch fish with the hands">
-<meta property="og:locale" content="en_US">
 <meta property="article:author" content="Dloux">
 <meta name="twitter:card" content="summary">
 
@@ -99,21 +97,20 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '0.0.4',
+    version: '0.0.74',
     sidebar: {"position":"right","display":"always","offset":52,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
     tabs: true,
     motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     since: '6/2/2020 11:30:00',
-    onlineAPI: '',
     site: {
-      title: 'Dloux',
+      title: 'Hi, Dloux',
       subtitle: '',
       author: 'Dloux'
     },
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -129,8 +126,8 @@
     },
     favicon: {
       visibilitychange: true,
-      narmal: '',
-      hidden: '/images/failure.ico',
+      narmal: '/favicon.ico',
+      hidden: '/failure.ico',
       show_text: '(/≧▽≦/)咦！又好了！',
       hide_text: '(●—●)喔哟，崩溃啦！'
     }
@@ -139,8 +136,10 @@
 
 
 
-  
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/disqusjs@1.2.2/dist/disqus.js"></script>
 
 
 
@@ -151,11 +150,20 @@
 
 
 
-  <title>Dloux</title>
+  <title>Hi, Dloux</title>
   
 
 
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48084758-7', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -163,7 +171,7 @@
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans" class="theme-darling">
 
   
   
@@ -180,53 +188,69 @@
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-首页">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fas fa-meteor"></i> <br />
             
-            主页
+            首页
           </a>
+          
         </li>
       
         
         <li class="menu-item menu-item-实验室">
-          <a href="/proj" rel="section">
+          <a href="javascript:;" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-magic"></i> <br />
+              <i class="menu-item-icon fas fa-magic"></i> <br />
             
             实验室
           </a>
+          
+            <ul class="submenu submenu-实验室">
+              
+                
+                <li class="submenu-item submenu-item-ezdemo">
+                  <a href="/proj" rel="section" target="_blank">
+                    ezDemo
+                  </a>
+                </li>
+              
+            </ul>
+          
         </li>
       
         
         <li class="menu-item menu-item-归档">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fas fa-archive"></i> <br />
             
             归档
           </a>
+          
         </li>
       
         
         <li class="menu-item menu-item-关于我">
           <a href="/proj/cv/resume.html" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fas fa-heartbeat"></i> <br />
             
             关于我
           </a>
+          
         </li>
       
         
         <li class="menu-item menu-item-吃个饭">
           <a href="/proj/meal/index.html" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon heartbeat"></i> <br />
             
             吃个饭
           </a>
+          
         </li>
       
 
@@ -234,17 +258,27 @@
       <li class="menu-item search">
           <form class="search-form">
             <input name="keyword" type="text" class="search-input" placeholder="站内搜索">
-            <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
+            <button type="submit" class="search-submit"><i class="fas fa-search"></i></button>
           </form>
       </li>
-      <li class="menu-item online"><span id="online-count">?</span>人在线</li>
     </ul>
   
 
   
 </nav>
 
-<div class="site-brand-wrapper" style="background-image: url(/images/header-cat.jpg)">
+<div class="site-brand-wrapper">
+  <div class="site-brand-bg">
+    <picture>
+      <!--
+        <source srcset="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/images/header-gyx-s.webp" type="image/webp" media="(max-width: 500px)">
+        <source srcset="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/images/header-gyx-s.png" type="image/png" media="(max-width: 500px)">
+        <source srcset="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/images/header-gyx.webp" type="image/webp">
+        <img loading="lazy" src="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/images/header-gyx.png">
+      -->
+      <img loading="lazy" src="/images/header-cat.jpg">
+    </picture>
+  </div>
   <div class="site-meta ">
     
 
@@ -252,11 +286,86 @@
       <div class="brand">
         <span class="logo-line-before"><i></i></span>
         <div class="site-title">
+          <div id="animate-stroke" class="animate">
+            <span>
+                  <svg>
+                    <use xlink:href="#strokeH"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#strokei"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#stroke,"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#stroke "></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#strokeD"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#strokel"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#strokeo"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#strokeu"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#strokex"></use>
+                  </svg>
+                </span>
+          </div>
           <div id="animate" class="animate">
-            <span>D</span><span>l</span><span>o</span><span>u</span><span>x</span>
+            <span>
+                  <svg>
+                    <text id="strokeH">H</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="strokei">i</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="stroke,">,</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="stroke "> </text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="strokeD">D</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="strokel">l</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="strokeo">o</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="strokeu">u</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="strokex">x</text>
+                  </svg>
+                </span>
           </div>
           <div id="guide" class="guide">
-            <span>D</span><span>l</span><span>o</span><span>u</span><span>x</span>
+            <span>H</span><span>i</span><span>,</span><span> </span><span>D</span><span>l</span><span>o</span><span>u</span><span>x</span>
           </div>
         </div>
         <span class="logo-line-after"><i></i></span>
@@ -276,13 +385,21 @@
   </div>
 </div>
 <div class="site-master" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-master-avatar" itemprop="image" src="/images/dloux.jpg" alt="Dloux" />
-    <h2 class="site-master-description" itemprop="description">
-        catch fish with the hands
+    <picture><img loading="lazy" class="site-master-avatar scaleup" itemprop="image" src="/images/dloux.jpg" alt="Dloux" /></picture>
+    <h2 class="site-master-description scaleup" itemprop="description">
+        享受打码，码到明朝
     </h2>
 </div>
-
-
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                location.href = '/'
+            }
+        }
+    })();
+</script>
  </div>
     </header>
 
@@ -331,7 +448,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
+      <meta itemprop="name" content="Hi, Dloux">
     </span>
 
     
@@ -341,21 +458,19 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/04/18/rollup/" itemprop="url">rollup</a></h1>
+                <a class="post-title-link scaleup" href="/2021/04/18/rollup/" itemprop="url">rollup</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-18T02:11:40+08:00">
-                2021-04-18
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-18T02:11:40+08:00">2021-04-18</time>
             
 
             
@@ -364,25 +479,23 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
+            <span class="post-wordcount">
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">184</span>
+              
 
-                
-                
+              
+
               
             </span>
           
@@ -398,8 +511,6 @@
 
           
 
-          
-
         </div>
       </header>
     
@@ -408,7 +519,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
@@ -424,8 +535,8 @@
 <h2 id="从零实现一个-rollup"><a href="#从零实现一个-rollup" class="headerlink" title="从零实现一个 rollup"></a>从零实现一个 rollup</h2><h3 id="1-初始化目录"><a href="#1-初始化目录" class="headerlink" title="1. 初始化目录"></a>1. 初始化目录</h3><h3 id="2-2"><a href="#2-2" class="headerlink" title="2.  2"></a>2.  2</h3><p>2</p>
 
             <div class="post-button text-center">
-              <a class="btn" href="/2021/04/18/rollup/#more" rel="contents">
-                Read more &raquo;
+              <a class="btn scaleup" href="/2021/04/18/rollup/#more" rel="contents">
+                阅读全文 &raquo;
               </a>
             </div>
           
@@ -497,7 +608,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
+      <meta itemprop="name" content="Hi, Dloux">
     </span>
 
     
@@ -507,21 +618,19 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/04/16/%E4%B8%8E%E5%90%8E%E7%AB%AF%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" itemprop="url">与后端的数据处理</a></h1>
+                <a class="post-title-link scaleup" href="/2021/04/16/%E4%B8%8E%E5%90%8E%E7%AB%AF%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" itemprop="url">与后端的数据处理</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-16T01:21:03+08:00">
-                2021-04-16
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-16T01:21:03+08:00">2021-04-16</time>
             
 
             
@@ -530,25 +639,23 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
+            <span class="post-wordcount">
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%80%9D%E8%80%83/" itemprop="url" rel="index">
-                    <span itemprop="name">思考</span>
-                  </a>
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">155</span>
+              
 
-                
-                
+              
+
               
             </span>
           
@@ -564,8 +671,6 @@
 
           
 
-          
-
         </div>
       </header>
     
@@ -574,7 +679,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
@@ -584,8 +689,8 @@
             <h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><p>最近处理了一个比较复杂的显隐及展示逻辑判断，根据后端返回的字段控制几个不同组件的显隐状态及展示状态，写了大概几百行的逻辑判断。由此感觉后端与前端的分工其实在我这并不明确，实际上，即使后端把所有数据全都返回回来，只要存在数据，前端就能自己处理后渲染，仿佛后端只是一个读取数据的接口一样。随着业务的扩张，model 层将会逐渐转移至前端。</p>
 
             <div class="post-button text-center">
-              <a class="btn" href="/2021/04/16/%E4%B8%8E%E5%90%8E%E7%AB%AF%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/#more" rel="contents">
-                Read more &raquo;
+              <a class="btn scaleup" href="/2021/04/16/%E4%B8%8E%E5%90%8E%E7%AB%AF%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
               </a>
             </div>
           
@@ -657,7 +762,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
+      <meta itemprop="name" content="Hi, Dloux">
     </span>
 
     
@@ -667,21 +772,19 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/04/15/typescript/" itemprop="url">typescript</a></h1>
+                <a class="post-title-link scaleup" href="/2021/04/15/typescript/" itemprop="url">typescript</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-15T00:27:44+08:00">
-                2021-04-15
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-15T00:27:44+08:00">2021-04-15</time>
             
 
             
@@ -690,25 +793,23 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
+            <span class="post-wordcount">
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">149</span>
+              
 
-                
-                
+              
+
               
             </span>
           
@@ -724,8 +825,6 @@
 
           
 
-          
-
         </div>
       </header>
     
@@ -734,7 +833,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
@@ -750,8 +849,8 @@
 
 
             <div class="post-button text-center">
-              <a class="btn" href="/2021/04/15/typescript/#more" rel="contents">
-                Read more &raquo;
+              <a class="btn scaleup" href="/2021/04/15/typescript/#more" rel="contents">
+                阅读全文 &raquo;
               </a>
             </div>
           
@@ -823,7 +922,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
+      <meta itemprop="name" content="Hi, Dloux">
     </span>
 
     
@@ -833,21 +932,19 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/04/12/%E6%89%AB%E7%A0%81%E8%B7%B3%E8%BD%AC/" itemprop="url">扫码跳转</a></h1>
+                <a class="post-title-link scaleup" href="/2021/04/12/%E6%89%AB%E7%A0%81%E8%B7%B3%E8%BD%AC/" itemprop="url">扫码跳转</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-12T00:21:28+08:00">
-                2021-04-12
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-12T00:21:28+08:00">2021-04-12</time>
             
 
             
@@ -856,25 +953,23 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
+            <span class="post-wordcount">
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">167</span>
+              
 
-                
-                
+              
+
               
             </span>
           
@@ -890,8 +985,6 @@
 
           
 
-          
-
         </div>
       </header>
     
@@ -900,7 +993,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
@@ -918,8 +1011,8 @@
 </ol>
 
             <div class="post-button text-center">
-              <a class="btn" href="/2021/04/12/%E6%89%AB%E7%A0%81%E8%B7%B3%E8%BD%AC/#more" rel="contents">
-                Read more &raquo;
+              <a class="btn scaleup" href="/2021/04/12/%E6%89%AB%E7%A0%81%E8%B7%B3%E8%BD%AC/#more" rel="contents">
+                阅读全文 &raquo;
               </a>
             </div>
           
@@ -991,7 +1084,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
+      <meta itemprop="name" content="Hi, Dloux">
     </span>
 
     
@@ -1001,21 +1094,19 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/04/08/leetcode/" itemprop="url">leetcode</a></h1>
+                <a class="post-title-link scaleup" href="/2021/04/08/leetcode/" itemprop="url">leetcode</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-08T00:24:45+08:00">
-                2021-04-08
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-08T00:24:45+08:00">2021-04-08</time>
             
 
             
@@ -1024,25 +1115,23 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
+            <span class="post-wordcount">
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">86</span>
+              
 
-                
-                
+              
+
               
             </span>
           
@@ -1058,8 +1147,6 @@
 
           
 
-          
-
         </div>
       </header>
     
@@ -1068,7 +1155,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
@@ -1079,8 +1166,8 @@
 
 
             <div class="post-button text-center">
-              <a class="btn" href="/2021/04/08/leetcode/#more" rel="contents">
-                Read more &raquo;
+              <a class="btn scaleup" href="/2021/04/08/leetcode/#more" rel="contents">
+                阅读全文 &raquo;
               </a>
             </div>
           
@@ -1152,7 +1239,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
+      <meta itemprop="name" content="Hi, Dloux">
     </span>
 
     
@@ -1162,21 +1249,19 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/04/07/scss/" itemprop="url">scss</a></h1>
+                <a class="post-title-link scaleup" href="/2021/04/07/scss/" itemprop="url">scss</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-07T00:42:17+08:00">
-                2021-04-07
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-07T00:42:17+08:00">2021-04-07</time>
             
 
             
@@ -1185,25 +1270,23 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
+            <span class="post-wordcount">
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">303</span>
+              
 
-                
-                
+              
+
               
             </span>
           
@@ -1219,8 +1302,6 @@
 
           
 
-          
-
         </div>
       </header>
     
@@ -1229,7 +1310,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
@@ -1246,8 +1327,8 @@
 <h4 id="include"><a href="#include" class="headerlink" title="@include"></a>@include</h4><p>调用定义好的 @mixin 方法</p>
 
             <div class="post-button text-center">
-              <a class="btn" href="/2021/04/07/scss/#more" rel="contents">
-                Read more &raquo;
+              <a class="btn scaleup" href="/2021/04/07/scss/#more" rel="contents">
+                阅读全文 &raquo;
               </a>
             </div>
           
@@ -1319,7 +1400,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
+      <meta itemprop="name" content="Hi, Dloux">
     </span>
 
     
@@ -1329,21 +1410,19 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/25/cover-view/" itemprop="url">小程序 cover-view</a></h1>
+                <a class="post-title-link scaleup" href="/2021/03/25/cover-view/" itemprop="url">小程序 cover-view</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-25T23:05:14+08:00">
-                2021-03-25
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-25T23:05:14+08:00">2021-03-25</time>
             
 
             
@@ -1352,25 +1431,23 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
+            <span class="post-wordcount">
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">387</span>
+              
 
-                
-                
+              
+
               
             </span>
           
@@ -1386,8 +1463,6 @@
 
           
 
-          
-
         </div>
       </header>
     
@@ -1396,7 +1471,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
@@ -1407,8 +1482,8 @@
 <p>cover-view 已经支持 <code>overflow-y: scroll</code> 了，我在实现 map 组件上的覆盖物滚动时，使用了 touchstart, touchmove, touchend 三个事件修改 top 值来拟造滑动效果，虽然可以实现，但滑动效果非常卡，并且一旦滑动过快，会出现闪烁，touchmove 并不能完全监听到我所有的滑动，而是隔一段时间才监听到一次，看起来是内部已经做了节流处理，因此我改用了 <code>overflow</code> 属性带来的原生滚动，舒服多了。但从地图底部拖动到顶部时的拖动边界，仍然监听不灵敏，目前考虑将其置为按钮，不允许自定义滚动位置，仅允许滚动到两个固定位置，否则回退。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2021/03/25/cover-view/#more" rel="contents">
-              Read more &raquo;
+            <a class="btn scaleup" href="/2021/03/25/cover-view/#more" rel="contents">
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1480,7 +1555,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
+      <meta itemprop="name" content="Hi, Dloux">
     </span>
 
     
@@ -1490,21 +1565,19 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/24/Vue2%E7%9A%84%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/" itemprop="url">Vue2的节流函数</a></h1>
+                <a class="post-title-link scaleup" href="/2021/03/24/Vue2%E7%9A%84%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/" itemprop="url">Vue2的节流函数</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-24T22:03:02+08:00">
-                2021-03-24
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-24T22:03:02+08:00">2021-03-24</time>
             
 
             
@@ -1513,25 +1586,23 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
+            <span class="post-wordcount">
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">277</span>
+              
 
-                
-                
+              
+
               
             </span>
           
@@ -1547,8 +1618,6 @@
 
           
 
-          
-
         </div>
       </header>
     
@@ -1557,7 +1626,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
@@ -1570,8 +1639,8 @@
 <p>在上面使用的过程中，在高阶函数返回的函数外部，得到的 this 是空，但同时传进去的 _this 也是空，只是因为，在页面初始化的时候，这个 mouseMove 函数已经执行了 throttle()，但是此时， Vue Components 还未被实例化，无法得到 this，因此是 undefined（小程序中，网页可能得到全局变量）。而在返回得函数中能拿到 this，是因为返回的函数是注册在 methods 中的，Vue 把 this 绑定给这个 function 了，因此这个返回的函数能拿到 this，进而 apply，也因此 methods 中真正调用的函数可以打印出 this.</p>
 
             <div class="post-button text-center">
-              <a class="btn" href="/2021/03/24/Vue2%E7%9A%84%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/#more" rel="contents">
-                Read more &raquo;
+              <a class="btn scaleup" href="/2021/03/24/Vue2%E7%9A%84%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/#more" rel="contents">
+                阅读全文 &raquo;
               </a>
             </div>
           
@@ -1643,7 +1712,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
+      <meta itemprop="name" content="Hi, Dloux">
     </span>
 
     
@@ -1653,21 +1722,19 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/19/uniapp%E5%9D%91/" itemprop="url">uniapp-mp</a></h1>
+                <a class="post-title-link scaleup" href="/2021/03/19/uniapp%E5%9D%91/" itemprop="url">uniapp-mp</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-19T00:29:47+08:00">
-                2021-03-19
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-19T00:29:47+08:00">2021-03-19</time>
             
 
             
@@ -1676,25 +1743,23 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
+            <span class="post-wordcount">
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">1k</span>
+              
 
-                
-                
+              
+
               
             </span>
           
@@ -1710,8 +1775,6 @@
 
           
 
-          
-
         </div>
       </header>
     
@@ -1720,7 +1783,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
@@ -1732,8 +1795,8 @@
 <li><p>不要使用行内方法，用 computed 或 filter 来代替
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2021/03/19/uniapp%E5%9D%91/#more" rel="contents">
-              Read more &raquo;
+            <a class="btn scaleup" href="/2021/03/19/uniapp%E5%9D%91/#more" rel="contents">
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1805,7 +1868,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dloux">
+      <meta itemprop="name" content="Hi, Dloux">
     </span>
 
     
@@ -1815,21 +1878,19 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/19/uniapp-app/" itemprop="url">uniapp-app</a></h1>
+                <a class="post-title-link scaleup" href="/2021/03/19/uniapp-app/" itemprop="url">uniapp-app</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-19T00:27:53+08:00">
-                2021-03-19
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-19T00:27:53+08:00">2021-03-19</time>
             
 
             
@@ -1838,25 +1899,23 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">•</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
+            <span class="post-wordcount">
               
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">329</span>
+              
 
-                
-                
+              
+
               
             </span>
           
@@ -1872,8 +1931,6 @@
 
           
 
-          
-
         </div>
       </header>
     
@@ -1882,7 +1939,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
@@ -1891,8 +1948,8 @@
           <h2 id="Hbuilder"><a href="#Hbuilder" class="headerlink" title="Hbuilder"></a>Hbuilder</h2><h3 id="真机调试-ios-App"><a href="#真机调试-ios-App" class="headerlink" title="真机调试 ios App "></a>真机调试 ios App
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2021/03/19/uniapp-app/#more" rel="contents">
-              Read more &raquo;
+            <a class="btn scaleup" href="/2021/03/19/uniapp-app/#more" rel="contents">
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1930,7 +1987,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right"></i></a>
   </nav>
 
 
@@ -1961,6 +2018,10 @@
   
 
 
+
+
+
+  
 
 
 
@@ -2002,70 +2063,65 @@
                 src="/images/sidebar-card.jpg"
                 alt="Dloux" />
             
-              <p class="site-author-name" itemprop="name"><span style="opacity:.2;"></span>Dloux</p>
-              <p class="site-description motion-element" itemprop="description">你能抓到我么？</p>
+              <p class="site-author-name" itemprop="name"><span style="opacity:.2;">咸鱼</span>Dloux</p>
+              <p class="site-description motion-element" itemprop="description">想和我一起捕鱼吗？</p>
           </div>
 
           <div class="links-of-author motion-element">
             
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/dlouxgit" target="_blank" title="GitHub" data-balloon="GitHub" data-balloon-pos="up">
-                    
-                      <i class="fa fa-fw fa-github"></i></a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://twitter.com/dlouxgit" target="_blank" title="Twitter" data-balloon="Twitter" data-balloon-pos="up">
-                    
-                      <i class="fa fa-fw fa-twitter"></i></a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="/images/qq-g.jpg" target="_blank" title="QQ 群" data-balloon="QQ 群" data-balloon-pos="up">
-                    
-                      <i class="fa fa-fw fa-qq"></i></a>
-                </span>
-              
-            
+          </div>
+
+          <div class="des-of-author">
+              <div class="des-of-author-nav">
+                
+                  
+                    <div class="des-of-author-title active" data-index="1">最喜欢的作品</div>
+                  
+                
+                  
+                    <div class="des-of-author-title" data-index="2">去过的地方</div>
+                  
+                
+                  
+                    <div class="des-of-author-title" data-index="3">最喜欢的游戏</div>
+                  
+                
+                  
+                    <div class="des-of-author-title" data-index="4">装备</div>
+                  
+                
+                  
+                    <div class="des-of-author-title" data-index="5">工作</div>
+                  
+                
+              </div>
+              <div class="des-of-author-panel">
+                
+                  
+                    <div class="des-of-author-des active" data-index="1">三傻大闹宝莱坞、灌篮高手、海贼王、咒术回战</div>
+                  
+                
+                  
+                    <div class="des-of-author-des" data-index="2">厦门、青岛、杭州、上海、昆明、丽江、广州、深圳、香港、郑州</div>
+                  
+                
+                  
+                    <div class="des-of-author-des" data-index="3">怪物猎人：世界、塞尔达、集合啦！动物森友会、守望先锋、地平线：零之曙光、健身环大冒险、传说法师、Dota2</div>
+                  
+                
+                  
+                    <div class="des-of-author-des" data-index="4">Alienware 17 inch、Nintendo Switch、iPad Pro 2020 + Apple Pencil、AirPods</div>
+                  
+                
+                  
+                    <div class="des-of-author-des" data-index="5">当前 - base 杭州</div>
+                  
+                
+              </div>
           </div>
 
           
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives">
-              
-                  <span class="site-state-item-count">56</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-            
-
-          </nav>
-
-          
-          
-            <div class="cc-license motion-element" itemprop="license">
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
-                <img src="/images/cc-by-nc-sa.png" alt="Creative Commons" />
-              </a>
-            </div>
           
 
           
@@ -2089,18 +2145,19 @@
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-image"></div>
+      <div class="footer-image">
+        <picture><img loading="lazy" src="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/images/footer.png"></picture>
+      </div>
       <div class="footer-inner">
         <p>博客已萌萌哒运行<span id="since"></span><span class="my-face">(●'◡'●)ﾉ♥</span></p>
-<p>custom text</p>
 
-<p>© <span itemprop="copyrightYear">2021</span> Dloux.
+
+<p>© <span itemprop="copyrightYear">2021</span> Hi, Dloux.
     由 <a href="https://hexo.io/" target="_blank" class="external" rel="nofollow">Hexo</a> 强力驱动.
-    Theme By <a href="https://github.com/DIYgod/hexo-theme-sagiri" target="_blank" class="external" rel="nofollow">Sagiri</a> v0.0.4.
+    Theme By <a href="https://github.com/DIYgod/hexo-theme-sagiri" target="_blank" class="external" rel="nofollow">Sagiri</a> v0.0.74.
     <a href="/sitemap.xml" target="_blank">站点地图</a>.
-    xxxx.
 </p>
-<p>Made with <i class="fa fa-heart throb" style="color: #d43f57;"></i> by <span class="author" itemprop="copyrightHolder">Dloux</span>. </p>
+<p>Made with <i class="fas fa-heart throb" style="color: #d43f57;"></i> by <span class="author" itemprop="copyrightHolder">Dloux</span>. </p>
 
         
 
@@ -2116,20 +2173,18 @@
 
     
       <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
+        <picture><img loading="lazy" src="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/images/scroll.png"></picture>
         
       </div>
     
 
     <canvas id="evanyou"></canvas>
-    <!-- 暂时注释 live2d
-    <canvas id="live2d" width="150" height="400" class="live2d"></canvas>
-    -->
+
     
 
   </div>
 
-  <script type="text/javascript" src="/js/sagiri.min.js?v=0.0.4"></script>
+  <script type="text/javascript" src="/js/sagiri.min.js?v=0.0.74"></script>
 
   
 
@@ -2148,5 +2203,27 @@
 
   
 
+
+  <!--<script>
+    // remove service worker cache
+    // from https://stackoverflow.com/questions/33704791/how-do-i-uninstall-a-service-worker
+    "use strict";
+    if(navigator.serviceWorker)
+    {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+  </script>-->
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 </html>
