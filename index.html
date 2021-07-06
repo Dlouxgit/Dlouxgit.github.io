@@ -2026,15 +2026,15 @@
   
   
   <div class="post-date">
-			<div class="post-month">05月</div>
-			<div class="post-day">02</div>
+			<div class="post-month">04月</div>
+			<div class="post-day">18</div>
 	</div>
   
   <div class="post-badge">
     
       <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
-          <span itemprop="name">生活</span>
+        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+          <span itemprop="name">技术</span>
         </a>
       </span>
     
@@ -2042,7 +2042,7 @@
   
 
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/05/02/%E8%BF%91%E7%8A%B6/">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/04/18/rollup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dloux">
@@ -2061,7 +2061,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link scaleup" href="/2021/05/02/%E8%BF%91%E7%8A%B6/" itemprop="url">近状</a></h1>
+                <a class="post-title-link scaleup" href="/2021/04/18/rollup/" itemprop="url">rollup</a></h1>
         
 
         <div class="post-meta">
@@ -2073,7 +2073,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-02T00:18:27+08:00">2021-05-02</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-18T02:11:40+08:00">2021-04-18</time>
             
 
             
@@ -2094,7 +2094,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">32</span>
+                <span title="字数统计">184</span>
               
 
               
@@ -2128,14 +2128,21 @@
 
       
         
-          <h3 id="2021年的改变"><a href="#2021年的改变" class="headerlink" title="2021年的改变"></a>2021年的改变
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn scaleup" href="/2021/05/02/%E8%BF%91%E7%8A%B6/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h2 id="rollup"><a href="#rollup" class="headerlink" title="rollup"></a>rollup</h2><p>rollup 是一个 JavaScript 的模块打包器，一般用来编写库或者组件，因为它打包生成的文件仍然保持原来的文件结构，和 webpack 大有不同，同时也有 treeshaking 功能。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>npm init</code>、<code>npm i rollup -D</code></p>
+<h3 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h3><p>在根目录下新建 rollup.config.js 文件，导出一个对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rollup.config.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    input: <span class="string">'./src/main.js'</span>, <span class="comment">// 入口文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        file: <span class="string">'./dist/js/main.min.js'</span>,</span><br><span class="line">        format: <span class="string">'iife'</span> <span class="comment">// 输出格式，这里是匿名的立即执行函数作用域，其他有 cjs es amd 和 umd</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 package.json 中加入指令 <code>build: rollup -c</code> 或者 <code>build: rollup --config</code> 可以让根目录下的 config 生效。</p>
+<h2 id="从零实现一个-rollup"><a href="#从零实现一个-rollup" class="headerlink" title="从零实现一个 rollup"></a>从零实现一个 rollup</h2><h3 id="1-初始化目录"><a href="#1-初始化目录" class="headerlink" title="1. 初始化目录"></a>1. 初始化目录</h3><h3 id="2-2"><a href="#2-2" class="headerlink" title="2.  2"></a>2.  2</h3><p>2</p>
+
+            <div class="post-button text-center">
+              <a class="btn scaleup" href="/2021/04/18/rollup/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
         
       
     </div>
