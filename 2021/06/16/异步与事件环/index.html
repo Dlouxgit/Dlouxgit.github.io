@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="异步1. EventLoop 事件环进程是计算机分配任务和调度任务的最小单位 浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。 常见的渲染线程及功能：  1. GUI 渲染：页面渲染、绘图、绘制 3d 动画 2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js 3. 事件触发进程 EventL">
+<meta name="description" content="异步EventLoop 事件环进程是计算机分配任务和调度任务的最小单位 浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="异步与事件环">
 <meta property="og:url" content="https://dloux.gitee.io/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/index.html">
 <meta property="og:site_name" content="Hi, Dloux">
-<meta property="og:description" content="异步1. EventLoop 事件环进程是计算机分配任务和调度任务的最小单位 浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。 常见的渲染线程及功能：  1. GUI 渲染：页面渲染、绘图、绘制 3d 动画 2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js 3. 事件触发进程 EventL">
+<meta property="og:description" content="异步EventLoop 事件环进程是计算机分配任务和调度任务的最小单位 浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。">
 <meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210616221006486.png">
 <meta property="article:published_time" content="2021-06-16T13:32:09.000Z">
-<meta property="article:modified_time" content="2021-06-20T04:31:41.444Z">
+<meta property="article:modified_time" content="2021-07-07T15:56:17.952Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="异步与事件环">
 <meta name="twitter:card" content="summary">
@@ -502,7 +502,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">658</span>
+                <span title="字数统计">657</span>
               
 
               
@@ -535,9 +535,8 @@
       
 
       
-        <h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><p>1.</p>
-<h2 id="EventLoop-事件环"><a href="#EventLoop-事件环" class="headerlink" title="EventLoop 事件环"></a>EventLoop 事件环</h2><p>进程是计算机分配任务和调度任务的最小单位</p>
-<p>浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。</p>
+        <h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><h2 id="EventLoop-事件环"><a href="#EventLoop-事件环" class="headerlink" title="EventLoop 事件环"></a>EventLoop 事件环</h2><p>进程是计算机分配任务和调度任务的最小单位</p>
+<p>浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。<a id="more"></a></p>
 <p>常见的渲染线程及功能： </p>
 <pre><code>1. GUI 渲染：页面渲染、绘图、绘制 3d 动画
 2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js

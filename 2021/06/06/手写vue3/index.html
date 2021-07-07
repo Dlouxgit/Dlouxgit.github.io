@@ -81,14 +81,14 @@
 
 
 
-<meta name="description" content="Vue3 vue3 中使用了 monorepo 的方式来管理各个模块，各个模块都各自为一个包，根目录下都存在一个 package.json，可以单独打包。npm 不能实现这种打包方式， yarn 可以。  reactivityVue3 的代理是通过 Proxy 实现的，因此无法兼容低版本浏览器。 导出一个 VueReactivity 对象，上面有四个方法：reactive, readonly, s">
+<meta name="description" content="Vue3 vue3 中使用了 monorepo 的方式来管理各个模块，各个模块都各自为一个包，根目录下都存在一个 package.json，可以单独打包。npm 不能实现这种打包方式， yarn 可以。  reactivityVue3 的代理是通过 Proxy 实现的，因此无法兼容低版本浏览器。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手写vue3">
 <meta property="og:url" content="https://dloux.gitee.io/2021/06/06/%E6%89%8B%E5%86%99vue3/index.html">
 <meta property="og:site_name" content="Hi, Dloux">
-<meta property="og:description" content="Vue3 vue3 中使用了 monorepo 的方式来管理各个模块，各个模块都各自为一个包，根目录下都存在一个 package.json，可以单独打包。npm 不能实现这种打包方式， yarn 可以。  reactivityVue3 的代理是通过 Proxy 实现的，因此无法兼容低版本浏览器。 导出一个 VueReactivity 对象，上面有四个方法：reactive, readonly, s">
+<meta property="og:description" content="Vue3 vue3 中使用了 monorepo 的方式来管理各个模块，各个模块都各自为一个包，根目录下都存在一个 package.json，可以单独打包。npm 不能实现这种打包方式， yarn 可以。  reactivityVue3 的代理是通过 Proxy 实现的，因此无法兼容低版本浏览器。">
 <meta property="article:published_time" content="2021-06-06T03:03:55.000Z">
-<meta property="article:modified_time" content="2021-06-06T06:59:16.230Z">
+<meta property="article:modified_time" content="2021-07-07T15:57:00.632Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="vue3">
 <meta name="twitter:card" content="summary">
@@ -536,7 +536,7 @@
         <h2 id="Vue3"><a href="#Vue3" class="headerlink" title="Vue3"></a>Vue3</h2><blockquote>
 <p>vue3 中使用了 monorepo 的方式来管理各个模块，各个模块都各自为一个包，根目录下都存在一个 package.json，可以单独打包。npm 不能实现这种打包方式， yarn 可以。</p>
 </blockquote>
-<h3 id="reactivity"><a href="#reactivity" class="headerlink" title="reactivity"></a>reactivity</h3><p>Vue3 的代理是通过 Proxy 实现的，因此无法兼容低版本浏览器。</p>
+<h3 id="reactivity"><a href="#reactivity" class="headerlink" title="reactivity"></a>reactivity</h3><p>Vue3 的代理是通过 Proxy 实现的，因此无法兼容低版本浏览器。<a id="more"></a></p>
 <p>导出一个 VueReactivity 对象，上面有四个方法：reactive, readonly, shallowReactive, shallowReadonly.</p>
 <ol>
 <li><p>在 src 下新建 index.ts，用于导出模块。</p>

@@ -664,7 +664,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">658</span>
+                <span title="字数统计">657</span>
               
 
               
@@ -698,40 +698,15 @@
 
       
         
-          
-            <h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><p>1.</p>
-<h2 id="EventLoop-事件环"><a href="#EventLoop-事件环" class="headerlink" title="EventLoop 事件环"></a>EventLoop 事件环</h2><p>进程是计算机分配任务和调度任务的最小单位</p>
-<p>浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。</p>
-<p>常见的渲染线程及功能： </p>
-<pre><code>1. GUI 渲染：页面渲染、绘图、绘制 3d 动画
-2. js 引擎： 执行 js 代码，js 执行时，渲染线程会挂起，即渲染时不能执行 js
-3. 事件触发进程 EventLoop
-4. webApi 也会创建线程，如事件（click 等）、定时器、ajax 请求
-5. webworker</code></pre><p>JS 是单线程的，指的是主线程是单线程的，实际上上面这些都是线程。</p>
-<h3 id="宏任务、微任务"><a href="#宏任务、微任务" class="headerlink" title="宏任务、微任务"></a>宏任务、微任务</h3><p>宏任务： &lt;script&gt; 脚本、UI 渲染、setTimeout、setInterval、postMessage、MessageChangel（I / O 操作）、setImmediate（只存在于 ie）</p>
-<p>微任务：promise、MutationObserer、object.observe（已被废弃，有 bug）、process.nextTick（只存在于 node 环境）、queueMircotask</p>
-<blockquote>
-<p>每循环一次会执行一个宏任务，并清空对应的微任务队列，每次事件循环完毕后会判断页面是否需要重新渲染，大约 16.6 ms 会渲染一次</p>
-</blockquote>
-<p><picture><img loading="lazy" src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210616221006486.png" alt="image-20210616221006486"></picture></p>
-<p>requestFrameAnimation 的渲染时机是微任务被清空的时候</p>
-<ol>
-<li>先执行 script 脚本，将宏任务和微任务进行分类，如果调用的是浏览器 api，浏览器会开一个线程，等事件到了，自动地放入到宏任务队列中，微任务是直接放到微任务队列中的</li>
-<li>js 执行完毕后，会清空所有的微任务，如果微任务再产生微任务，会放到当前微任务队列的尾部</li>
-<li><strong>如果页面需要渲染，则执行渲染流程（即在微任务之后，在一轮脚本执行完之后才会触发！requestFrameAnimation 、idleCallback 都是在这时候触发的）</strong></li>
-</ol>
-<p>事件触发线程会不停扫描宏任务队列，如果宏任务队列中有对应的回调，会取出来执行一个，继续执行上述的过程</p>
-<p>微任务队列每次执行宏任务，都会创建一个微任务队列，而宏任务队列只有一个。</p>
-<p><strong>任务的优先级</strong></p>
-<p>宏任务macrotask：主代码块 &gt; setImmediate &gt; MessageChannel &gt; setTimeout / setInterval(<strong>大部分</strong>浏览器会把<strong>DOM事件回调优先处理 因为要提升用户体验 给用户反馈，其次是network IO操作的回调，再然后是UIrender，</strong>之后的顺序就难以捉摸了，其实不同浏览器的表现也不太一样，这里不做过多讨论。)</p>
-<p>微任务microtask：process.nextTick &gt; Promise = MutationObserver</p>
-
-            <div class="post-button text-center">
-              <a class="btn scaleup" href="/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><h2 id="EventLoop-事件环"><a href="#EventLoop-事件环" class="headerlink" title="EventLoop 事件环"></a>EventLoop 事件环</h2><p>进程是计算机分配任务和调度任务的最小单位</p>
+<p>浏览器是一个多进程模型，有一个主进程（用户界面），每个页卡都是独立的渲染进程（浏览器内核）。后端代码都是采用多进程。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn scaleup" href="/2021/06/16/%E5%BC%82%E6%AD%A5%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%8E%AF/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -877,53 +852,14 @@
 
       
         
-          
-            <h1 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h2 id="Node是什么"><a href="#Node是什么" class="headerlink" title="Node是什么?"></a>Node是什么?</h2><p>Node.js是一个基于 Chrome V8 引擎的JavaScript运行环境(runtime),Node不是一门语言是让js运行在后端的运行时,并且不包括javascript全集,因为在服务端中不包含DOM和BOM,Node也提供了一些新的模块例如http,fs模块等。Node.js 使用了事件驱动、非阻塞式 I/O 的模型，使其轻量又高效并且Node.js 的包管理器 npm，是全球最大的开源库生态系统。事件驱动与非阻塞IO后面我们会一一介绍。到此我们已经对node有了简单的概念。</p>
-<h2 id="Node解决了哪些问题"><a href="#Node解决了哪些问题" class="headerlink" title="Node解决了哪些问题?"></a>Node解决了哪些问题?</h2><p>Node在处理高并发,I/O密集场景有明显的性能优势</p>
-<ul>
-<li>高并发,是指在同一时间并发访问服务器</li>
-<li>I/O密集指的是文件操作、网络操作、数据库,相对的有CPU密集,CPU密集指的是逻辑处理运算、压缩、解压、加密、解密</li>
-</ul>
-<blockquote>
-<p>Web主要场景就是接收客户端的请求读取静态资源和渲染界面,所以Node非常适合Web应用的开发。</p>
-</blockquote>
-<h2 id="JS单线程"><a href="#JS单线程" class="headerlink" title="JS单线程"></a>JS单线程</h2><p>javascript在最初设计时设计成了单线程,为什么不是多线程呢？如果多个线程同时操作DOM那岂不会很混乱？这里所谓的单线程指的是主线程是单线程的,所以在Node中主线程依旧是单线程的。</p>
-<ul>
-<li>单线程特点是节约了内存,并且不需要在切换执行上下文</li>
-<li>而且单线程不需要管锁的问题</li>
-</ul>
-<h2 id="同步异步和阻塞非阻塞"><a href="#同步异步和阻塞非阻塞" class="headerlink" title="同步异步和阻塞非阻塞"></a>同步异步和阻塞非阻塞</h2><ul>
-<li>同步就是在执行某段代码时，代码没有得到返回之前，其他代码无法执行，当得到了返回值后可以继续执行其他代码。</li>
-<li>异步就是在执行某段代码时，代码不会立即得到返回结果，可以继续执行其他代码，返回值通过回调来获取</li>
-</ul>
-<h1 id="Node中的模块"><a href="#Node中的模块" class="headerlink" title="Node中的模块"></a>Node中的模块</h1><h3 id="commonjs-规范"><a href="#commonjs-规范" class="headerlink" title="commonjs 规范"></a>commonjs 规范</h3><p>_dirname</p>
-<p>_filename</p>
-<p>exports</p>
-<p>module</p>
-<p>require()</p>
-<h2 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h2><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><p>一个字节由 8 个位组成，gbk 中一个汉字由 2 个字节表示，utf8 中一个汉字由 3 个字节组成</p>
-<ul>
-<li>ASCII 编码</li>
-<li>GB2312</li>
-<li>GBK</li>
-<li>GB18030</li>
-<li>Unicode</li>
-<li>UTF-8</li>
-</ul>
-<p>内容会被转为十六进制，比如数字 1 在 ascii 表中为 49（十进制），转成十六进制就是 31。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buffer = Buffer.from(<span class="string">'1'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(buffer) <span class="comment">// &lt;Buffer 31&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(buffer.toString()) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-
-<p>Node 中不支持 GBK 编码，需要将 GBK 转为 UTF8 编码。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iconv = <span class="built_in">require</span>(<span class="string">'iconv-lite'</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readGBKText</span>(<span class="params">pathname</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bin = fs.readFileSync(pathname)</span><br><span class="line">    <span class="keyword">return</span> iconv.decode(bin, <span class="string">'gbk'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>1</p>
-
-            <div class="post-button text-center">
-              <a class="btn scaleup" href="/2021/06/16/node/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <h1 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h2 id="Node是什么"><a href="#Node是什么" class="headerlink" title="Node是什么?"></a>Node是什么?</h2><p>Node.js是一个基于 Chrome V8 引擎的JavaScript运行环境(runtime),Node不是一门语言是让js运行在后端的运行时,并且不包括javascript全集,因为在服务端中不包含DOM和BOM,Node也提供了一些新的模块例如http,fs模块等。Node.js 使用了事件驱动、非阻塞式 I/O 的模型，使其轻量又高效并且Node.js 的包管理器 npm，是全球最大的开源库生态系统。事件驱动与非阻塞IO后面我们会一一介绍。到此我们已经对node有了简单的概念。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn scaleup" href="/2021/06/16/node/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1035,7 +971,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">5</span>
+                <span title="字数统计">4</span>
               
 
               
@@ -1071,7 +1007,6 @@
         
           
             <h2 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h2><p>起个头。</p>
-<p>2</p>
 
             <div class="post-button text-center">
               <a class="btn scaleup" href="/2021/06/09/babel/#more" rel="contents">
@@ -1224,42 +1159,17 @@
 
       
         
-          
-            <h2 id="Vue3"><a href="#Vue3" class="headerlink" title="Vue3"></a>Vue3</h2><blockquote>
+          <h2 id="Vue3"><a href="#Vue3" class="headerlink" title="Vue3"></a>Vue3</h2><blockquote>
 <p>vue3 中使用了 monorepo 的方式来管理各个模块，各个模块都各自为一个包，根目录下都存在一个 package.json，可以单独打包。npm 不能实现这种打包方式， yarn 可以。</p>
 </blockquote>
-<h3 id="reactivity"><a href="#reactivity" class="headerlink" title="reactivity"></a>reactivity</h3><p>Vue3 的代理是通过 Proxy 实现的，因此无法兼容低版本浏览器。</p>
-<p>导出一个 VueReactivity 对象，上面有四个方法：reactive, readonly, shallowReactive, shallowReadonly.</p>
-<ol>
-<li><p>在 src 下新建 index.ts，用于导出模块。</p>
-</li>
-<li><p>在 src 下新建 reactive.ts，定义并导出四个方法后，可以想象到，四个方法都是通过 Proxy 来代理，可以通过同一个函数传入不同参数来生成，因此定义一个 createProxy 方法，传入 target 目标对象，readonly 是否可以可读，handler 表示 Proxy 代理的处理方法。之后从另一个叫做 baseHandlers.ts 的文件中导入 handler。</p>
-</li>
-</ol>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; isObject &#125; <span class="keyword">from</span> <span class="string">'@vue/shared'</span></span><br><span class="line"><span class="keyword">import</span> &#123; mutableHandlers, readonlyHandlers, shallowReactiveHandlers, shallowReadonlyHandlers &#125; <span class="keyword">from</span> <span class="string">'baseHandlers'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reactiveMap = <span class="keyword">new</span> WeakMap()</span><br><span class="line"><span class="keyword">const</span> readonlyMap = <span class="keyword">new</span> WeakMap()</span><br><span class="line"><span class="keyword">const</span> shallowMap = <span class="keyword">new</span> WeakMap()</span><br><span class="line"><span class="keyword">const</span> shallowReadonlyMap = <span class="keyword">new</span> WeakMap()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reactive = createReactiveObject(, , reactiveMap)</span><br><span class="line"><span class="keyword">const</span> readonly = createReactiveObject(, , readonlyMap)</span><br><span class="line"><span class="keyword">const</span> shallowReactive = createReactiveObject(, , shallowMap)</span><br><span class="line"><span class="keyword">const</span> shallowReadonly = createReactiveObject(, , shallowReadonlyMap)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createReactiveObject</span>(<span class="params">target, baseHandlers, proxyMap</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!isObject(target)) &#123;</span><br><span class="line">        <span class="keyword">return</span> target</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> existsProxy = proxyMap.get(target)</span><br><span class="line">    <span class="keyword">if</span> (existsProxy) &#123;</span><br><span class="line">        <span class="keyword">return</span> existsProxy</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> proxy = <span class="keyword">new</span> Proxy(target, baseHandlers)</span><br><span class="line">    proxyMap.set(target, proxy)</span><br><span class="line">    <span class="keyword">return</span> proxy</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>在 src 下新建 baseHandlers.ts，由于每个 Proxy 的 handler 存在 get 和 set，而上面四种方法又存在 shallow 和 readonly 两个布尔变量，因此有四种可能，同样可以定义一个函数根据传入的参数生成不同的 get / set。</li>
-</ol>
-<blockquote>
-<p>Reflect.get(target, key, receiver) 的第三个参数，是传入的上下文对象，当 key 为 function 时，里面的 this 指向 receiver，否则指向 target。</p>
-</blockquote>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// getter</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">get</span> = createGetter()</span><br><span class="line"><span class="keyword">const</span> readonlyGet = createGetter(<span class="literal">true</span>)</span><br><span class="line"><span class="keyword">const</span> shallowGet = createGetter(<span class="literal">false</span>, <span class="literal">true</span>)</span><br><span class="line"><span class="keyword">const</span> shallowReadonlyGet = createGetter(<span class="literal">true</span>, <span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// setter</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">set</span> = createSetter()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createSetter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">set</span>(<span class="params">target, key, value, receiver</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> res = Reflect.set(target, key, value, receiver)</span><br><span class="line">        <span class="comment">// 触发更新</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// getter</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createGetter</span>(<span class="params">isReadonly = <span class="literal">false</span>, isShallow = <span class="literal">false</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">target, key, receiver</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> res = Reflect.get(target, key, receiver)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (!isReadonly) &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (isShallow) &#123;</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (isObject(res)) &#123;</span><br><span class="line">            <span class="keyword">return</span> isReadonly ? readonly(res) : reactive(res)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> mutableHandlers = &#123;</span><br><span class="line">    <span class="keyword">get</span>,</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> shallowHandlers = &#123;</span><br><span class="line">    <span class="keyword">get</span>: shallowGet,</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> readonlyHandlers = &#123;</span><br><span class="line">    <span class="keyword">get</span>: readonlyGet,</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> shallowReadonlyHandlers = &#123;</span><br><span class="line">    <span class="keyword">get</span>: shallowReadonlyGet,</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>在 src 下新建 effect.ts，导出一个 effect 函数</li>
-</ol>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">effect</span>(<span class="params">fn, options = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> effect = createReactiveEffect(fn, options)</span><br><span class="line">    <span class="keyword">if</span> (!options.lazy) &#123;</span><br><span class="line">        effect()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> effect</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> uid = <span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> activeEffect</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createReactiveEffect</span>(<span class="params">fn, options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> effect = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        activeEffect = fn <span class="comment">// Dep.target = watcher</span></span><br><span class="line">        </span><br><span class="line">        fn()</span><br><span class="line">    &#125;</span><br><span class="line">    effect.id = uid++ <span class="comment">// 唯一标识，类比 Watcher</span></span><br><span class="line">    effect._isEffect = <span class="literal">true</span> <span class="comment">// 用于标识这个函数是 effect 函数</span></span><br><span class="line">    effect.raw = fn <span class="comment">// 把用户传入的函数保存到当前的 effect 上</span></span><br><span class="line">    effect.deps = [] <span class="comment">// 把后续用来存放此 effect 对于哪些属性</span></span><br><span class="line">    effect.options = options</span><br><span class="line">    <span class="keyword">return</span> effect</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> targetMap = <span class="keyword">new</span> WeakMap()</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">track</span>(<span class="params">target, <span class="keyword">type</span>, key</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> depsMap = targetMap.get(target)</span><br><span class="line">    <span class="keyword">if</span> (!depsMap) &#123;</span><br><span class="line">        targetMap.set(target, (depsMap = <span class="keyword">new</span> Map)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> dep = depsMap.get(key)</span><br><span class="line">    <span class="keyword">if</span> (!dep) &#123;</span><br><span class="line">        depsMap.set(key, (dep = <span class="keyword">new</span> Set))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!dep.has(activeEffect)) &#123;</span><br><span class="line">        dep.add(activeEffect)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">trigger</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> depsMap = targetMap.get(target)</span><br><span class="line">    <span class="keyword">if</span> (!depsMap)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">const</span> effects = depsMap.get(key)</span><br><span class="line">    effects &amp;&amp; effects.forEach(<span class="function"><span class="params">effect</span> =&gt;</span> effect())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-            <div class="post-button text-center">
-              <a class="btn scaleup" href="/2021/06/06/%E6%89%8B%E5%86%99vue3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+<h3 id="reactivity"><a href="#reactivity" class="headerlink" title="reactivity"></a>reactivity</h3><p>Vue3 的代理是通过 Proxy 实现的，因此无法兼容低版本浏览器。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn scaleup" href="/2021/06/06/%E6%89%8B%E5%86%99vue3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1866,123 +1776,17 @@
 
       
         
-          
-            <h2 id="手写Vue"><a href="#手写Vue" class="headerlink" title="手写Vue"></a>手写Vue</h2><h3 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h3><ul>
+          <h2 id="手写Vue"><a href="#手写Vue" class="headerlink" title="手写Vue"></a>手写Vue</h2><h3 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h3><ul>
 <li><p>初始化项目 <code>npm init -y</code></p>
 </li>
-<li><p>安装依赖 rollup 打包和 babel 转译 <code>npm i rollup @babel/core rollup-plugin-babel bel @babel/preset-env -D</code></p>
-<ul>
-<li>@babel/preset-env 是 babel 插件集合，core 的 transfer 会调用这些插件来转化为低级语法。</li>
-</ul>
-</li>
-<li><p>在根目录下新建 src 目录，并在这个目录新建 <code>index.js</code>，之后再根目录新建 <code>rollup.config.js</code> </p>
-<ul>
-<li><pre><code class="javascript"><span class="comment">// index.js</span>
-<span class="function"><span class="keyword">function</span> <span class="title">Vue</span>(<span class="params"></span>) </span>{
-
-}
-<span class="keyword">export</span> <span class="keyword">default</span> Vue
-&lt;!--￼<span class="number">0</span>--&gt;</code></pre>
-</li>
-</ul>
-</li>
-<li><p>修改 package.json 下的 script, 加入 <code>&quot;dev&quot;: &quot;rollup -c -w&quot;</code>，-c 表示读取根目录下的 rollup.config.js， -w 表示监控文件改变</p>
-</li>
-<li><p>执行 <code>npm run dev</code> 后，会发现 dist 目录下新增了 vue.js 和 vue.js.map ，在这个目录下新建 index.html，并引入生成的 vue.js，之后在 script 标签内 <code>console.log(Vue)</code> 会发现把 Vue 这个函数打印出来了。</p>
-</li>
-</ul>
-<h3 id="Vue-的调用"><a href="#Vue-的调用" class="headerlink" title="Vue 的调用"></a>Vue 的调用</h3><p>我们知道，我们在 Vue2 中，是通过 new Vue(options) 来实现 Vue 挂载的。所以我们先在 html 文件中写上一个 id 为 app 的 div，之后 <code>new Vue({el: &#39;#app&#39;, data: { msg: &#39;newVue&#39; } })</code>，这就是正常的 Vue 调用。</p>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p><code>Vue</code> 在初始化时，调用了很多 <code>mixin</code> 方法，比如<code>initMixin</code>、<code>renderMixin</code>、<code>lifeCycleMixin</code> 等，将功能方法拆分了，直接在原型上添加方法，比如常见的 <code>$mount</code>、<code>$nextTick</code> 等。</p>
-<p><code>options</code> 和 <code>$options</code>, <code>options</code> 是 Vue 这个 <code>function</code> (构造函数) 上的属性，<code>$options</code> 是 <code>new Vue()</code> 出现的实例上的属性。</p>
-<p>另一个容易弄混的是 <code>vm._vnode</code> 和 <code>vm.$vnode</code>，假如我页面中有一个组件叫做 <code>&lt;my-button /&gt;</code>，渲染结果是 <code>&lt;button&gt;按钮&lt;/button&gt;</code> ，则 <code>vm._vnode</code> 指的是 <code>&lt;button&gt;按钮&lt;/button&gt;</code> 的 vnode，到时候会用来做 diff，<code>vm.$vnode</code> 是 <code>&lt;my-button /&gt;</code> 的 vnode，即 options.parentVnode。</p>
-<h3 id="观察者"><a href="#观察者" class="headerlink" title="观察者"></a>观察者</h3><p><code>Dep</code> 与 <code>Watcher</code>，<code>dep</code> 为 <code>dependence</code> 的缩写，表示依赖。一个属性上对应一个 <code>Dep</code> ，它上面又一个 <code>subs</code> 数组，表示这个属性被多处视图依赖，一个视图上存在一个 <code>watcher</code>（渲染 <code>watcher</code>，在组件 <code>mounted</code> 时 <code>new</code> 出一个 <code>watcher</code> 原型，会触发它的 <code>get</code>，在这个 <code>get</code> 方法上，把 <code>Dep.target</code> 指向自己，之后调用 <code>getter</code>，这个 <code>getter</code> 是传入的参数，这个 <code>getter</code> 方法会调用页面渲染的方法，即 <code>vm._update(vm._render())</code>，因此会走到 <code>defineReactive()</code> 方法，触发 getter 方法），一个 <code>watcher</code> 可以对应多个 <code>dep(即 deps 数组)</code>，因为一个视图可能依赖多个属性。可以把视图理解为组件，更方便理解。在它们之上，还有一个 <code>watcher</code>，是用于观察 <code>watcher</code> 的全局 <code>watcher</code>，仅有一个，用于触发 <code>update()</code> 方法， <code>Vue</code> 在此之上，监听到数据改变就会触发 <code>update</code>。</p>
-<p><code>Dep</code> 上挂载了一个 <code>target</code>，<code>target</code> 为 <code>null</code> 或 <code>Watcher</code> 实例，初始值为 <code>null</code>，一旦页面上的视图依赖了某个属性，就会走到 <code>observe()</code> 方法内的 <code>Object.defineProperty</code> 的 <code>getter</code> 装饰器，如果存在 <code>Dep.target</code>，就会触发 <code>dep.depend()</code>，会触发 <code>Dep.target.addDep</code> (这是一个 <code>watcher</code> 实例)，把 <code>Watcher</code> 的 <code>deps</code> 数组加进这个 <code>dep</code>，把 <code>dep</code> 实例的 <code>subs</code> 加入这个 <code>watcher</code> (即当前的 <code>Dep.target</code>) 实例。</p>
-<p>为了防止 <code>dep</code> 的 <code>subs</code> 和 <code>watcher</code> 的 <code>deps</code> 互相重复添加，<code>vue2</code> 里在判断浏览器不支持 Set 的时候，自己生成了一个 <code>SimpleSet</code>，非标准规范，用于防止添加重复的 <code>sub</code> 或 <code>dep</code>。</p>
-<p>当监听到某个属性变化时，会走到 <code>setter</code> 装饰器，调用 <code>dep.notify()</code>，通知这个 <code>dep</code> 上的 subs 数组中所有的 <code>watcher</code>，调用这些 <code>watcher</code> 的 <code>update()</code> 方法，这个 <code>update</code> 又调用了<code>dep.get()</code> 来重新渲染页面。</p>
-<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p><code>Vue.component(name, options)</code> 的第二个参数，如果是对象，就会调用 <code>Vue.extend</code> 返回组件的构造函数，这个构造函数的原型继承自 <code>Vue</code> 的实例。</p>
-<p>组件在初始化时，会调用 <code>Vue.extend</code> （会调用一次 <code>_init</code>，可以合并 options 和响应式处理数据）来生成 <code>Vue</code> 的实例作为组件的原型，同时通过 <code>mergeOptions</code> 把 Vue 上的全局 <code>options</code> 放到自己的 <code>options</code> 上（期间涉及到同名属性合并策略，同名生命周期默认都会保存，同名属性默认自己的将会覆盖全局。在 <code>Vue</code> 中，合并策略是允许自定义的），<code>Vue</code> （这里写的是 Vue 方便理解，实际上是当前组件的父组件）上会多出一个 <code>components</code> 的属性用于存放组件。<code>Vue.component</code> 至此结束。</p>
-<p>在创造真实节点时，内部会对模板进行编译操作，调用 <code>_c(&#39;组件名&#39;)</code>（<code>_c</code> 即 <code>createElement</code> 用于创造虚拟节点），通过 <code>isReservedTag</code> 方法来判断是否为组件，如果是组件，调用 <code>createComponent</code> 来生成 <code>vnode</code>，组件的虚拟节点上存在 <code>componentOptions</code>  属性（见下）。如果 <code>componentOptions</code> 里的 <code>Ctor</code> （如果是构造函数，说明已经被 <code>Vue.extend</code> 过了，可以直接使用。如果是对象，则需要将其转为构造函数，通过 <code>Vue.extend</code> 生成，就是 Vue 原型的实例，同时也作为组件的构造函数）。之后挂载上组件的 <code>hook</code> 后就创造了一个组件的虚拟节点并返回。</p>
-<p>在通过 <code>createElm</code> 创造真实节点的时候，如果是组件<code>(通过 createComponent 来判断，不过这个方法和上面创造虚拟节点的方法重名了，这里的目的调用上面同名方法定义的 init hook，生成 vnode.componentInstance)</code>，就会调用组件的 <code>hook</code>，里面的 <code>init</code> 方法会<code>new Ctor({})</code> 创造一个组件实例后，并放到组件虚拟节点的 <code>vnode.componentInstance</code> 属性上，之后调用 <code>$mount</code> 生成一个 <code>$el</code> ，对应组件模板渲染的结果。</p>
-<p>组件在 <code>new Ctor()</code> 时会进行组件节点的初始化，给组件再次添加一个独立的渲染 <code>watcher</code>，每个组件都有自己的 <code>watcher</code>，更新时，只需要更新自己组件对应的渲染 <code>watcher</code>，因为组件渲染时，组件对应的属性只会收集自己的渲染 <code>watcher</code>。</p>
-<p>*<em>所有的组件实例都是通过 Vue.extend 来实现的。组件上的 componentOptions 里放着组件的所有内容，属性，事件，插槽，Ctor，children  等。 而 componentInstance 则是 new Ctor() 产生的，存放着 $el *</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">Vue.extend = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>._init(options)</span><br><span class="line">    &#125;</span><br><span class="line">    Sub.prototype = <span class="built_in">Object</span>.create(Vue.prototype)</span><br><span class="line">	Sub.constructor = Sub</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 合并 options, 实例.__proto = 全局组件</span></span><br><span class="line">    Sub.options = mergeOptions(Vue.options, opt) </span><br><span class="line">    <span class="keyword">return</span> Sub</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// demo.html</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	当检测到传入的 render 函数的 tag 为组件（这里是 App 组件）时，会走 createComponent，里面同样会调用 Vue.extend，如上所述一致，之后返回一个组件的虚拟节点</span></span><br><span class="line"><span class="comment">    let App = &#123;</span></span><br><span class="line"><span class="comment">        render(h) &#123;</span></span><br><span class="line"><span class="comment">            return h('h1', &#123; class: 'xxx' &#125;, 'hello world')</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    const vm = new Vue(&#123;</span></span><br><span class="line"><span class="comment">        el: '#app',</span></span><br><span class="line"><span class="comment">        render: h =&gt; h(App, &#123; a: 1, on: &#123; click: function() &#123;&#125; &#125; &#125;)</span></span><br><span class="line"><span class="comment">    &#125;)</span></span><br><span class="line"><span class="comment">   </span></span><br><span class="line"><span class="comment">    下面是虚拟节点，listeners 是 on 上定义的方法</span></span><br><span class="line"><span class="comment">    &#123;</span></span><br><span class="line"><span class="comment">	    tag: 'vue-component-1-App',</span></span><br><span class="line"><span class="comment">	    componentOptions: &#123; Ctor, propsData, listeners &#125;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">     流程</span></span><br><span class="line"><span class="comment">     1. h(App) 返回一个组件的虚拟节点</span></span><br><span class="line"><span class="comment">     2. 过程中会先将用户的参数变成一个 Ctor （通过 Vue.extend）</span></span><br><span class="line"><span class="comment">     3. 给组件的 data 上添加 hook （init、prepatch、insert、destroy）</span></span><br><span class="line"><span class="comment">     4. 返回组件的虚拟节点</span></span><br><span class="line"><span class="comment">     5. 创造真实节点 patch -&gt; createElm ，过程中会调用组件的 init hook 进行初始化， 为vnode.componentInstance 赋值为 new Ctor()</span></span><br><span class="line"><span class="comment">     6. 组件.$mount() 通过 vm._render 生成 vm.$el</span></span><br><span class="line"><span class="comment">     7. vnode.componentInstance.$el 取到的就是组件要渲染的内容</span></span><br><span class="line"><span class="comment">     </span></span><br><span class="line"><span class="comment">     注意，渲染 App 的时候，它只是h =&gt; h(App, &#123; a: 1, on: &#123; click: function() &#123;&#125; &#125; &#125;) ，是拿不到 h('h1', &#123; class: 'xxx' &#125;, 'hello world') 的，它是在 new Ctor（会调用 _init） 时候才能进行 App 的初始化，才会创建组件内容的虚拟节点</span></span><br><span class="line"><span class="comment">     </span></span><br><span class="line"><span class="comment">     渲染时，遇到组件先渲染组件，然后再去渲染组件里的内容，再拿这个内容去替换这个组件</span></span><br><span class="line"><span class="comment">     </span></span><br><span class="line"><span class="comment">     </span></span><br><span class="line"><span class="comment">     组件更新会走 prepatch，比较插槽，比较属性</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<p>流程图如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[CreateComponent] --&gt;B[Vue.extend] --&gt; C[installComponentHooks]</span><br><span class="line">A1[patch] --&gt;B1[createElm] --&gt; C1[createComponent]</span><br><span class="line">	C --&gt; D[init]</span><br><span class="line">	C1 --&gt; D[init]</span><br><span class="line">	D --&gt; E[createComponentInstanceForVnode]</span><br><span class="line">	E --&gt; F[$mount]</span><br><span class="line">	F --&gt; G[insert]</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p> 函数式组件</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没有状态，没有 this，没有 new，没有生命周期，不会有 Watcher</span></span><br><span class="line"><span class="comment">// 只负责页面渲染 木偶组件（内部不用再创造实例）</span></span><br><span class="line">Vue.component(<span class="string">'my-button'</span>, &#123;</span><br><span class="line">    functional: <span class="literal">true</span>,</span><br><span class="line">    props: &#123;</span><br><span class="line">        text: <span class="built_in">String</span></span><br><span class="line">    &#125;</span><br><span class="line">    render(h, &#123; slots, data, props &#125;) &#123;</span><br><span class="line">        <span class="keyword">return</span> h(<span class="string">'button'</span>, props.text) <span class="comment">// 每次用函数式组件返回的虚拟节点直接进行渲染</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        text: <span class="string">'张三'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">	创造函数组件也可以写成</span></span><br><span class="line"><span class="comment">	&lt;template functional&gt;</span></span><br><span class="line"><span class="comment">	&lt;/template&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">// createFunctionalComponent(Ctor, propsData, data, context) 创造函数组件的虚拟节点直接返回，不用 new 实例</span></span><br></pre></td></tr></table></figure>
-
-<p><picture><img loading="lazy" src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210607000031091.png" alt="image-20210607000031091"></picture></p>
-<p>函数式组件主要逻辑</p>
-<blockquote>
-<p><a href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6" target="_blank" rel="noopener">异步组件</a></p>
-</blockquote>
-<p>异步组件原理，先弄个占位符，加载完毕后重新渲染。</p>
-<p><code>Vue.Component</code> 调用 <code>createComponent</code> 如果传入的第二个参数不是对象，而是函数（则会被当成 factory 函数），同时没有 <code>Ctor.cid</code>（Ctor 是第一个参数，可能是类组件，函数或对象或 void，对象会走 Vue.extend 生成一个类组件，<code>cid</code> 是在组件被调用 <code>Vue.extend</code> 后会添加在组件上的属性） ，则触发异步组件逻辑，调用 resolveAsyncComponent 函数。</p>
-<p>会往这个函数中传入 Vue 自己实现的 resolve 和 reject 方法，如果返回值是 Promise，则对 .then 传入 resolve 和 reject，resolve 会调用 <code>once((res) =&gt; { factory.resolved = ensureCtor(res, baseCtor); !sync &amp;&amp; forceRender(true) })</code> ensureCtor 就是 Vue.extend，之后强制渲染。resolveAsyncComponent 函数最后返回 <code>factory.loading ? factory.loadingComp : factory.resolved</code> ，即 factory 是否为 loading 状态，是就返回 loading 组件，没有 loading 就返回 undefined，否则返回 factory.resolved （调用 resolve 后会把组件挂在到 factory.resolved 上）。然后根据返回值是否为 undefined 决定渲染占位符还是真是组件，如果 loadingComp 为 undefined，占位符是 <code>&lt;!----&gt;</code> 这种 HTML 注释。如果调用 resolveAsyncComponent 函数时， factory.resolved 有值，则直接返回 factory.resolved。因此第一次会显示占位符，第二次会显示组件，因为在第一次过后，组件异步更新完成时， factory.resolved 已经有值了，并且调用 forceRender(true) 重新渲染组件。</p>
-<h3 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h3><p>bus、provide / inject 它们的缺点都是无法在当前组件找到通信得到的值是哪个组件传递的。</p>
-<ol>
-<li><p>props</p>
-<p>组件在初始化（创造 Vnode 后调用 initInternalComponent）时，会生成一个 vnodeComponentOptions 的属性，这个属性上存在 propsData、_listeners（事件 on：如点击事件）、children（插槽 slots）、tag 几个属性，当从父组件传入 props 时，会在子组件状态初始化时（initState 中调用 initProps）将父组件传入的 props （propsData）和子组件上定义的 propsOptions 做校验，之后将通过校验的属性放到 vm._props 上，并 proxy 到外层。根据是否为根元素决定 _props 属性决定 shouldObserve 的值，来决定是否需要响应式 props，仅在 isRoot 为 true 时，响应式 props，因为父组件和子组件的 props 只要有一个响应式就够了，因此都让父组件的 props 响应式，根元素没有父组件，因此自己响应式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 父组件生成的就是 vm.$options.propsData</span><br><span class="line">&lt;my-app a&#x3D;&quot;1&quot; b&#x3D;&quot;2&quot; &#x2F;&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 子组件生成的就是 propsOptions</span><br><span class="line">export default &#123;</span><br><span class="line">	props: &#123;</span><br><span class="line">		a: String,</span><br><span class="line">		b: Number</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>bus</p>
-<p>新建一个 Vue 实例，通过 on 和 emit 实现跨层通信，on 会注册到 vm._events 中， emit 会从 _events 中寻找并调用，实际上是个发布订阅模式。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> bus = <span class="keyword">new</span> Vue(&#123;&#125;)</span><br><span class="line">vm.$on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;)</span><br><span class="line">vm.$emit(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>emit listeners</p>
-<p>通过 $emit 调用绑定在自己身上的事件，如下，fn 这个属性是被绑定在子组件中的（vm.$options._parentListeners），但是 handler 是父组件的方法，通过 $emit 调用自身的事件上绑定的父组件的方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 父，其实相当于子组件 this.$on(&#39;fn&#39;, handler)</span><br><span class="line">&lt;my-app @fn&#x3D;&quot;handler&quot; &#x2F;&gt;</span><br><span class="line">export defaukt &#123;</span><br><span class="line">	methods: &#123;</span><br><span class="line">		handler(params) &#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 子</span><br><span class="line">&lt;div @click&#x3D;&quot;fn&quot;&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">	methods: &#123;</span><br><span class="line">		fn() &#123;</span><br><span class="line">			const parmas &#x3D; &#123;&#125;</span><br><span class="line">			this.$emit(&#39;fn&#39;, params)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>provide / inject</p>
-<p>在初始化时，会调用 initInjections 获取父组件的数据注入到自己身上，之后调用 initProvide 向子组件提供数据。写法如下，initProvide 会将 provide 挂到 vm.$options._provided 上，initInjections 会用 inject 遍历得到 key 值并在 vm.$options._provided 中寻找并注入，如果当前的父组件没有这个属性，不停地向上查找 $parent，即父组件的父组件，直到找到或者到根组件为止。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Provider = &#123;</span><br><span class="line">    provide: &#123;</span><br><span class="line">        foo: <span class="string">'bar'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Child = &#123;</span><br><span class="line">    inject: [<span class="string">'foo'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>$parent / $children</p>
-<p>$parent 得到父组件，$children 得到所有的子组件，可以获取到它们身上的属性。在 initLifecycle 中初始化这两个属性。</p>
-</li>
-<li><p>attrs / listeners</p>
-<p>组件的所有事件都定义在 $listeners 上，而且它是响应式的。组件的所有属性被定义在 attrs 上，它也是响应式的。</p>
-<p><code>&lt;my-button a=1 b=2 @click=&quot;handleClick&quot;&gt;</code> attrs 为 a, b ， listeners 为 click</p>
-</li>
-<li><p>ref</p>
-<p>在 patch.js 中通过调用 invokeCreateHooks，依次把 cbs（将 modules 目录里的文件的生命周期加入 cbs，即 ref 和 directives，cbs 就变成 cbs[‘create’] = [updateDirectives（directives.js 的 create）, registerRef（ref.js 的 create）]），调用 registerRef 的时候，会判断这个传入的 vnode.componentInstance 要么是组件要么是 dom 元素，然后在 vm.$refs 中加入这个 ref，如果这个 ref 被 v-for 包裹，会将这个 ref 的值转换为一个数组（$refs.xx = [sameRef1, sameRef2]）。</p>
-</li>
-<li><p>observable</p>
-<p>vue2.6 新加入的 api，小型 vuex，作用生成一个全局的响应式对象。一般不用，因为在所有组件中都可以使用，如果在某个组件中修改了数据，可能会造成数据混乱</p>
-</li>
-</ol>
-<blockquote>
-<p>组件可以增加一个 abstract 属性，表示抽象组件，不记录到父子关系中。如 keep-alive 组件</p>
-</blockquote>
-<h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><p>组件的 <code>v-model</code> 和原生标签的 <code>v-model</code> 是不一样的，虽然我们经常说 <code>v-model</code> 就是 <code>:value + @input</code>  ，但在原生标签中，经过了一步转化，为了在输入中文的时候，那些输入法的字符不显示在表单元素中。</p>
-<p>比如在 <code>&lt;input v-model=&quot;val&quot; /&gt;</code> 和 <code>&lt;input :value=&quot;val&quot; @input=&quot;e =&gt; val = e.target.value&quot;&gt;</code> ，在这两个表单中输入 ”再“ 这字时，第一个表单元素不会出现 <code>zai</code>  这三个英文字符，第二个会。实现原理是监听 <code>compressstart</code> 和 <code>compressend</code></p>
-<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>Vue 中当值触发 <code>set</code> 时，将使用 <code>dep.notify()</code> 通知  <code>watcher</code>更新，但这些 <code>watcher</code> 中可能会存在相同的 <code>watcher</code> 被重复通知，因此，<code>Vue</code> 建立了一个 <code>watcher</code> 队列，用于去重（利用 <code>watcher.id</code> ）并缓存所有 <code>watcher</code>，等待下次空闲时加入事件队列。</p>
-<p>Vue 中有个很常用的方法叫做 <code>nextTick</code>，它把所有同步的事件存入一个队列中，在空闲时依次将队列中的所有事件一一调用，并将队列清空。队列的使用在 <code>Vue</code> 中非常频繁，在创建全局 <code>api</code> 的时候，合并策略也是通过队列来实现的。</p>
-<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><p>由于 Vue 中 data 的所有属性都被响应式处理，每次使用 this.xxx 调用时，都会触发它的 get() 造成行能浪费，因为 get 中绑定了很多操作，同理 set 也是，如</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">this</span>.count = <span class="keyword">this</span>.count + i</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	如上面的写法， get 和 set 都被触发了 10000 次</span></span><br><span class="line"><span class="comment">	下面为优化后的写法，get 与 set 都只触发了 1 次</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">let</span> count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    count = count + i</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.count = <span class="keyword">this</span>.count + count</span><br></pre></td></tr></table></figure>
-
-<p><code>Vue2</code> 的 <code>diff</code> 是递归比较的，性能消耗比较大，在 <code>v-if</code> 时，由于 <code>vnode</code> 树不管这个节点在多深的节点，都会从根节点开始递归，因此性能不好。在 <code>vue3</code> 中，会把可能会更新的节点存入数组，发现更新了就遍历一遍数组，而不是递归，性能比 <code>vue2</code> 好很多。</p>
-<p>在 v-for 循环时，如果用 index 指定为 <code>key</code>，那么在 <code>ABCD</code> 节点变成 <code>DCBA</code> 时，会触发四次更新（相当于四个节点标签复用了，它们的子节点没复用，如果四个标签是 input 标签，就会保留原标签的值，只是改变标签的属性，会出现问题），因为老节点的 <code>A</code> 和新节点的 <code>D</code> key 值一样，标签一样，因此触发节点修改而不是节点移动，因此 ABCD 就触发了四次更新，而不是三次移动，每次更新页面重新渲染，性能不好。</p>
-<h4 id="优化原则"><a href="#优化原则" class="headerlink" title="优化原则"></a>优化原则</h4><ul>
-<li><p>不要把所有数据放再在 data 中，因为所有的数据</p>
-</li>
-<li><p>不要把数据层级写的太深，因为如果拿到的值是对象，会对其递归调用 observe</p>
-</li>
-<li><p>不要频繁获取数据</p>
-</li>
-<li><p>如果数据不需要响应式，可以用 Object.freeze 冻结属性</p>
-</li>
-</ul>
-
-            <div class="post-button text-center">
-              <a class="btn scaleup" href="/2021/05/09/%E6%89%8B%E5%86%99vue/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+<li><p>安装依赖 rollup 打包和 babel 转译 <code>npm i rollup @babel/core rollup-plugin-babel bel @babel/preset-env -D</code>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn scaleup" href="/2021/05/09/%E6%89%8B%E5%86%99vue/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2128,21 +1932,19 @@
 
       
         
-          
-            <h2 id="rollup"><a href="#rollup" class="headerlink" title="rollup"></a>rollup</h2><p>rollup 是一个 JavaScript 的模块打包器，一般用来编写库或者组件，因为它打包生成的文件仍然保持原来的文件结构，和 webpack 大有不同，同时也有 treeshaking 功能。</p>
+          <h2 id="rollup"><a href="#rollup" class="headerlink" title="rollup"></a>rollup</h2><p>rollup 是一个 JavaScript 的模块打包器，一般用来编写库或者组件，因为它打包生成的文件仍然保持原来的文件结构，和 webpack 大有不同，同时也有 treeshaking 功能。</p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>npm init</code>、<code>npm i rollup -D</code></p>
 <h3 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h3><p>在根目录下新建 rollup.config.js 文件，导出一个对象</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rollup.config.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    input: <span class="string">'./src/main.js'</span>, <span class="comment">// 入口文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        file: <span class="string">'./dist/js/main.min.js'</span>,</span><br><span class="line">        format: <span class="string">'iife'</span> <span class="comment">// 输出格式，这里是匿名的立即执行函数作用域，其他有 cjs es amd 和 umd</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>在 package.json 中加入指令 <code>build: rollup -c</code> 或者 <code>build: rollup --config</code> 可以让根目录下的 config 生效。</p>
-<h2 id="从零实现一个-rollup"><a href="#从零实现一个-rollup" class="headerlink" title="从零实现一个 rollup"></a>从零实现一个 rollup</h2><h3 id="1-初始化目录"><a href="#1-初始化目录" class="headerlink" title="1. 初始化目录"></a>1. 初始化目录</h3><h3 id="2-2"><a href="#2-2" class="headerlink" title="2.  2"></a>2.  2</h3><p>2</p>
-
-            <div class="post-button text-center">
-              <a class="btn scaleup" href="/2021/04/18/rollup/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+<p>在 package.json 中加入指令 <code>build: rollup -c</code> 或者 <code>build: rollup --config</code> 可以让根目录下的 config 生效。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn scaleup" href="/2021/04/18/rollup/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
