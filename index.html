@@ -433,6 +433,312 @@
   
   <div class="post-date">
 			<div class="post-month">08月</div>
+			<div class="post-day">15</div>
+	</div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/08/15/react-ts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi, Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link scaleup" href="/2021/08/15/react-ts/" itemprop="url">react-ts</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-15T15:28:58+08:00">2021-08-15</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">627</span>
+              
+
+              
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+      
+      
+      
+
+      
+        
+          
+            <h2 id="react-的类型声明"><a href="#react-的类型声明" class="headerlink" title="react 的类型声明"></a>react 的类型声明</h2><p>ts react 难就难在中间件的类型推导， ts 中 react 难度如果为 1，那么 redux 为 5， redux 中间件为 20.</p>
+<p>ts 中的类型大部分在库里都已经写好了，但比较难记，这里记录一下。</p>
+<ol>
+<li>CSSProperties、MouseEvent</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; CSSProperties &#125; from &#39;react&#39;</span><br><span class="line"></span><br><span class="line">const style: CSSProperties &#x3D; &#123;</span><br><span class="line">    color: &#39;red&#39;,</span><br><span class="line">    transition: &#39;.2s&#39;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; react 自带 DOM 类型（全局的），或者去 ts.config.js 配置 &quot;lib&quot;: [&quot;dom&quot;]</span><br><span class="line">const clickHandle &#x3D; (event: React.MouseEvent&lt;HTMLULListElement&gt;) &#x3D;&gt; &#123; &#x2F;&#x2F; 表示绑定事件的是 ul 元素，即 event.currentTarget，event.currentTarget 是事件绑定的元素</span><br><span class="line">    let target: HTMLLIElement &#x3D; event.target as HTMLLIElement &#x2F;&#x2F; 因为实际点击的是 li，是真正的事件源</span><br><span class="line">    const category &#x3D; target.dataset.category &#x2F;&#x2F; 自定义属性</span><br><span class="line">&#125;</span><br><span class="line">&lt;ul onClick&#x3D;&#123;clickHandle&#125;&gt;</span><br><span class="line">    &lt;li data-category&#x3D;&quot;1&quot;&gt;1&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li data-category&#x3D;&quot;2&quot;&gt;2&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>PropsChildren</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import &#123; PropsWithChildren &#125; from &#39;react&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; PropsChildren 实际上相当于 type PropsChildren&lt;T&gt; &#x3D; T &amp; &#123; children?: ReactNode | undefined &#125;</span><br><span class="line">&#x2F;&#x2F; ReactNode 实际上相当于 type ReactNode &#x3D; null | undefined | string | ReactElement</span><br><span class="line">&#x2F;* </span><br><span class="line">	源码 type ReactNode &#x3D; ReactChild | boolean | null | undefined | ... 还有两个类型 protial</span><br><span class="line">	type ReactChild &#x3D; ReactElement | ReactText</span><br><span class="line">	type ReactText &#x3D; string | number</span><br><span class="line">	type ReactElement&lt;P &#x3D; any, T extends string&gt; &#x3D; ... 这个比较复杂，直接看源码把</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">type Props &#x3D; PropsChildren&lt;&#123;</span><br><span class="line">    history: History</span><br><span class="line">&#125;&gt;</span><br><span class="line"></span><br><span class="line">export defaulut function (props: Props) &#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>axios</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import &#123; AxiosError &#125; from &#39;axios&#39;</span><br><span class="line">import &#123; Button, Descriptions, Alert, message &#125; from &#39;antd&#39;</span><br><span class="line">type StateProps &#x3D; ReturnType&lt;typeof mapStateToProps&gt;</span><br><span class="line">type Dispatch &#x3D; typeof actions</span><br><span class="line">interface Params &#123;&#125;</span><br><span class="line">type Props &#x3D; PropsWithChildren&lt;RouteComponentProps&lt;Params&gt; &amp; StateProps &amp; DispatchProps&gt;</span><br><span class="line">function Profile(props: Props) &#123;</span><br><span class="line">    useEffect(() &#x3D;&gt; &#123;</span><br><span class="line">        props.validate().catch((err: AxiosError) &#x3D;&gt; message.error(&#39;登录失败&#39;))</span><br><span class="line">    &#125;, [])</span><br><span class="line">    let content</span><br><span class="line">    if (props.loginState &#x3D;&#x3D;&#x3D; LOGIN_TYPES.UNLOGIN) &#123;</span><br><span class="line">        content &#x3D; null</span><br><span class="line">    &#125; else if (props.loginState &#x3D;&#x3D;&#x3D; LOGIN_TYPES.LOGINED) &#123;</span><br><span class="line">        content &#x3D; (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;Descriptions title&#x3D;&quot;当前用户&quot;&gt;</span><br><span class="line">                    &lt;Descriptions.Item label&#x3D;&quot;姓名&quot;&gt;名称&lt;&#x2F;Descriptions.Item&gt;</span><br><span class="line">                    &lt;Descriptions.Item label&#x3D;&quot;手机号&quot;&gt;15xxxxxx&lt;&#x2F;Descriptions.Item&gt;</span><br><span class="line">                &lt;&#x2F;Descriptions&gt;</span><br><span class="line">                userInfo</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        content &#x3D; (</span><br><span class="line">            &lt;&gt;</span><br><span class="line">                &lt;Alert type&#x3D;&quot;warning&quot; message&#x3D;&quot;未登录&quot; description&#x3D;&quot;选择注册或登录&quot;&gt;</span><br><span class="line">                    未登录</span><br><span class="line">                &lt;&#x2F;Alert&gt;</span><br><span class="line">            	&lt;Button type&#x3D;&quot;dashed&quot; onClicked&#x3D;&#123;() &#x3D;&gt; &#123;&#125;&#125;&gt;登录&lt;&#x2F;Button&gt;</span><br><span class="line">	            &lt;Button type&#x3D;&quot;dashed&quot;&gt;注册&lt;&#x2F;Button&gt;</span><br><span class="line">            &lt;&#x2F;&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">    return (</span><br><span class="line">        &lt;section&gt;</span><br><span class="line">            &lt;NavHeader history&#x3D;&#123;props.history&#125;&gt;个人中心&lt;&#x2F;NavHeader&gt;</span><br><span class="line">            &#123;content&#125;</span><br><span class="line">        &lt;&#x2F;section&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+            <div class="post-button text-center">
+              <a class="btn scaleup" href="/2021/08/15/react-ts/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
+			<div class="post-month">08月</div>
+			<div class="post-day">15</div>
+	</div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/08/15/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi, Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link scaleup" href="/2021/08/15/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/" itemprop="url">浏览器渲染</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-15T14:58:12+08:00">2021-08-15</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">129</span>
+              
+
+              
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+      
+      
+      
+
+      
+        
+          
+            <h2 id="浏览器渲染"><a href="#浏览器渲染" class="headerlink" title="浏览器渲染"></a>浏览器渲染</h2><p>浏览器渲染的性能优化主要参考有重绘、回流两方面，很久以前写的轮播图，明明通过 element.style.transition 改变了变化时间，但没有生效，就是因为浏览器把那些不会引发重绘回流的属性，放到了一个一次渲染进程中，攒着一次性触发，但如果我们调用会引发重绘回流的方法或访问属性如 element.offsetWidth 等属性，就会立即生效。</p>
+
+            <div class="post-button text-center">
+              <a class="btn scaleup" href="/2021/08/15/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
+			<div class="post-month">08月</div>
 			<div class="post-day">12</div>
 	</div>
   
@@ -1713,329 +2019,6 @@
 
             <div class="post-button text-center">
               <a class="btn scaleup" href="/2021/07/23/react%E5%85%A5%E9%97%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date">
-			<div class="post-month">07月</div>
-			<div class="post-day">12</div>
-	</div>
-  
-  <div class="post-badge">
-    
-      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
-          <span itemprop="name">生活</span>
-        </a>
-      </span>
-    
-  </div>
-  
-
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/07/12/%E8%BF%B7%E8%8C%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/dloux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hi, Dloux">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link scaleup" href="/2021/07/12/%E8%BF%B7%E8%8C%AB/" itemprop="url">迷茫</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-12T23:56:36+08:00">2021-07-12</time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">•</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="far fa-file-word"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                
-                <span title="字数统计">53</span>
-              
-
-              
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-      
-      
-      
-
-      
-        
-          <h3 id="近期"><a href="#近期" class="headerlink" title="近期"></a>近期
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn scaleup" href="/2021/07/12/%E8%BF%B7%E8%8C%AB/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date">
-			<div class="post-month">07月</div>
-			<div class="post-day">11</div>
-	</div>
-  
-  <div class="post-badge">
-    
-      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-          <span itemprop="name">技术</span>
-        </a>
-      </span>
-    
-      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E6%8A%80%E6%9C%AF/node/" itemprop="url" rel="index">
-          <span itemprop="name">node</span>
-        </a>
-      </span>
-    
-  </div>
-  
-
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/07/11/express/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/dloux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hi, Dloux">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link scaleup" href="/2021/07/11/express/" itemprop="url">express</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-11T23:43:39+08:00">2021-07-11</time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">•</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="far fa-file-word"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                
-                <span title="字数统计">308</span>
-              
-
-              
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-      
-      
-      
-
-      
-        
-          
-            <h1 id="express"><a href="#express" class="headerlink" title="express"></a>express</h1><p>express 是一个 Node.js Web 应用程序开发框架。与 Koa 是同一班人马打造。</p>
-<h2 id="Express-和-Koa-对比"><a href="#Express-和-Koa-对比" class="headerlink" title="Express 和 Koa 对比"></a>Express 和 Koa 对比</h2><ul>
-<li>express 处理请求得时候全部采用回调函数得方式，koa 采用的是 Promise + async + await</li>
-<li>express 内部采用 es5， koa 采用 es6</li>
-<li>express 比 koa 功能多，多了一些内置的中间件（路由，静态服务，模板渲染）代码体积比 koa 多</li>
-<li>koa 中为了扩展采用的是 ctx 扩展了 request，response 对象，express 直接在原生的 req 和 res 的基础上进行了扩展</li>
-<li>express 中的特点是内部采用回调（组合 它内部不支持 promise 串联） koa 支持 promise 串联</li>
-<li>express 里既可以 express()，也可以 new express()，因为用的是 es5 的类的写法，而 koa 采用 class 只能使用 new koa()</li>
-<li>express 和 koa 是同一班人马打造</li>
-</ul>
-<p>Layer 匹配路径，路径上可以对应的是 Route.dispatch（路由），或者 use（中间件） 的回调<br>Route 匹配方法，一个 Route 内存在又多个 Layer，但这些 Layer 只匹配方法名（get\post 等），同时 route 上会有属性标识这个 route 上有什么方法，暴露出来以供外部函数遍历时是否深入 Route 的 stack 继续遍历。</p>
-
-            <div class="post-button text-center">
-              <a class="btn scaleup" href="/2021/07/11/express/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
