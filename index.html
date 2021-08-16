@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">627</span>
+                <span title="字数统计">719</span>
               
 
               
@@ -524,33 +524,15 @@
 
       
         
-          
-            <h2 id="react-的类型声明"><a href="#react-的类型声明" class="headerlink" title="react 的类型声明"></a>react 的类型声明</h2><p>ts react 难就难在中间件的类型推导， ts 中 react 难度如果为 1，那么 redux 为 5， redux 中间件为 20.</p>
-<p>ts 中的类型大部分在库里都已经写好了，但比较难记，这里记录一下。</p>
-<ol>
-<li>CSSProperties、MouseEvent</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; CSSProperties &#125; from &#39;react&#39;</span><br><span class="line"></span><br><span class="line">const style: CSSProperties &#x3D; &#123;</span><br><span class="line">    color: &#39;red&#39;,</span><br><span class="line">    transition: &#39;.2s&#39;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; react 自带 DOM 类型（全局的），或者去 ts.config.js 配置 &quot;lib&quot;: [&quot;dom&quot;]</span><br><span class="line">const clickHandle &#x3D; (event: React.MouseEvent&lt;HTMLULListElement&gt;) &#x3D;&gt; &#123; &#x2F;&#x2F; 表示绑定事件的是 ul 元素，即 event.currentTarget，event.currentTarget 是事件绑定的元素</span><br><span class="line">    let target: HTMLLIElement &#x3D; event.target as HTMLLIElement &#x2F;&#x2F; 因为实际点击的是 li，是真正的事件源</span><br><span class="line">    const category &#x3D; target.dataset.category &#x2F;&#x2F; 自定义属性</span><br><span class="line">&#125;</span><br><span class="line">&lt;ul onClick&#x3D;&#123;clickHandle&#125;&gt;</span><br><span class="line">    &lt;li data-category&#x3D;&quot;1&quot;&gt;1&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li data-category&#x3D;&quot;2&quot;&gt;2&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>PropsChildren</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import &#123; PropsWithChildren &#125; from &#39;react&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; PropsChildren 实际上相当于 type PropsChildren&lt;T&gt; &#x3D; T &amp; &#123; children?: ReactNode | undefined &#125;</span><br><span class="line">&#x2F;&#x2F; ReactNode 实际上相当于 type ReactNode &#x3D; null | undefined | string | ReactElement</span><br><span class="line">&#x2F;* </span><br><span class="line">	源码 type ReactNode &#x3D; ReactChild | boolean | null | undefined | ... 还有两个类型 protial</span><br><span class="line">	type ReactChild &#x3D; ReactElement | ReactText</span><br><span class="line">	type ReactText &#x3D; string | number</span><br><span class="line">	type ReactElement&lt;P &#x3D; any, T extends string&gt; &#x3D; ... 这个比较复杂，直接看源码把</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">type Props &#x3D; PropsChildren&lt;&#123;</span><br><span class="line">    history: History</span><br><span class="line">&#125;&gt;</span><br><span class="line"></span><br><span class="line">export defaulut function (props: Props) &#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>axios</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import &#123; AxiosError &#125; from &#39;axios&#39;</span><br><span class="line">import &#123; Button, Descriptions, Alert, message &#125; from &#39;antd&#39;</span><br><span class="line">type StateProps &#x3D; ReturnType&lt;typeof mapStateToProps&gt;</span><br><span class="line">type Dispatch &#x3D; typeof actions</span><br><span class="line">interface Params &#123;&#125;</span><br><span class="line">type Props &#x3D; PropsWithChildren&lt;RouteComponentProps&lt;Params&gt; &amp; StateProps &amp; DispatchProps&gt;</span><br><span class="line">function Profile(props: Props) &#123;</span><br><span class="line">    useEffect(() &#x3D;&gt; &#123;</span><br><span class="line">        props.validate().catch((err: AxiosError) &#x3D;&gt; message.error(&#39;登录失败&#39;))</span><br><span class="line">    &#125;, [])</span><br><span class="line">    let content</span><br><span class="line">    if (props.loginState &#x3D;&#x3D;&#x3D; LOGIN_TYPES.UNLOGIN) &#123;</span><br><span class="line">        content &#x3D; null</span><br><span class="line">    &#125; else if (props.loginState &#x3D;&#x3D;&#x3D; LOGIN_TYPES.LOGINED) &#123;</span><br><span class="line">        content &#x3D; (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;Descriptions title&#x3D;&quot;当前用户&quot;&gt;</span><br><span class="line">                    &lt;Descriptions.Item label&#x3D;&quot;姓名&quot;&gt;名称&lt;&#x2F;Descriptions.Item&gt;</span><br><span class="line">                    &lt;Descriptions.Item label&#x3D;&quot;手机号&quot;&gt;15xxxxxx&lt;&#x2F;Descriptions.Item&gt;</span><br><span class="line">                &lt;&#x2F;Descriptions&gt;</span><br><span class="line">                userInfo</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        content &#x3D; (</span><br><span class="line">            &lt;&gt;</span><br><span class="line">                &lt;Alert type&#x3D;&quot;warning&quot; message&#x3D;&quot;未登录&quot; description&#x3D;&quot;选择注册或登录&quot;&gt;</span><br><span class="line">                    未登录</span><br><span class="line">                &lt;&#x2F;Alert&gt;</span><br><span class="line">            	&lt;Button type&#x3D;&quot;dashed&quot; onClicked&#x3D;&#123;() &#x3D;&gt; &#123;&#125;&#125;&gt;登录&lt;&#x2F;Button&gt;</span><br><span class="line">	            &lt;Button type&#x3D;&quot;dashed&quot;&gt;注册&lt;&#x2F;Button&gt;</span><br><span class="line">            &lt;&#x2F;&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">    return (</span><br><span class="line">        &lt;section&gt;</span><br><span class="line">            &lt;NavHeader history&#x3D;&#123;props.history&#125;&gt;个人中心&lt;&#x2F;NavHeader&gt;</span><br><span class="line">            &#123;content&#125;</span><br><span class="line">        &lt;&#x2F;section&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-            <div class="post-button text-center">
-              <a class="btn scaleup" href="/2021/08/15/react-ts/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <h2 id="react-的类型声明"><a href="#react-的类型声明" class="headerlink" title="react 的类型声明"></a>react 的类型声明</h2><p>ts react 难就难在中间件的类型推导， ts 中 react 难度如果为 1，那么 redux 为 5， redux 中间件为 20.</p>
+<p>ts 中的类型大部分在库里都已经写好了，但比较难记，这里记录一下。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn scaleup" href="/2021/08/15/react-ts/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1125,7 +1107,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">235</span>
+                <span title="字数统计">414</span>
               
 
               
