@@ -81,17 +81,19 @@
 
 
 
-<meta name="description" content="网络 OSI 七层模型，是理想化的模型，将复杂的流程分解为几个功能实现复杂问题简单化。            7.应用层（用户最终的接口） 微信、QQ ,  HTTP\DNS\FTP\TFTP\SMTP\DHCP 6.表示层（数据的表示、安全、压缩） 5.会话层（建立和管理会话） 4.传输层 TCP、UDP 3.网络层（路由器） IP 协议 ipv4、ipv6 2.数据链路层（交换机、网卡） 1.">
+<meta name="description" content="网络 OSI 七层模型，是理想化的模型，将复杂的流程分解为几个功能实现复杂问题简单化。         七层模型 7.应用层（用户最终的接口） 微信、QQ ,  HTTP\DNS\FTP\TFTP\SMTP\DHCP 6.表示层（数据的表示、安全、压缩） 5.会话层（建立和管理会话） 4.传输层 TCP、UDP 3.网络层（路由器） IP 协议 ipv4、ipv6 2.数据链路层（交换机、网卡）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络">
 <meta property="og:url" content="https://dloux.gitee.io/2021/06/30/%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="Hi, Dloux">
-<meta property="og:description" content="网络 OSI 七层模型，是理想化的模型，将复杂的流程分解为几个功能实现复杂问题简单化。            7.应用层（用户最终的接口） 微信、QQ ,  HTTP\DNS\FTP\TFTP\SMTP\DHCP 6.表示层（数据的表示、安全、压缩） 5.会话层（建立和管理会话） 4.传输层 TCP、UDP 3.网络层（路由器） IP 协议 ipv4、ipv6 2.数据链路层（交换机、网卡） 1.">
+<meta property="og:description" content="网络 OSI 七层模型，是理想化的模型，将复杂的流程分解为几个功能实现复杂问题简单化。         七层模型 7.应用层（用户最终的接口） 微信、QQ ,  HTTP\DNS\FTP\TFTP\SMTP\DHCP 6.表示层（数据的表示、安全、压缩） 5.会话层（建立和管理会话） 4.传输层 TCP、UDP 3.网络层（路由器） IP 协议 ipv4、ipv6 2.数据链路层（交换机、网卡）">
+<meta property="og:image" content="https://dloux.gitee.io/2021/06/30/%E7%BD%91%E7%BB%9C/img/%E5%AD%90%E7%BD%91%E9%80%9A%E4%BF%A1.png">
 <meta property="article:published_time" content="2021-06-30T14:01:59.000Z">
-<meta property="article:modified_time" content="2021-08-16T14:48:59.493Z">
+<meta property="article:modified_time" content="2021-08-17T16:49:43.692Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dloux.gitee.io/2021/06/30/%E7%BD%91%E7%BB%9C/img/%E5%AD%90%E7%BD%91%E9%80%9A%E4%BF%A1.png">
 
 
 
@@ -493,7 +495,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">833</span>
+                <span title="字数统计">1.5k</span>
               
 
               
@@ -521,7 +523,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-      <div class="post-toc-content"><div class="post-toc-title">文章目录</div><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层（整合表示层与会话层）"><span class="nav-text">应用层（整合表示层与会话层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层"><span class="nav-text">传输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层（IP层）"><span class="nav-text">网络层（IP层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据链路层"><span class="nav-text">数据链路层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理层"><span class="nav-text">物理层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-地址和-MAC-地址（ip转换为mac地址是只支持局域网的）"><span class="nav-text">IP 地址和 MAC 地址（ip转换为mac地址是只支持局域网的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器和交换机"><span class="nav-text">路由器和交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网关"><span class="nav-text">网关</span></a></li></ol></li></ol></li></ol></div>
+      <div class="post-toc-content"><div class="post-toc-title">文章目录</div><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#七层模型"><span class="nav-text">七层模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层（整合表示层与会话层）"><span class="nav-text">应用层（整合表示层与会话层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层"><span class="nav-text">传输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层（IP层）"><span class="nav-text">网络层（IP层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据链路层"><span class="nav-text">数据链路层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理层"><span class="nav-text">物理层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-地址和-MAC-地址（ip转换为mac地址是只支持局域网的）"><span class="nav-text">IP 地址和 MAC 地址（ip转换为mac地址是只支持局域网的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器和交换机"><span class="nav-text">路由器和交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网关"><span class="nav-text">网关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP-参考模型（五层模型）"><span class="nav-text">TCP&#x2F;IP 参考模型（五层模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS-协议"><span class="nav-text">DNS 协议</span></a></li></ol></li></ol></li></ol></div>
       
       
 
@@ -530,13 +532,11 @@
 <p>OSI 七层模型，是理想化的模型，将复杂的流程分解为几个功能实现复杂问题简单化。</p>
 </blockquote>
 
-    <div id="aplayer-mEDiWxMw" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-ofRtqWyR" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="523845661" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
     ></div>
 
-
-
-<ul>
+<h2 id="七层模型"><a href="#七层模型" class="headerlink" title="七层模型"></a>七层模型</h2><ul>
 <li>7.应用层（用户最终的接口） 微信、QQ ,  <strong>HTTP\DNS\FTP\TFTP\SMTP\DHCP</strong></li>
 <li>6.表示层（数据的表示、安全、压缩）</li>
 <li>5.会话层（建立和管理会话）</li>
@@ -566,16 +566,38 @@
 <h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><p>物理上的设备，网线、光纤、双绞线。</p>
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="IP-地址和-MAC-地址（ip转换为mac地址是只支持局域网的）"><a href="#IP-地址和-MAC-地址（ip转换为mac地址是只支持局域网的）" class="headerlink" title="IP 地址和 MAC 地址（ip转换为mac地址是只支持局域网的）"></a>IP 地址和 MAC 地址（ip转换为mac地址是只支持局域网的）</h3><ul>
 <li>最终通信都是通过 MAC 地址通信，每个网卡都有自己的 MAC 地址（原则上唯一）。</li>
-<li>通过 DHCP 协议分配给每台电脑 IP，通过 ARP 协议将 IP 地址转化成 mac 地址。</li>
+<li>交换机/路由器通过 DHCP 协议分配给每台电脑 IP，通过 <strong>ARP</strong> 协议（局域网内有效）将 IP 地址转化成 mac 地址。（注：电信、网通也是通过 DHCP 协议来给各个用户动态分配 IP 的）</li>
 </ul>
 <h3 id="路由器和交换机"><a href="#路由器和交换机" class="headerlink" title="路由器和交换机"></a>路由器和交换机</h3><ul>
-<li><p>交换机：维护 mac 地址表（交换机端口对应的 mac 地址），<strong>不关心 ip 地址</strong>。核心就是交换数据，交换效率高。</p>
-</li>
-<li><p>路由器：分为 lan 口 和 wan 口，在不接 wan 口的情况下，路由器可以看成是交换机，但效率低。有网的路由器关联了 ip 地址，可以上网。</p>
-</li>
+<li>交换机：维护 mac 地址表（交换机端口对应的 mac 地址），<strong>不关心 ip 地址</strong>。核心就是交换数据，交换效率高。交换机传输数据时，先查看内存中的地址对照表以确定目的MAC，存在就直接对着 MAC 地址发送，如果目的 MAC 不存在地址表中，就广播所有端口 ，经过 ARP 协议之后得到 MAC 地址，并且将 MAC 地址与端口号缓存到内部地址表中，以供下次使用。</li>
+<li>路由器：分为 lan 口 和 wan 口，在不接 wan 口的情况下，路由器可以看成是交换机，但效率低。有网的路由器关联了 ip 地址，可以上网。</li>
 </ul>
-<h3 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h3><p>TCP/IP 中规定两个子网不能直接通信（通过子网掩码来区分两个设备是否是同一个子网），我们从内网访问到外网属于两个不同的子网。路由器就充当了网关的角色，因此网关（Gateway）又称网间连接器、协议转换器。因此访问外网就通过路由器来访问。</p>
+<h3 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h3><p>TCP/IP 中规定<strong>两个子网不能直接通信</strong>（通过子网掩码来区分两个设备是否是同一个子网），我们从内网访问到外网属于两个不同的子网。路由器就充当了网关的角色，因此网关（Gateway）又称网间连接器、协议转换器。因此访问外网就通过路由器来访问。</p>
 <p>比如 192.168.0.1 和 192.168.0.2 两个 ip，可以通过 &amp; 255.255.255.0（子网掩码） 来判断是否在同一局域网下，&amp; 之后两者的值都为 192.168.0.0，为同一局域网，不需要走网关。</p>
+<p>计算机子网访问公网（如 192.168.0.1 访问 110.242.68.4 <em>即百度</em>）时，是通过路由器的，源 IP 会经过 <strong>SNAT</strong> 协议（还会虚拟一个端口号作为标识）把子网 IP 转化后转发到公网上，接收到公网数据后，通过之前虚拟出来的端口号，找到要给哪个端口发送数据。</p>
+<h2 id="TCP-IP-参考模型（五层模型）"><a href="#TCP-IP-参考模型（五层模型）" class="headerlink" title="TCP/IP 参考模型（五层模型）"></a>TCP/IP 参考模型（五层模型）</h2><p>Transmission Control Protocol/Internet Protocol，传输控制协议/网际协议，TCP/IP 协议簇不仅仅指TCP 和 IP 两个协议。</p>
+<p>协议就是通信的规则，以 http 协议当作范例来说（协议就是对数据的封装和传输）</p>
+<ul>
+<li>数据链路层、物理层：物理设备</li>
+<li>网络层：<ul>
+<li>IP 协议：寻址通过路由器查找，将消息发送给对方路由器，通过 ARP 协议，发送自己的 mac 地址。</li>
+<li>ARP 协议：Address Resolution Protocol ，从 ip 地址获取 mac 地址（局域网），RARP (通信由 mac 地址通信，通过自己的 mac 地址，对方的 ip，获取对方的 mac 地址，就是反着来)。如果是七层模型，ARP 可以归为数据链路层。五层模型时，网络层才开始有协议</li>
+</ul>
+</li>
+<li>传输层：TCP、UDP</li>
+<li>应用层：HTTP、DNS、FTP、TFTP、SMTP（simple mail 简易邮件传输协议）、DHCP</li>
+</ul>
+<p><picture><img loading="lazy" src="img/%E5%AD%90%E7%BD%91%E9%80%9A%E4%BF%A1.png" alt=""></picture></p>
+<h3 id="DNS-协议"><a href="#DNS-协议" class="headerlink" title="DNS 协议"></a>DNS 协议</h3><p>Domain Name System， DNS 服务器是进行域名和对应的 IP 地址转换的服务器。 </p>
+<ul>
+<li>顶级域名 .com</li>
+<li>二级域名 .com.cn</li>
+<li>三级域名 <code>www.xxx.com.cn</code>，有多少个点就是几级域名，如果 <code>www.baidu.com</code> 就是 2级</li>
+</ul>
+<p>访问过程：我们访问 <code>www.baidu.com.cn</code> 时，假设 DNS 服务器没有对应的域名缓存，就会通过 DNS 服务器查找离自己最近的根服务器，通过根服务器找到 .cn 服务器，将 ip 返回给 DNS 服务器，DNS 服务器会继续向此 IP 发送请求，去查找对应 .cn 下 .com 对应的 ip，接着返回后继续寻找 .baidu 的 ip，直到最后获得  www 的 ip，缓存到 DNS 服务器上。</p>
+<blockquote>
+<p>路由器也是 DNS 服务器，如果我们选择自动获取 DNS 服务器，就会指向路由器，我们常用的 DNS 服务器有 114.114.114.114（国内移动、电信、联通 DNS） 和 8.8.8.8 （Google DNS）。</p>
+</blockquote>
 
       
     </div>
@@ -859,7 +881,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-number">1.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层（整合表示层与会话层）"><span class="nav-number">1.0.1.</span> <span class="nav-text">应用层（整合表示层与会话层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层"><span class="nav-number">1.0.2.</span> <span class="nav-text">传输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层（IP层）"><span class="nav-number">1.0.3.</span> <span class="nav-text">网络层（IP层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据链路层"><span class="nav-number">1.0.4.</span> <span class="nav-text">数据链路层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理层"><span class="nav-number">1.0.5.</span> <span class="nav-text">物理层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-地址和-MAC-地址（ip转换为mac地址是只支持局域网的）"><span class="nav-number">1.1.1.</span> <span class="nav-text">IP 地址和 MAC 地址（ip转换为mac地址是只支持局域网的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器和交换机"><span class="nav-number">1.1.2.</span> <span class="nav-text">路由器和交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网关"><span class="nav-number">1.1.3.</span> <span class="nav-text">网关</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-number">1.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#七层模型"><span class="nav-number">1.1.</span> <span class="nav-text">七层模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层（整合表示层与会话层）"><span class="nav-number">1.1.1.</span> <span class="nav-text">应用层（整合表示层与会话层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层"><span class="nav-number">1.1.2.</span> <span class="nav-text">传输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层（IP层）"><span class="nav-number">1.1.3.</span> <span class="nav-text">网络层（IP层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据链路层"><span class="nav-number">1.1.4.</span> <span class="nav-text">数据链路层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理层"><span class="nav-number">1.1.5.</span> <span class="nav-text">物理层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.2.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-地址和-MAC-地址（ip转换为mac地址是只支持局域网的）"><span class="nav-number">1.2.1.</span> <span class="nav-text">IP 地址和 MAC 地址（ip转换为mac地址是只支持局域网的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器和交换机"><span class="nav-number">1.2.2.</span> <span class="nav-text">路由器和交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网关"><span class="nav-number">1.2.3.</span> <span class="nav-text">网关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP-参考模型（五层模型）"><span class="nav-number">1.3.</span> <span class="nav-text">TCP&#x2F;IP 参考模型（五层模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS-协议"><span class="nav-number">1.3.1.</span> <span class="nav-text">DNS 协议</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
