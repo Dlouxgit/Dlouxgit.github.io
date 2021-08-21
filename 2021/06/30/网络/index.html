@@ -88,8 +88,9 @@
 <meta property="og:site_name" content="Hi, Dloux">
 <meta property="og:description" content="网络 OSI 七层模型，是理想化的模型，将复杂的流程分解为几个功能实现复杂问题简单化。         七层模型 7.应用层（用户最终的接口） 微信、QQ ,  HTTP\DNS\FTP\TFTP\SMTP\DHCP 6.表示层（数据的表示、安全、压缩） 5.会话层（建立和管理会话） 4.传输层 TCP、UDP 3.网络层（路由器） IP 协议 ipv4、ipv6 2.数据链路层（交换机、网卡）">
 <meta property="og:image" content="https://dloux.gitee.io/images/%E5%AD%90%E7%BD%91%E9%80%9A%E4%BF%A1.png">
+<meta property="og:image" content="https://dloux.gitee.io/images/tcpHeader.png">
 <meta property="article:published_time" content="2021-06-30T14:01:59.000Z">
-<meta property="article:modified_time" content="2021-08-20T17:45:54.622Z">
+<meta property="article:modified_time" content="2021-08-21T17:36:39.165Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
@@ -495,7 +496,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">1.6k</span>
+                <span title="字数统计">2.4k</span>
               
 
               
@@ -523,7 +524,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-      <div class="post-toc-content"><div class="post-toc-title">文章目录</div><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#七层模型"><span class="nav-text">七层模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层（整合表示层与会话层）"><span class="nav-text">应用层（整合表示层与会话层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层"><span class="nav-text">传输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层（IP层）"><span class="nav-text">网络层（IP层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据链路层"><span class="nav-text">数据链路层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理层"><span class="nav-text">物理层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-地址和-MAC-地址（ip转换为mac地址是只支持局域网的）"><span class="nav-text">IP 地址和 MAC 地址（ip转换为mac地址是只支持局域网的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器和交换机"><span class="nav-text">路由器和交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网关"><span class="nav-text">网关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP-参考模型（五层模型）"><span class="nav-text">TCP&#x2F;IP 参考模型（五层模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS-协议"><span class="nav-text">DNS 协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP协议"><span class="nav-text">IP协议</span></a></li></ol></li></ol></li></ol></div>
+      <div class="post-toc-content"><div class="post-toc-title">文章目录</div><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#七层模型"><span class="nav-text">七层模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层（整合表示层与会话层）"><span class="nav-text">应用层（整合表示层与会话层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层"><span class="nav-text">传输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层（IP层）"><span class="nav-text">网络层（IP层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据链路层"><span class="nav-text">数据链路层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理层"><span class="nav-text">物理层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-地址和-MAC-地址（ip转换为mac地址是只支持局域网的）"><span class="nav-text">IP 地址和 MAC 地址（ip转换为mac地址是只支持局域网的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器和交换机"><span class="nav-text">路由器和交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网关"><span class="nav-text">网关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP-参考模型（五层模型）"><span class="nav-text">TCP&#x2F;IP 参考模型（五层模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS-协议"><span class="nav-text">DNS 协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP协议（寻址）"><span class="nav-text">IP协议（寻址）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-协议（传输）"><span class="nav-text">TCP 协议（传输）</span></a></li></ol></li></ol></li></ol></div>
       
       
 
@@ -532,7 +533,7 @@
 <p>OSI 七层模型，是理想化的模型，将复杂的流程分解为几个功能实现复杂问题简单化。</p>
 </blockquote>
 
-    <div id="aplayer-VeKavRln" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-EaFuimaJ" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="523845661" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
     ></div>
 
@@ -598,11 +599,33 @@
 <blockquote>
 <p>路由器也是 DNS 服务器，如果我们选择自动获取 DNS 服务器，就会指向路由器，我们常用的 DNS 服务器有 114.114.114.114（国内移动、电信、联通 DNS） 和 8.8.8.8 （Google DNS）。</p>
 </blockquote>
-<h3 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h3><p>目前主流的是 IPV4、IPV6</p>
+<h3 id="IP协议（寻址）"><a href="#IP协议（寻址）" class="headerlink" title="IP协议（寻址）"></a>IP协议（寻址）</h3><p>目前主流的是 IPV4、IPV6</p>
 <ul>
 <li>IPV4 地址最大是 255.255.255.255， 总共可以编 43亿个地址，不够用，因此出现 IPV6</li>
-<li>通过IP地址逐级查找，直到定位到最终的设备。</li>
+<li>通过IP地址逐级查找，直到定位到最终的设备。（如找到 192.168.1.12，先去 255.0.0.0 找，再去 255.255.0.0 找，以此类推，直到找到设备）</li>
 </ul>
+<h3 id="TCP-协议（传输）"><a href="#TCP-协议（传输）" class="headerlink" title="TCP 协议（传输）"></a>TCP 协议（传输）</h3><p>tcp 传输控制协议 <code>Transmision Control Protocal</code> 是可靠、面向连接（在发数据前要连接好）的协议，传输效率低（因为要在不可靠的 IP 层上建立可靠的传输层，需要握手）。TCP 提供全双工服务，即数据可以在同一时间双向传播。数据是无序地在网络间传递，接收方需要有一种算法在接受到数据后恢复原有的顺序。</p>
+<p>一个 TCP 段最多 60 个字节，但这里包含有 20 字节的头部，每次传输数据都需要 20 个字节作为头部，相当大了，所以 tcp 传输过程中有粘包的概念（一个数据分段传了好几个，会粘到一起）。</p>
+<blockquote>
+<p>IP 层不可靠的原因：丢包， TCP 发现丢包会重发</p>
+<p>单工：只能往一个方向传递，比如 A -&gt; B，而不能 B -&gt; A</p>
+<p>半双工：可以往两个方向传递，但同一时间只能传递同一方向，如 B -&gt; A 的同时不能 A -&gt; B</p>
+<p>全双工：可以同时往两个方向传递，在 A -&gt; B 的同时可以 B -&gt; A</p>
+</blockquote>
+<p><picture><img loading="lazy" src="/images/tcpHeader.png" alt=""></picture></p>
+<ul>
+<li>源端口号、目的端口号，指的是发送方随机端口，目标端对应的端口，由于是 16 位，可以得知端口号只会是 0 - 65535 之间</li>
+<li>32 位序列号是用于对数据进行标记，方便重组，如这次数据传输传到第 100 位，下次这个值就位 100，表示本次数据传输是从第 100 位开始</li>
+<li>确认号表示指下一次应该受到的数据的序列号，实际上它是已收到确认应答号减一为止的数据，当前报文段最后一个字节的编号 + 1 即为确认应答号。</li>
+<li>4 位首部长度（数据偏移）：表示首部长度，也可以表示 TCP 所传输的数据部分从 TCP 的哪个位置开始算，最大值为 0b1111，也就是 15，单位是 4 字节，也就是说首部最大 60 字节。比如该值为 5，就表示 TCP 包的开始 20 （4 * 5）字节为 TCP 头，其他为 TCP 数据</li>
+<li>URG：紧急信号；ACK：确认信号；PSH：应该从 TCP 缓冲区读走数据；RST：断开重连；SYN：建立连接；FIN：表示要断开连接</li>
+<li>校验和：用来做差错控制，看看传输的报文段是否损坏</li>
+<li>窗口大小：该字段长为16位。用于通知从相同TCP首部的确认应答号所指位置开始能够接收的数据大小，TCP不允许发送超过此处所示大小的数据。不过，如果窗口为0，则表示可以发送窗口探测，以了解最新的窗口大小。</li>
+<li>紧急指针：用来发送紧急数据使用，只有在 <strong>URG</strong> 控制位为1时有效。</li>
+</ul>
+<blockquote>
+<p>TCP 是提供可靠的网络传输，需要建立连接，流速控制。 UDP 协议只发包，无连接协议，速度快。</p>
+</blockquote>
 
       
     </div>
@@ -886,7 +909,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-number">1.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#七层模型"><span class="nav-number">1.1.</span> <span class="nav-text">七层模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层（整合表示层与会话层）"><span class="nav-number">1.1.1.</span> <span class="nav-text">应用层（整合表示层与会话层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层"><span class="nav-number">1.1.2.</span> <span class="nav-text">传输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层（IP层）"><span class="nav-number">1.1.3.</span> <span class="nav-text">网络层（IP层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据链路层"><span class="nav-number">1.1.4.</span> <span class="nav-text">数据链路层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理层"><span class="nav-number">1.1.5.</span> <span class="nav-text">物理层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.2.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-地址和-MAC-地址（ip转换为mac地址是只支持局域网的）"><span class="nav-number">1.2.1.</span> <span class="nav-text">IP 地址和 MAC 地址（ip转换为mac地址是只支持局域网的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器和交换机"><span class="nav-number">1.2.2.</span> <span class="nav-text">路由器和交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网关"><span class="nav-number">1.2.3.</span> <span class="nav-text">网关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP-参考模型（五层模型）"><span class="nav-number">1.3.</span> <span class="nav-text">TCP&#x2F;IP 参考模型（五层模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS-协议"><span class="nav-number">1.3.1.</span> <span class="nav-text">DNS 协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP协议"><span class="nav-number">1.3.2.</span> <span class="nav-text">IP协议</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-number">1.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#七层模型"><span class="nav-number">1.1.</span> <span class="nav-text">七层模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层（整合表示层与会话层）"><span class="nav-number">1.1.1.</span> <span class="nav-text">应用层（整合表示层与会话层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层"><span class="nav-number">1.1.2.</span> <span class="nav-text">传输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层（IP层）"><span class="nav-number">1.1.3.</span> <span class="nav-text">网络层（IP层）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据链路层"><span class="nav-number">1.1.4.</span> <span class="nav-text">数据链路层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理层"><span class="nav-number">1.1.5.</span> <span class="nav-text">物理层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.2.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-地址和-MAC-地址（ip转换为mac地址是只支持局域网的）"><span class="nav-number">1.2.1.</span> <span class="nav-text">IP 地址和 MAC 地址（ip转换为mac地址是只支持局域网的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器和交换机"><span class="nav-number">1.2.2.</span> <span class="nav-text">路由器和交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网关"><span class="nav-number">1.2.3.</span> <span class="nav-text">网关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP-参考模型（五层模型）"><span class="nav-number">1.3.</span> <span class="nav-text">TCP&#x2F;IP 参考模型（五层模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS-协议"><span class="nav-number">1.3.1.</span> <span class="nav-text">DNS 协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP协议（寻址）"><span class="nav-number">1.3.2.</span> <span class="nav-text">IP协议（寻址）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-协议（传输）"><span class="nav-number">1.3.3.</span> <span class="nav-text">TCP 协议（传输）</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
