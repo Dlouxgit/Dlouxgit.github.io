@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="DIYgod,blog" />
+  <meta name="keywords" content="webpack," />
 
 
 
@@ -81,13 +81,16 @@
 
 
 
-<meta name="description" content="catch fish with the hands">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hi, Dloux">
-<meta property="og:url" content="https://dloux.gitee.io/archives/page/4/index.html">
+<meta name="description" content="webpack5重新整理一下 webpack 知识，内容过多，了解功能即可，遇到 api 查文档。 modewebpack 4.x 引入了 mode 的概念。webpack mode 默认为 production， webpack serve 默认为 development。命令行中的 mode 比 webpack.config.js 的 mode 优先级更高。  生产模式默认会启用各种性能优化的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack5">
+<meta property="og:url" content="https://dloux.gitee.io/2021/08/22/webpack5/index.html">
 <meta property="og:site_name" content="Hi, Dloux">
-<meta property="og:description" content="catch fish with the hands">
+<meta property="og:description" content="webpack5重新整理一下 webpack 知识，内容过多，了解功能即可，遇到 api 查文档。 modewebpack 4.x 引入了 mode 的概念。webpack mode 默认为 production， webpack serve 默认为 development。命令行中的 mode 比 webpack.config.js 的 mode 优先级更高。  生产模式默认会启用各种性能优化的">
+<meta property="article:published_time" content="2021-08-22T13:34:45.000Z">
+<meta property="article:modified_time" content="2021-08-22T16:12:21.771Z">
 <meta property="article:author" content="Dloux">
+<meta property="article:tag" content="webpack">
 <meta name="twitter:card" content="summary">
 
 
@@ -144,7 +147,7 @@
 
 
 
-  <link rel="canonical" href="https://dloux.gitee.io/archives/page/4/"/>
+  <link rel="canonical" href="https://dloux.gitee.io/2021/08/22/webpack5/"/>
 
 
 
@@ -159,7 +162,7 @@
     })();
 </script>
 
-  <title>归档 | Hi, Dloux</title>
+  <title>webpack5 | Hi, Dloux</title>
   
 
 
@@ -187,7 +190,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><nav class="site-nav">
   
@@ -417,422 +420,230 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive post">
-    <div id="posts" class="posts-collapse">
-      <h1 class="post-collapse-title" itemprop="name headline">归档</h1>
-      <div class="category-all-page">
-        <div class="category-all-title">
-            分类
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
+			<div class="post-month">08月</div>
+			<div class="post-day">22</div>
+	</div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/08/22/webpack5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi, Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">webpack5</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-22T21:34:45+08:00">2021-08-22</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">755</span>
+              
+
+              
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
         </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dva/">dva</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/dva/react/">react</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/ts/">ts</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AD%A3%E5%88%99/">正则</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%BA%90%E7%A0%81/">源码</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">2</span></li></ul>
-        </div>
-      </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+      <div class="post-toc-content"><div class="post-toc-title">文章目录</div><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack5"><span class="nav-text">webpack5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mode"><span class="nav-text">mode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区分环境"><span class="nav-text">区分环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loader"><span class="nav-text">loader</span></a></li></ol></li></ol></div>
+      
       
 
-        
-        
-        
-
-        
-          
-          
-          <div class="collection-year">
-            <div class="collection-title">
-              <h1 class="archive-year" id="archive-year-2021">2021</h1>
-            </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link scaleup" href="/2021/03/19/uniapp%E5%9D%91/" itemprop="url">
-              
-                <span itemprop="name">uniapp-mp</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-03-19T00:29:47+08:00"
-              content="2021-03-19" >
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h1 id="webpack5"><a href="#webpack5" class="headerlink" title="webpack5"></a>webpack5</h1><p>重新整理一下 webpack 知识，内容过多，了解功能即可，遇到 api 查文档。</p>
+<h2 id="mode"><a href="#mode" class="headerlink" title="mode"></a>mode</h2><p>webpack 4.x 引入了 mode 的概念。<code>webpack</code> mode 默认为 production， <code>webpack serve</code> 默认为 development。命令行中的 mode 比 webpack.config.js 的 mode 优先级更高。</p>
+<ul>
+<li><p>生产模式默认会启用各种性能优化的功能，开启代码压缩，运行时不打印 debug 信息，静态文件不包括 sourcemap，包括构建结果优化以及 webpack 运行性能优化。</p>
+<p>会将 process.env.NODE_ENV 设为 development，启用 NamedChunksPlugin 和 NamedModulesPlugin</p>
+<p>环境功能：需要生成 sourcemap，需要打印 debug，需要 live reload 或 hot reload 功能</p>
+</li>
+<li><p>开发模式会开启 debug 工具，需要热加载，不进行代码压缩，包含 sourcemap 文件，运行时打印详细的错误信息，以及更加快速的增量编译构建</p>
+<p>会将 process.env.NODE_ENV 设为 production，启用 FlagDependencyUsagePlugin, FlagIncludedChunksPlugin, ModuleConcatenationPlugin, NoEmitOnErrorsPlugin, OccurrenceOrderPlugin, SideEffectsFlagPlugin, UglifyJsPlugin</p>
+<p>环境功能：可能需要分离 CSS 成单独的文件，以便多个页面共享同一个 CSS 文件，需要压缩 HTML/CSS/JS 代码，需要压缩图片</p>
+</li>
+</ul>
+<h3 id="区分环境"><a href="#区分环境" class="headerlink" title="区分环境"></a>区分环境</h3><ul>
+<li><p><code>--mode=production</code> 用来设置模块内的 process.env.NODE_ENV，即可以在 ./src/index.js 通过 process.env.NODE_ENV 得到 production 这个值，但不能在 webpack.config.js 中得到这个值（得到 undefined）</p>
+</li>
+<li><p><code>--env=production</code> 用来设置 webpack 配置文件的函数参数，webpack.config.js 的导出可以是一个函数，会传入 env 这个参数，此时可以通过 env 得到 production 这个值。但 process.env.NODE_ENV 仍为 undefined</p>
+</li>
+<li><p><code>cross-env</code> 用来设置 node 环境的 process.env.NODE_ENV，可以在 webpack.config.js  中得到 production 的值了。<code>cross-env NODE_ENV=production</code> 实际上是对 window，linux，mac 里设置了一个环境变量为 product，需要 npm i -D 到项目中，是真正的环境变量，在 window 中相当于 <code>set NODE_ENV=production</code>，mac、linux 中相当于 <code>export NODE_ENV=production</code> 。只能在 webpack.config.js 都能拿到 process.env.NODE_ENV</p>
+</li>
+<li><p><code>webpack.DefinePlugin</code> 是一个 plugin， 设置后可以在 webpack.config.js 和 ./src/index.js 都拿到 process.env.NODE_ENV，是一个字符串替换的过程。</p>
+<p>用法：在 plugins 数组中 <code>new webpack.DefinePlugin({ “process.env.NODE_ENV”: JSON.stringify(process.env.NODE_ENV) /* 相当于变成 &#39;&quot;product&quot;&#39; 了 */ })</code></p>
+</li>
+</ul>
+<blockquote>
+<p>一般 cross-env 和 webpack.DefinePlugin 一起使用是比较完美的方案。</p>
+</blockquote>
+<h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>webpack 只识别 js 、 json 和 wasm，其他后缀文件需要用 loader 解析。所有的 loader 都需要通过 npm 安装后才能使用。</p>
+<blockquote>
+<p>loader 与 plugin：loader 用于转换某些类型的模块，而插件则可以用于执行范围更广的任务。包括：打包优化，资源管理，注入环境变量</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	module.exports = (env) =&gt; &#123;</span></span><br><span class="line"><span class="comment">		console.log(env) // 得到 srcipt 中设置的 --env=xxx 的 xxx 字符串</span></span><br><span class="line"><span class="comment">		return &#123;</span></span><br><span class="line"><span class="comment">			entry: './src/index/js',</span></span><br><span class="line"><span class="comment">			...</span></span><br><span class="line"><span class="comment">		&#125;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">'production'</span>, <span class="comment">// production | development 默认生产</span></span><br><span class="line">    entry： <span class="string">'./src/index.js'</span>, <span class="comment">// 默认入口</span></span><br><span class="line">    output: &#123; <span class="comment">// 打包文件输出到哪</span></span><br><span class="line">	    path: path.resolve(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">        filename: <span class="string">'main.js'</span></span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">'./src/index.html'</span> <span class="comment">// 模板 html 文件</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link scaleup" href="/2021/03/19/uniapp-app/" itemprop="url">
-              
-                <span itemprop="name">uniapp-app</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-03-19T00:27:53+08:00"
-              content="2021-03-19" >
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link scaleup" href="/2021/03/19/vite/" itemprop="url">
-              
-                <span itemprop="name">vite</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-03-19T00:26:14+08:00"
-              content="2021-03-19" >
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link scaleup" href="/2021/03/19/react/" itemprop="url">
-              
-                <span itemprop="name">react</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-03-19T00:17:24+08:00"
-              content="2021-03-19" >
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link scaleup" href="/2021/03/18/electron/" itemprop="url">
-              
-                <span itemprop="name">electron</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-03-18T23:44:57+08:00"
-              content="2021-03-18" >
-          03-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link scaleup" href="/2021/03/18/git%20%E6%8F%90%E4%BA%A4/" itemprop="url">
-              
-                <span itemprop="name">git 提交</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-03-18T00:35:39+08:00"
-              content="2021-03-18" >
-          03-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link scaleup" href="/2021/03/18/hexo%20%E6%90%AC%E8%BF%81/" itemprop="url">
-              
-                <span itemprop="name">hexo 搬迁</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-03-18T00:05:57+08:00"
-              content="2021-03-18" >
-          03-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-          
-          </div>
-          
-          
-          <div class="collection-year">
-            <div class="collection-title">
-              <h1 class="archive-year" id="archive-year-2020">2020</h1>
-            </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link scaleup" href="/2020/11/08/2020-1/" itemprop="url">
-              
-                <span itemprop="name">2020.1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-11-08T23:12:30+08:00"
-              content="2020-11-08" >
-          11-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link scaleup" href="/2020/09/05/Vue%E6%BA%90%E7%A0%81%E9%80%90%E8%A1%8C%E8%A7%A3%E8%AF%BB/" itemprop="url">
-              
-                <span itemprop="name">Vue源码逐行解读</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-09-05T10:44:02+08:00"
-              content="2020-09-05" >
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link scaleup" href="/2020/08/07/projecthabits/" itemprop="url">
-              
-                <span itemprop="name">projecthabits</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-08-07T16:17:45+08:00"
-              content="2020-08-07" >
-          08-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-      </div>
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div class="post-share">分享到：</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <picture><img loading="lazy" id="wechat_qr" src="/images/wechatpay.png" alt="Dloux 微信扫一扫，向我赞赏"/></picture>
+        <p>微信扫一扫，向我赞赏</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <picture><img loading="lazy" id="alipay_qr" src="/images/alipay.png" alt="Dloux 支付宝扫一扫，向我赞赏"/></picture>
+        <p>支付宝扫一扫，向我赞赏</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/15/react-ts/" rel="next" title="react-ts">
+                <i class="fas fa-angle-left"></i> react-ts
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/3/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/5/"><i class="fas fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -841,10 +652,39 @@
 
           
 
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <div id="dsqjs">
+          <section class="dsqjs-info">
+            <p id="dsqjs-load-disqus" class="dsqjs-message">评论完整模式加载中...如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p>
+          </section>
+        </div>
+      </div>
+    </div>
+
+  
+
+
+
 
 
   
 
+    
+      <script type="text/javascript">
+        window.DISQUS = null;
+        new DisqusJS({
+          shortname: '',
+          siteName: 'Hi, Dloux',
+          identifier: '2021/08/22/webpack5/',
+          url: 'https://dloux.gitee.io/2021/08/22/webpack5/',
+          api: '',
+          apikey: '',
+          admin: '',
+          adminLabel: '',
+        });
+      </script>
     
 
   
@@ -897,8 +737,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            关于我
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -975,6 +824,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack5"><span class="nav-number">1.</span> <span class="nav-text">webpack5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mode"><span class="nav-number">1.1.</span> <span class="nav-text">mode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区分环境"><span class="nav-number">1.1.1.</span> <span class="nav-text">区分环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loader"><span class="nav-number">1.2.</span> <span class="nav-text">loader</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

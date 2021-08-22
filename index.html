@@ -433,6 +433,181 @@
   
   <div class="post-date">
 			<div class="post-month">08月</div>
+			<div class="post-day">22</div>
+	</div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/08/22/webpack5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi, Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link scaleup" href="/2021/08/22/webpack5/" itemprop="url">webpack5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-22T21:34:45+08:00">2021-08-22</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">755</span>
+              
+
+              
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+      
+      
+      
+
+      
+        
+          
+            <h1 id="webpack5"><a href="#webpack5" class="headerlink" title="webpack5"></a>webpack5</h1><p>重新整理一下 webpack 知识，内容过多，了解功能即可，遇到 api 查文档。</p>
+<h2 id="mode"><a href="#mode" class="headerlink" title="mode"></a>mode</h2><p>webpack 4.x 引入了 mode 的概念。<code>webpack</code> mode 默认为 production， <code>webpack serve</code> 默认为 development。命令行中的 mode 比 webpack.config.js 的 mode 优先级更高。</p>
+<ul>
+<li><p>生产模式默认会启用各种性能优化的功能，开启代码压缩，运行时不打印 debug 信息，静态文件不包括 sourcemap，包括构建结果优化以及 webpack 运行性能优化。</p>
+<p>会将 process.env.NODE_ENV 设为 development，启用 NamedChunksPlugin 和 NamedModulesPlugin</p>
+<p>环境功能：需要生成 sourcemap，需要打印 debug，需要 live reload 或 hot reload 功能</p>
+</li>
+<li><p>开发模式会开启 debug 工具，需要热加载，不进行代码压缩，包含 sourcemap 文件，运行时打印详细的错误信息，以及更加快速的增量编译构建</p>
+<p>会将 process.env.NODE_ENV 设为 production，启用 FlagDependencyUsagePlugin, FlagIncludedChunksPlugin, ModuleConcatenationPlugin, NoEmitOnErrorsPlugin, OccurrenceOrderPlugin, SideEffectsFlagPlugin, UglifyJsPlugin</p>
+<p>环境功能：可能需要分离 CSS 成单独的文件，以便多个页面共享同一个 CSS 文件，需要压缩 HTML/CSS/JS 代码，需要压缩图片</p>
+</li>
+</ul>
+<h3 id="区分环境"><a href="#区分环境" class="headerlink" title="区分环境"></a>区分环境</h3><ul>
+<li><p><code>--mode=production</code> 用来设置模块内的 process.env.NODE_ENV，即可以在 ./src/index.js 通过 process.env.NODE_ENV 得到 production 这个值，但不能在 webpack.config.js 中得到这个值（得到 undefined）</p>
+</li>
+<li><p><code>--env=production</code> 用来设置 webpack 配置文件的函数参数，webpack.config.js 的导出可以是一个函数，会传入 env 这个参数，此时可以通过 env 得到 production 这个值。但 process.env.NODE_ENV 仍为 undefined</p>
+</li>
+<li><p><code>cross-env</code> 用来设置 node 环境的 process.env.NODE_ENV，可以在 webpack.config.js  中得到 production 的值了。<code>cross-env NODE_ENV=production</code> 实际上是对 window，linux，mac 里设置了一个环境变量为 product，需要 npm i -D 到项目中，是真正的环境变量，在 window 中相当于 <code>set NODE_ENV=production</code>，mac、linux 中相当于 <code>export NODE_ENV=production</code> 。只能在 webpack.config.js 都能拿到 process.env.NODE_ENV</p>
+</li>
+<li><p><code>webpack.DefinePlugin</code> 是一个 plugin， 设置后可以在 webpack.config.js 和 ./src/index.js 都拿到 process.env.NODE_ENV，是一个字符串替换的过程。</p>
+<p>用法：在 plugins 数组中 <code>new webpack.DefinePlugin({ “process.env.NODE_ENV”: JSON.stringify(process.env.NODE_ENV) /* 相当于变成 &#39;&quot;product&quot;&#39; 了 */ })</code></p>
+</li>
+</ul>
+<blockquote>
+<p>一般 cross-env 和 webpack.DefinePlugin 一起使用是比较完美的方案。</p>
+</blockquote>
+<h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>webpack 只识别 js 、 json 和 wasm，其他后缀文件需要用 loader 解析。所有的 loader 都需要通过 npm 安装后才能使用。</p>
+<blockquote>
+<p>loader 与 plugin：loader 用于转换某些类型的模块，而插件则可以用于执行范围更广的任务。包括：打包优化，资源管理，注入环境变量</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	module.exports = (env) =&gt; &#123;</span></span><br><span class="line"><span class="comment">		console.log(env) // 得到 srcipt 中设置的 --env=xxx 的 xxx 字符串</span></span><br><span class="line"><span class="comment">		return &#123;</span></span><br><span class="line"><span class="comment">			entry: './src/index/js',</span></span><br><span class="line"><span class="comment">			...</span></span><br><span class="line"><span class="comment">		&#125;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">'production'</span>, <span class="comment">// production | development 默认生产</span></span><br><span class="line">    entry： <span class="string">'./src/index.js'</span>, <span class="comment">// 默认入口</span></span><br><span class="line">    output: &#123; <span class="comment">// 打包文件输出到哪</span></span><br><span class="line">	    path: path.resolve(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">        filename: <span class="string">'main.js'</span></span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">'./src/index.html'</span> <span class="comment">// 模板 html 文件</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            <div class="post-button text-center">
+              <a class="btn scaleup" href="/2021/08/22/webpack5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
+			<div class="post-month">08月</div>
 			<div class="post-day">15</div>
 	</div>
   
@@ -1847,160 +2022,6 @@
 
             <div class="post-button text-center">
               <a class="btn scaleup" href="/2021/07/25/npm/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date">
-			<div class="post-month">07月</div>
-			<div class="post-day">23</div>
-	</div>
-  
-  <div class="post-badge">
-    
-      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-          <span itemprop="name">技术</span>
-        </a>
-      </span>
-    
-  </div>
-  
-
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/07/23/react%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/dloux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hi, Dloux">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link scaleup" href="/2021/07/23/react%E5%85%A5%E9%97%A8/" itemprop="url">react入门</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-23T23:58:55+08:00">2021-07-23</time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">•</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="far fa-file-word"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                
-                <span title="字数统计">11</span>
-              
-
-              
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-      
-      
-      
-
-      
-        
-          
-            <h1 id="react入门"><a href="#react入门" class="headerlink" title="react入门"></a>react入门</h1><p>实现一下简易版 react</p>
-
-            <div class="post-button text-center">
-              <a class="btn scaleup" href="/2021/07/23/react%E5%85%A5%E9%97%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
