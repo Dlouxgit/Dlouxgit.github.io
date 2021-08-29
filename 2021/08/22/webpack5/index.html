@@ -87,11 +87,13 @@
 <meta property="og:url" content="https://dloux.gitee.io/2021/08/22/webpack5/index.html">
 <meta property="og:site_name" content="Hi, Dloux">
 <meta property="og:description" content="webpack5重新整理一下 webpack 知识，内容过多，了解功能即可，遇到 api 查文档。">
+<meta property="og:image" content="https://dloux.gitee.io/images/sourcemap.png">
 <meta property="article:published_time" content="2021-08-22T13:34:45.000Z">
-<meta property="article:modified_time" content="2021-08-28T10:00:53.427Z">
+<meta property="article:modified_time" content="2021-08-29T15:37:27.422Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="webpack">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dloux.gitee.io/images/sourcemap.png">
 
 
 
@@ -500,7 +502,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">2.5k</span>
+                <span title="字数统计">2.8k</span>
               
 
               
@@ -607,7 +609,9 @@
 <p>linux/mac里换行符是 \n，没有 \r</p>
 <p>VSCODE 右下角可以修改你的回车 CRLF 还是 LF。</p>
 </blockquote>
-<h2 id="Sourcemap"><a href="#Sourcemap" class="headerlink" title="Sourcemap"></a>Sourcemap</h2><table>
+<h2 id="Sourcemap"><a href="#Sourcemap" class="headerlink" title="Sourcemap"></a>Sourcemap</h2><p>在 webpack 的 devtool 可以配置以下类型，控制 sourcemap 的生成，设置 false 不生成。</p>
+<p>生成的源码里会通过在最后一行加上 <code>//# sourceMappingURL=main.js.map</code> 来关联 map</p>
+<table>
 <thead>
 <tr>
 <th>类型</th>
@@ -616,42 +620,45 @@
 </thead>
 <tbody><tr>
 <td>source-map</td>
-<td>原始代码 拥有完整的 sourcemap ，但是会很慢</td>
+<td>生成完整的 sourcemap，并且建立关联，有行列信息</td>
 </tr>
 <tr>
 <td>eval-source-map</td>
-<td>原始代码 同样拥有完整的 sourcemap，但是性能最差</td>
+<td>为每一个模块生成一个单独的 sourcemap 文件进行内联，并使用 eval 执行，由于每个模块的 sourcemap 分开了，所以有对 sourcemap 的缓存功能</td>
 </tr>
 <tr>
 <td>cheap-module-eval-source-map</td>
-<td>原始代码（只有行内）</td>
+<td>原始代码（只有行内），没有列信息，但有 loader 信息</td>
 </tr>
 <tr>
 <td>cheap-eval-source-map</td>
-<td></td>
+<td>用 eval 包裹代码，只有行信息，没有 loader 信息</td>
 </tr>
 <tr>
 <td>eval</td>
-<td></td>
+<td>用 eval 包裹代码</td>
 </tr>
 <tr>
 <td>cheap-source-map</td>
-<td></td>
+<td>外部生成 sourcemap 文件，不包含列和 loader 的 map</td>
 </tr>
 <tr>
 <td>cheap-module-source-map</td>
-<td></td>
+<td>外部生成 sourcemap 文件，不包含列的 map（但包含 loader）</td>
 </tr>
 </tbody></table>
-<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><p>实际上这些类型都是五个关键字的组合：</p>
+<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><p>实际上这些类型都是六个关键字的组合：</p>
 <ul>
-<li>eval</li>
-<li>source-map</li>
-<li>cheap</li>
-<li>module</li>
-<li>inline</li>
+<li>eval 使用 eval 包裹代码</li>
+<li>source-map 产生 .map 文件，包含原始代码信息（即包含 loader 的 sourcemap），包含行列信息</li>
+<li>cheap 不包含列信息，也不包含 loader 的 sourcemap</li>
+<li>module 包含 loader 的 sourcemap</li>
+<li>inline sourcemap 以 base64 内嵌到打包的源码中，不单独生成 .map 文件</li>
+<li>hidden 在目标源码中不建立关联 map</li>
 </ul>
 <p>关键字可以任意组合，但是有顺序要求</p>
+<p><code>[inline-|hidden-|eval-][nosources-][cheap-[module-]]source-map</code></p>
+<p><picture><img loading="lazy" src="/images/sourcemap.png" alt=""></picture></p>
 <h2 id="devServer"><a href="#devServer" class="headerlink" title="devServer"></a>devServer</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> CleanWebpackPlugin = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	module.exports = (env) =&gt; &#123;</span></span><br><span class="line"><span class="comment">		console.log(env) // 得到 srcipt 中设置的 --env=xxx 的 xxx 字符串</span></span><br><span class="line"><span class="comment">		return &#123;</span></span><br><span class="line"><span class="comment">			entry: './src/index/js',</span></span><br><span class="line"><span class="comment">			...</span></span><br><span class="line"><span class="comment">		&#125;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// mode: 'production', // production | development 默认生产，通过 cross-env 控制可以注释掉</span></span><br><span class="line">    devtool: <span class="literal">false</span>,</span><br><span class="line">    entry： <span class="string">'./src/index.js'</span>, <span class="comment">// 默认入口</span></span><br><span class="line">    output: &#123; <span class="comment">// 打包文件输出到哪</span></span><br><span class="line">	    path: path.resolve(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">        filename: <span class="string">'main.js'</span></span><br><span class="line">	&#125;,</span><br><span class="line">    devServer: &#123; <span class="comment">// 通过 webpack serve 启用</span></span><br><span class="line">        port: <span class="number">8080</span>, </span><br><span class="line">        open: <span class="literal">true</span>, <span class="comment">// 是否自动打开浏览器</span></span><br><span class="line">        compress: <span class="literal">true</span>, <span class="comment">// 是否启动压缩</span></span><br><span class="line">        <span class="keyword">static</span>: path.resolve(__dirname, <span class="string">'static'</span>) <span class="comment">// 额外的静态文件目录，不参与打包，这样配置完之后可以通过 localhost:8080/img.png 访问到项目下 /static/img.png 这个目录，之前 webpack4 这个参数名为 contentBase</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">                loader: <span class="string">'eslint-loader'</span>,</span><br><span class="line">                enforce: <span class="string">'pre'</span>,</span><br><span class="line">                options: &#123;</span><br><span class="line">                    fix: <span class="literal">true</span> <span class="comment">// npm run build 时，如果发现有问题的格式，会尝试自动修复，如果成功就继续执行下面的步骤，不成功就报错</span></span><br><span class="line">                &#125;,</span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span> <span class="comment">// 排除这个目录</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.jsx?$/</span>,</span><br><span class="line">                use: &#123;</span><br><span class="line">                    loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">                    option: &#123;</span><br><span class="line">                        presets: [</span><br><span class="line">                            [</span><br><span class="line">                                <span class="string">'@babel/preset-env'</span>,</span><br><span class="line">                                &#123;</span><br><span class="line">                                    targets: <span class="string">'&gt; 0.25%, not dead'</span></span><br><span class="line">                                &#125;</span><br><span class="line">                            ],</span><br><span class="line">                            <span class="string">'@babel/preset-react'</span></span><br><span class="line">                        ],</span><br><span class="line">                        <span class="comment">/*</span></span><br><span class="line"><span class="comment">                        	legacy: true 作用：值为 true，装饰器写法改为提案 1，值为 false，改为提案 2</span></span><br><span class="line"><span class="comment">                        	提案 1：</span></span><br><span class="line"><span class="comment">                        	@readonly</span></span><br><span class="line"><span class="comment">                        	class P &#123;&#125;</span></span><br><span class="line"><span class="comment">                        	提案 2：</span></span><br><span class="line"><span class="comment">                        	class @readonly P &#123;&#125;</span></span><br><span class="line"><span class="comment">                        	</span></span><br><span class="line"><span class="comment">                        	loose: true 作用：主要区别是类的赋值语句转 es5 的时候，值为 true，类的赋值语句转 es5 的时候为直接赋值，值为 false，通过 Object.defineProperty 赋值</span></span><br><span class="line"><span class="comment">                        	class Circle() &#123;</span></span><br><span class="line"><span class="comment">                        		PI = 3.14</span></span><br><span class="line"><span class="comment">                        	&#125;</span></span><br><span class="line"><span class="comment">                        	</span></span><br><span class="line"><span class="comment">                        	true：</span></span><br><span class="line"><span class="comment">                        	function Circle() &#123;</span></span><br><span class="line"><span class="comment">                        		this.PI = 3.14</span></span><br><span class="line"><span class="comment">                        	&#125;</span></span><br><span class="line"><span class="comment">                        	false：</span></span><br><span class="line"><span class="comment">                        	function Circle() &#123;</span></span><br><span class="line"><span class="comment">                        		Object.defineProperty(this, 'PI', 3.14)</span></span><br><span class="line"><span class="comment">                        	&#125;</span></span><br><span class="line"><span class="comment">                        	</span></span><br><span class="line"><span class="comment">                        */</span></span><br><span class="line">                        plugins: [ <span class="comment">// 这两个 plugin 顺序一定是这样的，否则会冲突，见官网 babeljs.io</span></span><br><span class="line">                            [<span class="string">'@babel/plugin-proposal-decorators'</span>, &#123; <span class="attr">legacy</span>: <span class="literal">true</span> &#125;],</span><br><span class="line">                            [<span class="string">'@babel/plugin-proposal-class-properties'</span>, &#123; <span class="attr">loose</span>: <span class="literal">true</span> &#125;]</span><br><span class="line">                        ]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.styl(us)?$/</span>, <span class="comment">// 当然，如果你随便写个 .abc 格式的文件，但里面的语法是 stylus，也可以直接 test: /\.abc$/，也能成功使用 loader</span></span><br><span class="line">                use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'stylus-loader'</span>]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.(jpg|png|gif|bmp|svg)$/</span>,</span><br><span class="line">                use: [</span><br><span class="line">                	&#123;</span><br><span class="line">						<span class="comment">// loader: 'file-loader'</span></span><br><span class="line">                        loader: <span class="string">'url-loader'</span>,</span><br><span class="line">                        options: &#123;</span><br><span class="line">                            esModule: <span class="literal">false</span>, <span class="comment">// 默认为 true, 为 true 时， const img = require('./img.png').default，需要 .default 才能得到 base64 的值，设置为 false 就可以直接拿到了</span></span><br><span class="line">                            name: <span class="string">'[hash:8].[ext]'</span>,</span><br><span class="line">                            limit: <span class="number">8</span> * <span class="number">1024</span> <span class="comment">// 文件小于这个值，转为 base64 内嵌，可以少发一次请求</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">'./src/index.html'</span> <span class="comment">// 模板 html 文件</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> CleanWebpackPlugin(&#123; <span class="attr">cleanOnceBeforeBuildPatterns</span>: [<span class="string">'**/*'</span>] &#125;) <span class="comment">// 在 build 前清空 output 的目录， ** 表示任意层级的路径，比如 /img/a/b 或者 /img， * 表示任意文件</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>postcss.config.js</p>
