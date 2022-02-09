@@ -432,6 +432,173 @@
   
   
   <div class="post-date">
+			<div class="post-month">02月</div>
+			<div class="post-day">09</div>
+	</div>
+  
+  <div class="post-badge">
+    
+      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/Golang/" itemprop="url" rel="index">
+          <span itemprop="name">Golang</span>
+        </a>
+      </span>
+    
+  </div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2022/02/09/Golang%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi, Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link scaleup" href="/2022/02/09/Golang%E5%9F%BA%E7%A1%80/" itemprop="url">Golang基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-02-09T23:12:51+08:00">2022-02-09</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">283</span>
+              
+
+              
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+      
+      
+      
+
+      
+        
+          
+            <h1 id="Go-语言"><a href="#Go-语言" class="headerlink" title="Go 语言"></a>Go 语言</h1><p>最近春节期间开始学习 Go 语言，前端的语言不再只是 JS 了，Rust、Go 都在发光发热，Go 更贴近于 VSCODE 这个编辑器，那么就从 Go 开始吧。</p>
+<p>不从零计算机基础开始写，仅仅记录与 JS 的不同之处，并类比 TS。</p>
+<h2 id="与-JS-不同的地方"><a href="#与-JS-不同的地方" class="headerlink" title="与 JS 不同的地方"></a>与 JS 不同的地方</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h4><p>数值型：int, int8, int16, int32, int64, uint, uint8, uint16, uint32, uint64, byte, float32, float64</p>
+<p>int8 是 [-128, -127] 之后的以此类推，2^7 作为值，首位作为符号位</p>
+<p>uint8 是 [0, 255] 之后的以此类推，无符号位</p>
+<p>字符型：没有专门的字符型，使用 byte 来保存</p>
+<p>布尔型</p>
+<p>字符串</p>
+<h4 id="派生-复杂数据类型"><a href="#派生-复杂数据类型" class="headerlink" title="派生/复杂数据类型"></a>派生/复杂数据类型</h4><p>数组：相当于元组类型，定义了长度之后不可以更改</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> intArr [<span class="number">3</span>]<span class="keyword">int</span> = [...]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>切片：相当于数组类型，长度不定</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">slice := intArr[<span class="number">1</span>:<span class="number">3</span>] <span class="comment">// [1, 2] 从上面的 intArr 中的第二个元素开始，截取到第四个元素之前作为切片元素</span></span><br><span class="line"><span class="built_in">len</span>(slice) <span class="comment">// 2 长度</span></span><br><span class="line"><span class="built_in">cap</span>(slice) <span class="comment">// 4 容量，go 自动调整，不一定是双倍</span></span><br></pre></td></tr></table></figure>
+
+
+            <div class="post-button text-center">
+              <a class="btn scaleup" href="/2022/02/09/Golang%E5%9F%BA%E7%A1%80/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
 			<div class="post-month">12月</div>
 			<div class="post-day">07</div>
 	</div>
@@ -1781,160 +1948,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date">
-			<div class="post-month">08月</div>
-			<div class="post-day">04</div>
-	</div>
-  
-  <div class="post-badge">
-    
-      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/react/" itemprop="url" rel="index">
-          <span itemprop="name">react</span>
-        </a>
-      </span>
-    
-  </div>
-  
-
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/08/04/redux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/dloux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hi, Dloux">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link scaleup" href="/2021/08/04/redux/" itemprop="url">redux</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-04T20:13:16+08:00">2021-08-04</time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">•</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="far fa-file-word"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                
-                <span title="字数统计">414</span>
-              
-
-              
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-      
-      
-      
-
-      
-        
-          <h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p>由于 SPA 应用随着开发层级越来越多，管理不断变化的 state 非常困难，即使是同级组件，也需要经过很多层才能通信。Redux 是在这种情况下出现的，实现原理是 <strong>发布订阅模式</strong>。它其实并不依赖于 react，但一般与 react 一起使用，内部使用闭包保存 state，向外暴露 getStore、dispatch、reducer 等方法</p>
-<h3 id="react-redux"><a href="#react-redux" class="headerlink" title="react-redux"></a>react-redux</h3><p>由于每个组件想要使用 redux，必须引入 store，设置 dispatch，通过 subscribe 在 componentDidMount 时订阅，在 componentWillUnmount 时取消订阅，极其繁琐，即使 redux 里有 bindActionCreators 来解决每次都要写 store.dispatch 的问题，也是效果甚微。因此出现了 react-redux 这个库，它是一个高阶组件，通过 connect 方法把 store 和组件映射起来，通过 Provider 注入到组件的 props，就可以省去上面的步骤，直接使用 props 使用 store 的 state、action 了。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn scaleup" href="/2021/08/04/redux/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2104,7 +2117,7 @@
         <p>博客已萌萌哒运行<span id="since"></span><span class="my-face">(●'◡'●)ﾉ♥</span></p>
 
 
-<p>© <span itemprop="copyrightYear">2021</span> Hi, Dloux.
+<p>© <span itemprop="copyrightYear">2022</span> Hi, Dloux.
     由 <a href="https://hexo.io/" target="_blank" class="external" rel="nofollow">Hexo</a> 强力驱动.
     Theme By <a href="https://github.com/DIYgod/hexo-theme-sagiri" target="_blank" class="external" rel="nofollow">Sagiri</a> v0.0.74.
     <a href="/sitemap.xml" target="_blank">站点地图</a>.
