@@ -432,6 +432,166 @@
   
   
   <div class="post-date">
+			<div class="post-month">09月</div>
+			<div class="post-day">21</div>
+	</div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2022/09/21/%E8%A7%86%E9%A2%91%E7%9B%B8%E5%85%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi, Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link scaleup" href="/2022/09/21/%E8%A7%86%E9%A2%91%E7%9B%B8%E5%85%B3/" itemprop="url">视频相关</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-09-21T03:32:49+08:00">2022-09-21</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">475</span>
+              
+
+              
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+      
+      
+      
+
+      
+        
+          
+            <h1 id="视频相关"><a href="#视频相关" class="headerlink" title="视频相关"></a>视频相关</h1><h2 id="编解码格式"><a href="#编解码格式" class="headerlink" title="编解码格式"></a>编解码格式</h2><p><strong>AVC</strong>: H.264/AVC，H264 目前已经可以在各种web浏览器、客户端等进行解码播放，如常见的 .mp4、.mov 封装格式的视频。</p>
+<p><strong>HEVC</strong>: H.265/HEVC，H265目前还<strong>没有</strong>得到大部分浏览器的支持，没法直接在 web 端播放。</p>
+<p>常见的 mp4、mov、flv、mov、mkv、avi 这些封装格式，可以理解为一个箱子，箱子里可以用来放视频的画面、声音、媒体信息和帧，等到播放的时候，软件会用正确的打开方式来打开这个视频，H264（视频压缩） + AAC（音频压缩）封装为FLV或MP4是最为流行的模式。</p>
+<blockquote>
+<p>由于存在将其他文件改变后缀的行为，因此视频真正的压缩算法，需要从 medioinfo 中获取，在网页端中，它将被作为一个 wasm 加载，用于解析视频。</p>
+</blockquote>
+<blockquote>
+<p>视频抽帧相关：一般在浏览器中，可以被原生浏览器播放的视频，可以通过 video 与 canvas 截取视频帧后上传，不过这种做法相对于封装好的 wasm 文件直接抽帧，速度要慢上不少，估计在20-30% 不等，同时 wasm 一般支持绝大多数格式视频，因此建议全程使用 wasm 来获取视频帧</p>
+</blockquote>
+<hr>
+<h3 id="关于字幕"><a href="#关于字幕" class="headerlink" title="关于字幕"></a>关于字幕</h3><h4 id="SRT"><a href="#SRT" class="headerlink" title="SRT"></a>SRT</h4><p>是简单的纯文本字幕，无法使用其他高级功能如特效字体。</p>
+<h4 id="ASS"><a href="#ASS" class="headerlink" title="ASS"></a>ASS</h4><p>属于高级字幕，可以制作出华丽的特效字幕。</p>
+<h4 id="WebVTT"><a href="#WebVTT" class="headerlink" title="WebVTT"></a>WebVTT</h4><p>是网页中的字幕，可以在 html5 中，可以通过元素来加载额外的文字轨资源，目前处于草案阶段，但已被多数浏览器支持，早期版本是基于 srt 字幕的，在 2011 年改名为 WebVTT，与 srt 字幕格式非常相似。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span> <span class="attr">src</span>=<span class="string">"video.mp4"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">track</span> <span class="attr">default</span> <span class="attr">src</span>=<span class="string">"track.vtt"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+            <div class="post-button text-center">
+              <a class="btn scaleup" href="/2022/09/21/%E8%A7%86%E9%A2%91%E7%9B%B8%E5%85%B3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
 			<div class="post-month">07月</div>
 			<div class="post-day">01</div>
 	</div>
@@ -1792,150 +1952,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date">
-			<div class="post-month">08月</div>
-			<div class="post-day">15</div>
-	</div>
-  
-
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/08/15/react-ts/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/dloux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hi, Dloux">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link scaleup" href="/2021/08/15/react-ts/" itemprop="url">react-ts</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-15T15:28:58+08:00">2021-08-15</time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">•</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="far fa-file-word"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                
-                <span title="字数统计">719</span>
-              
-
-              
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-      
-      
-      
-
-      
-        
-          <h2 id="react-的类型声明"><a href="#react-的类型声明" class="headerlink" title="react 的类型声明"></a>react 的类型声明</h2><p>ts react 难就难在中间件的类型推导， ts 中 react 难度如果为 1，那么 redux 为 5， redux 中间件为 20.</p>
-<p>ts 中的类型大部分在库里都已经写好了，但比较难记，这里记录一下。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn scaleup" href="/2021/08/15/react-ts/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2105,7 +2121,7 @@
         <p>博客已萌萌哒运行<span id="since"></span><span class="my-face">(●'◡'●)ﾉ♥</span></p>
 
 
-<p>© <span itemprop="copyrightYear">2022</span> Hi, Dloux.
+<p>© <span itemprop="copyrightYear">2023</span> Hi, Dloux.
     由 <a href="https://hexo.io/" target="_blank" class="external" rel="nofollow">Hexo</a> 强力驱动.
     Theme By <a href="https://github.com/DIYgod/hexo-theme-sagiri" target="_blank" class="external" rel="nofollow">Sagiri</a> v0.0.74.
     <a href="/sitemap.xml" target="_blank">站点地图</a>.
