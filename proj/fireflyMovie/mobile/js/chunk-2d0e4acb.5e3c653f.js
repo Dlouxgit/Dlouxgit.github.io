@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0e4acb"],{"90db":function(t,n,e){"use strict";e.r(n);var c=function(){var t=this,n=t.$createElement,e=t._self._c||n;return e("div",[t._v(" 这是ticket页面 ")])},u=[],a={data:function(){return{}},computed:{},created:function(){},mounted:function(){},methods:{}},o=a,d=e("2877"),i=Object(d["a"])(o,c,u,!1,null,"7a1a3576",null);n["default"]=i.exports}}]);
-//# sourceMappingURL=chunk-2d0e4acb.5e3c653f.js.map
