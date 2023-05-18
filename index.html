@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">231</span>
+                <span title="字数统计">378</span>
               
 
               
@@ -524,15 +524,15 @@
 
       
         
-          
-            <h1 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h1><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>最近在研究 nodejs 爬虫相关的东西，本来只想简单的处理一下，抓取一下网页数据。但是这个网站是服务端渲染，找不到暴露的接口，第一想到的是通过 got 库获取对应的 html，在获取过程中，始终爆出 Zlib 的 ERROR，加上 decompress false 的字段后不会报错，但这样获取的就是二进制流数据了，并且数据异常。之后发现切换 axios 可以正常返回的。研究之后发现，nodejs 的 Zlib 库存在问题，如果我使用 zlib.createUnzip 的流式读取，则不会报错。<br>之前数据异常的原因是对方服务端 content-type 始终返回 gzip，即使我没有传入对应的 header 头。关于 content-type 这个字段，有的网站会固定返回 gzip。导致返回结果需要解码之后才能使用。</p>
-
-            <div class="post-button text-center">
-              <a class="btn scaleup" href="/2023/05/12/%E7%88%AC%E8%99%AB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <h1 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h1><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>最近在研究 nodejs 爬虫相关的东西，本来只想简单的处理一下，抓取一下网页数据。但是这个网站是服务端渲染，找不到暴露的接口，第一想到的是通过 got 库获取对应的 html，在获取过程中，始终爆出 Zlib 的 ERROR，加上 decompress false 的字段后不会报错，但这样获取的就是二进制流数据了，并且数据异常。之后发现切换 axios 可以正常返回的。研究之后发现，nodejs 的 Zlib 库存在问题，如果我使用 zlib.createUnzip 的流式读取，则不会报错。</p>
+<p>之前数据异常的原因是对方服务端 content-type 始终返回 gzip，即使我没有传入对应的 header 头。关于 content-type 这个字段，有的网站会固定返回 gzip。导致返回结果需要解码之后才能使用。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn scaleup" href="/2023/05/12/%E7%88%AC%E8%99%AB/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
