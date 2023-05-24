@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#fff">
+
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/fonts/Candyshop.otf" as="font" type="font/otf" crossorigin="anonymous">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+
+
+
+  
+
+<link href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.0.74" rel="stylesheet" type="text/css" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=0.0.74">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=0.0.74">
+
+
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=0.0.74" color="#fff">
+
+
+  <link rel="manifest" href="/manifest.json">
+
+
+
+
+
+  <meta name="keywords" content="编码," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="编码与字体字符概述GB 与全角半角大家都知道，程序中的所有信息都是以二进制的形式存储在计算机的底层，也就是说我们在代码中定义的一个 char 字符或者一个 int 整数都会被转换成二进制码储存起来，这个过程可以被称为编码，而将计算机底层的二进制码转换成屏幕上有意义的字符（如“hello world”），这个过程就称为解码。 在计算机中字符的编解码就涉及到 字符集（Character Set） 这个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编码与字体">
+<meta property="og:url" content="https://dloux.gitee.io/2023/05/24/%E7%BC%96%E7%A0%81%E4%B8%8E%E5%AD%97%E4%BD%93/index.html">
+<meta property="og:site_name" content="Hi, Dloux">
+<meta property="og:description" content="编码与字体字符概述GB 与全角半角大家都知道，程序中的所有信息都是以二进制的形式存储在计算机的底层，也就是说我们在代码中定义的一个 char 字符或者一个 int 整数都会被转换成二进制码储存起来，这个过程可以被称为编码，而将计算机底层的二进制码转换成屏幕上有意义的字符（如“hello world”），这个过程就称为解码。 在计算机中字符的编解码就涉及到 字符集（Character Set） 这个">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MjM3ODQzZjg2MzMwM2I1NGY2YmJiMGQxODBmMTFhYTJfTFdpTkFKOUFDU1dkeVN0VURRSXBwTWpzS3l6OWV0SU5fVG9rZW46UTREemJKSmdTb25kd1l4TTNDN2NOckR6bnVnXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=YTZhNjhhMTBlYjZkZTA2NDcwZTZlMzlhNDE5ZWFkNTlfU1BhY0Jzb1Q5RmJSVHNWUlhnWG9sOUMxanZoYUtRTlFfVG9rZW46S2VrSmIyU1VPb2lPOHd4ZDhCdGM3QXkxbkVnXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=NTBkOTcxZDM1NjRiZjYzM2RhNjAyZmNlYmM4Yzk3NmFfTUxMZ2xOM01ydkZlZHIyM1lDNFlDMkJFVlhIMlNnbVpfVG9rZW46TmhGdGJhZjZwb0dzeFR4N0trRGNPTE5zbjBnXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MmRhYTdmY2U4MWNkMWJlNmEyZTYyOGQwMjJhMjExN2JfcVNEZUVncUlxNExPQTcxZmpwZ3FTUjRzMDhMZUgwanZfVG9rZW46WGR3bWJtWDI3b3lWS0h4Ync0bmM1dlN1bjJnXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=OWY0NjI3NWNhMDJmYjg3NzVkMzZhZTk4YmJjNGNkMTlfamw2bTF4dlhJMEphdDhEdlFyZGhMNlZ2dTNpNTZ3N0pfVG9rZW46V09UVGJISGphbzVJb3B4TzE4bGNkaDF3bm1iXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=ODg0ZmVlYjMzNjk4NjM3NGZhZDUwN2RmYjhiZjQ2YmZfTGFrMDg0QkZsT2lkS25OcHZsZ0Y0Ym80UkRZcTFTdmpfVG9rZW46WUJLYWJ2bkM0b0k4NEd4bjJjTmN4c3RWbnBnXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MDc1NmUxN2RhM2Y0NTE0ZmIzMTk4MmM5ZTA2NmUyZjVfUTcxbVB2ZnlHVjZwSXdEb0NCV25uNWIzVUlXZ2x2aEdfVG9rZW46SVZtTWI4MXlybzFaRVJ4c1FHcGNINXR4bkRyXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=YmU5NjE3ZDY5MTYzZjRhYTYyMWM1YWJmYjM2MmMwOWJfSXdzYnhxT3FnYWpDOEJBbjZaZHU4T0F4bkhxVlpubFlfVG9rZW46QnNEZGJwdWVab0d4SkZ4ejJkdmN0MWNYbm9oXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MmViN2IxMWRkZWM4ZDY5NWNhYzA0YmE3ZDQzZWU4ZDhfWXhJTnRaTUJUNERxTm1vQ2dORUJoSWFUR2tDUDJPT3VfVG9rZW46WEk3TWJxV1pPb3I5SFd4UnE0TWNoa2V6bmdoXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmIyY2JkYjBlN2VmZDVlYTU5N2ZiMDg3OGE4N2IxYmJfYk5JbkZhWWRiQmVrUUt1dmZUMkNNakNPVG1MSTFSRkVfVG9rZW46QkxZTmJyazRjb2MzeTZ4NFNhd2NmU0ZZbjZQXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=NDUzZDBlNGY4ZmRlMGMzOWNiNDI1MGUwNjM4ZDhjMzlfTnUxNnRDTmVZb0NFOXlrdGIxeGZYMVY3OWE3SHF4WU9fVG9rZW46UWNOM2J0alpvb1FqdWp4Nm1LVGNLa1I0bkVwXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MjZkMTFiYTRiNjVhYjExNTA2ZmNkNWYxNzgwYzU4NWFfZEczOTV6aGZQd1o4dThLdG1PUTA2RjBIMThqYUR0QktfVG9rZW46VEtzamJYTHJ5b3dpdnR4Zm5IT2NWcVY2bkRiXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="og:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MGJkNjJiMGFmYTUxYjI4ZDFhNDM2Zjc1MmRiZTJkN2FfWXZsdGpLdzBCdjBmYTJVc05BVHZ1T2JxNGdhT0tYejFfVG9rZW46VDd6emJkSTc1b1loRll4bmRzT2N3aDNHbjFlXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+<meta property="article:published_time" content="2023-05-24T12:55:12.000Z">
+<meta property="article:modified_time" content="2023-05-24T12:56:30.008Z">
+<meta property="article:author" content="Dloux">
+<meta property="article:tag" content="编码">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MjM3ODQzZjg2MzMwM2I1NGY2YmJiMGQxODBmMTFhYTJfTFdpTkFKOUFDU1dkeVN0VURRSXBwTWpzS3l6OWV0SU5fVG9rZW46UTREemJKSmdTb25kd1l4TTNDN2NOckR6bnVnXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '0.0.74',
+    sidebar: {"position":"right","display":"always","offset":52,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    since: '6/2/2020 11:30:00',
+    site: {
+      title: 'Hi, Dloux',
+      subtitle: '',
+      author: 'Dloux'
+    },
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    leancloud: {
+      enable: false,
+      appID: '',
+      appKey: ''
+    },
+    favicon: {
+      visibilitychange: true,
+      narmal: '/images/favicon.ico',
+      hidden: '/images/failure.ico',
+      show_text: '(/≧▽≦/)咦！又好了！',
+      hide_text: '(●—●)喔哟，崩溃啦！'
+    }
+  };
+</script>
+
+
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/disqusjs@1.2.2/dist/disqus.js"></script>
+
+
+
+
+  <link rel="canonical" href="https://dloux.gitee.io/2023/05/24/编码与字体/"/>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>编码与字体 | Hi, Dloux</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48084758-7', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans" class="theme-darling">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fas fa-meteor"></i> <br />
+            
+            首页
+          </a>
+          
+        </li>
+      
+        
+        <li class="menu-item menu-item-实验室">
+          <a href="javascript:;" rel="section">
+            
+              <i class="menu-item-icon fas fa-magic"></i> <br />
+            
+            实验室
+          </a>
+          
+            <ul class="submenu submenu-实验室">
+              
+                
+                <li class="submenu-item submenu-item-ezdemo">
+                  <a href="/proj" rel="section" target="_blank">
+                    ezDemo
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fas fa-archive"></i> <br />
+            
+            归档
+          </a>
+          
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于我">
+          <a href="/proj/cv/resume.html" rel="section">
+            
+              <i class="menu-item-icon fas fa-heartbeat"></i> <br />
+            
+            关于我
+          </a>
+          
+        </li>
+      
+        
+        <li class="menu-item menu-item-吃个饭">
+          <a href="/proj/meal/index.html" rel="section">
+            
+              <i class="menu-item-icon heartbeat"></i> <br />
+            
+            吃个饭
+          </a>
+          
+        </li>
+      
+
+      
+      <li class="menu-item search">
+          <form class="search-form">
+            <input name="keyword" type="text" class="search-input" placeholder="站内搜索">
+            <button type="submit" class="search-submit"><i class="fas fa-search"></i></button>
+          </form>
+      </li>
+    </ul>
+  
+
+  
+</nav>
+
+<div class="site-brand-wrapper">
+  <div class="site-brand-bg">
+    <picture>
+      <!--
+        <source srcset="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/images/header-gyx-s.webp" type="image/webp" media="(max-width: 500px)">
+        <source srcset="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/images/header-gyx-s.png" type="image/png" media="(max-width: 500px)">
+        <source srcset="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/images/header-gyx.webp" type="image/webp">
+        <img loading="lazy" src="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/images/header-gyx.png">
+      -->
+      <img loading="lazy" src="/images/header-cat.jpg">
+    </picture>
+  </div>
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <div class="brand">
+        <span class="logo-line-before"><i></i></span>
+        <div class="site-title">
+          <div id="animate-stroke" class="animate">
+            <span>
+                  <svg>
+                    <use xlink:href="#strokeH"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#strokei"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#stroke,"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#stroke "></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#strokeD"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#strokel"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#strokeo"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#strokeu"></use>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <use xlink:href="#strokex"></use>
+                  </svg>
+                </span>
+          </div>
+          <div id="animate" class="animate">
+            <span>
+                  <svg>
+                    <text id="strokeH">H</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="strokei">i</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="stroke,">,</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="stroke "> </text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="strokeD">D</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="strokel">l</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="strokeo">o</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="strokeu">u</text>
+                  </svg>
+                </span><span>
+                  <svg>
+                    <text id="strokex">x</text>
+                  </svg>
+                </span>
+          </div>
+          <div id="guide" class="guide">
+            <span>H</span><span>i</span><span>,</span><span> </span><span>D</span><span>l</span><span>o</span><span>u</span><span>x</span>
+          </div>
+        </div>
+        <span class="logo-line-after"><i></i></span>
+      </div>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+<div class="site-master" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <picture><img loading="lazy" class="site-master-avatar scaleup" itemprop="image" src="/images/dloux.jpg" alt="Dloux" /></picture>
+    <h2 class="site-master-description scaleup" itemprop="description">
+        热爱捕鱼，浑水摸鱼
+    </h2>
+</div>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                location.href = '/'
+            }
+        }
+    })();
+</script>
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
+			<div class="post-month">05月</div>
+			<div class="post-day">24</div>
+	</div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2023/05/24/%E7%BC%96%E7%A0%81%E4%B8%8E%E5%AD%97%E4%BD%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi, Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">编码与字体</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2023-05-24T20:55:12+08:00">2023-05-24</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">7.2k</span>
+              
+
+              
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+      <div class="post-toc-content"><div class="post-toc-title">文章目录</div><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#编码与字体"><span class="nav-text">编码与字体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符概述"><span class="nav-text">字符概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GB-与全角半角"><span class="nav-text">GB 与全角半角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unicode"><span class="nav-text">Unicode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-Encode"><span class="nav-text">HTML Encode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-JavaScript-中显示-Unicode"><span class="nav-text">在 JavaScript 中显示 Unicode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#其他乱七八糟的东西"><span class="nav-text">其他乱七八糟的东西</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#真实世界中的其他-Bug-及该如何避免"><span class="nav-text">真实世界中的其他 Bug 及该如何避免</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-CSS-中显示"><span class="nav-text">在 CSS 中显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URI-Encode"><span class="nav-text">URI Encode</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字体概述"><span class="nav-text">字体概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络字体"><span class="nav-text">网络字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自制字体"><span class="nav-text">自制字体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器性能"><span class="nav-text">浏览器性能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么字体会导致布局偏移"><span class="nav-text">为什么字体会导致布局偏移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改进"><span class="nav-text">改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图标字体"><span class="nav-text">图标字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用系统字体"><span class="nav-text">使用系统字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载更少的字体文件"><span class="nav-text">加载更少的字体文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化字体文件"><span class="nav-text">优化字体文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#子集字体"><span class="nav-text">子集字体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预加载"><span class="nav-text">预加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新的提案"><span class="nav-text">新的提案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-text">结论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-text">参考链接</span></a></li></ol></div>
+      
+      
+
+      
+        <h1 id="编码与字体"><a href="#编码与字体" class="headerlink" title="编码与字体"></a>编码与字体</h1><h1 id="字符概述"><a href="#字符概述" class="headerlink" title="字符概述"></a>字符概述</h1><h2 id="GB-与全角半角"><a href="#GB-与全角半角" class="headerlink" title="GB 与全角半角"></a>GB 与全角半角</h2><p>大家都知道，程序中的所有信息都是以二进制的形式存储在计算机的底层，也就是说我们在代码中定义的一个 char 字符或者一个 int 整数都会被转换成二进制码储存起来，这个过程可以被称为<strong>编码</strong>，而将计算机底层的二进制码转换成屏幕上有意义的字符（如“hello world”），这个过程就称为<strong>解码</strong>。</p>
+<p>在计算机中字符的编解码就涉及到 <strong>字符集（Character Set）</strong> 这个概念，他就相当于能够将一个字符与一个整数一一对应的一个映射表，常见的字符集有 ASCII、Unicode 等。</p>
+<p>历史中的很长一段时间里，计算机仅仅应用在欧洲的一些发达国家，因此在他们的程序中只存在他们所理解的拉丁字母（如a、b、c、d等）和阿拉伯数字，他们在编码解码时也只需要考虑这一种情况，就是如何将这些字符转换成计算机所能理解的二进制数，此时 ASCII 字符集应运而生，他们在编码时只需要对照着 ASCII 字符集，每当在程序中遇到字符 a 时，就会相应的找到其中 a 对应的 ASCII 值 97 然后以二进制形式存起来即可。</p>
+<a id="more"></a>
+
+<p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MjM3ODQzZjg2MzMwM2I1NGY2YmJiMGQxODBmMTFhYTJfTFdpTkFKOUFDU1dkeVN0VURRSXBwTWpzS3l6OWV0SU5fVG9rZW46UTREemJKSmdTb25kd1l4TTNDN2NOckR6bnVnXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<p>这种编码方式就被称为 ASCII 编码，从字符集对照表中可以看出，ASCII 字符集支持 128 种字符，仅使用 7 个 bit 位，也就是一个字节的后 7 位就可以将它们全部表示出来，而最前面的一位统一规定为 0 即可（如 0110 0001 表示 a）。</p>
+<p>后来，为了能够表示更多的欧洲国家的常用字符如法语中带符号的字符 <code>é</code>，又制定了 ASCII 额外扩展的版本 EASCII，这里就可以使用一个完整子节的 8 个 bit 位表示共 256 个字符，其中就又包括了一些衍生的拉丁字母。</p>
+<p>ASCII 字符集沿用至今，但它最大的缺点在于只能表示基本的拉丁字母、阿拉伯数字和英式标点符号，因此只能表示现代美国英语（而且在处理英语当中的外来词如 naïve、café、élite 等等单词时，所有重音符号都不得不去掉）。而 EASCII 虽然解决了部份西欧语言的显示问题，但是当计算机传入亚洲之后，各国的语言依然不能完整地表示出来。</p>
+<p>在这个年代，每个国家就各自来对 ASCII 字符集做了拓展，最具代表性的就是国内的 GB 类的汉字编码模式，这种模式规定：ASCII 值小于 127 的字符的意义与原来 ASCII 集中的字符相同，但当两个 ASCII 值大于 127 的字符连在一起时，就表示一个简体中文的汉字，前面的一个字节（高字节）从 0xA1 拓展到 0xF7，后面一个字节（低字节）从 0xA1 到 0xFE，这样就可以组合出了大约 7000 多个简体汉字了。</p>
+<p>为了在解码时操作的统一，GB 类编码表中还也加入了数学符号、罗马希腊的字母、日文的假名等，连在 ASCII 里本来就有的数字、标点、字母都统一重新表示为了两个字节长的编码，这就是我们常说的 “全角” 字符，而原来在 127 号以下的那些就叫 “半角” 字符了，这种编码规则就是后来的 GB2312。</p>
+<p>这样，我们中国就有了属于自己的字符集了，但中国的汉字又是在是太多了，人们很快就发现 GB2312 字符集只能够那点汉字明显不够（如中国前总理 朱镕基 的 “镕” 字并不在 GB2312 字符集中），于是专家们又继续把 GB2312 没有用到的码位使用到其他没有被收录的汉字中。</p>
+<p>后来还是不够用，于是干脆不再要求低字节一定是 127 号之后的内码，只要第一个字节是大于 127 就固定表示这是一个汉字的开始，不管后面跟的是不是扩展字符集里的内容。结果扩展之后的编码方案被称为 GBK 标准，GBK 包括了 GB2312 的所有内容，同时又增加了近 20000 个新的汉字（包括繁体字）和符号。</p>
+<p>当时的各个国家都像中国这样制定出了一套自己的编码标准，之后当我们需要使用计算机与国际接轨时，问题出现了！国家与国家之间谁也不懂谁的编码，130 在法语编码中代表了 <code>é</code>，在希伯来语编码中却代表了字母 <code>Gimel</code> (<code>ג</code>)，在俄语编码中又会代表另一个符号。但是所有这些编码方式中，0–127 表示的符号依然都是一样的，因为他们都兼容 ASCII 码，这一点，如今也是一样。</p>
+<h2 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h2><p>正如上一节中所说的，世界上各国都有不同的编码方式，同一个二进制数字可以被解码成不同的符号。因此，要想打开一个文本文件，就必须知道它的编码方式，否则用错误的编码方式解读，就会出现乱码。为了解决这个问题，最终的集大成者 Unicode 字符集出现了，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号，目前，Unicode 字符集中已经收录超过 13 万个字符（第十万个字符在2005年获采纳）。值得关注的是，Unicode 依然兼容 ASCII，即 0～127 意义依然不变。</p>
+<p>Unicode 表示的是一个字符集， <strong>码点</strong>是 Unicode 字符集中唯一表示某个字符的标识。</p>
+<p>码点的表示的形式为 U+[XX]XXXX，X 代表一个十六制数字，一般可以有 4-6 位，不足 4 位前补 0 补足 4 位，超过则按是几位就是几位，具体范围是 U+0000~U+10FFFF，大概是 111 万。按 Unicode 官方的说法，码点范围就这样了，以后也不扩充了，一百多万足够用了，目前也只定义了 11 万多个字符左右。</p>
+<p>Unicode 标准只规定了代码点对应的字符，而没有规定代码点怎么存储，也就是说它本身只是个字符集而不是编码规则。这也是 UTF-8，UTF-16，UTF-32 的由来，它们是 Unicode 不同的实现。</p>
+<p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=YTZhNjhhMTBlYjZkZTA2NDcwZTZlMzlhNDE5ZWFkNTlfU1BhY0Jzb1Q5RmJSVHNWUlhnWG9sOUMxanZoYUtRTlFfVG9rZW46S2VrSmIyU1VPb2lPOHd4ZDhCdGM3QXkxbkVnXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<p><em>图为联通两字在不同编码下的存储</em></p>
+<p>由于历史的原因，文本文件出现的时候并没有像图片文件那样在文件内部约定其编码方式，只是后来新出现了其他的编码方式之后才开始有些约定。当文本程序打开一个文本文件时，如果没有在文件内部指明采用哪种编码方式，它就会采取“猜测”的方式去判断可能使用的编码方式，在“猜测”的时候就有可能出错了。</p>
+<p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=NTBkOTcxZDM1NjRiZjYzM2RhNjAyZmNlYmM4Yzk3NmFfTUxMZ2xOM01ydkZlZHIyM1lDNFlDMkJFVlhIMlNnbVpfVG9rZW46TmhGdGJhZjZwb0dzeFR4N0trRGNPTE5zbjBnXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<p><em>图为联通两字在 UTF-8 与 GB2312 下的存储</em></p>
+<p>可以看到，这两个字的 GB2312 表示刚好符合二字节的 UTF-8 的存储规则，提取其中有效bit位构成的Unicode编码为：0x006a，0x0368。按照 <code>\u006a\u0368</code> 输入后，会显示出 jͨ ，也就是乱码的情况了。</p>
+<p>这种问题经常出现在 php 上，php 之锘，谁用谁知道。由于微软在自己的 UTF-8 格式的文本文件之前加上了EF BB BF 三个字节（在 UTF-16 中是 FF FE，即<a href="https://zh.wikipedia.org/wiki/字节序#小端序" target="_blank" rel="noopener">小端序</a>），但其他平台没有对 UTF-8 做 BOM 的解析，虽然在标准中这是可选的。</p>
+<h2 id="HTML-Encode"><a href="#HTML-Encode" class="headerlink" title="HTML Encode"></a><strong>HTML Encode</strong></h2><p><strong>&amp;#x开头的是什么编码?</strong></p>
+<p>在 Node 中利用 <a href="https://www.npmjs.com/package/cheerio" target="_blank" rel="noopener">cheerio</a> 解析网页时，输出的中文内容都是以 &amp;#x 开头的一堆像乱码一样的东西，尝试过各种编码都无效，而且神奇的是，将这一堆“乱码”保存成网页后，通过浏览器打开又可以正常显示。这到底是什么👻？？</p>
+<p>缩减后的示例代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line"><span class="keyword">const</span> $ = cheerio.load(<span class="string">'&lt;div id="content"&gt;你好&lt;/div&gt;'</span>)</span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'#content'</span>).html()) <span class="comment">//&amp;#x4F60;&amp;#x597D;</span></span><br></pre></td></tr></table></figure>
+
+<p>它叫做实体编码，在 HTML 中，某些字符是预留的，例如小于号「&lt;」、大于号「&gt;」等，浏览器会将它们视作标签。如果想要在HTML中显示这些预留字符，我们就要用到字符实体（character entities）。</p>
+<p>在这里可以查到目前的 <a href="https://dev.w3.org/html5/html-author/charref" target="_blank" rel="noopener">HTML 编码对照表</a>（HTML Encode Character Reference）。</p>
+<p>它会用 <code>&amp;</code> 开始 <code>;</code> 结束，例如 <code>+</code> 通过 HTML 转换后会变成 <code>+</code>，它也可以用十六进制或十进制的方式表示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"+" = <span class="symbol">&amp;plus;</span> = <span class="symbol">&amp;#x0002B;</span> = <span class="symbol">&amp;#43;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们比较熟悉的字符实体有空格「&nbsp;」，小于号「&lt;」，大于号「&gt;」等。这样的格式比较语义化，容易记忆，但其实字符实体有其他的格式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&amp;name;</span></span><br><span class="line"><span class="symbol">&amp;#5555;</span></span><br><span class="line"><span class="symbol">&amp;#x1789;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>这三种转义方式都称作字符引用，第一种是<a href="https://zh.wikipedia.org/wiki/字符实体引用" target="_blank" rel="noopener">字符实体引用</a>，「&amp;」符号后接预先定义好的 entity 名称。</li>
+<li>后两种是<a href="https://zh.wikipedia.org/wiki/字符值引用" target="_blank" rel="noopener">字符值引用</a>，数字取值为目标字符的 Unicode code point；以「&amp;#」开头的后接十进制数字，「&amp;#x」开头的后接十六进制数字。</li>
+</ol>
+<p>从 HTML4 开始，numeric character reference 以 Unicode 为准，与文档编码无关。「你好」二字分别是 Unicode 字符 U+4F60 和 U+597D，十六进制表示的 code point 数值「4F60」和「597D」，同时也就是十进制的「20320」和「22909」。</p>
+<p>所以在HTML中输入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&amp;#x4F60;</span><span class="symbol">&amp;#x597D;</span></span><br><span class="line"><span class="symbol">&amp;#20320;</span><span class="symbol">&amp;#22909;</span></span><br></pre></td></tr></table></figure>
+
+<p>都会显示为“你好”。</p>
+<h2 id="在-JavaScript-中显示-Unicode"><a href="#在-JavaScript-中显示-Unicode" class="headerlink" title="在 JavaScript 中显示 Unicode"></a>在 JavaScript 中显示 Unicode</h2><p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MmRhYTdmY2U4MWNkMWJlNmEyZTYyOGQwMjJhMjExN2JfcVNEZUVncUlxNExPQTcxZmpwZ3FTUjRzMDhMZUgwanZfVG9rZW46WGR3bWJtWDI3b3lWS0h4Ync0bmM1dlN1bjJnXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=OWY0NjI3NWNhMDJmYjg3NzVkMzZhZTk4YmJjNGNkMTlfamw2bTF4dlhJMEphdDhEdlFyZGhMNlZ2dTNpNTZ3N0pfVG9rZW46V09UVGJISGphbzVJb3B4TzE4bGNkaDF3bm1iXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<p><strong>由于JavaScript只能处理UCS-2编码，造成所有字符在这门语言中都是2个字节，如果是4个字节的字符，会当作两个双字节的字符处理。</strong></p>
+<p>其中根据不同的场合有几种不同的表示方式，包括：</p>
+<ol>
+<li>只使用到 Unicode 基本平面时 (<code>\u&lt;码点&gt;</code>)<ol>
+<li>适用范围： <code>U+0000</code> 到 <code>U+FFFF</code>。</li>
+</ol>
+</li>
+<li>有使用到 Unicode 辅助平面时（<code>\u{ &lt;码点&gt; }</code>）<ol>
+<li>适用范围：所有 Unicode，特別是有使用超过 <code>U+FFFF</code> 的辅助平面文字符号</li>
+<li>ES6 引进，ES5 仅支持 U+FFFF 以内的 Unicode，不支持一个编码对应一个在 U+FFFF 范围之外的字符，原因是 ES5 支持的是 UTF-16，而 U+D800 - U+DFFF 专门保留以用于 UTF-16。由于它们不在 U+10000 - U+10FFFF 的范围内，UTF-16 不会使用代理对对它们进行单独编码，这些单独的代码点<strong>保留用作 UTF-16 中成对代码单元的前导值和尾随值。</strong>出现代理区的原因也很简单，和 ascii 一样，原本以为 65535 足矣容纳所有语言，之后发现小语种的语言，以及语言自身的进化（emoji），两个字节已不足以表示全部语言，但不应该把所有语言都在原基础上扩张一个或者是多个字符，因此出现代理区，告诉编码需要读取多少字节。</li>
+<li>比如 💩 在 ES5 中需要被表示成 <code>\uD83D\uDCA9</code>，在 ES6 中可以写成 <code>\u{1F4A9}</code>，许多场景的 emoji 都在这个辅助平面内，这也导致了另一个问题：<code>&#39;💩&#39;.length === 2</code>，对这个问题有两种解决方式，一种是直接匹配 <code>/[\uD800-\uD8FF][\uDC00-\uDCFF]/g</code> 的两个字符替换为一个，或者是通过 iterator 来切割：<code>[...&#39;💩&#39;].length</code></li>
+</ol>
+</li>
+<li>只使用到 ASCII 字符时（<code>\x&lt;码点&gt;</code>）<ol>
+<li>适用范围： <code>U+0000</code> 到 <code>U+00FF</code></li>
+</ol>
+</li>
+</ol>
+<p><strong>整理一下</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">A &#x3D; U+0041 &#x3D; \x41 &#x3D; \u0041 &#x3D; \u&#123;41&#125; &#x3D; \u&#123;0041&#125;</span><br><span class="line"></span><br><span class="line">ES7 以前</span><br><span class="line">String.prototype.charAt(index) &#x2F;&#x2F; 即 str[index]</span><br><span class="line">&#39;💩&#39;.charAt(0) &#x2F;&#x2F; \uD83D 即 &#39;💩&#39;[0]</span><br><span class="line"></span><br><span class="line">ES7 的提案（未实现）</span><br><span class="line">String.prototype.at(index)</span><br><span class="line">&#39;💩&#39;.at(0) &#x2F;&#x2F; U+1F4A9</span><br><span class="line"></span><br><span class="line">ES6 前</span><br><span class="line">&#39;💩&#39;.charCodeAt(0).toString(16); &#x2F;&#x2F; 0xD83D</span><br><span class="line"></span><br><span class="line">String.fromCharCode(0xD83D, 0xDCA9); &#x2F;&#x2F; &#39;💩&#39;</span><br><span class="line"></span><br><span class="line">ES6 后</span><br><span class="line">&#39;💩&#39;.codePointAt(0).toString(16)&#x2F;&#x2F; 0x1F4A9</span><br><span class="line"></span><br><span class="line">String.fromCodePoint(0x1F4A9) &#x2F;&#x2F; &#39;💩&#39;</span><br></pre></td></tr></table></figure>
+
+<p>总的来说，unicode 的确影响了很多操作字符串的方法， 包括没有提及的 <code>substring</code>, <code>slice</code>，使用时候可能需要注意。</p>
+<h3 id="其他乱七八糟的东西"><a href="#其他乱七八糟的东西" class="headerlink" title="其他乱七八糟的东西"></a>其他乱七八糟的东西</h3><p>b̳͕͖̑̓̒̈́ͤͥͣ͢͡ 这样一个字符，占位只显示一个位置，删除的时候得删半天，因为实际上长度为 13。以前在评论区经常能看到这些遮挡视线的字符，超出界限的原因是他们是<a href="https://zh.wikipedia.org/wiki/組合附加符號" target="_blank" rel="noopener">组合附加符号</a>（U+0300~U+036F），尽管在实际的表示法上、字符与<a href="https://zh.wikipedia.org/wiki/附加符號" target="_blank" rel="noopener">附加符号</a>是分开独立的，但该组合附加符号之字符在给定的上下文中将被视为单一的<a href="https://zh.wikipedia.org/wiki/字位" target="_blank" rel="noopener">字位</a>。</p>
+<p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=ODg0ZmVlYjMzNjk4NjM3NGZhZDUwN2RmYjhiZjQ2YmZfTGFrMDg0QkZsT2lkS25OcHZsZ0Y0Ym80UkRZcTFTdmpfVG9rZW46WUJLYWJ2bkM0b0k4NEd4bjJjTmN4c3RWbnBnXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<p>这是上面字符的 JS 表示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'b\u0333\u0311\u0343\u0312\u0344\u0355\u0356\u0361\u0362\u0364\u0365\u0363'</span></span><br></pre></td></tr></table></figure>
+
+<p>了解了这些，就可以拼凑出更多奇怪的文字表示，比如 Z͑ͫ̓ͪ̂ͫ̽͏̴̙̤̞͉͚̯̞̠͍A̴̵̜̰͔ͫ͗͢L̠ͨͧͩ͘G̴̻͈͍͔̹̑͗̎̅͛́Ǫ̵̹̻̝̳͂̌̌͘!͖̬̰̙̗̿̋ͥͥ̂ͣ̐́́͜͞。</p>
+<h3 id="真实世界中的其他-Bug-及该如何避免"><a href="#真实世界中的其他-Bug-及该如何避免" class="headerlink" title="真实世界中的其他 Bug 及该如何避免"></a>真实世界中的其他 Bug 及该如何避免</h3><p>看到了吧！Unicode 在 JavaScript 中奇怪的行为造成许多问题。许多开发者在处理字串时并没有考虑到补充平面的问题(🙋我就是其一)，甚至包含知名的函数库 <code>Underscore.string</code> 的 <code>reverse</code> 也没有处理关于补充平面产生的问题。</p>
+<p>毕竟处理这些问题的确很麻烦，而且好像没有必要？</p>
+<p><strong>在测试中参一坨💩吧 XD</strong></p>
+<p>一般处理单语种的开发者其实不太容易注意到这些问题。</p>
+<p>无论正在写什么样功能的 JavaScript，试着在测试行为的字符串中加入 <code>💩</code> 然后看看会不会炸掉。 这有助于发现 Unicode 的问题。</p>
+<h2 id="在-CSS-中显示"><a href="#在-CSS-中显示" class="headerlink" title="在 CSS 中显示"></a>在 CSS 中显示</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.content</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  content: '\0041'; // A, 輸入 16 進位制的 Unicode</span><br><span class="line">  // content: '\570B';  // 國</span><br><span class="line">  // content: '\00A9';  // ©</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这也是以前 iconfont 的实现基础。</p>
+<h2 id="URI-Encode"><a href="#URI-Encode" class="headerlink" title="URI Encode"></a>URI Encode</h2><p>在网络上最常被使用的是 <code>UTF-8</code> 的编码方式，它的特点是会用 <code>%</code> 开头，许多的网址或文字内容为了确保正确性，常常会先使用 URI Encode 后再显示。</p>
+<p>在 JavaScript 中提供 <code>encodeURI()</code> 和 <code>encodeURIComponent()</code> 的方法可以将字符串转成 UTF-8。</p>
+<p>相对应的解码方式则是 <code>decodeURI()</code> 和 <code>decodeURIComponent()</code>。</p>
+<h1 id="字体概述"><a href="#字体概述" class="headerlink" title="字体概述"></a>字体概述</h1><p>一个字体是共享一个共同的设计字符和符号的集合。字体资源文件实际上是一个只包含数据的 DLL，没有代码。描述字体规格的标题和字形数据。由光栅渲染器知道它收集的是 ttf、otf 信息，这是不是很熟悉，字体文件格式？安装字体，就是把对应文字、表情信息存储到系统字体表中。字体表是一个内部数组，用于标识应用程序可用的所有非设备字体。</p>
+<p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MDc1NmUxN2RhM2Y0NTE0ZmIzMTk4MmM5ZTA2NmUyZjVfUTcxbVB2ZnlHVjZwSXdEb0NCV25uNWIzVUlXZ2x2aEdfVG9rZW46SVZtTWI4MXlybzFaRVJ4c1FHcGNINXR4bkRyXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<h2 id="网络字体"><a href="#网络字体" class="headerlink" title="网络字体"></a>网络字体</h2><p>网络字体的广泛采用发生在 2009 年至 2011 年左右，这要归功于主流浏览器增加了对两件事的支持：<code>@font-face</code>CSS 声明和 WOFF 文件格式。</p>
+<p>WOFF（及其后继者 WOFF2）是专门为网络字体创建的压缩<a href="https://fonts.google.com/knowledge/glossary/font_format" target="_blank" rel="noopener">文件格式。</a>虽然常规<a href="https://fonts.google.com/knowledge/glossary/open_type" target="_blank" rel="noopener">OpenType</a>字体（TTF 和 OTF 文件）可以用作 Web 字体，但不建议这样使用，因为它通常会违反<a href="https://fonts.google.com/knowledge/glossary/licensing" target="_blank" rel="noopener">许可</a>协议——而且文件要大得多。WOFF 和 WOFF2 字体通常不能安装在台式计算机上。</p>
+<p>请注意，网络字体是需要下载的资源，因此会影响页面加载时间的整体性能；也就是说，我们使用的网络字体越多，我们的网站加载所需的时间就越长。使用<a href="https://fonts.google.com/knowledge/glossary/variable_fonts" target="_blank" rel="noopener">可变字体</a>可能会抵消这一点。</p>
+<h2 id="自制字体"><a href="#自制字体" class="headerlink" title="自制字体"></a>自制字体</h2><p>不同语言解析TTF或者OTF文件有不同方法，例如 <strong>JavaScript</strong> 可以使用 <strong>opentype.js</strong>，<strong>C语言</strong> 可以使用 <strong>otfcc</strong>，<strong>PHP</strong>的话可以使用 <strong>php-font-lib，Python 可以用 fontTools。</strong>这里使用 Python：</p>
+<blockquote>
+<p>前置条件： Python 3.6 以上 安装 <code>glyphhanger</code>和<code>fonttools</code></p>
+</blockquote>
+<p>举个例子，找到电脑上的微软雅黑（小心律师函），把需要的文本子集导入 test.txt，之后命令行执行 <code>glyphhanger ./test.txt --subset=微软雅黑.ttf</code>，在当前目录下会生成一个 subset 的 ttf 字集，如果没有字体编辑软件，可以把字体导入到 <a href="https://font.qqe2.com/#，可以进行简单编辑，之后导出就可以使用了。" target="_blank" rel="noopener">https://font.qqe2.com/#，可以进行简单编辑，之后导出就可以使用了。</a></p>
+<h1 id="浏览器性能"><a href="#浏览器性能" class="headerlink" title="浏览器性能"></a>浏览器性能</h1><p>在谷歌的页面体验排名算法中，有一个叫做布局偏移量的指标，即 the cumulative layout shift (CLS) score，是衡量页面不稳定程度的指标，是页面生命周期中所有意外布局变化的总和。</p>
+<p>布局偏移的一些来源很容易解决：为动态元素预分配正确的空间，在图像上使用宽度和高度属性，并在 HTML 文档中优先显示可见元素。然而，布局偏移的一个常见原因却出奇地难以解决：<a href="https://www.youtube.com/watch?time_continue=5&v=Gm-B23KZwQ0&embeds_referring_euri=https%3A%2F%2Fwpspeedmatters.com%2F&source_ve_path=MzY4NDIsMjg2NjY&feature=emb_logo" target="_blank" rel="noopener">无样式文本 (FOUT) 的闪烁</a>。</p>
+<h2 id="为什么字体会导致布局偏移"><a href="#为什么字体会导致布局偏移" class="headerlink" title="为什么字体会导致布局偏移"></a>为什么字体会导致布局偏移</h2><p>当包含元素（例如一个<div>）的大小在下载 Web 字体时发生变化时，字体会导致布局偏移。当网页字体的字体高度或段落长度与系统字体不同时，就会出现这种情况。</p>
+<p>当用户第一次访问我们的网站时，如果网站使用的是 Web 字体，通常是需要下载所有的 Web 字体的。</p>
+<p>在大多数情况下，当 HTML 文件已经在浏览器中加载完成后，Web 字体文件可能仍然还在下载中。</p>
+<p>这种情况下，浏览器还无法使用 Web 字体。那我们应该怎么办呢？</p>
+<p>通常有两种选择：</p>
+<ol>
+<li>等到 Web 字体下载完成后再显示文本。</li>
+<li>使用后备字体渲染文本，即用户设备本地上安装的字体。</li>
+</ol>
+<p>但是这两种方法都会带来新的问题。第一种方法会出现隐形文本闪烁（FOIT — Flash Of Invisible Text）的问题。 而第二种方法则会出现无样式文本闪烁（FOUT — Flash of Unstyled Text）。</p>
+<p>以上问题可能在你看来并没有怎么遇到过。这有可能是：</p>
+<ul>
+<li>字体已经安装在你的设备上了</li>
+<li>你的网络环境速度已经很快了</li>
+<li>通常只有在第一次访问页面时才会存在这些问题，因为浏览器已经缓存字体文件了，所以再次访问就不会出现此问题了</li>
+</ul>
+<p>只要用户首次访问我们的页面时需要下载Web字体，这个问题就会存在。然而，幸运的是，我们可以用一些现代的 CSS 来改进一些东西。</p>
+<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p>要控制字体如何显示可以利用<code>font-display</code>它包含在 <code>@font-face</code> 中：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;  </span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'Great font'</span>;  </span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'./local.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>);  </span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">400</span>;  </span><br><span class="line">    <span class="attribute">font-style</span>: normal;  </span><br><span class="line">    <span class="attribute">font-display</span>: swap; <span class="comment">/* 👈👈👈 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>它有几个值：</p>
+<ul>
+<li><strong>block</strong>- 在等待网络字体时隐藏文本最多三秒钟，并在加载时始终交换网络字体</li>
+<li><strong>swap</strong>- 尽快显示文本，并在加载时始终交换网络字体</li>
+<li><strong>fallback</strong>- 隐藏文本长达 100 毫秒，然后仅在三秒内加载时才换入网络字体</li>
+<li><strong>optional</strong>- 隐藏文本长达 100 毫秒，然后仅在可用时使用网络字体 - 从不交换</li>
+</ul>
+<p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=YmU5NjE3ZDY5MTYzZjRhYTYyMWM1YWJmYjM2MmMwOWJfSXdzYnhxT3FnYWpDOEJBbjZaZHU4T0F4bkhxVlpubFlfVG9rZW46QnNEZGJwdWVab0d4SkZ4ejJkdmN0MWNYbm9oXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<p><em>optional 是唯一保证没有布局偏移的字体显示值</em></p>
+<h2 id="图标字体"><a href="#图标字体" class="headerlink" title="图标字体"></a>图标字体</h2><p>像 Font Awesome 和 Bootsrap 的 glyphicons 这样的图标字体集已经普及了网络字体在图标设计中的使用。不幸的是，这意味着你的图标在下载（通常）大字体文件之前不会呈现，并且有时会在字体文件未能及时下载时导致难看的⃞ 符号而不是真正的图标。图标字体对于性能和可访问性来说是不好的做法，应该尽快用 SVG 替换它们。</p>
+<blockquote>
+<p>精彩演讲：<a href="https://www.youtube.com/watch?v=9xXBYcWgCHA" target="_blank" rel="noopener">Death to Iconfonts ☠️</a></p>
+</blockquote>
+<h2 id="使用系统字体"><a href="#使用系统字体" class="headerlink" title="使用系统字体"></a>使用系统字体</h2><p>Web 字体很受欢迎，因为它们允许设计人员在浏览器中保持一致的外观和感觉。在没有必要的情况下，系统字体将是呈现文本的最快方法。如果您当前的网络字体接近系统字体，您可以使用 Monica 的<a href="https://meowni.ca/font-style-matcher/" target="_blank" rel="noopener">字体样式匹配器</a>来调整字体设置，直到获得近乎完美的匹配。如果开发偷偷用经过调整的系统字体替换了他们的网络字体堆栈——设计师不一定能注意到其中的区别。</p>
+<p>使用系统字体意味着文本将尽早呈现。我们现在还有使字体与操作系统匹配的方法，这可能比以前的后备选项（如 Arial 和 Helvetica）更具吸引力。为此，你需要按特定顺序列出所有操作系统的系统字体：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: -apple-system, BlinkMacSystemFont,</span><br><span class="line">    <span class="string">"Segoe UI"</span>, <span class="string">"Roboto"</span>, <span class="string">"Oxygen"</span>, <span class="string">"Ubuntu"</span>, <span class="string">"Cantarell"</span>,</span><br><span class="line">    <span class="string">"Fira Sans"</span>, <span class="string">"Droid Sans"</span>, <span class="string">"Helvetica Neue"</span>,</span><br><span class="line">    sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="加载更少的字体文件"><a href="#加载更少的字体文件" class="headerlink" title="加载更少的字体文件"></a>加载更少的字体文件</h2><p>下载一个或两个字体文件来呈现文本不会对速度产生巨大影响，下载五个或十个字体文件会！确保提供最小可行数量的字体文件是确保浏览器在布局时提供它们的最佳方式，从而减少FOUT布局偏移的可能性。让我们看看在保持设计的同时加载更少字体文件的一些技巧。</p>
+<p>字体堆栈通常包括一堆不同的文件，从超轻斜体到超粗体。将 9 种字体粗细与正常和斜体变体组合在一起会产生 18 个独立的字体文件。</p>
+<p>浏览器可以自己制作粗体和斜体版本的字体，这称为仿粗体和仿斜体。这可能意味着只需要一个常规粗细字体文件，但是应该由所有相关设计师进行测试，因为可能与预计的样式不同。</p>
+<p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MmViN2IxMWRkZWM4ZDY5NWNhYzA0YmE3ZDQzZWU4ZDhfWXhJTnRaTUJUNERxTm1vQ2dORUJoSWFUR2tDUDJPT3VfVG9rZW46WEk3TWJxV1pPb3I5SFd4UnE0TWNoa2V6bmdoXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<h2 id="优化字体文件"><a href="#优化字体文件" class="headerlink" title="优化字体文件"></a>优化字体文件</h2><p>如果我们必须下载一个字体文件，我们应该使它尽可能小以确保它可以快速下载。优化网络字体有两种关键方法：子集和格式。</p>
+<h3 id="子集字体"><a href="#子集字体" class="headerlink" title="子集字体"></a>子集字体</h3><p>许多字体都有来自多个字母表的字形（字形是单个字符，如<code>a</code>或<code>&amp;</code>）。如果你的网站仅以拉丁字母 (a - Z) 提供并且不使用连字（如<code>é</code>），那么这些字形代表字体文件中的浪费字节。Roboto 是最流行的 Google 字体，有 277 个字形。</p>
+<p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmIyY2JkYjBlN2VmZDVlYTU5N2ZiMDg3OGE4N2IxYmJfYk5JbkZhWWRiQmVrUUt1dmZUMkNNakNPVG1MSTFSRkVfVG9rZW46QkxZTmJyazRjb2MzeTZ4NFNhd2NmU0ZZbjZQXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<p><em>流行的 Roboto 字体中的字形</em></p>
+<p>从此字体中删除非拉丁字符会导致<code>woff2</code>文件大小缩小到六分之一！</p>
+<p>要创建子集，最好从<code>ttf</code>文件开始，找出需要保留的字形。Filament Group 创建了 <a href="https://github.com/filamentgroup/glyphhanger" target="_blank" rel="noopener">glyphhanger</a> 来完成其中繁琐的替换修改，阅读他们的<a href="https://www.filamentgroup.com/lab/glyphhanger/" target="_blank" rel="noopener">博客文章</a>，可以了解如何为页面创建独特的子集字体。要注意的是，缺少的字形将以备用的系统字体呈现。</p>
+<p>有一组不同的格式可用于提供网络字体：<code>ttf</code>、<code>otf</code>、<code>eot</code>、<code>woff</code>和<code>woff2</code>。<code>ttf</code> 和 <code>otf</code> 是原始字体文件，可能不应该发送到浏览器。  <code>eot</code> 使用LZ压缩进行压缩， <code>woff</code> 使用gzip压缩,  <code>woff2</code> 使用brotli压缩。</p>
+<p>字体库通常会提供许多或所有这些格式，但你实际上只需要<code>woff2</code>。<code>woff2</code>比<code>woff</code>缩小大约 30%，并且所有现代浏览器都支持，仅支持<code>woff2</code>将使应用的其他优化（例如子集化）变得更加简单。</p>
+<blockquote>
+<p>实际上的精简并没有这么简单，因为一个字体文件由许多<code>表(table)</code>构成，这些表之间是存在关联的，例如 <code>maxp</code> 表记录了字形数量，<code>loca</code> 表中存储了字形位置的偏移量。同时字体文件以 <code>offset table(偏移表)</code> 开头，<code>offset table</code>记录了字体所有表的信息，因此如果我们更改了 <code>glyf</code> 表，就要同时去更新其他表。</p>
+</blockquote>
+<h2 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h2><p>Web 浏览器不会下载不必要的字体，它们会等到渲染树构建完成后才知道需要哪些字体。这意味着只有在浏览器下载并解析 HTML 和 CSS 时才会请求 Web 字体，就在呈现文本之前。请注意，内联 CSS 不需要网络请求 - 这意味着您的字体可以在页面加载的早期获取。</p>
+<p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=NDUzZDBlNGY4ZmRlMGMzOWNiNDI1MGUwNjM4ZDhjMzlfTnUxNnRDTmVZb0NFOXlrdGIxeGZYMVY3OWE3SHF4WU9fVG9rZW46UWNOM2J0alpvb1FqdWp4Nm1LVGNLa1I0bkVwXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<p>如果我们知道在页面上呈现文本肯定需要 Web 字体，我们可以向浏览器承诺需要尽快下载它。这是预加载提示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"preload"</span> <span class="attr">href</span>=<span class="string">"/my-font.woff2"</span> <span class="attr">crossorigin</span>=<span class="string">"anonymous"</span> <span class="attr">as</span>=<span class="string">"font"</span> <span class="attr">type</span>=<span class="string">"font/woff2"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当浏览器解析这行 HTML 时，它会立即发出对字体文件的高优先级请求。这样做意味着当浏览器呈现文本时，网络字体更有可能被使用。</p>
+<blockquote>
+<p>预加载请求会蚕食其他早期请求的带宽，谨慎使用！</p>
+</blockquote>
+<h2 id="新的提案"><a href="#新的提案" class="headerlink" title="新的提案"></a>新的提案</h2><p>如果<code>font-display: optional</code>您的设计无法实现，我们需要尝试尽可能将后备字体布局与网络字体相匹配。输入字体显示修饰符 (f-mods)，也称为字体描述符。</p>
+<p>F-mods 在字体描述符规范的<a href="https://docs.google.com/document/d/1PW-5ML5hOZw7GczOargelPo6_8Zkuk2DXtgfOtJ59Eo/edit" target="_blank" rel="noopener">提议更新</a>中，其中包括四个新描述符：</p>
+<ul>
+<li><strong>ascent-override (%)</strong> - 覆盖分配给上行的大小</li>
+<li><strong>descent-override (%)</strong> - 覆盖分配给下行的行高</li>
+<li><strong>line-gap-override (%)</strong> - 覆盖线之间的间隙</li>
+<li><strong>advance-override (#)</strong> - 为每个字符设置一个额外的 advance，以帮助匹配行宽并防止单词溢出</li>
+</ul>
+<p>前三者都会影响一行的高度：line box height = ascent + descent + line gap。基线位置 = line box top + line gap / 2 + ascent。例如，如果我们有<code>ascent-override: 80%; descent-override: 20%; line-gap-override: 0%</code>，那么每个行框的高度为 1em（假设使用的字体大小为 1em），并且基线位于行框顶部下方 0.8em 处。描述<code>advance-override</code>符在每个字符前添加一个 font-size 的一小部分作为间隙，例如<code>font-size:16px; advance-override: 0.1;</code>将在每个字符前添加一个 1.6px 的间隙。</p>
+<p>实现 f-mods 是使用<code>src: local()</code> ，这允许我们覆盖后备字体的显示以匹配网络字体：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: custom-font;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">"https://example.com/font.woff2"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: fallback-font;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">local</span>(Arial); <span class="comment">/* required! */</span></span><br><span class="line">  <span class="attribute">advance-override</span>: xx;</span><br><span class="line">  <span class="attribute">ascent-override</span>: xx;</span><br><span class="line">  <span class="attribute">descent-override</span>: xx;</span><br><span class="line">  <span class="attribute">line-gap-override</span>: xx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: custom-font, fallback-font;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>获得 TTF 后，转到 <a href="https://fontdrop.info/" target="_blank" rel="noopener">FontDrop</a> 并上传文件。打开 <strong>“Data”</strong> 选项卡并滚动到data<code></code><strong><code>hhea</code>**</strong><code>–</code>**<code>Horizontal Header Table</code>. 在那里可以找到四个键值：<code>ascender</code>、<code>descender</code>、<code>line-gap</code>和<code>advanceWidthMax</code>。</p>
+<p>F-mods 只真正修改垂直间距和定位。这意味着字符和字母间距仍然需要处理，否则可能会在不同点处出现单词断行，从而导致元素高度发生变化，从而导致布局发生变化。但是<code>letter-spacing</code>和<code>word-spacing</code>属性在 <code>@font-face</code>声明中不可用，因此它们必须在正文或元素上声明。这意味着我们可能需要使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Font_Loading_API" target="_blank" rel="noopener">使用字体加载 API</a>，以防止布局偏移。</p>
+<p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MjZkMTFiYTRiNjVhYjExNTA2ZmNkNWYxNzgwYzU4NWFfZEczOTV6aGZQd1o4dThLdG1PUTA2RjBIMThqYUR0QktfVG9rZW46VEtzamJYTHJ5b3dpdnR4Zm5IT2NWcVY2bkRiXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<p><picture><img loading="lazy" src="https://s9l8g0jfob.feishu.cn/space/api/box/stream/download/asynccode/?code=MGJkNjJiMGFmYTUxYjI4ZDFhNDM2Zjc1MmRiZTJkN2FfWXZsdGpLdzBCdjBmYTJVc05BVHZ1T2JxNGdhT0tYejFfVG9rZW46VDd6emJkSTc1b1loRll4bmRzT2N3aDNHbjFlXzE2ODQ5MzI5MzY6MTY4NDkzNjUzNl9WNA" alt="img"></picture></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>布局变化不利于用户体验并且难以解决。渲染没有布局变化的文本比想象中的要复杂得多，如果可以应用<code>font-display: optional</code>到 Web 字体，则可以完全避免布局偏移，否则这是一种与浏览器竞争的情况 - 试图在浏览器开始呈现文本之前将您的字体放入浏览器。</p>
+<p>通过优化字体文件可以使浏览器加速：</p>
+<ul>
+<li>用<code>woff2</code>最小化文件大小</li>
+<li>从自己的域提供字体</li>
+<li>预加载关键字体</li>
+<li>将字体子集化为所需的字符</li>
+<li>限制使用的字重变化的数量</li>
+<li>探索可变字体</li>
+<li>试用系统字体</li>
+<li>使用 f-mods 减少字体交换的影响</li>
+</ul>
+<p>一如既往，与真实用户一起测试所有更改，只有在看到积极的变化时才保留它们。可以在站点上，将正文设置为<code>font-display: optional</code>，但标题字体和正文字体的斜体变体可以为<code>font-display: swap</code>。在大多数情况下（多行标题除外），改变标题字体和斜体变体不会导致布局偏移，因此我认为这是设计和性能之间的良好折中。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://fonts.google.com/knowledge/glossary/web_font" target="_blank" rel="noopener">https://fonts.google.com/knowledge/glossary/web_font</a></p>
+<p><a href="https://fonts.google.com/knowledge/glossary/variable_fonts" target="_blank" rel="noopener">https://fonts.google.com/knowledge/glossary/variable_fonts</a></p>
+<p><a href="https://simonhearne.com/2021/layout-shifts-webfonts/" target="_blank" rel="noopener">https://simonhearne.com/2021/layout-shifts-webfonts/</a></p>
+<p><a href="https://www.ruanyifeng.com/blog/2014/12/unicode.html" target="_blank" rel="noopener">https://www.ruanyifeng.com/blog/2014/12/unicode.html</a></p>
+<p><a href="https://meandni.com/2020/05/12/3619/" target="_blank" rel="noopener">https://meandni.com/2020/05/12/3619/</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div class="post-share">分享到：</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <picture><img loading="lazy" id="wechat_qr" src="/images/wechatpay.png" alt="Dloux 微信扫一扫，向我赞赏"/></picture>
+        <p>微信扫一扫，向我赞赏</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <picture><img loading="lazy" id="alipay_qr" src="/images/alipay.png" alt="Dloux 支付宝扫一扫，向我赞赏"/></picture>
+        <p>支付宝扫一扫，向我赞赏</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%BC%96%E7%A0%81/" rel="tag"># 编码</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/05/12/%E7%88%AC%E8%99%AB/" rel="next" title="爬虫">
+                <i class="fas fa-angle-left"></i> 爬虫
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <div id="dsqjs">
+          <section class="dsqjs-info">
+            <p id="dsqjs-load-disqus" class="dsqjs-message">评论完整模式加载中...如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p>
+          </section>
+        </div>
+      </div>
+    </div>
+
+  
+
+
+
+
+
+  
+
+    
+      <script type="text/javascript">
+        window.DISQUS = null;
+        new DisqusJS({
+          shortname: '',
+          siteName: 'Hi, Dloux',
+          identifier: '2023/05/24/编码与字体/',
+          url: 'https://dloux.gitee.io/2023/05/24/%E7%BC%96%E7%A0%81%E4%B8%8E%E5%AD%97%E4%BD%93/',
+          api: '',
+          apikey: '',
+          admin: '',
+          adminLabel: '',
+        });
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            关于我
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/sidebar-card.jpg"
+                alt="Dloux" />
+            
+              <p class="site-author-name" itemprop="name"><span style="opacity:.2;">咸鱼</span>Dloux</p>
+              <p class="site-description motion-element" itemprop="description">想和我一起捕鱼吗？</p>
+          </div>
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          <div class="des-of-author">
+              <div class="des-of-author-nav">
+                
+                  
+                    <div class="des-of-author-title active" data-index="1">最喜欢的作品</div>
+                  
+                
+                  
+                    <div class="des-of-author-title" data-index="2">去过的地方</div>
+                  
+                
+                  
+                    <div class="des-of-author-title" data-index="3">最喜欢的游戏</div>
+                  
+                
+                  
+                    <div class="des-of-author-title" data-index="4">装备</div>
+                  
+                
+                  
+                    <div class="des-of-author-title" data-index="5">工作</div>
+                  
+                
+              </div>
+              <div class="des-of-author-panel">
+                
+                  
+                    <div class="des-of-author-des active" data-index="1">灌篮高手、海贼王、咒术回战、鬼灭之刃</div>
+                  
+                
+                  
+                    <div class="des-of-author-des" data-index="2">厦门、青岛、杭州、上海、苏州、昆明、丽江、广州、深圳、香港、成都、南京、郑州</div>
+                  
+                
+                  
+                    <div class="des-of-author-des" data-index="3">怪物猎人：世界、塞尔达、集合啦！动物森友会、守望先锋、War3、健身环大冒险、传说法师、Dota2</div>
+                  
+                
+                  
+                    <div class="des-of-author-des" data-index="4">Mac Pro m1、Alienware 17 inch、Nintendo Switch、iPad Pro 2020 + Apple Pencil、AirPods</div>
+                  
+                
+                  
+                    <div class="des-of-author-des" data-index="5">当前 - bilibili</div>
+                  
+                
+              </div>
+          </div>
+
+          
+
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#编码与字体"><span class="nav-number">1.</span> <span class="nav-text">编码与字体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符概述"><span class="nav-number">2.</span> <span class="nav-text">字符概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GB-与全角半角"><span class="nav-number">2.1.</span> <span class="nav-text">GB 与全角半角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unicode"><span class="nav-number">2.2.</span> <span class="nav-text">Unicode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-Encode"><span class="nav-number">2.3.</span> <span class="nav-text">HTML Encode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-JavaScript-中显示-Unicode"><span class="nav-number">2.4.</span> <span class="nav-text">在 JavaScript 中显示 Unicode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#其他乱七八糟的东西"><span class="nav-number">2.4.1.</span> <span class="nav-text">其他乱七八糟的东西</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#真实世界中的其他-Bug-及该如何避免"><span class="nav-number">2.4.2.</span> <span class="nav-text">真实世界中的其他 Bug 及该如何避免</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-CSS-中显示"><span class="nav-number">2.5.</span> <span class="nav-text">在 CSS 中显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URI-Encode"><span class="nav-number">2.6.</span> <span class="nav-text">URI Encode</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字体概述"><span class="nav-number">3.</span> <span class="nav-text">字体概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络字体"><span class="nav-number">3.1.</span> <span class="nav-text">网络字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自制字体"><span class="nav-number">3.2.</span> <span class="nav-text">自制字体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器性能"><span class="nav-number">4.</span> <span class="nav-text">浏览器性能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么字体会导致布局偏移"><span class="nav-number">4.1.</span> <span class="nav-text">为什么字体会导致布局偏移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改进"><span class="nav-number">4.2.</span> <span class="nav-text">改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图标字体"><span class="nav-number">4.3.</span> <span class="nav-text">图标字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用系统字体"><span class="nav-number">4.4.</span> <span class="nav-text">使用系统字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载更少的字体文件"><span class="nav-number">4.5.</span> <span class="nav-text">加载更少的字体文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化字体文件"><span class="nav-number">4.6.</span> <span class="nav-text">优化字体文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#子集字体"><span class="nav-number">4.6.1.</span> <span class="nav-text">子集字体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预加载"><span class="nav-number">4.7.</span> <span class="nav-text">预加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新的提案"><span class="nav-number">4.8.</span> <span class="nav-text">新的提案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">4.9.</span> <span class="nav-text">结论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-image">
+        <picture><img loading="lazy" src="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/images/footer.png"></picture>
+      </div>
+      <div class="footer-inner">
+        <p>博客已萌萌哒运行<span id="since"></span><span class="my-face">(●'◡'●)ﾉ♥</span></p>
+
+
+<p>© <span itemprop="copyrightYear">2023</span> Hi, Dloux.
+    由 <a href="https://hexo.io/" target="_blank" class="external" rel="nofollow">Hexo</a> 强力驱动.
+    Theme By <a href="https://github.com/DIYgod/hexo-theme-sagiri" target="_blank" class="external" rel="nofollow">Sagiri</a> v0.0.74.
+    <a href="/sitemap.xml" target="_blank">站点地图</a>.
+</p>
+<p>Made with <i class="fas fa-heart throb" style="color: #d43f57;"></i> by <span class="author" itemprop="copyrightHolder">Dloux</span>. </p>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <picture><img loading="lazy" src="https://cdn.jsdelivr.net/gh/DIYgod/diygod.me@gh-pages/images/scroll.png"></picture>
+        
+      </div>
+    
+
+    <canvas id="evanyou"></canvas>
+
+    
+
+  </div>
+
+  <script type="text/javascript" src="/js/sagiri.min.js?v=0.0.74"></script>
+
+  
+
+
+
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!--<script>
+    // remove service worker cache
+    // from https://stackoverflow.com/questions/33704791/how-do-i-uninstall-a-service-worker
+    "use strict";
+    if(navigator.serviceWorker)
+    {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+  </script>-->
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
+</body>
+</html>
