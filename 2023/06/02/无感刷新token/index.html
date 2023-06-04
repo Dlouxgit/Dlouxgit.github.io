@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="Hi, Dloux">
 <meta property="og:description" content="无感刷新token在项目中，碰到 401 是很正常的情况，在过往的项目中，一般会定义一个长时间的 token，过期后自动跳转登录。最近在做一个项目的时候，登录接口只会返回一个短 token 和一个 refreshToken，在短 token 过期后通过 refreshToken 重新生成新的 token 和 refreshToken 并保存。 方法有几种，也遇到了一些问题，在此仅讨论 CSR 情况">
 <meta property="article:published_time" content="2023-06-02T15:02:12.000Z">
-<meta property="article:modified_time" content="2023-06-02T15:56:36.317Z">
+<meta property="article:modified_time" content="2023-06-04T15:32:55.524Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">760</span>
+                <span title="字数统计">904</span>
               
 
               
@@ -518,7 +518,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-      <div class="post-toc-content"><div class="post-toc-title">文章目录</div><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#无感刷新token"><span class="nav-text">无感刷新token</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#middleware"><span class="nav-text">middleware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request-intercepter"><span class="nav-text">request intercepter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两者结合"><span class="nav-text">两者结合</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><div class="post-toc-title">文章目录</div><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#无感刷新token"><span class="nav-text">无感刷新token</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#middleware"><span class="nav-text">middleware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request-intercepter"><span class="nav-text">request intercepter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#token-expireTime"><span class="nav-text">token expireTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两者结合"><span class="nav-text">两者结合</span></a></li></ol></li></ol></div>
       
       
 
@@ -533,7 +533,8 @@
 <p>针对这个情况，可以建立一个前端请求池，把所有请求都放置到同一个地方（数组），统一调用，比如在当前请求结束后，且不返回 401 时，才进行下一个请求（加锁），如果返回 401，则先请求刷新 token 接口，之后重新请求。</p>
 <p>此时会遇到第二个问题，请求一般是得到结果后直接对页面赋值，如果刷新后重新请求，那么是不会对视图做出改变的，那么就需要对请求添加一个回调函数，比如 onSuccess，在刷新 token 接口的成功请求再调用。如果是 Promise 写法，则需要对 Promise 的 resolve 时机做响应处理。</p>
 <p>这种方法的问题是，后面的请求依赖前置请求的返回结果。但这其实有一点像伪命题，因为在大型项目中，为了性能的优化，会将首屏的接口做聚合，无论是 BFF 处理还是服务端处理，因此在初次打开路由时，页面仅存在一个接口，后续如果有 POST 请求后刷新页面请求 GET 数据接口时，当前这种模式是可以满足要求的。</p>
-<h2 id="两者结合"><a href="#两者结合" class="headerlink" title="两者结合"></a>两者结合</h2><p>我目前认为同时在路由层和请求层拦截是相对比较全面的解决方法。</p>
+<h2 id="token-expireTime"><a href="#token-expireTime" class="headerlink" title="token expireTime"></a>token expireTime</h2><p>每次请求前对 token 过期时间校验，如果过期，就请求刷新 token 接口。这种方法可以确定地预判请求是否需要刷新 token。</p>
+<h2 id="两者结合"><a href="#两者结合" class="headerlink" title="两者结合"></a>两者结合</h2><p>我目前认为同时在路由层和请求层拦截是相对比较全面的解决方法。即三者同时使用，在路由侧提前刷新 token，减少请求时发起刷新 token 请求的等待时间，请求时拦截可以最大可以地处理 token 过期的情况，响应的 401 拦截则负责处理错误情况，比如后端返回的 token 过期时间有误，或者其他错误情况，做一个兜底处理。</p>
 
       
     </div>
@@ -813,7 +814,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#无感刷新token"><span class="nav-number">1.</span> <span class="nav-text">无感刷新token</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#middleware"><span class="nav-number">1.1.</span> <span class="nav-text">middleware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request-intercepter"><span class="nav-number">1.2.</span> <span class="nav-text">request intercepter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两者结合"><span class="nav-number">1.3.</span> <span class="nav-text">两者结合</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#无感刷新token"><span class="nav-number">1.</span> <span class="nav-text">无感刷新token</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#middleware"><span class="nav-number">1.1.</span> <span class="nav-text">middleware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request-intercepter"><span class="nav-number">1.2.</span> <span class="nav-text">request intercepter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#token-expireTime"><span class="nav-number">1.3.</span> <span class="nav-text">token expireTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两者结合"><span class="nav-number">1.4.</span> <span class="nav-text">两者结合</span></a></li></ol></li></ol></div>
             
 
           </div>
