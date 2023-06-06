@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="Hi, Dloux">
 <meta property="og:description" content="无感刷新token在项目中，碰到 401 是很正常的情况，在过往的项目中，一般会定义一个长时间的 token，过期后自动跳转登录。最近在做一个项目的时候，登录接口只会返回一个短 token 和一个 refreshToken，在短 token 过期后通过 refreshToken 重新生成新的 token 和 refreshToken 并保存。 方法有几种，也遇到了一些问题，在此仅讨论 CSR 情况">
 <meta property="article:published_time" content="2023-06-02T15:02:12.000Z">
-<meta property="article:modified_time" content="2023-06-04T15:32:55.524Z">
+<meta property="article:modified_time" content="2023-06-06T12:50:05.324Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">904</span>
+                <span title="字数统计">923</span>
               
 
               
@@ -525,6 +525,8 @@
       
         <h1 id="无感刷新token"><a href="#无感刷新token" class="headerlink" title="无感刷新token"></a>无感刷新token</h1><p>在项目中，碰到 401 是很正常的情况，在过往的项目中，一般会定义一个长时间的 token，过期后自动跳转登录。最近在做一个项目的时候，登录接口只会返回一个短 token 和一个 refreshToken，在短 token 过期后通过 refreshToken 重新生成新的 token 和 refreshToken 并保存。</p>
 <p>方法有几种，也遇到了一些问题，在此仅讨论 CSR 情况。</p>
+<a id="more"></a>
+
 <h2 id="middleware"><a href="#middleware" class="headerlink" title="middleware"></a>middleware</h2><p>即路由拦截，在请求页面前，先对 token 的 expireTime 作校验，如果快要到期了，就提前进行 refreshToken 的操作，这样之后的操作都不会有问题，也比较简单。</p>
 <p>但在这种特殊情况下无法做到拦截，当用户在当前页面停留过久，并且没有切换页面时，重新发起请求，比如表单提交，或是其他操作，若此时 token 过期，则不会得到新的 token，用户将得到 401 错误，如果要得到 token，此时需要重新登录或切换路由，都会离开当前页面。</p>
 <h2 id="request-intercepter"><a href="#request-intercepter" class="headerlink" title="request intercepter"></a>request intercepter</h2><p>即请求拦截，在得到请求 Response 时，校验是否为 401，如果没有权限，则查看 refreshToken 是否存在，如果存在，发起刷新 token 的请求。之后得到新 token 后，重新发起之前失败的 401 请求。</p>
@@ -534,7 +536,7 @@
 <p>此时会遇到第二个问题，请求一般是得到结果后直接对页面赋值，如果刷新后重新请求，那么是不会对视图做出改变的，那么就需要对请求添加一个回调函数，比如 onSuccess，在刷新 token 接口的成功请求再调用。如果是 Promise 写法，则需要对 Promise 的 resolve 时机做响应处理。</p>
 <p>这种方法的问题是，后面的请求依赖前置请求的返回结果。但这其实有一点像伪命题，因为在大型项目中，为了性能的优化，会将首屏的接口做聚合，无论是 BFF 处理还是服务端处理，因此在初次打开路由时，页面仅存在一个接口，后续如果有 POST 请求后刷新页面请求 GET 数据接口时，当前这种模式是可以满足要求的。</p>
 <h2 id="token-expireTime"><a href="#token-expireTime" class="headerlink" title="token expireTime"></a>token expireTime</h2><p>每次请求前对 token 过期时间校验，如果过期，就请求刷新 token 接口。这种方法可以确定地预判请求是否需要刷新 token。</p>
-<h2 id="两者结合"><a href="#两者结合" class="headerlink" title="两者结合"></a>两者结合</h2><p>我目前认为同时在路由层和请求层拦截是相对比较全面的解决方法。即三者同时使用，在路由侧提前刷新 token，减少请求时发起刷新 token 请求的等待时间，请求时拦截可以最大可以地处理 token 过期的情况，响应的 401 拦截则负责处理错误情况，比如后端返回的 token 过期时间有误，或者其他错误情况，做一个兜底处理。</p>
+<h2 id="两者结合"><a href="#两者结合" class="headerlink" title="两者结合"></a>两者结合</h2><p>我目前认为同时在路由层和请求层拦截是相对比较全面的解决方法。即三者同时使用，在路由侧提前刷新 token，减少请求时发起刷新 token 请求的等待时间，请求时拦截可以最大可以地处理 token 过期的情况，响应的 401 拦截则负责处理错误情况，比如后端返回的 token 过期时间有误，或者其他错误情况（如本地修改 token，或者权限接口未登录访问场景），做一个兜底处理。</p>
 
       
     </div>
