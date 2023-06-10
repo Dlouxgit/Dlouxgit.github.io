@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>var button = document.getElementsByClassName("fa-compass")[0];
+var button = document.getElementsByClassName("fa-compass")[0];
 var contact = document.getElementsByClassName("contact")[0];
 var returnButton = document.getElementsByClassName("return")[0];
 var returnButton2 = document.getElementsByClassName("button")[0];

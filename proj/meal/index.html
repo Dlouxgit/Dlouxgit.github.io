@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外卖Roller</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            background: beige;
+        }
+        
+        button {
+            display: block;
+            width: 300px;
+            height: 150px;
+            margin: 0 auto;
+            font-size: 80px;
+            background-color: mistyrose;
+            color: slategrey;
+            position: relative;
+            top: 300px;
+            cursor: pointer;
+        }
+        
+        .res {
+            display: block;
+            width: 400px;
+            height: 150px;
+            margin: 0 auto;
+            font-size: 80px;
+            background-color: mistyrose;
+            color: slategrey;
+            position: relative;
+            top: 400px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .res::after {
+            content: '';
+            display: inline;
+            line-height: 150px;
+        }
+        
+        .mealName {
+            height: 150px;
+            line-height: 150px;
+            transition: .3s;
+        }
+        
+        .mealWrap {
+            height: 150px;
+            line-height: 150px;
+            transition: .3s;
+            position: absolute;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <button>吃饭了!!</button>
+    <div class="res"></div>
+    <div class="res">
+        <div class="mealWrap">
+            <div class="mealName">螺狮粉</div>
+            <div class="mealName">炸鸡</div>
+            <div class="mealName">冒菜</div>
+            <div class="mealName">麻辣烫</div>
+            <div class="mealName">麻辣香锅</div>
+            <div class="mealName">炒饭</div>
+            <div class="mealName">面</div>
+            <div class="mealName">寿司</div>
+            <div class="mealName">三明治</div>
+            <div class="mealName">披萨</div>
+            <div class="mealName">螺狮粉</div>
+        </div>
+    </div>
+    <script>
+        const btn = document.querySelector('button')
+        const wmName = document.querySelector('.res')
+            // const wmList = ['老龚', '千焦', '汉堡', '沙拉', '炒酸奶', '拉面', '炸鸡', '烧烤', '烤肉饭', '饺子', '肠粉', '沙县']
+        const wmList = [
+            '螺狮粉',
+            '炸鸡',
+            '冒菜',
+            '麻辣烫',
+            '麻辣香锅',
+            '炒饭',
+            '面',
+            '寿司',
+            '三明治',
+            '螺狮粉',
+            '披萨'
+        ]
+        btn.addEventListener('click', function() {
+            let len = wmList.length
+            let before = Date.now()
+            for (let i = 0; i < 443; i++) {
+                setTimeout(() => {
+                    let passTime = (Date.now() - before) / 1000
+                    if (passTime < 10) {
+                        wmName.innerText = wmRandom(len)
+                    }
+                }, 1 / i / i * 1030000)
+            }
+        })
+
+        const mealWrap = document.querySelector('.mealWrap')
+        let i = 0
+        setInterval(() => {
+            mealWrap.style.top = -150 * i + 'px'
+
+            i++
+            if (i === wmList.length) {
+                setTimeout(() => {
+                    mealWrap.style.transition = '0s'
+
+                }, 200);
+                i = 0
+                setTimeout(() => {
+                    mealWrap.style.transition = '0.3s'
+                }, 1200);
+            }
+
+
+            // if (i === wmList.length + 1) {
+            //     i = 0
+            //     console.log('length')
+            //     mealWrap.style.transition = '0s'
+            //     setTimeout(() => {
+            //         mealWrap.style.transition = '0.3s'
+            //     }, 1200);
+            // }
+        }, 1000)
+
+        function wmRandom(len) {
+            return wmList[Math.floor(Math.random() * len)]
+        }
+    </script>
+</body>
+
+</html>

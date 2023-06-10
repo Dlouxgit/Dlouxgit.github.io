@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>var lizi=document.getElementsByClassName("lizi")[0];
+var lizi=document.getElementsByClassName("lizi")[0];
 var ctx=lizi.getContext("2d");
 
 function aniCircle(option) {
