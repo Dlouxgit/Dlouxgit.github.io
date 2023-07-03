@@ -435,6 +435,176 @@
   
   
   <div class="post-date">
+			<div class="post-month">07月</div>
+			<div class="post-day">11</div>
+	</div>
+  
+  <div class="post-badge">
+    
+      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+          <span itemprop="name">技术</span>
+        </a>
+      </span>
+    
+      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E6%8A%80%E6%9C%AF/node/" itemprop="url" rel="index">
+          <span itemprop="name">node</span>
+        </a>
+      </span>
+    
+  </div>
+  
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/07/11/express/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dloux">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/dloux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi, Dloux">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link scaleup" href="/2021/07/11/express/" itemprop="url">express</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-11T23:43:39+08:00">2021-07-11</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">•</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="far fa-file-word"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                
+                <span title="字数统计">308</span>
+              
+
+              
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+      
+      
+      
+
+      
+        
+          
+            <h1 id="express"><a href="#express" class="headerlink" title="express"></a>express</h1><p>express 是一个 Node.js Web 应用程序开发框架。与 Koa 是同一班人马打造。</p>
+<h2 id="Express-和-Koa-对比"><a href="#Express-和-Koa-对比" class="headerlink" title="Express 和 Koa 对比"></a>Express 和 Koa 对比</h2><ul>
+<li>express 处理请求得时候全部采用回调函数得方式，koa 采用的是 Promise + async + await</li>
+<li>express 内部采用 es5， koa 采用 es6</li>
+<li>express 比 koa 功能多，多了一些内置的中间件（路由，静态服务，模板渲染）代码体积比 koa 多</li>
+<li>koa 中为了扩展采用的是 ctx 扩展了 request，response 对象，express 直接在原生的 req 和 res 的基础上进行了扩展</li>
+<li>express 中的特点是内部采用回调（组合 它内部不支持 promise 串联） koa 支持 promise 串联</li>
+<li>express 里既可以 express()，也可以 new express()，因为用的是 es5 的类的写法，而 koa 采用 class 只能使用 new koa()</li>
+<li>express 和 koa 是同一班人马打造</li>
+</ul>
+<p>Layer 匹配路径，路径上可以对应的是 Route.dispatch（路由），或者 use（中间件） 的回调<br>Route 匹配方法，一个 Route 内存在又多个 Layer，但这些 Layer 只匹配方法名（get\post 等），同时 route 上会有属性标识这个 route 上有什么方法，暴露出来以供外部函数遍历时是否深入 Route 的 stack 继续遍历。</p>
+
+            <div class="post-button text-center">
+              <a class="btn scaleup" href="/2021/07/11/express/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date">
 			<div class="post-month">06月</div>
 			<div class="post-day">30</div>
 	</div>
@@ -1797,164 +1967,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn scaleup" href="/2021/05/09/%E6%89%8B%E5%86%99vue/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date">
-			<div class="post-month">04月</div>
-			<div class="post-day">18</div>
-	</div>
-  
-  <div class="post-badge">
-    
-      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-          <span itemprop="name">技术</span>
-        </a>
-      </span>
-    
-  </div>
-  
-
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dloux.gitee.io/2021/04/18/rollup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dloux">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/dloux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hi, Dloux">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link scaleup" href="/2021/04/18/rollup/" itemprop="url">rollup</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-18T02:11:40+08:00">2021-04-18</time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">•</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="far fa-file-word"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                
-                <span title="字数统计">184</span>
-              
-
-              
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-      
-      
-      
-
-      
-        
-          <h2 id="rollup"><a href="#rollup" class="headerlink" title="rollup"></a>rollup</h2><p>rollup 是一个 JavaScript 的模块打包器，一般用来编写库或者组件，因为它打包生成的文件仍然保持原来的文件结构，和 webpack 大有不同，同时也有 treeshaking 功能。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>npm init</code>、<code>npm i rollup -D</code></p>
-<h3 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h3><p>在根目录下新建 rollup.config.js 文件，导出一个对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rollup.config.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    input: <span class="string">'./src/main.js'</span>, <span class="comment">// 入口文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        file: <span class="string">'./dist/js/main.min.js'</span>,</span><br><span class="line">        format: <span class="string">'iife'</span> <span class="comment">// 输出格式，这里是匿名的立即执行函数作用域，其他有 cjs es amd 和 umd</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在 package.json 中加入指令 <code>build: rollup -c</code> 或者 <code>build: rollup --config</code> 可以让根目录下的 config 生效。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn scaleup" href="/2021/04/18/rollup/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
