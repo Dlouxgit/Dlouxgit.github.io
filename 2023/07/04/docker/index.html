@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="Hi, Dloux">
 <meta property="og:description" content="docker学习中… docker-compose nginx + openresty redis">
 <meta property="article:published_time" content="2023-07-03T18:34:12.000Z">
-<meta property="article:modified_time" content="2023-07-17T12:32:03.023Z">
+<meta property="article:modified_time" content="2023-07-19T12:03:52.285Z">
 <meta property="article:author" content="Dloux">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">80</span>
+                <span title="字数统计">145</span>
               
 
               
@@ -531,6 +531,12 @@
 
 <p>打算在公司搭建一个染色环境，目前基于 docker-compose 起了 openresty 和 redis，前台用 next 写了个管理系统，接口也定义在上面。在本机上调通了，打算下周在公司虚拟机上试试。</p>
 <p>布上了 /bin/sh: docker not found</p>
+<p>遇到了几个问题，</p>
+<ol>
+<li>在容器内想调用外层容器的 docker 无法成功</li>
+<li>容器内的 ip 需要重新指定，不能写死，需要获取到外层容器 ip</li>
+<li>dockerode 无法编译远程 dockerfile，如 gitlab 或 github 上的内容</li>
+</ol>
 
       
     </div>
