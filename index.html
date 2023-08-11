@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 
-                <span title="字数统计">425</span>
+                <span title="字数统计">433</span>
               
 
               
@@ -525,8 +525,8 @@
       
         
           
-            <h1 id="hash-路由便条"><a href="#hash-路由便条" class="headerlink" title="hash 路由便条"></a>hash 路由便条</h1><p>浏览器在通过 # 改变 url 的时候（比如 a 标签锚点），会不可避免（至少到本文时间 2023-07-21 是如此）地改变页面的滚动位置，没有办法可以阻止这个行为。即使通过监听 hashchange 来 preventDefault 事件也不会生效。</p>
-<p>所幸，浏览器的 location 提供了 pushState 和 replaceState 方法，如果通过这两个方法改变 hash，是不会导致页面跳转的。</p>
+            <h1 id="hash-路由锚点"><a href="#hash-路由锚点" class="headerlink" title="hash 路由锚点"></a>hash 路由锚点</h1><p>浏览器在通过 # 改变 url 的时候（比如 a 标签锚点），会不可避免（至少到本文时间 2023-07-21 是如此）地改变页面的滚动位置，没有办法可以阻止这个行为。即使通过监听 hashchange 来 preventDefault 事件也不会生效。</p>
+<p>所幸，浏览器的 location 提供了 pushState 和 replaceState 方法，如果通过这两个方法改变 hash，是不会导致页面跳转的。（当然 history 对象也可以） </p>
 <p>用例：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">location.pushState(<span class="string">''</span>, <span class="string">''</span>, hashUrl)</span><br></pre></td></tr></table></figure>
 
@@ -681,7 +681,7 @@
           <h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><p>学习中…</p>
 <p>docker-compose</p>
 <p>nginx + openresty</p>
-<p>redis </p>
+<p>redis  </p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn scaleup" href="/2023/07/04/docker/#more" rel="contents">
